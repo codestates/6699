@@ -1,7 +1,7 @@
 ---
 name: To Do 리스트 템플릿
 about: To Do 리스트 템플릿
-title: "[To Do] To Do 리스트 제목 설정하기"
+title: "[예시] To Do 리스트"
 labels: ''
 assignees: ''
 
