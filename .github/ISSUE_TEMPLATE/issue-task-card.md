@@ -1,7 +1,7 @@
 ---
 name: Issue Task Card
 about: Issue Task Card
-title: 6699 이슈카드
+title: "[TASK] 이슈카드 제목 설정하기"
 labels: ''
 assignees: ''
 
