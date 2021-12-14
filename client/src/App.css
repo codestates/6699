@@ -1,0 +1,164 @@
+.container{
+  display:flex;
+  position: absolute;
+  width: 100%;
+  height:5000px;
+  background-color: rgb(255,255,255);
+}
+.Landing-Jumbotron{
+  position: absolute;
+  background-image: url("../src/images/카테고리-운동.png");
+  background-size:100% 100%;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%,0%);
+  width:1440px;
+  height:855px;
+}
+.Landing-Left-Arrow{
+  width:50px;
+  height:50px;
+  background-image: url("../src/images/왼쪽화살표.png");
+  background-size:100% 100%;
+  opacity: 80%;
+  position: absolute;
+  top: 47.5%;
+  left: 12%;
+  transform: translate(-50%,0%);
+}
+.Landing-Right-Arrow{
+  width:50px;
+  height:50px;
+  background-image: url("../src/images/오른쪽화살표.png");
+  background-size:100% 100%;
+  opacity: 80%;
+  position: absolute;
+  top: 46.5%;
+  left: 87%;
+  transform: translate(-50%,-0%);
+}
+.Landing-Left-66{
+  width:45px;
+  height:30px;
+  background-image: url("../src/images/흰66.png");
+  background-size:100% 100%;
+  opacity: 90%;
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  transform: translate(-25%,0%);
+}
+.Landing-Right-99{
+  width:45px;
+  height:30px;
+  background-image: url("../src/images/흰99.png");
+  background-size:100% 100%;
+  opacity: 90%;
+  position: absolute;
+  top: 35%;
+  left: 82%;
+  transform: translate(-25%,0%);
+}
+.Landing-Saying{
+  width: 1190px;
+  font-size:110px;
+  text-shadow: 0px 0px 10px;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  color:white;
+}
+
+.Landing-Slide-Bar{
+  opacity: 50%;
+  width: 250px;
+  height: 50px;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Landing-Slide-Bid1{
+  width:20px;
+  height:20px;
+  background-color:#FFBF31;
+  position: absolute;
+  left: 20%;
+  transform: translate(-50%,-50%);
+  border-radius:100%;
+}
+.Landing-Slide-Bid2{
+  width:20px;
+  height:20px;
+  background-color:white;
+  position: absolute;
+  left: 35%;
+  transform: translate(-50%,-50%);
+  border-radius:100%;
+}
+.Landing-Slide-Bid3{
+  width:20px;
+  height:20px;
+  background-color:white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius:100%;
+}
+.Landing-Slide-Bid4{
+  width:20px;
+  height:20px;
+  background-color:white;
+  position: absolute;
+  left: 65%;
+  transform: translate(-50%,-50%);
+  border-radius:100%;
+}
+.Landing-Slide-Bid5{
+  width:20px;
+  height:20px;
+  background-color:white;
+  position: absolute;
+  left: 80%;
+  transform: translate(-50%,-50%);
+  border-radius:100%;
+}
+.Landing-Example1{
+  width:100%;
+  height:700px;
+  background-color:rgb(170,170,170);
+  position: absolute;
+  top: 19.0%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+.Landing-Example2{
+  width:100%;
+  height:700px;
+  background-color:rgb(200,200,200);
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+.Landing-Example3{
+  width:100%;
+  height:700px;
+  background-color:rgb(230,230,230);
+  position: absolute;
+  top: 47.0%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+.Landing-Big-Mention{
+  text-align: center;
+  width: 1000px;
+  font-size:110px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color:rgb(20,20,20)
+}
+
