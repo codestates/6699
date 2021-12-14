@@ -21,3 +21,4 @@
     "dialect": "mysql"
   }
 }
+
