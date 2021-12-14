@@ -1,5 +1,8 @@
-import './App.css';
-function Saying(){
 
+function Saying(){
+  return (
+  <div className = 'saying-box'>
+'hi'
+  </div>)
 }
 export default Saying;
