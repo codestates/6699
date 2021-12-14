@@ -11,6 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Saying_likes와의 관계
+      models.User.hasMany(models.Saying_likes, {
+        foreignKey: 'user_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
+      // Post와의 관계
+      models.User.hasMany(models.Post, {
+        foreignKey: 'user_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
+      // Comment와의 관계
+      models.User.hasMany(models.Comment, {
+        foreignKey: 'user_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
+      // Post_likes와의 관계
+      models.User.hasMany(models.Post_likes, {
+        foreignKey: 'user_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
     }
   };
   User.init({
@@ -23,5 +47,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+
   return User;
 };
