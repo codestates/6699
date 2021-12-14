@@ -6,10 +6,29 @@ import Saying from '../src/components/Saying.js'
 
 function App() {
   return (
-        <div>
+    <div className='container'>
       <Header/>
       <Saying/>
+      <div className='Landing-Example1'>
+        <div className='Landing-Ex1-Image'/>
+        <div className='Landing-Ex1-Mention'/>
       </div>
+      <div className='Landing-Example2'>
+        <div className='Landing-Ex2-Image'/>
+        <div className='Landing-Ex2-Mention'/>
+      </div>
+      <div className='Landing-Example3'>
+        <div className='Landing-Ex3-Image'/>
+        <div className='Landing-Ex3-Mention'/>
+      </div>
+      <div className='Landing-Big-Mention'>모두를 움직이게 만드는
+당신의 명언,        
+ 지금 시작해보세요.</div>
+    <div className='Landing-Big-6699'>
+      <div className='Landing-Big-66'/>
+      <div className='Landing-Big-99'/>
+    </div>
+    </div>
   );
 }
 
