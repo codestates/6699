@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Saying.hasMany(models.Saying_likes, {
+        foreignKey: 'saying_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
     }
   };
   Saying.init({
