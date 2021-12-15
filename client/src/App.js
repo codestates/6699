@@ -11,7 +11,9 @@ function App() {
     <div className='container'>
       <Header />
       <div className='header-downside'>
-        <MyPage />
+        <MainPage />
+        {/* <LandingPage /> */}
+        {/* <MyPage /> */}
       </div>
     </div>
   );

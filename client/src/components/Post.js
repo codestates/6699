@@ -4,7 +4,7 @@ function Post(){
     <div className='post-container'>
       <div className='post-like-box'>
         <div className='post-like-toggle' />
-        <div className='post-like-word'>좋아요 순</div>
+        <div className='post-like-word'></div>
       </div>
       <div className='post-post-box'>
         <div className='post-post-box-low'>
@@ -17,6 +17,31 @@ function Post(){
           <div className='post-post-box-low-post'>
               
           </div>
+          
+        </div>
+        <div className='post-post-box-low'>
+          <div className='post-post-box-low-post'>
+
+          </div>
+          <div className='post-post-box-low-post'>
+            
+          </div>
+          <div className='post-post-box-low-post'>
+              
+          </div>
+          
+        </div>
+        <div className='post-post-box-low'>
+          <div className='post-post-box-low-post'>
+
+          </div>
+          <div className='post-post-box-low-post'>
+            
+          </div>
+          <div className='post-post-box-low-post'>
+              
+          </div>
+          
         </div>
       </div>
       <div className='post-page-box'>

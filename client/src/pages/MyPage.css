@@ -191,3 +191,9 @@
   font-size: 18pt;
   font-weight: bold;
 }
+
+#mypage-post {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
