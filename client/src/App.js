@@ -8,10 +8,11 @@ import MainPage from '../src/pages/MainPage';
 import Footer from '../src/components/Footer';
 function App() {
   return (
-    <div>
+    <div className='container'>
       <Header />
-      <MainPage />
-      <Footer />
+      <div className='header-downside'>
+        <MyPage />
+      </div>
     </div>
   );
 }
