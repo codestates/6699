@@ -27,7 +27,8 @@ app.use(
 // Routing
 app.use('/', router.indexRouter);
 app.use('/user', router.userRouter);
-app.use('/category', router.sayingRouter);
+app.use('/saying', router.sayingRouter);
+app.use('/ranking', router.rankingRouter);
 
 // Running
 const server = app.listen(port, () => console.log(`${port} port http server runnning`));
