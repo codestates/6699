@@ -9,6 +9,7 @@ module.exports = {
       category: '건강',
       total_like: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1
     },
     {
@@ -17,6 +18,7 @@ module.exports = {
       category: '학습',
       total_like: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1
     },
     {
@@ -25,6 +27,7 @@ module.exports = {
       category: '경제',
       total_like: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1
     },
     {
@@ -33,6 +36,7 @@ module.exports = {
       category: '인간관계',
       total_like: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1
     },
     {
@@ -41,6 +45,7 @@ module.exports = {
       category: '사랑',
       total_like: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1
     }
   ])
