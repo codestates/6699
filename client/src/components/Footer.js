@@ -1,3 +1,5 @@
+import '../components/Footer.css';
+
 function Footer(){
     return (
         <div id='footer-container'>
@@ -5,12 +7,12 @@ function Footer(){
            <div id= 'footer-6699-logo'></div>
            </div>
 
-           <span className= 'footer-team-members'>
+           <div className= 'footer-team-members'>
            <span className= 'footer-github-logos'>
-           <div id= 'footer-github-logo1'></div>
-           <div id= 'footer-github-logo2'></div>
-           <div id= 'footer-github-logo3'></div>
-           <div id= 'footer-github-logo4'></div>
+           <div className= 'footer-github-logo'></div>
+           <div className= 'footer-github-logo'></div>
+           <div className= 'footer-github-logo'></div>
+           <div className= 'footer-github-logo'></div>
            </span>
            <div className= 'footer-profiles'>
            <div className = 'footer-profile'>
@@ -34,11 +36,12 @@ function Footer(){
            <div>joykim9311@gmail.com</div>
            </div>
            </div>
-           </span>
+           </div>
 
-
+           <div className ='footer-badges'>
            <div id='footer-youtube-logo'></div>
            <div id='footer-github-logo'></div>
+           </div>
            <div id='footer-copyright'>Copyrightⓒ 2021 weAct</div>
         </div>
     )
