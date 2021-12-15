@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Saying', [
+    return queryInterface.bulkInsert('sayings', [
     {
       id: 1,
       content: '땀은 지방의 눈물이다',
@@ -42,6 +42,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Saying', null, {})
+    return queryInterface.bulkDelete('sayings', null, {})
   }
 };
