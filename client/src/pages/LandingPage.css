@@ -12,11 +12,12 @@
     flex-shrink: 1;
     flex-basis: 0;
     justify-content:center;
-    position: absolute;
+    
     background-image: url("../../src/images/category_health.png");
     background-size:100% 100%;
-    top: 11.0%;
+    top: 9.9%;
     left: 50%;
+    position: absolute;
     transform: translate(-50%,-50%);
     width:1430px;
     height:790px;
@@ -249,7 +250,7 @@
   /*******************/
   
   
-  .landing-big-mention{
+  .landing-big-message{
     text-align: center;
     width: 1000px;
     font-size:70px;
