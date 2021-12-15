@@ -9,10 +9,10 @@ module.exports = {
       // 잘못된 요청의 경우
       if (!email || !password) return res.status(400).json({ message: 'Bad Request!' });
 
-      const userInfo = await users.findOne({ where: { email: email }});
+      const userInfo = await users.findOne({ where: { email: email, password: password }});
 
       if(!userInfo){
-        return res.status(404).json({ message: 'invalid user' });
+        return res.status(403).json({ message: 'Invalid User!' });
       } else {
         // 회원의 민감정보(비밀번호) 삭제
         delete userInfo.dataValues.password;
@@ -26,7 +26,7 @@ module.exports = {
       }
 
     }catch (err) {
-      return res.status(500).send('Error!');
+      return res.status(500).json({ message: 'Server Error!' });
     }
   }
 };

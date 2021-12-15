@@ -3,7 +3,7 @@ module.exports = {
     try {
       res.send('Rank of Like!');
     } catch (err) {
-      return res.status(500).send('Error!');
+      return res.status(500).json({ message: 'Server Error!' });
     }
   }
 };

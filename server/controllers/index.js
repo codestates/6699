@@ -2,7 +2,7 @@ module.exports = {
   auth: require('./auth'),
   user: require('./user'),
   saying: require('./saying'),
-  post: require('./post'),
+  article: require('./article'),
   comment: require('./comment'),
-  rank: require('./rank')
+  ranking: require('./ranking')
 };
