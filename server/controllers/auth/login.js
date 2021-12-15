@@ -24,6 +24,7 @@ module.exports = {
         // 회원정보를 반환
         res.status(200).json({ userInfo });
       }
+
     }catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

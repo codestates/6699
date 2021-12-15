@@ -11,15 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // User와의 관계
+      // users와의 관계 (N:1)
       models.comments.belongsTo(models.users, {
         foreignKey: 'user_id',
         targetKey: 'id',
         onDelete: 'cascade'
       })
-      // Post와의 관계
-      models.comments.belongsTo(models.posts, {
-        foreignKey: 'post_id',
+      // articles와의 관계 (N:1)
+      models.comments.belongsTo(models.articles, {
+        foreignKey: 'article_id',
         targetKey: 'id',
         onDelete: 'cascade'
       })
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     user_id: DataTypes.INTEGER,
-    post_id: DataTypes.INTEGER
+    article_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'comments',

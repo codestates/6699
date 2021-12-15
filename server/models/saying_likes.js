@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // User와의 관계
+      // users와의 관계 (N:1)
       models.saying_likes.belongsTo(models.users, {
         foreignKey: 'user_id',
         targetKey: 'id',
         onDelete: 'cascade'
       })
-      // Saying와의 관계
+      // sayings와의 관계 (N:1)
       models.saying_likes.belongsTo(models.sayings, {
         foreignKey: 'saying_id',
         targetKey: 'id',
