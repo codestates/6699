@@ -1,5 +1,5 @@
 const { generateAccessToken, sendAccessToken, isAuthorized } = require('../../middlewares/tokenFunction');
-const { user } = require('../../models');
+const { User } = require('../../models');
 
 module.exports = {
   post: async (req, res) => {
@@ -8,8 +8,11 @@ module.exports = {
 
       // 잘못된 요청의 경우
       if (!email || !password) return res.status(400).json({ message: 'Bad Request!' });
+
+      console.log('------',User);
+      const userInfo = await User.findOne({ where: { email: email }});
+      console.log('------',userInfo);
       
-      const userInfo = await user.findOne({ where: { email: email }});
       if(!userInfo){
         return res.status(404).json({ message: 'invalid user' });
       } else {
