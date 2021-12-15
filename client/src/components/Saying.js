@@ -2,20 +2,20 @@ import React from 'react'
 function Saying(){
  return (
   <div>
-    <div className='Landing-Jumbotron'>
-      <div className='Landing-Left-Arrow'/>
-      <div className='Landing-Right-Arrow'/>
-      <div className='Landing-Left-66'/>
-      <div className='Landing-Right-99'/>
+    <div className='landing-jumbotron'>
+      <div className='landing-left-arrow'/>
+      <div className='landing-right-arrow'/>
+      <div className='landing-left-66'/>
+      <div className='landing-right-99'/>
 
-      <div className='Landing-Saying'>땀은 지방의 눈물이다.</div>
+      <div className='landing-saying'>땀은 지방의 눈물이다.</div>
 
-      <div className='Landing-Slide-Bar'>
-        <div className='Landing-Slide-Bid1'/>
-        <div className='Landing-Slide-Bid2'/>
-        <div className='Landing-Slide-Bid3'/>
-        <div className='Landing-Slide-Bid4'/>
-        <div className='Landing-Slide-Bid5'/>
+      <div className='landing-slide-bar'>
+        <div className='landing-slide-bid1'/>
+        <div className='landing-slide-bid2'/>
+        <div className='landing-slide-bid3'/>
+        <div className='landing-slide-bid4'/>
+        <div className='landing-slide-bid5'/>
       </div>
 
     </div>
