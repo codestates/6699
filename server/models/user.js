@@ -11,26 +11,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Saying_likes와의 관계
+      // sayings와의 관계 (1:N)
+      models.users.hasMany(models.sayings, {
+        foreignKey: 'user_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
+      // saying_likes와의 관계 (1:N)
       models.users.hasMany(models.saying_likes, {
         foreignKey: 'user_id',
         sourcekey: 'id',
         onDelete: 'cascade'
       })
-      // Post와의 관계
-      models.users.hasMany(models.posts, {
+      // articles와의 관계 (1:N)
+      models.users.hasMany(models.articles, {
         foreignKey: 'user_id',
         sourcekey: 'id',
         onDelete: 'cascade'
       })
-      // Comment와의 관계
+      // comments와의 관계 (1:N)
       models.users.hasMany(models.comments, {
         foreignKey: 'user_id',
         sourcekey: 'id',
         onDelete: 'cascade'
       })
-      // Post_likes와의 관계
-      models.users.hasMany(models.post_likes, {
+      // article_likes와의 관계 (1:N)
+      models.users.hasMany(models.article_likes, {
         foreignKey: 'user_id',
         sourcekey: 'id',
         onDelete: 'cascade'
