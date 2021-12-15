@@ -1,9 +1,17 @@
+const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users } = require('../../models');
 
 module.exports = {
-  get: (req, res) => {
+  get: async (req, res) => {
     try {
-      res.send('MyPage Ok!');
+      // 로그인 인증 검사
+      const userInfo = await userAuth(req, res);
+      
+      // 회원의 민감정보(비밀번호) 삭제
+      delete userInfo.password;
+
+      // 회원정보 반환
+      res.status(200).json({ userInfo });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

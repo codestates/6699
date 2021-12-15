@@ -5,12 +5,7 @@ const cookieParser = require('cookie-parser');
 const router = require('./routers');
 
 const app = express();
-const port = 80;
-
-// const sequelize = require('./models').sequelize; 
-
-// sequelize.sync();
-
+const port = 8080;
 
 // Middleware
 app.use(express.json());
