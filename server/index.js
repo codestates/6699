@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -5,6 +6,10 @@ const router = require('./routers');
 
 const app = express();
 const port = 80;
+
+// const sequelize = require('./models').sequelize; 
+
+// sequelize.sync();
 
 
 // Middleware
@@ -22,6 +27,7 @@ app.use(
 // Routing
 app.use('/', router.indexRouter);
 app.use('/user', router.userRouter);
+app.use('/category', router.sayingRouter);
 
 // Running
 const server = app.listen(port, () => console.log(`${port} port http server runnning`));

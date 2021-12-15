@@ -87,7 +87,7 @@
   position: absolute;
   top: 93%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 .landing-slide-bid1{
   width:20px;
@@ -95,8 +95,8 @@
   background-color:#FFBF31;
   position: absolute;
   left: 20%;
-  transform: translate(-50%,-50%);
-  border-radius:100%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
 }
 .landing-slide-bid2{
   width:20px;
@@ -104,8 +104,8 @@
   background-color:white;
   position: absolute;
   left: 35%;
-  transform: translate(-50%,-50%);
-  border-radius:100%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
 }
 .landing-slide-bid3{
   width:20px;
@@ -113,8 +113,8 @@
   background-color:white;
   position: absolute;
   left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius:100%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
 }
 .landing-slide-bid4{
   width:20px;
@@ -122,8 +122,8 @@
   background-color:white;
   position: absolute;
   left: 65%;
-  transform: translate(-50%,-50%);
-  border-radius:100%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
 }
 .landing-slide-bid5{
   width:20px;
@@ -131,8 +131,8 @@
   background-color:white;
   position: absolute;
   left: 80%;
-  transform: translate(-50%,-50%);
-  border-radius:100%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
 }
 /******************/
 /* Landing-Saying */
@@ -147,7 +147,20 @@
   position: absolute;
   top: 21.345%;
   left: 50%;
-  transform: translate(-50%,0%);
+  transform: translate(-50%, 0%);
+}
+.landing-ex1-image {
+  width: 350px;
+  height: 350px;
+  border-radius: 20px;
+  background-image: url("../src/images/sweat1.png");
+  background-size: 100% 100%;
+  opacity: 80%;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  opacity: 75%;
 }
 .landing-ex1-image{
   width:350px;
@@ -181,7 +194,7 @@
   position: absolute;
   top: 41.345%;
   left: 50%;
-  transform: translate(-50%,0%);
+  transform: translate(-50%, 0%);
 }
 .landing-ex2-image{
   width:350px;
@@ -215,7 +228,7 @@
   position: absolute;
   top: 61.345%;
   left: 50%;
-  transform: translate(-50%,0%);
+  transform: translate(-50%, 0%);
 }
 .landing-ex3-image{
   width:350px;
@@ -255,8 +268,8 @@
   position: absolute;
   top: 90%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  color:rgb(20,20,20)
+  transform: translate(-50%, -50%);
+  color: rgb(20, 20, 20);
 }
 .landing-big-66{
   position: absolute;
@@ -285,7 +298,6 @@
 /***********************/
 /* Landing-Big Mention */
 /***********************/
-
 
 * {
   box-sizing: border-box;
@@ -347,7 +359,7 @@
   background: #ccc;
   width: 100%;
   height: 350px;
-  bottom:-3050px;
+  bottom: -3050px;
 }
 
 #footer-logo-wrapper {
@@ -366,22 +378,22 @@
 .footer-team-members {
   justify-content: center;
   align-self: center;
-  margin-top: 50px; 
+  margin-top: 50px;
   width: 1500px;
   height: 1000px;
   border: 1px solid red;
 }
 
-.footer-profile{
-  text-align:center;
-  width:350px;
-  height:100px;
-  float:left;
+.footer-profile {
+  text-align: center;
+  width: 350px;
+  height: 100px;
+  float: left;
 }
-#footer-copyright{
-  float:left;
+#footer-copyright {
+  float: left;
   height: 30px;
-  width:100%;
+  width: 100%;
   border: solid 1px purple;
 }
 /*
