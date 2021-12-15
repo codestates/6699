@@ -26,12 +26,12 @@ function MyPage(){
         <div id='mypage-category-wrapper'>
         <MyPageCategory/>
         </div>
-        <div id='mypage-posts-wrap-twice'>
-        <div id='mypage-posts-wrap'>
+        <div id='mypage-posts-outer-wrap'>
+        <div id='mypage-posts-inner-wrap'>
         <div className = 'mypage-posts'>
-        <div id='mypage-post'>1</div>
-        <div id='mypage-post'>2</div>
-        <div id='mypage-post'>3</div>
+        <div id='mypage-post'></div>
+        <div id='mypage-post'></div>
+        <div id='mypage-post'></div>
         </div>
         <div className='mypage-posts'>
         <div id='mypage-post'></div>
@@ -39,9 +39,13 @@ function MyPage(){
         <div id='mypage-post'></div>
         </div>
         </div>
+        <div className = 'mypage-page-buttons'>
+        <button id='mypage-pagenation'>1</button>
+        <button id='mypage-pagenation-2'>2</button>
         </div>
-        <button id='mypage-'></button>
         </div>
+        </div>
+        
         </div>
     )
 }

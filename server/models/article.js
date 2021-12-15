@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     total_comment: DataTypes.INTEGER,
     view: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
     user_id: DataTypes.INTEGER,
     saying_id: DataTypes.INTEGER
   }, {
