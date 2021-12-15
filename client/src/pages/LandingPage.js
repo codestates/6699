@@ -1,11 +1,12 @@
-import Header from '../components/Header.js'
 import Saying from '../components/Saying.js'
+import '../pages/LandingPage.css'
 
 function LandingPage(){
     return(
     <div className='landing-container'>
-      <Header/>
       <Saying/>
+
+      {/* Example Zone */}
       <div className='landing-example1'>
         <div className='landing-ex1-image'/>
         <div className='landing-ex1-mention'>
@@ -37,8 +38,8 @@ function LandingPage(){
       </div>
 
 
-
-      <div className='landing-big-mention'>
+      {/* Big Message Zone */}
+      <div className='landing-big-message'>
         모두를 움직이게 만드는
         <br/>당신의 명언,        
         <br/>지금 시작해보세요.</div>
