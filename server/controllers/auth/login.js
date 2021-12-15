@@ -8,7 +8,7 @@ module.exports = {
 
       // 잘못된 요청의 경우
       if (!email || !password) return res.status(400).json({ message: 'Bad Request!' });
-      
+
       const userInfo = await users.findOne({ where: { email: email }});
 
       if(!userInfo){
@@ -25,9 +25,7 @@ module.exports = {
         res.status(200).json({ userInfo });
       }
 
-    }
-    catch (err) {
-      console.log(err)
+    }catch (err) {
       return res.status(500).send('Error!');
     }
   }
