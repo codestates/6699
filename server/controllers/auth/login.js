@@ -24,8 +24,8 @@ module.exports = {
         // 회원정보를 반환
         res.status(200).json({ userInfo });
       }
+
     }catch (err) {
-      console.log(err)
       return res.status(500).send('Error!');
     }
   }
