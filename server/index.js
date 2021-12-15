@@ -5,12 +5,7 @@ const cookieParser = require('cookie-parser');
 const router = require('./routers');
 
 const app = express();
-const port = 80;
-
-// const sequelize = require('./models').sequelize; 
-
-// sequelize.sync();
-
+const port = 8080;
 
 // Middleware
 app.use(express.json());
@@ -27,7 +22,8 @@ app.use(
 // Routing
 app.use('/', router.indexRouter);
 app.use('/user', router.userRouter);
-app.use('/category', router.sayingRouter);
+app.use('/saying', router.sayingRouter);
+app.use('/ranking', router.rankingRouter);
 
 // Running
 const server = app.listen(port, () => console.log(`${port} port http server runnning`));

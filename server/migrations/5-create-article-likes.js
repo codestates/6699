@@ -1,33 +1,26 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('sayings', {
+    await queryInterface.createTable('article_likes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      content: {
-        allowNull: false,
-        type: Sequelize.STRING 
-      },
-      category: {
-        allowNull: false,
-        type: Sequelize.STRING 
-      },
-      total_like: {
+      user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
+        references: { model: 'users', key: 'id' }
       },
-      createdAt: {
+      article_id: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+        references: { model: 'articles', key: 'id' }
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('sayings');
+    await queryInterface.dropTable('article_likes');
   }
 };

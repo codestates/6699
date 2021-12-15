@@ -1,21 +1,28 @@
 module.exports = {
-  get: (req, res) => {
+  post: (req, res) => {
     try {
-      res.send('Category Like Ok!');
+      res.send('Article Create Ok!');
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
   },
-  post: (req, res) => {
+  get: (req, res) => {
     try {
-      res.send('Category Like On!');
+      res.send('Article Select Ok!');
+    } catch (err) {
+      return res.status(500).json({ message: 'Server Error!' });
+    }
+  },
+  patch: (req, res) => {
+    try {
+      res.send('Article Edit Ok!');
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
   },
   delete: (req, res) => {
     try {
-      res.send('Category Like off!');
+      res.send('Article Delete Ok!');
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

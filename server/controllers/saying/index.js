@@ -1,14 +1,13 @@
 module.exports = {
   // Category
   all: require('./all'),
-  health: require('./health'),
-  study: require('./study'),
-  economy: require('./economy'),
-  relationship: require('./relationship'),
-  love: require('./love'),
+  category: require('./category'),
 
   // Create Saying
   create: require('./create'),
+
+  // Select Saying
+  saying: require('./saying'),
 
   // Saying Like
   like: require('./like')
