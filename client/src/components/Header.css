@@ -1,0 +1,48 @@
+#header-box {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  flex: 1 1 auto;
+  border: 1px solid #ccc;
+}
+
+#header-logo {
+  display: flex;
+  background-image: url("../images/6699logo.png");
+  background-size: 100% 100%;
+  margin-top: 5px;
+  width: 78px;
+  height: 37px;
+  flex: 0 1 auto;
+  /*border: 1px solid red;*/
+}
+
+#header-search-box {
+  display: flex;
+  border: 0;
+  flex: 2 1 auto;
+}
+
+.header-search {
+  position: absolute;
+  right: 120px;
+  top: 8px;
+  background-image: url("../images/search.png");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+#header-login-btn {
+  color: #fff;
+  background: #ffbf31;
+  border: 0;
+  border-radius: 10px;
+  width: 94px;
+  height: 39px;
+  font-size: 20px;
+  font-weight: bold;
+  flex: 0 1 auto;
+  margin-top: 4px;
+  margin-right: 10px;
+}

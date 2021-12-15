@@ -1,5 +1,6 @@
 import Header from '../components/Header.js'
 import Saying from '../components/Saying.js'
+import '../pages/LandingPage.css'
 
 function LandingPage(){
     return(
