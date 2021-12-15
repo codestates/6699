@@ -1,8 +1,15 @@
+* {
+  display: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 #mypage-container {
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: auto;
+  height: 97%;
   border: 0;
 }
 
@@ -12,8 +19,8 @@
   justify-content: space-around;
   align-items: center;
   width: 30vh;
-  height: 100vh;
-  border: 1px solid black;
+  height: 100%; /**/
+  border: 1px solid #ccc;
   border-radius: 20px;
 }
 
@@ -60,6 +67,7 @@
 #mypage-message-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 28vh;
   height: 50vh;
   background: #ccc;
@@ -69,51 +77,117 @@
 #mypage-message {
   width: 25vh;
   height: 48vh;
-  border: 1px solid red;
+  border: 0;
 }
 .mypage-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 28vh;
-  height: 8vh;
+  height: 10vh;
   border: 0;
 }
 
 #mypage-profile-setting {
   width: 25vh;
-  height: 3vh;
+  height: 4vh;
   background: #000;
   color: #fff;
   border-radius: 7px;
+  font-weight: bold;
 }
 
 #mypage-logout {
   width: 25vh;
-  height: 3vh;
+  height: 4vh;
   background: #000;
   color: #fff;
   border-radius: 7px;
+  font-weight: bold;
 }
 
 #mypage-posts-container {
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 100vh;
-  border: 1px solid blue;
-}
-
-#mypage-posts-wrapper {
-  width: 100%;
-  height: 70vh;
-  border: 1px solid green;
-  border-radius: 20px;
+  height: auto;
+  border: 0;
 }
 
 #mypage-category-wrapper {
   width: 100%;
   height: 12vh;
-  border: 1px solid pink;
+  border: 0;
+}
+#mypage-posts-outer-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%; /**/
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#mypage-posts-inner-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 90vh;
+  height: 70vh;
+  border: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mypage-posts {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 50%;
+  border: 0;
+}
+
+#mypage-post {
+  background-image: url("../../src/images/sweat2.png");
+  background-position: center;
+  background-size: 100%;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.mypage-page-buttons {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+  width: 13vh;
+  height: 5vh;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0;
+}
+
+#mypage-pagenation {
+  width: 5vh;
+  height: 5vh;
+  background-color: #ffbf31;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+#mypage-pagenation-2 {
+  width: 5vh;
+  height: 5vh;
+  background-color: #000;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18pt;
+  font-weight: bold;
 }

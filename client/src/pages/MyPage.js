@@ -1,12 +1,8 @@
-import Header from '../components/Header.js'
 import MyPageCategory from '../components/MyPageCategory.js';
-import Footer from '../components/Footer.js'
 import '../pages/MyPage.css'
 
 function MyPage(){
     return (
-        <div>
-        <Header/>
         <div id='mypage-container'>
 
         <div id='mypage-user-container'>
@@ -30,18 +26,26 @@ function MyPage(){
         <div id='mypage-category-wrapper'>
         <MyPageCategory/>
         </div>
-        <div id='mypage-posts-wrapper'>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
+        <div id='mypage-posts-outer-wrap'>
+        <div id='mypage-posts-inner-wrap'>
+        <div className = 'mypage-posts'>
         <div id='mypage-post'></div>
         <div id='mypage-post'></div>
         <div id='mypage-post'></div>
         </div>
-        <button id='mypage-'></button>
+        <div className='mypage-posts'>
+        <div id='mypage-post'></div>
+        <div id='mypage-post'></div>
+        <div id='mypage-post'></div>
         </div>
         </div>
-        <Footer/>
+        <div className = 'mypage-page-buttons'>
+        <button id='mypage-pagenation'>1</button>
+        <button id='mypage-pagenation-2'>2</button>
+        </div>
+        </div>
+        </div>
+        
         </div>
     )
 }
