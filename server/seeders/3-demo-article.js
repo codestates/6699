@@ -12,6 +12,7 @@ module.exports = {
       total_comment: 1,
       view: 1,
       createdAt: new Date(),
+      updatedAt: new Date(),
       user_id: 1,
       saying_id: 1
     }

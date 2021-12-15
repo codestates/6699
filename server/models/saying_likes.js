@@ -27,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   saying_likes.init({
     user_id: DataTypes.INTEGER,
-    saying_id: DataTypes.INTEGER
+    saying_id: DataTypes.INTEGER,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'saying_likes',
