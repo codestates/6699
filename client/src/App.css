@@ -1,79 +1,86 @@
-.landing-container {
-  display: flex;
-  align-content: stretch;
+  .landing-container{
+  display:flex;
   position: absolute;
   width: 100%;
-  height: 4000px;
-  background-color: rgb(255, 255, 255);
+  height:4000px;
+  background-color: rgb(255,255,255);
 }
-.landing-jumbotron {
-  justify-content: center;
+.landing-jumbotron{
+  display:flex;
+  flex-grow: 3;
+  flex-shrink: 1;
+  flex-basis: 0;
+  justify-content:center;
   position: absolute;
   background-image: url("../src/images/category_health.png");
-  background-size: 100% 100%;
-  top: 11.6%;
+  background-size:100% 100%;
+  top: 11.0%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1440px;
-  height: 839px;
+  transform: translate(-50%,-50%);
+  width:1430px;
+  height:790px;
 }
-.landing-left-arrow {
-  width: 50px;
-  height: 50px;
+.landing-left-arrow{
+  width:50px;
+  height:50px;
   background-image: url("../src/images/left_arrow.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 80%;
   position: absolute;
   top: 50%;
   left: 10%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
 }
-.landing-right-arrow {
-  width: 50px;
-  height: 50px;
+.landing-right-arrow{
+  width:50px;
+  height:50px;
   background-image: url("../src/images/right_arrow.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 80%;
   position: absolute;
   top: 50%;
   left: 90%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
 }
-.landing-left-66 {
-  width: 45px;
-  height: 30px;
+.landing-left-66{
+  width:45px;
+  height:30px;
   background-image: url("../src/images/white_66.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 90%;
   position: absolute;
-  top: 35%;
+  top: 38%;
   left: 15%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
 }
-.landing-right-99 {
-  width: 45px;
-  height: 30px;
+.landing-right-99{
+  width:45px;
+  height:30px;
   background-image: url("../src/images/white_99.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 90%;
   position: absolute;
-  top: 35%;
+  top: 38%;
   left: 85%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
 }
-.landing-saying {
-  display: block;
-  text-align: center;
+.landing-saying{
+  display:flex;
+  flex-grow: 3;
+  flex-shrink: 1;
+  flex-basis: 0;
+  display:block;
+  text-align:center;
   position: absolute;
-  width: 1190px;
+  width: 930px;
   font-weight: bold;
-  font-size: 110px;
+  font-size:110px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+  transform: translate(-50%,-50%);
+  color:white;
 }
-.landing-slide-bar {
+.landing-slide-bar{
   opacity: 50%;
   width: 250px;
   height: 50px;
@@ -82,46 +89,46 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.landing-slide-bid1 {
-  width: 20px;
-  height: 20px;
-  background-color: #ffbf31;
+.landing-slide-bid1{
+  width:20px;
+  height:20px;
+  background-color:#FFBF31;
   position: absolute;
   left: 20%;
   transform: translate(-50%, -50%);
   border-radius: 100%;
 }
-.landing-slide-bid2 {
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.landing-slide-bid2{
+  width:20px;
+  height:20px;
+  background-color:white;
   position: absolute;
   left: 35%;
   transform: translate(-50%, -50%);
   border-radius: 100%;
 }
-.landing-slide-bid3 {
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.landing-slide-bid3{
+  width:20px;
+  height:20px;
+  background-color:white;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 100%;
 }
-.landing-slide-bid4 {
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.landing-slide-bid4{
+  width:20px;
+  height:20px;
+  background-color:white;
   position: absolute;
   left: 65%;
   transform: translate(-50%, -50%);
   border-radius: 100%;
 }
-.landing-slide-bid5 {
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.landing-slide-bid5{
+  width:20px;
+  height:20px;
+  background-color:white;
   position: absolute;
   left: 80%;
   transform: translate(-50%, -50%);
@@ -131,9 +138,11 @@
 /* Landing-Saying */
 /******************/
 
-.landing-example1 {
-  width: 100%;
-  height: 600px;
+
+
+.landing-example1{
+  width:100%;
+  height:600px;
   background-color: white;
   position: absolute;
   top: 21.345%;
@@ -153,122 +162,137 @@
   transform: translate(-50%, -50%);
   opacity: 75%;
 }
-.landing-ex1-mention {
-  width: 460px;
-  font: rgb(50, 50, 50);
-  font-size: 50px;
-  font-weight: bold;
+.landing-ex1-image{
+  width:350px;
+  height:350px;
+  border-radius: 20px;
+  background-image: url("../src/images/sweat1.png");
+  background-size:100% 100%;
+  opacity: 80%;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  opacity: 75%;
+}
+.landing-ex1-mention{
+  width: 470px;
+  font:rgb(50,50,50);
+  font-size:50px;
+  font-weight:bold;
   position: absolute;
   top: 50%;
   left: 70%;
-  transform: translate(-50%, -50%);
-  text-align: right;
+  transform: translate(-50%,-50%);
+  text-align:right;
 }
 
-.landing-example2 {
-  width: 100%;
-  height: 600px;
+.landing-example2{
+  width:100%;
+  height:600px;
   background-color: white;
   position: absolute;
   top: 41.345%;
   left: 50%;
   transform: translate(-50%, 0%);
 }
-.landing-ex2-image {
-  width: 350px;
-  height: 350px;
+.landing-ex2-image{
+  width:350px;
+  height:350px;
   border-radius: 20px;
   background-image: url("../src/images/sweat2.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 80%;
   position: absolute;
   top: 50%;
   left: 70%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   opacity: 75%;
 }
-.landing-ex2-mention {
-  width: 460px;
-  font: rgb(50, 50, 50);
-  font-size: 50px;
-  font-weight: bold;
+.landing-ex2-mention{
+  width: 470px;
+  font:rgb(50,50,50);
+  font-size:50px;
+  font-weight:bold;
   position: absolute;
   top: 50%;
   left: 30%;
-  transform: translate(-50%, -50%);
-  text-align: left;
+  transform: translate(-50%,-50%);
+  text-align:left;
 }
 
-.landing-example3 {
-  width: 100%;
-  height: 600px;
+.landing-example3{
+  width:100%;
+  height:600px;
   background-color: white;
   position: absolute;
   top: 61.345%;
   left: 50%;
   transform: translate(-50%, 0%);
 }
-.landing-ex3-image {
-  width: 350px;
-  height: 350px;
+.landing-ex3-image{
+  width:350px;
+  height:350px;
   border-radius: 20px;
   background-image: url("../src/images/sweat3.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   opacity: 80%;
   position: absolute;
-  top: 50%;
+  top: 50.0%;
   left: 30%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   opacity: 75%;
 }
-.landing-ex3-mention {
-  width: 460px;
-  font: rgb(50, 50, 50);
-  font-size: 50px;
-  font-weight: bold;
+.landing-ex3-mention{
+  
+  width: 470px;
+  font:rgb(50,50,50);
+  font-size:50px;
+  font-weight:bold;
   position: absolute;
   top: 50%;
   left: 70%;
-  transform: translate(-50%, -50%);
-  text-align: right;
+  transform: translate(-50%,-50%);
+  text-align:right;
 }
 
 /*******************/
 /* Landing-Example */
 /*******************/
 
-.landing-big-mention {
+
+.landing-big-mention{
   text-align: center;
   width: 1000px;
-  font-size: 70px;
+  font-size:70px;
   position: absolute;
-  top: 87%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(20, 20, 20);
 }
-.landing-big-66 {
+.landing-big-66{
   position: absolute;
   background-image: url("../src/images/66.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   width: 1600px;
   width: 85px;
   height: 60px;
-  top: 84.5%;
-  left: 18%;
-  transform: translate(-50%, -50%);
-  color: rgb(20, 20, 20);
+  top: 87%;
+  left: 23%;
+  transform: translate(-50%,-50%);
+  color:rgb(20,20,20)
 }
-.landing-big-99 {
+.landing-big-99{
   position: absolute;
   background-image: url("../src/images/99.png");
-  background-size: 100% 100%;
+  background-size:100% 100%;
   width: 85px;
   height: 60px;
-  top: 84.5%;
-  left: 82%;
-  transform: translate(-50%, -50%);
-  color: rgb(20, 20, 20);
+  top: 87%;
+  left: 77%;
+  transform: translate(-50%,-50%);
+  color:rgb(20,20,20)
 }
 
 /***********************/
