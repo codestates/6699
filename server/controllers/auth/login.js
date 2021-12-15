@@ -8,8 +8,8 @@ module.exports = {
 
       // 잘못된 요청의 경우
       if (!email || !password) return res.status(400).json({ message: 'Bad Request!' });
-      
-      const userInfo = await User.findOne({ where: { email: email }});
+
+      const userInfo = await users.findOne({ where: { email: email }});
 
       if(!userInfo){
         return res.status(404).json({ message: 'invalid user' });
@@ -24,8 +24,6 @@ module.exports = {
         // 회원정보를 반환
         res.status(200).json({ userInfo });
       }
-
-    }
     }catch (err) {
       console.log(err)
       return res.status(500).send('Error!');
