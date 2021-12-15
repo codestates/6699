@@ -7,11 +7,6 @@ const router = require('./routers');
 const app = express();
 const port = 8080;
 
-// const sequelize = require('./models').sequelize; 
-
-// sequelize.sync();
-
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); 
