@@ -11,6 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // users와의 관계 (N:1)
+      models.sayings.belongsTo(models.users, {
+        foreignKey: 'user_id',
+        targetKey: 'id',
+        onDelete: 'cascade'
+      })
+      // articles와의 관계 (1:N)
+      models.sayings.hasMany(models.articles, {
+        foreignKey: 'saying_id',
+        sourcekey: 'id',
+        onDelete: 'cascade'
+      })
+      // saying_likes와의 관계 (1:N)
       models.sayings.hasMany(models.saying_likes, {
         foreignKey: 'saying_id',
         sourcekey: 'id',
@@ -22,7 +35,8 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.STRING,
     category: DataTypes.STRING,
     total_like: DataTypes.INTEGER,
-    createdAt: DataTypes.DATE
+    createdAt: DataTypes.DATE,
+    user_id: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'sayings',

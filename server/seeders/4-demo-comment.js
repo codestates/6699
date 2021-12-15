@@ -8,7 +8,7 @@ module.exports = {
       content: '정말 웃기다 너, 하하하하하하',
       createdAt: new Date(),
       user_id: 1,
-      post_id: 1
+      article_id: 1
     }
   ])
   },
