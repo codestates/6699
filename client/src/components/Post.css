@@ -1,12 +1,13 @@
 .post-container{
+  z-index:0;
+  position: absolute;
   display:flex;
   width:100%;
   height:2000px;
-  position: absolute;
   top: 1859px;
   transform: translate(0%, -50%);
-  align-items: center;
   justify-content: center;
+  padding-bottom: 110px;
 }
 .post-post-box{
   display:flex;
@@ -38,4 +39,7 @@
   padding-bottom:24%;
   border:2px solid #ccc;
   border-radius: 20px;
+}
+.post-page-box{
+  position: relative;
 }

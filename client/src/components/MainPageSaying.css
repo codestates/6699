@@ -28,7 +28,9 @@
    font-weight: bold;
    font-size: 20px;
   }
-  .main-saying-view-all{
+  .main-saying-link{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
     width: 150px;
     height: 30px;
     position: absolute;
