@@ -8,10 +8,15 @@ import MainPage from '../src/pages/MainPage';
 import Footer from '../src/components/Footer';
 function App() {
   return (
-    <div>
+    <div className='container'>
       <Header />
-      <MainPage />
-      <Footer />
+      <div className='header-downside'>
+        <Routes>
+          <Route exact path='/' element={<LandingPage/>}/>
+          <Route path='/mainpage' element={<MainPage/>}/>
+          <Route path='/mypage' element={<MyPage/>}/>
+        </Routes>
+      </div>
     </div>
   );
 }
