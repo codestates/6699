@@ -7,6 +7,7 @@ import MyPage from '../src/pages/MyPage';
 import MainPage from '../src/pages/MainPage';
 import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPagePlusButton';
+import PostingPage from '../src/pages/PostingPage';
 function App() {
   return (
     <div className='container'>
@@ -18,6 +19,7 @@ function App() {
           <Route path='/mainpage' element={<MainPage/>}/>
           <Route path='/mypage' element={<MyPage/>}/>
           <Route path='/rankingpage' element={<RankingPage/>}/>
+          <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
       </div>
     </div>
