@@ -160,7 +160,7 @@
   .landing-ex1-mention{
     width: 470px;
     font:rgb(50,50,50);
-    font-size:50px;
+    font-size:40px;
     font-weight:bold;
     position: absolute;
     top: 50%;
@@ -194,7 +194,7 @@
   .landing-ex2-mention{
     width: 470px;
     font:rgb(50,50,50);
-    font-size:50px;
+    font-size:40px;
     font-weight:bold;
     position: absolute;
     top: 50%;
@@ -229,7 +229,7 @@
     
     width: 470px;
     font:rgb(50,50,50);
-    font-size:50px;
+    font-size:40px;
     font-weight:bold;
     position: absolute;
     top: 50%;
@@ -252,6 +252,21 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color:rgb(20,20,20)
+  }
+  .landing-start-button{
+    border-radius: 27px;
+    background: #1c1c1c;
+    box-shadow:  4px 4px 10px #101010,
+             -4px -4px 10px #282828;
+    font-size:20px;
+    font-weight:bold; 
+    color:white;
+    position:absolute;
+    width:120px;
+    height:60px;
+    top: 95.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .landing-big-66{
     position: absolute;

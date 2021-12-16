@@ -1,4 +1,5 @@
 import MyPageCategory from '../components/MyPageCategory.js';
+import {Link} from 'react-router-dom';
 import '../pages/MyPage.css'
 
 function MyPage(){
@@ -19,7 +20,7 @@ function MyPage(){
         </div>
         <div className = 'mypage-buttons'>
         <button id='mypage-profile-setting'>프로필 설정</button>
-        <button id= 'mypage-logout'>로그아웃</button>
+        <Link to ='/mainpage'><button id= 'mypage-logout'>로그아웃</button></Link>
         </div>
         </div>
         <div id='mypage-posts-container'>
