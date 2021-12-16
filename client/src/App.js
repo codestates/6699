@@ -8,14 +8,18 @@ import MainPage from '../src/pages/MainPage';
 import Footer from '../src/components/Footer';
 function App() {
   return (
+    <Router>
     <div className='container'>
       <Header />
       <div className='header-downside'>
-        <MainPage />
-        {/* <LandingPage /> */}
-        {/* <MyPage /> */}
+        <Routes>
+          <Route exact path="/">
+            <LandingPage/>
+          </Route>
+        </Routes>
       </div>
     </div>
+    </Router>
   );
 }
 export default App;
