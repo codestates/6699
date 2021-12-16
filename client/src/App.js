@@ -12,7 +12,7 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <MainPagePlusButton/>
+  
       <div className='header-downside'>
         <Routes>
           <Route exact path='/' element={<LandingPage/>}/>
