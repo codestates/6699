@@ -1,14 +1,14 @@
-.post-plus{
-    z-index:1;
-    position:fixed;
-    bottom:30px;
-    left:87%;
-  
-    background-image: url('../images/Plus_Button.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width:110px;
-    height:110px;
-    border-radius: 100%;
-    box-shadow: 4px 4px 4px 0px rgba(0,0,0,25%);
-  }
+.post-plus {
+  z-index: 1;
+  position: fixed;
+  bottom: 30px;
+  left: 87%;
+
+  background-image: url("../images/Plus_Button.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 25%);
+}

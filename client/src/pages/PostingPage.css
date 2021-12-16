@@ -66,9 +66,10 @@
 .posting-under-jumbotron {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   width: 100vh;
-  height: 150vh;
+  height: 170vh;
   /* border: 3px solid green; */
 }
 
@@ -100,7 +101,7 @@
   background-repeat: no-repeat;
   width: 3vh;
   height: 3vh;
-  opacity: 70%;
+  opacity: 50%;
   /* border: 1px solid red; */
   position: absolute;
   right: 67vh;
@@ -126,20 +127,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vh;
-  height: 10vh;
-  border: 0;
+  width: 70vh;
+  height: 7vh;
+  /* border: 1px solid blue; */
 }
 
 .posting-like-wrapper {
   position: absolute;
-  left: 49vh;
+  left: 62vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 20vh;
   height: 6vh;
-  border: 0;
+  /* border: 1px solid red; */
 }
 
 #posting-like-button {
@@ -150,7 +151,7 @@
 }
 
 #posting-like-button ~ p {
-  font-size: 17pt;
+  font-size: 14pt;
 }
 #posting-view {
   background-image: url("../../src/images/eye.png");
@@ -161,17 +162,18 @@
 
 .posting-user-box {
   position: absolute;
-  right: 49vh;
+  right: 62vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 30vh;
-  height: 10vh;
-  border: 0;
+  width: 22vh;
+  height: 7vh;
+  /* border: 1px solid purple; */
 }
 
 .posting-user-box p {
-  font-size: 17pt;
+  /*다급한너구리님*/
+  font-size: 14pt;
 }
 
 #posting-user-profile-image {
@@ -185,9 +187,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 100vh;
-  height: 70vh;
-  border: 0;
+  height: 80vh;
+  /* border: 3px solid yellowgreen; */
 }
 
 #posting-content-boundary {
@@ -195,21 +198,153 @@
   align-items: center;
   justify-content: center;
   width: 70vh;
-  height: 30vh;
-  border: 2px solid #7c7c7c;
+  height: 25vh;
+  border: 1px solid #ccc;
   border-radius: 25px;
 }
 
 #posting-content {
   width: 65vh;
-  height: 25vh;
+  height: 20vh;
   border: 0;
-  font-size: 18pt;
+  font-size: 15pt;
 }
 
-.posting-comment-container {
+#posting-created-at {
+  width: 5vh;
+  height: 3vh;
+  text-align: center;
+  font-size: 14pt;
+  position: absolute;
+  top: 139vh;
+  right: 64vh;
+  /* border: 1px solid red; */
+}
+
+.posting-comment-writting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70vh;
-  height: 15vh;
-  border: 1px solid black;
+  height: 13vh;
+  border: 1px solid #ccc;
   border-radius: 20px;
+}
+
+#posting-writting-comment-border {
+  position: absolute;
+  width: 65vh;
+  height: 10vh;
+  /* border: 1px solid orange; */
+}
+
+#posting-user-image {
+  background-image: url("../../src/images/Kkobugi.png");
+  background-size: 100%;
+  width: 8vh;
+  height: 8vh;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#posting-writting-comment-border > p {
+  /*나꼬북으로 댓글달기*/
+  position: relative;
+  top: -65px;
+  left: 110px;
+  font-size: 14pt;
+  color: #7c7c7c;
+}
+
+#posting-make-comment {
+  /*게시하기*/
+  width: 8vh;
+  height: 3vh;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+  top: 50px;
+  left: 280px;
+  font-size: 11pt;
+}
+
+.posting-posted-comment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vh;
+  height: 13vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#posting-comment-border {
+  position: absolute;
+  width: 65vh;
+  height: 10vh;
+  /* border: 1px solid pink; */
+}
+
+#posting-user-image2 {
+  background-image: url("../../src/images/bono.png");
+  background-size: 100%;
+  width: 8vh;
+  height: 8vh;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#posting-comment-border > p {
+  /*나도 살빼야 되는데ㅜ 눈팅 그만하고싶어여*/
+  position: relative;
+  top: -65px;
+  left: 110px;
+  font-size: 14pt;
+}
+
+#posting-comment-user {
+  /*뱃살대장보노*/
+  position: relative;
+  top: 50px;
+  left: 240px;
+  font-size: 11pt;
+  /* border: 1px solid blue; */
+}
+
+.posting-posted-comment-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vh;
+  height: 13vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#posting-user-image3 {
+  background-image: url("../../src/images/neoburi.png");
+  background-size: 100%;
+  width: 8vh;
+  height: 8vh;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#posting-comment-created-at {
+  width: 6vh;
+  height: 3vh;
+  position: relative;
+  top: 50px;
+  left: 230px;
+  /* border: 1px solid purple; */
+}
+
+#posting-see-more-btn {
+  background-color: transparent;
+  border: 1px solid orange;
+  font-size: 13pt;
+  border: 0;
 }
