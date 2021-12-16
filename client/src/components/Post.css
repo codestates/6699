@@ -1,9 +1,41 @@
 .post-container{
   display:flex;
-  border: 1px solid red;
   width:100%;
-  height:2850px;
+  height:2000px;
   position: absolute;
-  top:84.6%;
+  top: 1859px;
   transform: translate(0%, -50%);
+  align-items: center;
+  justify-content: center;
+}
+.post-post-box{
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position:absolute;
+  align-self:center;
+  display:flex;
+  width: 80%;
+  height:80%;
+  top: 43%;
+  transform: translate(0%,-50%);
+  justify-content: space-evenly;
+}
+.post-post-box-low{
+  display:flex;
+  width:100%;
+  height:33.33%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.post-post-box-low-post{
+  opacity:80%;
+  background-image: url('../images/sweat2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:flex;
+  width:24%;
+  padding-bottom:24%;
+  border:2px solid #ccc;
+  border-radius: 20px;
 }
