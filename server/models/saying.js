@@ -36,7 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     category: DataTypes.STRING,
     total_like: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
-    user_id: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'sayings',

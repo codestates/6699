@@ -1,10 +1,10 @@
 import '../components/Footer.css';
-
+import {Link} from 'react-router-dom';
 function Footer(){
     return (
         <div id='footer-container'>
            <div id='footer-logo-wrapper'>
-           <div id= 'footer-6699-logo'></div>
+           <Link to ='/'><div id= 'footer-6699-logo'></div></Link>
            </div>
 
            <div className= 'footer-team-members'>

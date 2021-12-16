@@ -1,4 +1,5 @@
 import React from 'react'
+import './Saying.css';
 function Saying(){
  return (
   <div>
@@ -19,7 +20,6 @@ function Saying(){
         <div className='landing-slide-bid4'/>
         <div className='landing-slide-bid5'/>
       </div>
-
     </div>
   </div>
  )

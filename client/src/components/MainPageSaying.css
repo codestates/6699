@@ -3,7 +3,7 @@
     background-image: url("../../src/images/category_health.png");
     background-position:center;
     background-size: 100%;
-    top: 12%;
+    top: 325px;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -28,7 +28,9 @@
    font-weight: bold;
    font-size: 20px;
   }
-  .main-saying-view-all{
+  .main-saying-link{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
     width: 150px;
     height: 30px;
     position: absolute;
@@ -85,13 +87,12 @@
       position: absolute;
       width: 930px;
       font-weight: bold;
-      font-size:110px;
+      font-size:80px;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
       color:white;
   }
-  
   .main-saying-sub-message{
       opacity:40%;
       display:block;

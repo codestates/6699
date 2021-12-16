@@ -5,11 +5,11 @@
 }
 
 #footer-container {
-  position: absolute;
+  position : absolute;
+  bottom : 0;
   background: #ccc;
   width: 100%;
   height: 40vh;
-  bottom: -3200px;
 }
 
 #footer-logo-wrapper {
@@ -33,16 +33,17 @@
   display: flex;
   position: relative;
   align-self: center;
-  width: 90vh;
+  width: 110vh;
   height: 18vh;
   border: 0;
-  left: 550px;
+  left: 50%;
+  transform: translate(-50%,0%);
   top: 55px;
 }
 .footer-profiles {
   display: flex;
   justify-content: space-around;
-  width: 90vh;
+  width: 100%;
   height: 7vh;
   position: absolute;
   top: 100px;
@@ -60,9 +61,10 @@
 }
 
 .footer-github-logos {
+  
   display: flex;
   justify-content: space-around;
-  width: 90vh;
+  width: 110vh;
   height: 8vh;
   border: 0;
   margin-top: 25px;
@@ -73,17 +75,20 @@
   background-size: 100% 100%;
   width: 7vh;
   height: 7vh;
+
 }
 
 .footer-badges {
   position: absolute;
   justify-content: space-between;
-  margin-left: 900px;
+  left: 50%;
+  transform: translate(-50%,0%);
   display: flex;
   bottom: 45px;
   width: 17vh;
   height: 6vh;
   border: 0;
+  margin-bottom:-2vh;
 }
 
 #footer-youtube-logo {
@@ -94,10 +99,12 @@
 }
 
 #footer-github-logo {
+  opacity: 88%;
   background-image: url("../images/GitHubBadge.png");
   background-size: 100% 100%;
   width: 6vh;
   height: 6vh;
+  opacity: 88%;
 }
 
 #footer-copyright {
