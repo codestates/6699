@@ -13,7 +13,6 @@ function Post(){
           <div className='post-post-box-low-post'>
             <Link className='post-post-link' to='/postingpage'/>
           </div>
-
           <div className='post-post-box-low-post'>
             <Link className='post-post-link' to='/postingpage'/>
           </div>
