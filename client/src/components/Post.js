@@ -1,4 +1,5 @@
 import './Post.css';
+import {Link} from 'react-router-dom';
 function Post(){
   return (
     <div className='post-container'>
@@ -9,7 +10,9 @@ function Post(){
       <div className='post-post-box'>
         <div className='post-post-box-low'>
           <div className='post-post-box-low-post'>
-
+          <Link to='/postingpage'>
+            hello
+        </Link>
           </div>
           <div className='post-post-box-low-post'>
             
