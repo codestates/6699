@@ -1,5 +1,4 @@
 .main-category-container{
-  border: 1px solid blue;
   display:flex;
   width:100%;
   height:210px;
@@ -16,7 +15,7 @@
   width:70%;
   height:105px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%,-50%);
   border: 1px solid rgb(40,40,40);

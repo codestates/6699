@@ -1,6 +1,6 @@
 import Saying from '../components/Saying.js'
 import '../pages/LandingPage.css'
-
+import {Link} from 'react-router-dom';
 function LandingPage(){
     return(
     <div className='landing-container'>
@@ -43,6 +43,11 @@ function LandingPage(){
         모두를 움직이게 만드는
         <br/>당신의 명언,        
         <br/>지금 시작해보세요.</div>
+        <Link to ='/mainpage'>
+          <button className='landing-start-button'>
+            시작하기
+          </button>
+        </Link>
     <div className='landing-big-6699'>
       <div className='landing-big-66'/>
       <div className='landing-big-99'/>
