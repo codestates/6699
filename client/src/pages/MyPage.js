@@ -46,7 +46,6 @@ function MyPage(){
         </div>
         </div>
         </div>
-        
         </div>
     )
 }
