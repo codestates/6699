@@ -1,5 +1,5 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
-const { users, sayings } = require('../../models');
+const { users, sayings, comments, articles, saying_likes, article_likes } = require('../../models');
 
 module.exports = {
   get: async (req, res) => {
@@ -24,21 +24,35 @@ module.exports = {
     try{
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
-      const { email, sayingId } = req.body;
+      const { email } = req.body;
       const userInfo = await users.findOne({ where: { email: email }});
 
-      // 명언 삭제시...관련 게시글&댓글&좋아요취소 후 삭제처리해야함
-      // 데이터베이스 무결성 원칙 ㅠㅠ
-      sayings.destroy({ 
-        where: {
-          id: sayingId,
-          user_id: userInfo.id
-        }
-      });
+      // params로 받은 sayingId 이 잘못된 요청일 경우 에러메시지 반환
+      const sayingId = req.params.sayingId;
+      if (isNaN(sayingId)) return res.status(403).json({ message: 'Bad Request!' });
 
-      if (sayings === 0) return res.status(200).json({ message: 'There are no saying' });
+      // 명언 정보 확인 후 존재하지 않는 명언일 경우 에레메시지 반환
+      const sayingInfo = await sayings.findOne({ where: {id: sayingId} });
+      if (!sayingInfo) return res.status(404).json({ message: 'Not Found!' });
+
+      // 올바른 명언일 경우 params로 받은 sayingId에 종속된 게시글 테이블 검색
+      const subArticles = await articles.findAll({ where: { saying_id: sayingId } });
+
+      if ( subArticles.length === 0 ) { // 종속된 게시글이 없는 경우
+        saying_likes.destroy({ where: { saying_id: sayingId } });  // 명언 좋아요 삭제
+        sayings.destroy({ where: { id: sayingId } });  // 명언 삭제
+
+        return res.status(200).json({ message: 'Saying Delete Success!' });
+      } 
       
-      res.status(200).json({ sayings });
+      // 종속된 게시글이 있는 경우, 하위 테이블 역순으로 삭제
+      comments.destroy({ where: { article_id: subArticleInfo.id } });  // 댓글 삭제
+      article_likes.destroy({ where: { article_id: subArticleInfo.id } });  // 게시물 좋아요 삭제
+      articles.destroy({ where: { saying_id: sayingId } });  // 게시물 삭제
+      saying_likes.destroy({ where: { saying_id: sayingId } });  // 명언 좋아요 삭제
+      sayings.destroy({ where: { id: sayingId } });  // 명언 삭제
+      
+      res.status(200).json({ message: 'Saying Delete Success!' });
     } catch (err) {
       return res.status(500).send('Error!');
     }

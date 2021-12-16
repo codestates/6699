@@ -30,7 +30,7 @@ router.delete('/:sayingId/article/:articleId/like', article.like.delete);
 
 // Create, Edit, Delete Comment
 router.post('/:sayingId/article/:articleId/comment', comment.comment.post);
-router.patch('/:sayingId/article/:articleId/comment', comment.comment.patch);
-router.delete('/:sayingId/article/:articleId/comment', comment.comment.delete);
+router.patch('/:sayingId/article/:articleId/comment/:commentId', comment.comment.patch);
+router.delete('/:sayingId/article/:articleId/comment/:commentId', comment.comment.delete);
 
 module.exports = router;
