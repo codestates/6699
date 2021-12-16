@@ -17,7 +17,7 @@ router.post('/logout', user.logout.post);
 
 // Mysaying
 router.get('/mysaying', user.mysaying.get);
-router.delete('/mysaying/:sayingId', user.mysaying.delete);
+router.delete('/mysaying', user.mysaying.delete);
 
 // Myarticle
 router.get('/myarticle', user.myarticle.get);
