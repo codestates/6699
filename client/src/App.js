@@ -6,6 +6,7 @@ import LandingPage from '../src/pages/LandingPage';
 import MyPage from '../src/pages/MyPage';
 import MainPage from '../src/pages/MainPage';
 import Footer from '../src/components/Footer';
+import PostingPage from '../src/pages/PostingPage';
 function App() {
   return (
     <div className='container'>
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/' element={<LandingPage/>}/>
           <Route path='/mainpage' element={<MainPage/>}/>
           <Route path='/mypage' element={<MyPage/>}/>
+          <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
       </div>
     </div>
