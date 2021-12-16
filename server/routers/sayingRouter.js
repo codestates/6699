@@ -8,10 +8,10 @@ router.get('/', (req, res) => res.send('api.dayily6699.co.kr/category'));
 router.get('/all', saying.all.get);
 
 // Select Saying Category
-router.get('/:category', saying.category.get);
+router.get('/?category', saying.category.get);
 
 // Create Saying
-router.post('/:category', saying.create.post);
+router.post('/?category', saying.create.post);
 
 // Select Saying
 router.get('/:sayingId', saying.saying.get);
@@ -34,7 +34,7 @@ router.delete('/:sayingId/article/:articleId/like', article.like.delete);
 
 // Create, Edit, Delete Comment
 router.post('/:sayingId/article/:articleId/comment', comment.comment.post);
-router.patch('/:sayingId/article/:articleId/comment', comment.comment.patch);
-router.delete('/:sayingId/article/:articleId/comment', comment.comment.delete);
+router.patch('/:sayingId/article/:articleId/comment/:commentId', comment.comment.patch);
+router.delete('/:sayingId/article/:articleId/comment/:commentId', comment.comment.delete);
 
 module.exports = router;

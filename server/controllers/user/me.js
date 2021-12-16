@@ -7,7 +7,10 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      const userInfo = await userAuth(req, res);
+      // const userInfo = await userAuth(req, res);
+
+      const { email } = req.body;
+      const userInfo = await users.findOne({ where: { email: email }});
       
       // 회원의 민감정보(비밀번호) 삭제
       delete userInfo.dataValues.password;
@@ -39,15 +42,17 @@ module.exports = {
         if (isExistedUsername) return res.status(403).json({ message: 'username is already existed' });
       }
       // 요청 바디에 password가 있다면, password를 해싱한다
-      let hash;
-      if (password) hash = await bcrypt.hash(password, 10);
+      
+      if (password) {
+        const hash = await bcrypt.hash(password, 10);
+      }
       
       // 요청 바디가 없는 값은 그대로 유지, 있다면 새로 업데이트 한다
       await users.update(
         {
           username: username ? username : userInfo.username,
           introduction: introduction ? introduction : userInfo.introduction,
-          password: password ? password : userInfo.password
+          password: password ? hash : userInfo.password
         },
         { where : { id: userInfo.id }}
       );
