@@ -1,0 +1,108 @@
+.rankingpage-container{
+  display: flex;
+  position: relative;
+  border: 1px solid red;
+  width:100%;
+  height:2700px;
+}
+.rankingpage-category-button{
+  position: absolute;
+  display:flex;
+  top: 2.3%;
+  right:12.5%;
+  justify-content: center;
+  align-items:center;
+  color:white;
+  font-size:25px;
+  font-weight:bold;
+  background-color: #FFBF31;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+}
+.rankingpage-ranking-box{
+  margin-top:10%;
+  flex-direction: row;
+  flex-wrap:wrap-reverse;
+  position:absolute;
+  border:2px solid #ccc;
+  border-radius:30px;
+  width:1430px;
+  height:78%;
+  left: 50%;
+  transform: translate(-50%,0%);
+  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+}
+.rankingpage-ranking-box-medal-zone{
+  float:left;
+  width:9%;
+  height:100%;
+  border:1px solid #ccc;
+  border-radius: 25px 0px 0px 25px;
+}
+.rankingpage-ranking-box-medal-zone-top-3{
+  background-color:white;
+  position:sticky;
+  border:1px solid #ccc;
+  border-radius:25px 0px 0px 0px;
+  height:17%;
+  top: 0;
+  z-index:3;
+}
+.rankingpage-ranking-box-medal-zone-top-3-medal{
+  border:1px solid green;
+  height:33.33%;
+}
+.rankingpage-ranking-box-saying-zone{
+  float:right;
+  border:1px solid red;
+  width:91%;
+  height:100%;
+}
+.rankingpage-ranking-box-saying-zone-top-3{
+  background-color:white;
+  position:sticky;
+  border:1px solid #ccc;
+  border-radius:0px 25px 0px 0px;
+  height:17%;
+  top: 0;
+  z-index:3;
+}
+.rankingpage-ranking-box-saying-zone-top-3-saying{
+  border:1px solid green;
+  height:33.33%;
+}
+
+.rankingpage-ranking-box-medal-zone-top-12{
+  border:2px solid purple;
+  height: 81.1%;
+}
+.rankingpage-ranking-box-medal-zone-top-12-ranking{
+  border:1px solid green;
+  height:11.11%;
+}
+
+.rankingpage-ranking-box-saying-zone-top-12{
+  border:2px solid purple;
+  height:81.1%; 
+}
+.rankingpage-ranking-box-saying-zone-top-12-saying{
+  border:1px solid green;
+  height:11.11%;
+}
+
+.rankingpage-ranking-box-ViewMoreButton{
+  position:absolute;
+  bottom:0;
+  color: white;
+  font-weight: bold;
+  font-size:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 0px 25px 25px;
+  width:100%;
+  height:40px;
+  background-color: #FFBF31;
+}
