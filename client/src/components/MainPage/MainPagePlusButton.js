@@ -1,12 +1,14 @@
-import './MainPageSayingToggle.css';
+/*****done*****/
+import style from './MainPagePlusButton.module.css';
 import React, { useState } from 'react';
-import MainSayingMiniModal from './MainSayingMiniModal';
-import Modal from './Modal';
+import PostMiniModal from './PostMiniModal';
+import Modal from '../Modal';
 
-function MainPageSayingToggle(){
+
+function MainPagePlusButton(){
   let [isOpen,setIsOpen] = useState(false);
   return(
-    <div className = 'main-saying-toggle' onClick={()=> {
+    <div className = {style.plus_button} onClick={()=> {
       !isOpen
       ?setIsOpen(true)
       :setIsOpen(false)
@@ -14,11 +16,11 @@ function MainPageSayingToggle(){
       {isOpen
         ?isOpen &&
         <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <MainSayingMiniModal/>
+          <PostMiniModal/>
         </Modal>
         :null  
       }
     </div>
   )
 }
-export default MainPageSayingToggle;
+export default MainPagePlusButton;

@@ -1,8 +1,9 @@
-.main-saying-toggle{
+/*****done*****/
+.toggle{
   display:flex;
   align-items:center;
   justify-content:center;
   width:15px; height:15px;
-  background-image: url("../../src/images/Polygon.png");
+  background-image: url("../../images/Polygon.png");
   background-size:100% 100%;
 }

@@ -1,17 +1,17 @@
-import './MainPage.css'
-import MainPageSaying from '../components/MainPageSaying';
-import MainPageCategory from '../components/MainPageCategory';
-import Post from '../components/Post';
+/*****done*****/
+import style from './MainPage.module.css'
+import MainPageSaying from '../components/MainPage/MainPageSaying';
+import MainPageCategory from '../components/MainPage/MainPageCategory';
+import Post from '../components/MainPage/Post';
 import Footer from '../components/Footer';
-import PostMiniModal from '../components/PostMiniModal';
 import {Routes, Route} from 'react-router-dom';
 function MainPage(){
   return (
-    <div className='main-container'>
+    <div className={style.container}>
       <MainPageSaying />
       <MainPageCategory />
       <Post/>
-      <div className='main-footer'>
+      <div className={style.footer}>
         <Footer />
       </div>
     </div>

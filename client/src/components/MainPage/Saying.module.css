@@ -1,15 +1,15 @@
-
-  .landing-container{
+/*****done*****/
+  .container{
     display:flex;
     position: absolute;
     width: 100%;
     height:4000px;
     background-color: rgb(255,255,255);
   }
-  .landing-jumbotron{
+  .jumbotron{
     justify-content:center;
     
-    background-image: url("../../src/images/category_health.png");
+    background-image: url("../../images/category_health.png");
     background-size:100% 100%;
     top: 9.9%;
     left: 50%;
@@ -18,10 +18,10 @@
     width:1430px;
     height:790px;
   }
-  .landing-left-arrow{
+  .left_arrow{
     width:50px;
     height:50px;
-    background-image: url("../../src/images/left_arrow.png");
+    background-image: url("../../images/left_arrow.png");
     background-size:100% 100%;
     opacity: 80%;
     position: absolute;
@@ -29,10 +29,10 @@
     left: 10%;
     transform: translate(-50%,-50%);
   }
-  .landing-right-arrow{
+  .right_arrow{
     width:50px;
     height:50px;
-    background-image: url("../../src/images/right_arrow.png");
+    background-image: url("../../images/right_arrow.png");
     background-size:100% 100%;
     opacity: 80%;
     position: absolute;
@@ -40,10 +40,10 @@
     left: 90%;
     transform: translate(-50%,-50%);
   }
-  .landing-left-66{
+  .left_66{
     width:45px;
     height:30px;
-    background-image: url("../../src/images/white_66.png");
+    background-image: url("../../images/white_66.png");
     background-size:100% 100%;
     opacity: 90%;
     position: absolute;
@@ -51,10 +51,10 @@
     left: 15%;
     transform: translate(-50%,-50%);
   }
-  .landing-right-99{
+  .right_99{
     width:45px;
     height:30px;
-    background-image: url("../../src/images/white_99.png");
+    background-image: url("../../images/white_99.png");
     background-size:100% 100%;
     opacity: 90%;
     position: absolute;
@@ -62,7 +62,7 @@
     left: 85%;
     transform: translate(-50%,-50%);
   }
-  .landing-saying{
+  .saying{
     display:flex;
     display:block;
     text-align:center;
@@ -75,7 +75,7 @@
     transform: translate(-50%,-50%);
     color:white;
   }
-  .landing-slide-bar{
+  .slidebar{
     opacity: 50%;
     width: 250px;
     height: 50px;
@@ -84,7 +84,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
   }
-  .landing-slide-bid1{
+  .bid1{
     width:20px;
     height:20px;
     background-color:#FFBF31;
@@ -93,7 +93,7 @@
     transform: translate(-50%,-50%);
     border-radius:100%;
   }
-  .landing-slide-bid2{
+  .bid2{
     width:20px;
     height:20px;
     background-color:white;
@@ -102,7 +102,7 @@
     transform: translate(-50%,-50%);
     border-radius:100%;
   }
-  .landing-slide-bid3{
+  .bid3{
     width:20px;
     height:20px;
     background-color:white;
@@ -111,7 +111,7 @@
     transform: translate(-50%,-50%);
     border-radius:100%;
   }
-  .landing-slide-bid4{
+  .bid4{
     width:20px;
     height:20px;
     background-color:white;
@@ -120,7 +120,7 @@
     transform: translate(-50%,-50%);
     border-radius:100%;
   }
-  .landing-slide-bid5{
+  .bid5{
     width:20px;
     height:20px;
     background-color:white;
