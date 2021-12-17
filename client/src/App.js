@@ -25,6 +25,8 @@ function App() {
           <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
       </div>
+      <div>
+      </div>
     </div>
   );
 }
