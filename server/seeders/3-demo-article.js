@@ -10,7 +10,7 @@ module.exports = {
       image: '',
       total_like: 0,
       total_comment: 0,
-      view: 1,
+      view: 0,
       createdAt: new Date(),
       updatedAt: new Date(),
       user_id: 1,

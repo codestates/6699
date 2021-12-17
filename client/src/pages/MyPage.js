@@ -1,10 +1,11 @@
-import MyPageCategory from '../components/MyPageCategory.js';
+import MyPageCategory from '../components/MyPage/MyPageCategory.js';
 import MyEditPage from './MyEditPage.js';
 import {Routes, Route, Link} from 'react-router-dom';
-import MyPosting from '../components/MyPosting'
-import MySaying from '../components/MySaying'
+import MyPosting from '../components/MyPage/MyPosting'
+import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
-
+import MyComment from '../components/MyPage/MyComment'
+import MyLike from '../components/MyPage/MyLike'
 function MyPage(){
     return (
         <div id={style.container}>
@@ -37,11 +38,14 @@ function MyPage(){
 
         <div id={style.posts_board}>
         <div id={style.myposting_wrapper}>
-        {/*라우팅 연결전까지 여기 주석 지우지마세용 */}
-        <MyPosting/> 나의 게시물 
+        {/*onClick구현전까지 아래 주석 지우지마세용ㅜ*/}
+
+        {/* <MyPosting/> */}
         <div id={style.saying_box_wrapper}>
          {/* <MySaying/> */}
          </div>
+         {/* <MyComment/> */}
+         <MyLike/>
         </div>
         </div>
 

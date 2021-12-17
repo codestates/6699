@@ -30,7 +30,7 @@ module.exports = {
       const userInfo = await users.findOne({ where: { email: email }});
   
       // 요청 바디에 username이 있다면, 나를 제외한 username 중 이미 존재하는지 검사
-      if (username) {
+      if(username) {
         const usernameInfo = await users.findOne({ 
           where: { 
             username: username,
@@ -39,11 +39,11 @@ module.exports = {
         });
   
         // 이미 존재하는 username이면 요청 거절
-        if (usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
+        if(usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
       }
       // 요청 바디에 password가 있다면, password를 해싱한다
       
-      if (password) {
+      if(password) {
         const hash = await bcrypt.hash(password, 10);
       }
       

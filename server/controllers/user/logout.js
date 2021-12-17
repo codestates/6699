@@ -1,3 +1,5 @@
+const { userAuth } = require('../../middlewares/authorized/userAuth')
+
 module.exports = {
   post: (req, res) => {
     try {

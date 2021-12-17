@@ -1,3 +1,4 @@
+const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { sayings, saying_likes } = require('../../models');
 
 module.exports = {
