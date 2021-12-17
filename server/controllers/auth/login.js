@@ -1,4 +1,4 @@
-const { generateAccessToken, sendAccessToken, isAuthorized } = require('../../middlewares/tokenFunction');
+const { generateAccessToken, sendAccessToken } = require('../../middlewares/tokenFunction');
 const { users } = require('../../models');
 
 module.exports = {

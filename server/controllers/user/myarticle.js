@@ -9,13 +9,13 @@ module.exports = {
       const { email } = req.body;
       const userInfo = await users.findOne({ where: { email: email }});
       
-      const myArticle = await articles.findAll({
+      const filteredArticle = await articles.findAll({
         where : { user_id: userInfo.id }
       });
       
-      if (myArticle.length === 0) return res.status(200).json({ message: 'There are no article' });
+      if (filteredArticle.length === 0) return res.status(200).json({ message: 'There are no article' });
       
-      res.status(200).json({ myArticle });
+      res.status(200).json({ filteredArticle });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
