@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-#mypage-container {
+#my-edit-container {
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
@@ -13,7 +13,7 @@
   border: 0;
 }
 
-#mypage-user-container {
+#my-edit-user-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,7 +24,7 @@
   border-radius: 20px;
 }
 
-#mypage-user-profile-wrapper {
+#my-edit-user-profile-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +34,7 @@
   border: 0;
 }
 
-#mypage-user-mini-wrapper {
+#my-edit-user-mini-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@
   border: 0;
 }
 
-#mypage-profile-image {
+#my-edit-profile-image {
   flex: none;
   align-self: center;
   border-radius: 100%;
@@ -55,7 +55,7 @@
   background-size: 100% 100%;
 }
 
-#mypage-user-name {
+#my-edit-user-name {
   align-self: center;
   width: 16vh;
   height: 3vh;
@@ -66,7 +66,7 @@
   border: 0;
 }
 
-#mypage-message-wrapper {
+#my-edit-message-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,12 +76,12 @@
   border-radius: 20px;
 }
 
-#mypage-message {
+#my-edit-message {
   width: 25vh;
   height: 48vh;
   border: 0;
 }
-.mypage-buttons {
+.my-edit-buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -91,7 +91,17 @@
   border: 0;
 }
 
-#mypage-profile-setting {
+#my-edit-profile-setting {
+  width: 25vh;
+  height: 4vh;
+  background: #ffbf31;
+  border: 1px solid #ffbf31;
+  color: #fff;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+#my-edit-logout {
   width: 25vh;
   height: 4vh;
   background: #000;
@@ -100,97 +110,49 @@
   font-weight: bold;
 }
 
-#mypage-logout {
-  width: 25vh;
-  height: 4vh;
-  background: #000;
-  color: #fff;
-  border-radius: 7px;
-  font-weight: bold;
-}
-
-#mypage-posts-container {
+#my-edit-setting-container {
   display: flex;
   flex-direction: column;
   width: 80%;
   height: auto;
-  border: 0;
+  border: 1px solid blue;
 }
 
-#mypage-category-wrapper {
-  width: 100%;
-  height: 12vh;
-  border: 0;
-}
-#mypage-posts-outer-wrap {
+#my-edit-setting-outer-wrap {
   position: relative;
   width: 100%;
-  height: 100%; /**/
+  height: 100%;
   border: 1px solid #ccc;
   border-radius: 20px;
 }
 
-#mypage-posts-inner-wrap {
+.my-edit-info {
   display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  width: 90vh;
-  height: 70vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0;
-}
-
-.mypage-posts {
-  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
+  height: 14vh;
+  border: 1px solid red;
+}
+
+#my-edit-title {
+  width: 18vh;
+  height: 6.5vh;
+  color: #ffbf31;
+  font-size: 30pt;
+  font-weight: 600;
+  border: 1px solid purple;
+}
+
+#my-edit-explain {
+  width: 17vh;
+  height: 4vh;
+  border: 1px solid green;
+}
+
+#my-edit-setting-inner-wrap {
+  width: 50%;
   height: 50%;
-  border: 0;
-}
-
-#mypage-post {
-  background-image: url("../../src/images/sweat2.png");
-  background-position: center;
-  background-size: 100%;
-  width: 25vh;
-  height: 25vh;
-  padding-bottom: 25vh;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.mypage-page-buttons {
-  display: flex;
-  position: absolute;
-  justify-content: space-around;
-  align-items: center;
-  width: 13vh;
-  height: 5vh;
-  bottom: 0%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0;
-}
-
-#mypage-pagenation {
-  width: 5vh;
-  height: 5vh;
-  background-color: #ffbf31;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 18pt;
-  font-weight: bold;
-}
-
-#mypage-pagenation-2 {
-  width: 5vh;
-  height: 5vh;
-  background-color: #000;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 18pt;
-  font-weight: bold;
+  border: 1px solid purple;
 }

@@ -9,6 +9,7 @@ import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
 import Footer from '../src/components/Footer';
+import MyEditPage from '../src/pages/MyEditPage'
 function App() {
   return (
     <div className='container'>
@@ -21,9 +22,12 @@ function App() {
           <Route exact path='/' element={<LandingPage/>}/>
           <Route path='/mainpage' element={<MainPage/>}/>
           <Route path='/mypage' element={<MyPage/>}/>
+          <Route path='/editpage' element={<MyEditPage/>}/>
           <Route path='/rankingpage' element={<RankingPage/>}/>
           <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
+      </div>
+      <div>
       </div>
     </div>
   );
