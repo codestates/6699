@@ -16,7 +16,7 @@ function MyEditPage (){
             평생 다이어트중
             </div>
         </div>
-        <div className = 'my-edit-buttons'>
+        <div className = 'my-edit-buttons-1'>
         <button id='my-edit-profile-setting'>프로필 설정</button>
         <Link to ='/mainpage'><button id= 'my-edit-logout'>로그아웃</button></Link>
         </div>
@@ -29,16 +29,16 @@ function MyEditPage (){
             </div>
             <div id='my-edit-setting-inner-wrap'>
                 <p className='my-edit-text'>이메일</p>
-                <textarea className='my-edit-textarea'/>
+                <input className='my-edit-textarea'/>
                 <p className='my-edit-text'>닉네임 변경</p>
-                <textarea className='my-edit-textarea'/>
+                <input className='my-edit-textarea' placeholder = '꼬부기'/>
                 <p className='my-edit-text'>비밀번호 수정</p>
-                <textarea className='my-edit-textarea'/>
+                <input className='my-edit-textarea'/>
                 <p className='my-edit-text'>비밀번호 수정 확인</p>
-                <textarea className='my-edit-textarea'/>
-                <div className='my-edit-buttons'>
-                <button>프로필 변경</button>
-                <button>변경 취소</button>
+                <input className='my-edit-textarea'/>
+                <div className='my-edit-buttons-2'>
+                <button id='my-edit-btn1'>프로필 변경</button>
+                <button id='my-edit-btn2'>변경 취소</button>
                 </div>
             </div>
             <button id='my-edit-resign-btn'>회원 탈퇴</button>
