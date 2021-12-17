@@ -13,16 +13,15 @@ module.exports = {
       const { category } = req.query;
 
       // 받아온 category 모델을 검색한다
-      let myLikes;
+      let filteredLike;
       if (category === 'sayings'){
-        myLikes = await sayings.findAll({ where : { user_id: userInfo.id } });
+        filteredLike = await sayings.findAll({ where : { user_id: userInfo.id } });
       } else {
-        myLikes = await articles.findAll({ where : { user_id: userInfo.id } });
+        filteredLike = await articles.findAll({ where : { user_id: userInfo.id } });
       }
       
-      if (myLikes.length === 0) return res.status(200).json({ message: 'There are no Likes' });
-      res.status(200).json({ myLikes });
-
+      if (filteredLike.length === 0) return res.status(200).json({ message: 'There are no Likes' });
+      res.status(200).json({ filteredLike });
     } catch (err) {
       console.log(err);
       return res.status(500).json({ message: 'Server Error!' });

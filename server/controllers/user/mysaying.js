@@ -9,13 +9,11 @@ module.exports = {
       const { email } = req.body;
       const userInfo = await users.findOne({ where: { email: email }});
       
-      const mySaying = await sayings.findAll({
-        where : { user_id: userInfo.id }
-      });
+      const filteredSaying = await sayings.findAll({ where : { user_id: userInfo.id } });
       
-      if (mySaying.length === 0) return res.status(200).json({ message: 'There are no saying' });
+      if (filteredSaying.length === 0) return res.status(200).json({ message: 'There are no saying' });
       
-      res.status(200).json({ mySaying });
+      res.status(200).json({ filteredSaying });
     } catch (err) {
       return res.status(500).send('Error!');
     }
@@ -36,9 +34,9 @@ module.exports = {
       if (!sayingInfo) return res.status(404).json({ message: 'Not Found!' });
 
       // 올바른 명언일 경우 params로 받은 sayingId에 종속된 게시글 테이블 검색
-      const subArticles = await articles.findAll({ where: { saying_id: sayingId } });
+      const filteredArticle = await articles.findAll({ where: { saying_id: sayingId } });
 
-      if ( subArticles.length === 0 ) { // 종속된 게시글이 없는 경우
+      if ( filteredArticle.length === 0 ) { // 종속된 게시글이 없는 경우
         saying_likes.destroy({ where: { saying_id: sayingId } });  // 명언 좋아요 삭제
         sayings.destroy({ where: { id: sayingId } });  // 명언 삭제
 
@@ -46,8 +44,8 @@ module.exports = {
       } 
       
       // 종속된 게시글이 있는 경우, 하위 테이블 역순으로 삭제
-      comments.destroy({ where: { article_id: subArticleInfo.id } });  // 댓글 삭제
-      article_likes.destroy({ where: { article_id: subArticleInfo.id } });  // 게시물 좋아요 삭제
+      comments.destroy({ where: { article_id: filteredArticle.id } });  // 댓글 삭제
+      article_likes.destroy({ where: { article_id: filteredArticle.id } });  // 게시물 좋아요 삭제
       articles.destroy({ where: { saying_id: sayingId } });  // 게시물 삭제
       saying_likes.destroy({ where: { saying_id: sayingId } });  // 명언 좋아요 삭제
       sayings.destroy({ where: { id: sayingId } });  // 명언 삭제
