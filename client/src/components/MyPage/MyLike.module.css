@@ -1,0 +1,60 @@
+#changing_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vh;
+  height: 80vh;
+  /* border: 1px solid orange; */
+}
+
+#posts_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 90vh;
+  height: 65vh;
+  border: 1px solid red;
+}
+
+.saying_toggle {
+  position: relative;
+  left: 79vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3vh;
+  height: 3vh;
+  background-image: url("../../images/Dark_Polygon.png");
+  background-size: 100% 100%;
+  background-position: center;
+  /* border: 1px solid blue; */
+}
+
+#next_to_toggle {
+  /* border: 1px solid purple; */
+  position: relative;
+  left: 78vh;
+  font-weight: 500;
+  font-size: 14pt;
+}
+
+.posts {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90vh;
+  height: 25vh;
+  border: 1px solid blue;
+}
+
+#post {
+  background-image: url("../../images/sweat3.png");
+  background-position: center;
+  background-size: 100%;
+  width: 25vh;
+  height: 25vh;
+  padding-bottom: 25vh;
+  border: 1px solid black;
+  border-radius: 10px;
+}

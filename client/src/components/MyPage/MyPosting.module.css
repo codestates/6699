@@ -1,4 +1,4 @@
-#my-posting-changing-area {
+#changing_area {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -8,7 +8,7 @@
   /* border: 1px solid orange; */
 }
 
-#my-posting-posts-wrap {
+#posts_wrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -17,7 +17,7 @@
   /* border: 1px solid red; */
 }
 
-.my-posting-posts {
+.posts {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -26,8 +26,8 @@
   /* border: 1px solid blue; */
 }
 
-#my-posting-post {
-  background-image: url("../../src/images/sweat2.png");
+#post {
+  background-image: url("../../images/sweat2.png");
   background-position: center;
   background-size: 100%;
   width: 25vh;

@@ -1,4 +1,4 @@
-.my-category-container {
+.container {
   display: flex;
   width: 100%;
   height: 11vh;
@@ -8,7 +8,7 @@
   transform: translate(-50%, -50%);
   /* border: 1px solid red; */
 }
-.my-category-bar {
+.bar {
   font-size: 25px;
   color: rgb(20, 20, 20);
   font-weight: bold;
@@ -23,8 +23,7 @@
   border-radius: 20px;
   flex-direction: row;
 }
-.my-category-saying {
-  color: white;
+.post {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +32,18 @@
   height: 100%;
   border-radius: 20px 0px 0px 20px;
 }
-.my-category-post {
+
+.text {
+  color: #fff;
+  text-decoration: none;
+}
+
+.text2 {
+  color: #000;
+  text-decoration: none;
+}
+
+.saying {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +52,12 @@
   height: 100%;
 }
 
-.my-category-link {
+.link {
   text-decoration: none;
   color: inherit;
 }
 
-.my-category-comment {
+.comment {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +65,7 @@
   width: 25%;
   height: 100%;
 }
-.my-category-like {
+.like {
   display: flex;
   justify-content: center;
   align-items: center;
