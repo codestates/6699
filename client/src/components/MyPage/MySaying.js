@@ -1,5 +1,5 @@
-import style from '../components/MySaying.module.css'
-import MyPagePagenation from '../components/MyPagePagenation'
+import style from './MySaying.module.css'
+import MyPagePagenation from './MyPagePagenation'
 import MySayingBox from './MySayingBox';
 function MySaying(){ /*나의 명언*/
     return (

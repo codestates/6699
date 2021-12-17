@@ -1,4 +1,4 @@
-.mypage-page-buttons {
+.page_buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,7 +7,7 @@
   /* border: 1px solid pink; */
 }
 
-#mypage-pagenation {
+#pagenation {
   width: 5vh;
   height: 5vh;
   background-color: #ffbf31;
@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 
-#mypage-pagenation-2 {
+#pagenation_2 {
   width: 5vh;
   height: 5vh;
   background-color: #000;

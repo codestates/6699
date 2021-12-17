@@ -1,4 +1,4 @@
-import './ResignMembershipModal.css'
+import style from './ResignMembershipModal.module.css'
 function ResignMembershipModal(){
     return (
         <div>

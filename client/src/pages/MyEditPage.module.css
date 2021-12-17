@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-#my-edit-container {
+#container {
   position: relative;
   margin-top: 10px;
   display: flex;
@@ -13,7 +13,7 @@
   height: 97%;
 }
 
-#my-edit-user-container {
+#user_container {
   position: absolute;
   left: 3vh;
   display: flex;
@@ -26,7 +26,7 @@
   border-radius: 20px;
 }
 
-#my-edit-user-profile-wrapper {
+#user_profile_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,7 @@
   height: 35vh;
 }
 
-#my-edit-user-mini-wrapper {
+#user_mini_wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
   position: absolute;
 }
 
-#my-edit-profile-image {
+#profile_image {
   position: absolute;
   top: 2vh;
   flex: none;
@@ -58,7 +58,7 @@
   background-size: 100% 100%;
 }
 
-#my-edit-user-name {
+#user_name {
   position: absolute;
   bottom: 3vh;
   align-self: center;
@@ -71,7 +71,7 @@
   border: 0;
 }
 
-#my-edit-message-wrapper {
+#message_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,12 +81,12 @@
   border-radius: 20px;
 }
 
-#my-edit-message {
+#message {
   width: 35vh;
   height: 25vh;
   font-size: 15pt;
 }
-.my-edit-buttons-1 {
+.buttons_1 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -95,7 +95,7 @@
   height: 13vh;
 }
 
-#my-edit-profile-setting {
+#profile_setting {
   width: 40vh;
   height: 5vh;
   background: #ffbf31;
@@ -106,7 +106,7 @@
   font-size: 14pt;
 }
 
-#my-edit-logout {
+#logout {
   width: 40vh;
   height: 5vh;
   background: #000;
@@ -117,7 +117,7 @@
   font-size: 14pt;
 }
 
-#my-edit-setting-container {
+#setting_container {
   position: relative;
   right: -23vh;
   display: flex;
@@ -127,7 +127,7 @@
   /* border: 1px solid blue; */
 }
 
-#my-edit-setting-outer-wrap {
+#setting_outer_wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -139,7 +139,7 @@
   border-radius: 20px;
 }
 
-.my-edit-info {
+.info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,7 +150,7 @@
   /* border: 1px solid red; */
 }
 
-#my-edit-title {
+#title {
   position: absolute;
   top: 1vh;
   width: 18vh;
@@ -161,7 +161,7 @@
   /* border: 1px solid purple; */
 }
 
-#my-edit-explain {
+#explain {
   position: absolute;
   top: 11vh;
   width: 20vh;
@@ -170,7 +170,7 @@
   /* border: 1px solid green; */
 }
 
-#my-edit-setting-inner-wrap {
+#setting_inner_wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -179,11 +179,11 @@
   /* border: 1px solid purple; */
 }
 
-.my-edit-text {
+.text {
   font-size: 17pt;
 }
 
-.my-edit-textarea {
+.textarea {
   height: 6vh;
   background: #dcdcdc;
   border: none;
@@ -193,7 +193,7 @@
   padding-top: 1vh;
 }
 
-.my-edit-buttons-2 {
+.buttons_2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -202,7 +202,7 @@
   /* border: 1px solid green; */
 }
 
-#my-edit-btn1 {
+#btn1 {
   width: 40vh;
   height: 5vh;
   background: #ffbf31;
@@ -213,7 +213,7 @@
   font-size: 14pt;
 }
 
-#my-edit-btn2 {
+#btn2 {
   width: 40vh;
   height: 5vh;
   background: #000;
@@ -224,7 +224,7 @@
   font-size: 14pt;
 }
 
-#my-edit-resign-btn {
+#resign_btn {
   background: transparent;
   font-size: 13pt;
   border: 0;

@@ -1,4 +1,4 @@
-import style from '../components/MySayingBox.module.css'
+import style from './MySayingBox.module.css'
 function MySayingBox(){
  return (
     <div className={style.box}>
