@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
         <Route path = '/postpostmodal' element={<PostPostModal/>}/>
-        <Route path = '/postsayingmodal' element={<PostSayModal/>}/>
+        <Route path = '/postsaymodal' element={<PostSayModal/>}/>
       </Routes>
       <div className={style.header_downside}>
         <Routes>

@@ -27,10 +27,10 @@
   border: 3px solid #FFBF31;
   border-radius:20px;
   background-image: url(../../images/sweat3.png);
-  width:43%;
-  padding-bottom: 43%;
+  width:50%;
+  padding-bottom: 50%;
   left:50%;
-  top:21.0%;
+  top:25.0%;
   transform: translate(-50%,-50%);
 }
 .contentbox{
@@ -48,10 +48,10 @@
   height: 8%;
   width:100%;
   left:50%;
-  top: 10%;
+  top: 20%;
   transform: translate(-50%,-50%);
 }
-.title{
+.category{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +65,7 @@
   height:100%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%)
 }
-.input{
+.title{
   background-color:#F5F5F5;
   color:#404040;
   font-size:15px;
@@ -80,12 +80,12 @@
 .writebox{
   position:absolute;
   width:80%;
-  height:63%;
+  height:50%;
   border-radius:10px;
   background-color:#F5F5F5;
   border:1px solid #ccc;
   left:50%;
-  top:18%;
+  top:30%;
   transform: translate(-50%,-0%);
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }

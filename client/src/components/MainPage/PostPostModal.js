@@ -1,16 +1,14 @@
-import './PostPostModal.module.css';
 import style from './PostPostModal.module.css';
 function PostPostModal(){
   return (
     <div className={style.container}>
       <div className={style.modalbox}>
         <div className={style.image}/>
-        <div className={style.category}/>
 
         <div className={style.contentbox}>
         <div className={style.titlebox}>
-          <div className={style.title}>건강</div>
-          <input type='text' className={style.input} placeholder={' 저질체력 탈출썰 푼다 ㅎㅎ'}/>
+          <div className={style.category}>건강</div>
+          <input type='text' className={style.title} placeholder={' 저질체력 탈출썰 푼다 ㅎㅎ'}/>
         </div>
         <input type='text' className={style.writebox}/>
 

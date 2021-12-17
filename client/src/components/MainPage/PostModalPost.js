@@ -28,13 +28,12 @@ import Modal from '../Modal';
 
 
 
-function PostModalSay(){
+function PostModalPost(){
     let [isOpen,setIsOpen] = useState(false);
     return(
       <Link className={style.link} to ='/postpostmodal'><div className = {style.post} onClick={()=> 
         {
         <PostPostModal/>
-        console.log('나 눌렸어!')
         }
       }>
        글 작성
@@ -42,7 +41,7 @@ function PostModalSay(){
       </Link>
     )
 }
-export default PostModalSay;
+export default PostModalPost;
 
 
 

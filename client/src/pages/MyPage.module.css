@@ -6,12 +6,11 @@
 
 #container {
   position: relative;
-  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   width: 100%;
   height: 97%;
-  /* border: 1px solid green; */
+  border: 3px solid grene;
 }
 
 #user_container {
@@ -123,10 +122,11 @@
 }
 
 #posts_container {
-  position: relative;
-  right: -23vh;
+  position: absolute;
+  left: 50vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 73%;
   height: auto;
   /* border: 1px solid blue; */
@@ -137,6 +137,7 @@
   height: 12vh;
   /* border: 1px solid red; */
 }
+
 #posts_board {
   position: relative;
   display: flex;
