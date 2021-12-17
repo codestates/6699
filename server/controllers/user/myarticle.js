@@ -13,7 +13,7 @@ module.exports = {
         where : { user_id: userInfo.id }
       });
       
-      if (filteredArticle.length === 0) return res.status(200).json({ message: 'No Article!' });
+      if(filteredArticle.length === 0) return res.status(200).json({ message: 'No Article!' });
       
       res.status(200).json({ data: { filteredArticle: filteredArticle }, message: 'My Article!' });
     } catch (err) {
