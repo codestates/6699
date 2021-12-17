@@ -9,7 +9,7 @@ function MyLike (){
         <div id={style.changing_area}>
         <div id={style.posts_wrap}>
 
-        <div id={style.next_to_toggle}>게시글</div>
+        <div id={style.next_to_toggle}>게시물</div>
         <div className = {style.saying_toggle} onClick={()=> {
       !isOpen
       ?setIsOpen(true)
