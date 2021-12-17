@@ -1,12 +1,13 @@
-import './PostModalSay.css';
+/*****done*****/
+import style from './PostModalSay.module.css';
 import React, { useState } from 'react';
 import PostSayModal from './PostSayModal';
-import Modal from './Modal';
+import Modal from '../Modal';
 
 function PostModalSay(){
     let [isOpen,setIsOpen] = useState(false);
     return(
-      <div className = 'post-modal-say' onClick={()=> {
+      <div className = {style.modal_say} onClick={()=> {
         !isOpen
         ?setIsOpen(true)
         :setIsOpen(false)

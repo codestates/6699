@@ -1,8 +1,8 @@
-import './PostModalPost.css';
+import style from  './PostModalPost.module.css';
 import React, { useState } from 'react';
 import PostPostModal from './PostPostModal';
 import {Link} from 'react-router-dom'
-import Modal from './Modal';
+import Modal from '../Modal';
 
 // function PostModalSay(){
 //     let [isOpen,setIsOpen] = useState(false);
@@ -31,7 +31,7 @@ import Modal from './Modal';
 function PostModalSay(){
     let [isOpen,setIsOpen] = useState(false);
     return(
-      <Link className='post-modal-post-link' to ='/postpostmodal'><div className = 'post-modal-post' onClick={()=> 
+      <Link className={style.link} to ='/postpostmodal'><div className = {style.post} onClick={()=> 
         {
         <PostPostModal/>
         console.log('나 눌렸어!')
