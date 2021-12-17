@@ -1,9 +1,9 @@
-#header-box {
+#box {
   opacity: 90%;
-  position:fixed;
-  top:0;
-  z-index:3;
-  background-color:white;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  background-color: white;
   display: flex;
   align-items: center;
   width: 100%;
@@ -12,9 +12,9 @@
   border: 1px solid #ccc;
 }
 
-#header-logo {
+#logo {
   opacity: 100%;
-  z-index:5;
+  z-index: 5;
   display: flex;
   background-image: url("../images/6699logo.png");
   background-size: 100% 100%;
@@ -24,17 +24,17 @@
   /*border: 1px solid red;*/
 }
 
-#header-search-box {
-  z-index:4;
+#search_box {
+  z-index: 4;
   opacity: 100%;
   display: flex;
   border: 0;
   flex: 2 1 auto;
 }
 
-.header-search {
-  align-self:center;
-  z-index:5;
+.search {
+  align-self: center;
+  z-index: 5;
   opacity: 100%;
   position: absolute;
   right: 110px;
@@ -44,8 +44,8 @@
   height: 25px;
 }
 
-#header-login-btn {
-  z-index:5;
+#login_btn {
+  z-index: 5;
   opacity: 100%;
   color: #fff;
   background: #ffbf31;

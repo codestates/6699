@@ -151,7 +151,7 @@
 #myposting_wrapper {
   width: 100vh;
   height: 80vh;
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 #saying_box_wrapper {
@@ -161,5 +161,5 @@
   top: 50%;
   width: 100vh;
   height: 70vh;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
