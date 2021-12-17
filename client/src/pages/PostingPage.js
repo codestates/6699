@@ -39,7 +39,7 @@ function PostingPage(){
       전부터 서핑해보고 싶었는데 살도 뺄겸 취미도 만들겸 도전해봄ㅋㅋ
       </div>
     </div>
-      <div id='posting-created-at'>0627</div>
+      <div id='posting-created-at'>21년06월27일</div>
 
     <div className='posting-comment-writting-container'>
     <div id='posting-writting-comment-border'>

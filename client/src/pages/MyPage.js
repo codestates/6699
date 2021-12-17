@@ -1,5 +1,6 @@
 import MyPageCategory from '../components/MyPageCategory.js';
-import {Link} from 'react-router-dom';
+import MyEditPage from './MyEditPage.js';
+import {Routes, Route, Link} from 'react-router-dom';
 import '../pages/MyPage.css'
 
 function MyPage(){
@@ -19,7 +20,10 @@ function MyPage(){
             </div>
         </div>
         <div className = 'mypage-buttons'>
-        <button id='mypage-profile-setting'>프로필 설정</button>
+            <Routes>
+                <Route path='/editpage' element={<MyEditPage/>}></Route>
+            </Routes>
+        <Link to ='/editpage'><button id='mypage-profile-setting'>프로필 설정</button></Link>
         <Link to ='/mainpage'><button id= 'mypage-logout'>로그아웃</button></Link>
         </div>
         </div>
