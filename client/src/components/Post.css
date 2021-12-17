@@ -31,15 +31,23 @@
 }
 .post-post-box-low-post{
   opacity:80%;
-  background-image: url('../images/sweat2.png');
+  display:flex;
+  width:24%;
+  padding-bottom:24%;
+}
+
+.post-page-box{
+  position: relative;
+}
+.post-post-link{
+  position: absolute;
+  background-image: url('../images/canttuna.png');
   background-size: cover;
   background-repeat: no-repeat;
-  display:flex;
   width:24%;
   padding-bottom:24%;
   border:2px solid #ccc;
   border-radius: 20px;
-}
-.post-page-box{
-  position: relative;
+  background-color: rgba(255,255,255,100%);
+  text-decoration: none;
 }
