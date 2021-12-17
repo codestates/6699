@@ -11,41 +11,36 @@ function Post(){
       <div className='post-post-box'>
         <div className='post-post-box-low'>
           <div className='post-post-box-low-post'>
-          <Link to='/postingpage'>
-            hello
-        </Link>
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
           <div className='post-post-box-low-post'>
-            
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
           <div className='post-post-box-low-post'>
-              
+            <Link className='post-post-link' to='/postingpage'/>     
           </div>
-          
         </div>
         <div className='post-post-box-low'>
           <div className='post-post-box-low-post'>
-
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
           <div className='post-post-box-low-post'>
-            
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
           <div className='post-post-box-low-post'>
-              
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
-          
         </div>
         <div className='post-post-box-low'>
           <div className='post-post-box-low-post'>
-
+            <Link className='post-post-link' to='/postingpage'/> 
           </div>
           <div className='post-post-box-low-post'>
-            
+            <Link className='post-post-link' to='/postingpage'/>
           </div>
           <div className='post-post-box-low-post'>
-              
+            <Link className='post-post-link' to='/postingpage'/> 
           </div>
-          
         </div>
       </div>
       <div className='post-page-box'>
