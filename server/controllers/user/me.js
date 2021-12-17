@@ -39,7 +39,7 @@ module.exports = {
         });
   
         // 이미 존재하는 username이면 요청 거절
-        if (usernameInfo) return res.status(403).json({ message: 'username is already existed' });
+        if (usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
       }
       // 요청 바디에 password가 있다면, password를 해싱한다
       
@@ -62,7 +62,11 @@ module.exports = {
       delete newUserInfo.dataValues.password;
       
       // 업데이트된 회원정보 반환
+<<<<<<< HEAD
       res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Update Success!' });
+=======
+      res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Updated Success!' });
+>>>>>>> 87cf845c6d0718b0b8a7e23546e756c1eec7655f
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
@@ -74,9 +78,9 @@ module.exports = {
       const { email, password } = req.body;
 
       // email, password 중 하나라도 전달이 되지 않은 경우, 다음을 응답한다
-      if(!email || !password) return res.status(400).json({ message: 'insufficient parameters supplied' });
+      if(!email || !password) return res.status(400).json({ message: 'Bad Request!' });
 
-      const userInfo = await users.findOne({ where: { email }});
+      const userInfo = await users.findOne({ where: { email: email }});
       // 만약 DB에 일치하는 유저 정보가 없다면, 다음을 응답한다
       if(!userInfo) {
         return res.status(403).json({ message: 'Invalid User!' });
@@ -100,7 +104,7 @@ module.exports = {
         sayings.destroy({ where: { user_id: userInfo.id } });  // 명언 삭제
 
         // 유저 삭제
-        users.destroy({ where: { email }}); // 유저 삭제
+        users.destroy({ where: { email: email }}); // 유저 삭제
         res.status(200).json({ message: 'Goodbye!' });
       }
     } catch (err) {

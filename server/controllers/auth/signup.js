@@ -8,11 +8,17 @@ module.exports = {
       if(!email || !password || !username ) return res.status(400).json({ message: 'Bad Request!' });
 
       // 만약 email 혹은 username이 이미 존재한다면, 다음을 응답한다
-      const isExistedEmail = await users.findOne({ where: { email: email }});
-      const isExistedUsername = await users.findOne({ where: { username: username }});
+      // 중요!!! sequelize op 사용해서 refactoring 필수!!!
+      const userEmailInfo = await users.findOne({ where: { email: email }});
+      const usernameInfo = await users.findOne({ where: { username: username }});
 
+<<<<<<< HEAD
       if(userEmailInfo) return res.status(403).json({ message: 'Email Is Already Existed' });
       else if(usernameInfo) return res.status(403).json({ message: 'Username Is Already Existed' });
+=======
+      if(userEmailInfo) return res.status(409).json({ message: 'Email Is Already Existed!' });
+      else if(usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
+>>>>>>> 87cf845c6d0718b0b8a7e23546e756c1eec7655f
       
       // 만약 신청한 email이 존재하지 않는다면, DB users 테이블에 유저 정보 추가한 후 다음을 응답한다
       else {
