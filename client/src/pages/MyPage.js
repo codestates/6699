@@ -44,8 +44,8 @@ function MyPage(){
         <div id={style.saying_box_wrapper}>
          {/* <MySaying/> */}
          </div>
-         {/* <MyComment/> */}
-         <MyLike/>
+         <MyComment/>
+         {/* <MyLike/> */}
         </div>
         </div>
 
