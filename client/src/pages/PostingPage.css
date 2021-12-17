@@ -86,7 +86,7 @@
 }
 
 #posting-title {
-  width: 30vh;
+  width: 46vh;
   height: 5vh;
   /* border: 1px solid pink; */
   font-size: 30px;
@@ -204,6 +204,7 @@
 }
 
 #posting-content {
+  position: absolute;
   width: 65vh;
   height: 20vh;
   border: 0;
@@ -211,14 +212,16 @@
 }
 
 #posting-created-at {
-  width: 5vh;
+  /*0627*/
+  width: 14vh;
   height: 3vh;
   text-align: center;
-  font-size: 14pt;
-  position: absolute;
-  top: 139vh;
-  right: 64vh;
-  /* border: 1px solid red; */
+  font-size: 13pt;
+  color: #7c7c7c;
+  position: relative;
+  top: -5.5vh;
+  left: 25vh;
+  border: 1px solid red;
 }
 
 .posting-comment-writting-container {
@@ -261,12 +264,13 @@
   /*게시하기*/
   width: 8vh;
   height: 3vh;
-  border: 0;
   background-color: transparent;
   position: relative;
-  top: 50px;
-  left: 280px;
+  top: 5vh;
+  left: 28vh;
+  color: #7c7c7c;
   font-size: 11pt;
+  border: 1px solid purple;
 }
 
 .posting-posted-comment-container {
@@ -307,10 +311,10 @@
 #posting-comment-user {
   /*뱃살대장보노*/
   position: relative;
-  top: 50px;
-  left: 240px;
+  top: 5vh;
+  left: 23vh;
   font-size: 11pt;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 }
 
 .posting-posted-comment-container2 {
@@ -334,12 +338,13 @@
 }
 
 #posting-comment-created-at {
-  width: 6vh;
+  /*30분전*/
+  width: 7vh;
   height: 3vh;
   position: relative;
-  top: 50px;
-  left: 230px;
-  /* border: 1px solid purple; */
+  top: 5vh;
+  left: 23vh;
+  border: 1px solid purple;
 }
 
 #posting-see-more-btn {
