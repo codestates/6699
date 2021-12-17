@@ -13,9 +13,9 @@ module.exports = {
         where : { user_id: userInfo.id }
       });
       
-      if (filteredArticle.length === 0) return res.status(200).json({ message: 'There are no article' });
+      if (filteredArticle.length === 0) return res.status(200).json({ message: 'No Article!' });
       
-      res.status(200).json({ filteredArticle });
+      res.status(200).json({ data: { filteredArticle: filteredArticle }, message: 'My Article!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

@@ -11,7 +11,7 @@ module.exports = {
       
       // 내가 쓴 댓글이 없다면 메시지 반환
       const filteredComment = await comments.findAll({ where: { user_id: userInfo.id } });
-      if (filteredComment.length === 0) return res.status(200).json({ message: 'There are no comment' });
+      if (filteredComment.length === 0) return res.status(200).json({ message: 'No Article' });
 
       // 내 게시물 배열 안에 Comments 남긴 게시글들을 쌓는다
       let myArticle = [];
@@ -21,7 +21,7 @@ module.exports = {
       // 배열 내부 중복값 제거
       const uniqeMyArticle = Array.from(new Set(myArticle));
 
-      res.status(200).json({ uniqeMyArticle });
+      res.status(200).json({ data: { filteredArticle: uniqeMyArticle }, message: 'My Article' });
     } catch (err) {
       console.log(err);
       return res.status(500).send('Error!');
