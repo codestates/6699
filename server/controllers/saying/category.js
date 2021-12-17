@@ -1,5 +1,5 @@
 const { sayings } = require('../../models');
-const categoryList = ['건강', '학습', '경제', '인간관계', '사랑'];
+const categoryList = ['건강', '학습', '경제', '인간관계', '사랑']
 
 module.exports = {
   get: async (req, res) => {
@@ -8,9 +8,9 @@ module.exports = {
       // 특정 카테고리 명언 조회 (카테고리가 전달된 경우)
       if(category) {
         // 양식에 맞지 않은 카테고리가 전달된 경우, 다음을 응답한다
-        if(categoryList.indexOf(category) === -1) return res.status(400).json({ message: 'wrong category' });
+        if(categoryList.indexOf(category) === -1) return res.status(400).json({ message: 'wrong category' })
         // 전달받은 카테고리와 일치하는 모든 명언을 찾는다
-        const filteredSaying = await sayings.findAll({ where: { category }});
+        const filteredSaying = await sayings.findAll( { where: { category }});
         res.status(200).json({ filteredSaying });
       } 
       // 명언 전체 조회
@@ -32,7 +32,6 @@ module.exports = {
        // 양식에 맞지 않은 카테고리가 전달된 경우, 다음을 응답한다
       if(categoryList.indexOf(category) === -1) return res.status(400).json({ message: 'wrong category' })
       // 유저가 같은 명언(content, category 동일)을 작성했는지 확인한다
-      // 중요! 동일 유저가 같은 명언을 작성해도 상관없다... 수정이 필요하다
       const isRepeated = await sayings.findOne({ where: { content, category, user_id }});
       // 유저가 같은 명언을 작성한 경우, 다음을 응답한다
       if(isRepeated) return res.status(400).json({ message: 'saying is already posted!' });
