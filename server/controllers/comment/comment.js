@@ -14,7 +14,7 @@ module.exports = {
       const { articleId } = req.params;
 
       // articleId, content가 없을때 error return 
-      // if() return res.status(400).json({ message: 'Bad Request!' })
+      if(!articleId || !content) return res.status(400).json({ message: 'Bad Request!' })
       const userInfo = await users.findOne({ where: { email: email } });
       const articleInfo = await articles.findOne({ where: { id: Number(articleId) }});
 
@@ -46,7 +46,7 @@ module.exports = {
       const commentInfo = await comments.findOne({ where: { id: Number(commentId) } });
 
       // 타인이 작성한 댓글 수정 불가
-      if( commentInfo.user_id !== userInfo.id ) return res.status(401).json({ message: 'Not Authroized!' });
+      if(commentInfo.user_id !== userInfo.id) return res.status(401).json({ message: 'Not Authroized!' });
 
       // 댓글 수정 & 메시지 반환
       await commentInfo.update({ content });
@@ -68,15 +68,27 @@ module.exports = {
       const articleInfo = await articles.findOne({ where: { id: Number(articleId) } });
       const commentInfo = await comments.findOne({ where: { id: Number(commentId) } });
 
-      // 타인이 작성한 댓글 삭제 불가
-      if( commentInfo.user_id !== userInfo.id ) return res.status(401).json({ message: 'Not Authroized!' });
-
-      // article의 total_comment - 1
-      let minusTotalComment = articleInfo.total_comment - 1;
-      await articleInfo.update({ total_comment: minusTotalComment });
-      // 댓글 삭제 & 메시지 반환
-      comments.destroy({ where: { id: Number(commentId) } });  // 댓글 삭제
-      res.status(200).json({ message: 'Delete Comment!' });
+      const role = userInfo.role  
+      // 관리자일 경우, 다음을 실행한다
+      if(role === 1) {
+        // article의 total_comment - 1
+        let minusTotalComment = articleInfo.total_comment - 1;
+        await articleInfo.update({ total_comment: minusTotalComment });
+        // 댓글 삭제 & 메시지 반환
+        comments.destroy({ where: { id: Number(commentId) } });  // 댓글 삭제
+        res.status(200).json({ message: 'Delete Comment!' });
+      }
+      // 일반 유저일 경우, 다음을 실행한다
+      else {
+        // 타인이 작성한 댓글 삭제 불가
+        if(commentInfo.user_id !== userInfo.id) return res.status(401).json({ message: 'Not Authroized!' });
+        // article의 total_comment - 1
+        let minusTotalComment = articleInfo.total_comment - 1;
+        await articleInfo.update({ total_comment: minusTotalComment });
+        // 댓글 삭제 & 메시지 반환
+        comments.destroy({ where: { id: Number(commentId) } });  // 댓글 삭제
+        res.status(200).json({ message: 'Delete Comment!' });
+      }
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

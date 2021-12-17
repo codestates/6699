@@ -10,13 +10,15 @@ module.exports = {
         // 양식에 맞지 않은 카테고리가 전달된 경우, 다음을 응답한다
         if(categoryList.indexOf(category) === -1) return res.status(400).json({ message: 'Bad Request!' });
         // 전달받은 카테고리와 일치하는 모든 명언을 찾는다
-        const filteredSaying = await sayings.findAll( { where: { category: category }, order: [['total_like', 'DESC']] });
+        const filteredSaying = await sayings.findAll({ 
+          where: { category: category }, order: [['total_like', 'DESC'], ['updatedAt', 'DESC']] 
+        });
         res.status(200).json({ data: { filteredSaying: filteredSaying }, message: `${category} 카테고리 좋아요순!` });
       } 
       // 명언 전체 조회
       else {
         // 모든 명언을 찾는다
-        const allSaying = await sayings.findAll({ order: [['total_like', 'DESC']] });
+        const allSaying = await sayings.findAll({ order: [['total_like', 'DESC'], ['updatedAt', 'DESC']] });
         res.status(200).json({ data: { allSaying: allSaying }, message: '전체 명언 좋아요순!' });
       }
     } catch (err) {
