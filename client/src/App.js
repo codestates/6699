@@ -9,13 +9,18 @@ import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
 import Footer from '../src/components/Footer';
-import MyEditPage from '../src/pages/MyEditPage'
+import MyEditPage from '../src/pages/MyEditPage';
+import PostPostModal from '../src/components/PostPostModal';
+import PostSayModal from '../src/components/PostSayModal';
+
 function App() {
   return (
     <div className='container'>
       <Header />
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
+        <Route path = '/postpostmodal' element={<PostPostModal/>}/>
+        <Route path = '/postsayingmodal' element={<PostSayModal/>}/>
       </Routes>
       <div className='header-downside'>
         <Routes>
