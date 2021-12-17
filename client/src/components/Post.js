@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 function Post(){
   return (
     <div className='post-container'>
-
       <div className='post-like-box'>
         <div className='post-like-toggle' />
         <div className='post-like-word'></div>

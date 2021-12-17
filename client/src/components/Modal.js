@@ -1,5 +1,5 @@
 import React, {  useEffect, useRef } from 'react';
-const Modal =({isOpenModal, setIsOpenModal, children})=> {
+const Modal =({isOpen, setIsOpen, children})=> {
   const wrapperRef = useRef();
   useEffect(()=>{
     document.addEventListener('mousedown', handleClickOutside);
@@ -11,16 +11,15 @@ const Modal =({isOpenModal, setIsOpenModal, children})=> {
   })
   const handleClickOutside=(event)=>{
     if (wrapperRef && !wrapperRef.current.contains(event.target)) {
-      setIsOpenModal(false);
+      setIsOpen(false);
     }
     else {
-      setIsOpenModal(true);
+      setIsOpen(true);
     }
   }
  
-    return (<div ref={wrapperRef} value={isOpenModal} className="modal">
+    return (<div ref={wrapperRef} value={isOpen} className="modal">
       {children}
-
     </div>);
   
 }

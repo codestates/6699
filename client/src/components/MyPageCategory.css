@@ -1,19 +1,19 @@
 .my-category-container {
   display: flex;
-  width: 80%;
-  height: 13vh;
+  width: 100%;
+  height: 11vh;
   position: absolute;
   top: 6%;
-  left: 59%;
+  right: -71vh;
   transform: translate(-50%, -50%);
-  border: 0;
+  /* border: 1px solid red; */
 }
 .my-category-bar {
   font-size: 25px;
   color: rgb(20, 20, 20);
   font-weight: bold;
   display: flex;
-  width: 80%;
+  width: 100%;
   height: 10vh;
   position: absolute;
   top: 50%;
@@ -41,6 +41,12 @@
   width: 25%;
   height: 100%;
 }
+
+.my-category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .my-category-comment {
   display: flex;
   justify-content: center;

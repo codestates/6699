@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vh;
+  height: 70vh;
+  /* border: 1px solid orange; */
+}
+
+.pagenation_wrapper {
+  width: 12vh;
+  height: 5vh;
+  /* border: 1px solid blue; */
+}

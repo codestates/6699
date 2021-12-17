@@ -1,0 +1,32 @@
+.main-saying-modal-box{
+    color:#404040;
+    z-index:9999;
+    font-size:20px;
+    font-weight:bold;
+    display: flex;
+    flex-wrap:wrap;
+    background-color: white;
+    border-radius:10px;
+    width: 150px;
+    height:100px;
+    z-index: 3;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,25%);
+    transform: translate(9%,-15%);
+  }
+  .main-saying-modal-post{
+    z-index:9999;
+    display: flex;
+    width:100%;
+    height:50%;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-saying-modal-say{
+    z-index:9999;
+    display: flex;
+    width:100%;
+    height:50%;
+    align-items: center;
+    justify-content: center;
+  }
