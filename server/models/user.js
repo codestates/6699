@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.BLOB,
     introduction: DataTypes.STRING,
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
+    role: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'users',
