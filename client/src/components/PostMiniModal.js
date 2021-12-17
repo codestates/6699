@@ -1,10 +1,12 @@
 import './PostMiniModal.css'
+import PostModalPost from './PostModalPost';
+import PostModalSay from './PostModalSay';
 function PostMiniModal(){
   return(
     <div>
       <div className='modal-box'>
-        <div className='modal-post'>게시글 작성</div>
-        <div className='modal-say'>명언 작성</div>
+        <div className='modal-post'><PostModalPost/></div>
+        <div className='modal-say'><PostModalSay/></div>
       </div>
     </div>         
   )

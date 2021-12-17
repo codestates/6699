@@ -21,6 +21,11 @@
     transform: translate(-50%,-50%);
   }
   .main-saying-sub-box{
+   display:flex;
+   margin-top: 3%;
+   margin-left:3%;
+   flex-wrap:wrap;
+   position:absolute;
    width:300px;
    height:150px;
    opacity:70%;
@@ -35,26 +40,25 @@
     height: 30px;
     position: absolute;
     text-align:left;
-    top: 6%;
-    left:8%;
-    transform: translate(-50%,-50%);
+    
   }
   .main-saying-likenew-toggle{
-    width:15px; height:15px;
-    background-image: url("../../src/images/Polygon.png");
-    background-size:100% 100%;
-    position:absolute;
-    top: 12%;
-    left: 3.5%;
-    transform: translate(-50%,-50%);
+    float:left;
+    align-self: center;
+    justify-content: center;
+    margin-left:0%;
+    margin-top:-16%;
+    width:25px; height:25px;
+
   }
   .main-saying-likenew{
-    width: 150px;
+    position:absolute;
+    display: flex;
+    margin-top:10.5%;
+    margin-left:9%;
+    z-index: 0;
+    width: 80px;
     text-align:left;
-    position: absolute;
-    top: 12%;
-    left:10%;
-    transform: translate(-50%,-50%);
   }
   .main-saying-box{
     display:flex;
