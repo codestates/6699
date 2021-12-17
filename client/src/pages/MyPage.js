@@ -1,54 +1,50 @@
 import MyPageCategory from '../components/MyPageCategory.js';
 import MyEditPage from './MyEditPage.js';
 import {Routes, Route, Link} from 'react-router-dom';
-import '../pages/MyPage.css'
+import MyPosting from '../components/MyPosting'
+import MySaying from '../components/MySaying'
+import style from '../pages/MyPage.module.css'
 
 function MyPage(){
     return (
-        <div id='mypage-container'>
-
-        <div id='mypage-user-container'>
-        <div id='mypage-user-profile-wrapper'>
-        <div id='mypage-user-mini-wrapper'>
-        <div id='mypage-profile-image'></div>
-        <div id='mypage-user-name'>꼬부기</div>
+        <div id={style.container}>
+            {/*왼쪽 사용자 영역*/}
+        <div id={style.user_container}>
+        <div id={style.user_profile_wrapper}>
+        <div id={style.user_mini_wrapper}>
+        <div id={style.profile_image}></div>
+        <div id={style.user_name}>꼬부기</div>
         </div>
         </div>
-        <div id='mypage-message-wrapper'>
-            <div id='mypage-message'>
+        <div id={style.message_wrapper}>
+            <div id={style.message}>
             평생 다이어트중
             </div>
         </div>
-        <div className = 'mypage-buttons'>
+        <div className = {style.buttons}>
             <Routes>
                 <Route path='/editpage' element={<MyEditPage/>}></Route>
             </Routes>
-        <Link to ='/editpage'><button id='mypage-profile-setting'>프로필 설정</button></Link>
-        <Link to ='/mainpage'><button id= 'mypage-logout'>로그아웃</button></Link>
+        <Link to ='/editpage'><button id={style.profile_setting}>프로필 설정</button></Link>
+        <Link to ='/mainpage'><button id= {style.logout}>로그아웃</button></Link>
         </div>
         </div>
-        <div id='mypage-posts-container'>
-        <div id='mypage-category-wrapper'>
+         {/*오른쪽 카테고리영역*/}
+        <div id={style.posts_container}>
+        <div id={style.category_wrapper}>
         <MyPageCategory/>
         </div>
-        <div id='mypage-posts-outer-wrap'>
-        <div id='mypage-posts-inner-wrap'>
-        <div className = 'mypage-posts'>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
-        </div>
-        <div className='mypage-posts'>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
-        <div id='mypage-post'></div>
+
+        <div id={style.posts_board}>
+        <div id={style.myposting_wrapper}>
+        {/*라우팅 연결전까지 여기 주석 지우지마세용 */}
+        {/* <MyPosting/> 나의 게시물  */}
+        <div id={style.saying_box_wrapper}>
+         <MySaying/>
+         </div>
         </div>
         </div>
-        <div className = 'mypage-page-buttons'>
-        <button id='mypage-pagenation'>1</button>
-        <button id='mypage-pagenation-2'>2</button>
-        </div>
-        </div>
+
         </div>
         </div>
     )
