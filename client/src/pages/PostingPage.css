@@ -221,7 +221,7 @@
   position: relative;
   top: -5.5vh;
   left: 25vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .posting-comment-writting-container {
@@ -270,7 +270,7 @@
   left: 28vh;
   color: #7c7c7c;
   font-size: 11pt;
-  border: 1px solid purple;
+  border: 0;
 }
 
 .posting-posted-comment-container {
@@ -344,7 +344,7 @@
   position: relative;
   top: 5vh;
   left: 23vh;
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
 }
 
 #posting-see-more-btn {
