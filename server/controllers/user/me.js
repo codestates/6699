@@ -62,11 +62,7 @@ module.exports = {
       delete newUserInfo.dataValues.password;
       
       // 업데이트된 회원정보 반환
-<<<<<<< HEAD
-      res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Update Success!' });
-=======
       res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Updated Success!' });
->>>>>>> 87cf845c6d0718b0b8a7e23546e756c1eec7655f
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
