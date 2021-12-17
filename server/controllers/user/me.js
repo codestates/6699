@@ -16,7 +16,7 @@ module.exports = {
       delete userInfo.dataValues.password;
 
       // 회원정보 반환
-      res.status(200).json({ userInfo });
+      res.status(200).json({ data: { userInfo: userInfo }, message: 'Welcome Mypage!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
@@ -62,7 +62,7 @@ module.exports = {
       delete newUserInfo.dataValues.password;
       
       // 업데이트된 회원정보 반환
-      res.status(200).json({ userInfo: newUserInfo });
+      res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Update Success!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }
