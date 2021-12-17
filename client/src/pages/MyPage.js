@@ -38,9 +38,9 @@ function MyPage(){
         <div id={style.posts_board}>
         <div id={style.myposting_wrapper}>
         {/*라우팅 연결전까지 여기 주석 지우지마세용 */}
-        {/* <MyPosting/> 나의 게시물  */}
+        <MyPosting/> 나의 게시물 
         <div id={style.saying_box_wrapper}>
-         <MySaying/>
+         {/* <MySaying/> */}
          </div>
         </div>
         </div>
