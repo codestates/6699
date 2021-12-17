@@ -11,7 +11,8 @@ module.exports = {
       image: '',
       introduction: '',
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      role: 1
     }
   ])
   },
