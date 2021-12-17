@@ -1,0 +1,165 @@
+* {
+  display: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 97%;
+  /* border: 1px solid green; */
+}
+
+#user_container {
+  position: absolute;
+  left: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 45vh;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#user_profile_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vh;
+  height: 35vh;
+  /* border: 1px solid blue; */
+}
+
+#user_mini_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 35vh;
+  height: 35vh;
+  position: absolute;
+  /* border: 1px solid green; */
+}
+
+#profile_image {
+  position: absolute;
+  top: 2vh;
+  flex: none;
+  align-self: center;
+  border-radius: 100%;
+  border: 3px solid #ffbf31;
+  width: 235px;
+  height: 235px;
+  background-image: url("../images/Kkobugi.png");
+  background-size: 100% 100%;
+}
+
+#user_name {
+  position: absolute;
+  bottom: 3vh;
+  align-self: center;
+  width: 16vh;
+  height: 3vh;
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2vh;
+  border: 0;
+}
+
+#message_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vh;
+  height: 30vh;
+  background: #dcdcdc;
+  border-radius: 20px;
+}
+
+#message {
+  width: 35vh;
+  height: 25vh;
+  font-size: 14pt;
+  /* border: 1px solid red; */
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 40vh;
+  height: 13vh;
+  /* border: 1px solid blue; */
+}
+
+#profile_setting {
+  width: 40vh;
+  height: 5vh;
+  background: #000;
+  border: 0;
+  color: #fff;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+#logout {
+  width: 40vh;
+  height: 5vh;
+  background: #000;
+  border: 0;
+  color: #fff;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+#posts_container {
+  position: relative;
+  right: -23vh;
+  display: flex;
+  flex-direction: column;
+  width: 73%;
+  height: auto;
+  /* border: 1px solid blue; */
+}
+
+#category_wrapper {
+  width: 100%;
+  height: 12vh;
+  /* border: 1px solid red; */
+}
+#posts_board {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#myposting_wrapper {
+  width: 100vh;
+  height: 80vh;
+  border: 1px solid green;
+}
+
+#saying_box_wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 100vh;
+  height: 70vh;
+  /* border: 1px solid green; */
+}

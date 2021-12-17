@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  position: absolute;
+  bottom: 0;
+  background: #ccc;
+  width: 100%;
+  height: 40vh;
+}
+
+#logo_wrapper {
+  position: absolute;
+  left: 50px;
+  border: 0;
+  width: 30vh;
+  height: 25vh;
+}
+
+#six_nine_logo {
+  background-image: url("../images/FooterLogo.png");
+  background-size: 100% 100%;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.team_members {
+  display: flex;
+  position: relative;
+  align-self: center;
+  width: 110vh;
+  height: 18vh;
+  border: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  top: 55px;
+}
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 7vh;
+  position: absolute;
+  top: 100px;
+  border: 0;
+}
+
+.profile {
+  text-align: center;
+  width: 20vh;
+  height: 8vh;
+  float: left;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.github_logos {
+  display: flex;
+  justify-content: space-around;
+  width: 110vh;
+  height: 8vh;
+  border: 0;
+  margin-top: 25px;
+}
+
+.github_logo {
+  background-image: url("../images/gitHubIcon.png");
+  background-size: 100% 100%;
+  width: 7vh;
+  height: 7vh;
+}
+
+.badges {
+  position: absolute;
+  justify-content: space-between;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+  bottom: 45px;
+  width: 17vh;
+  height: 6vh;
+  border: 0;
+  margin-bottom: -2vh;
+}
+
+#youtube_logo {
+  background-image: url("../images/YoutubeBadge.png");
+  background-size: 100% 100%;
+  width: 6vh;
+  height: 6vh;
+}
+
+#github_logo {
+  opacity: 88%;
+  background-image: url("../images/GitHubBadge.png");
+  background-size: 100% 100%;
+  width: 6vh;
+  height: 6vh;
+  opacity: 88%;
+}
+
+#copyright {
+  position: absolute;
+  bottom: 0px;
+  height: 30px;
+  width: 30vh;
+  color: #fff;
+  margin-left: 20px;
+}
