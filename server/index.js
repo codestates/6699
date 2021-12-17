@@ -20,9 +20,9 @@ app.use(
 );
 
 // Routing
-app.use('/', router.indexRouter);
+app.use('/', router.sayingRouter);
+app.use('/auth', router.authRouter);
 app.use('/user', router.userRouter);
-app.use('/saying', router.sayingRouter);
 app.use('/ranking', router.rankingRouter);
 
 // Running
