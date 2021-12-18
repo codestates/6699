@@ -153,7 +153,8 @@
 #title {
   position: absolute;
   top: 1vh;
-  width: 18vh;
+  width: 20vh;
+  text-align: center;
   height: 6.5vh;
   color: #ffbf31;
   font-size: 30pt;
@@ -164,8 +165,9 @@
 #explain {
   position: absolute;
   top: 11vh;
-  width: 20vh;
+  width: 22vh;
   height: 3vh;
+  text-align: center;
   font-size: 14pt;
   /* border: 1px solid green; */
 }

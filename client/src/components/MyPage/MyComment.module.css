@@ -1,7 +1,31 @@
-.box {
-  position: relative;
-  width: 90vh;
+#container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100vh;
+  height: 80vh;
+  /* border: 1px solid red; */
+}
+
+.box_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
   height: 10vh;
-  border: 1px solid rgb(153, 148, 148);
-  border-radius: 10px;
+  /* border: 1px solid orange; */
+}
+
+.outer_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
+  height: 5vh;
+  /* border: 1px solid yellowgreen; */
+}
+
+#pagenation_wrapper {
+  width: 13vh;
+  height: 5vh;
+  /* border: 1px solid blue; */
 }
