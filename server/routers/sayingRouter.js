@@ -15,10 +15,11 @@ router.post('/:sayingId/like', saying.like.post);
 router.delete('/:sayingId/like', saying.like.delete);
 
 // Create, Select, Edit, Delete Article
+router.get('/:sayingId/article', article.article.get);
 router.post('/:sayingId/article', article.article.post);
-router.get('/:sayingId/article/:articleId', article.article.get);
-router.patch('/:sayingId/article/:articleId', article.article.patch);
-router.delete('/:sayingId/article/:articleId', article.article.delete);
+router.get('/:sayingId/article/:articleId', article.articleId.get);
+router.patch('/:sayingId/article/:articleId', article.articleId.patch);
+router.delete('/:sayingId/article/:articleId', article.articleId.delete);
 
 // Article Like
 router.get('/:sayingId/article/:articleId/like', article.like.get);
@@ -26,6 +27,7 @@ router.post('/:sayingId/article/:articleId/like', article.like.post);
 router.delete('/:sayingId/article/:articleId/like', article.like.delete);
 
 // Create, Edit, Delete Comment
+router.get('/:sayingId/article/:articleId/comment', comment.comment.get);
 router.post('/:sayingId/article/:articleId/comment', comment.comment.post);
 router.patch('/:sayingId/article/:articleId/comment/:commentId', comment.comment.patch);
 router.delete('/:sayingId/article/:articleId/comment/:commentId', comment.comment.delete);

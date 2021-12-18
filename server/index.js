@@ -20,10 +20,10 @@ app.use(
 );
 
 // Routing
-app.use('/', router.sayingRouter);
 app.use('/auth', router.authRouter);
 app.use('/user', router.userRouter);
 app.use('/ranking', router.rankingRouter);
+app.use('/', router.sayingRouter);
 
 // Running
 const server = app.listen(port, () => console.log(`${port} port http server runnning`));
