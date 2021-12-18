@@ -26,13 +26,13 @@
 
 #set_title_middle_box {
   position: absolute;
-  left: 10vh;
+  /* left: 10vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80vh;
+  width: 90vh;
   height: 10vh;
-  border: 0;
+  /* border: 1px solid blue; */
 }
 
 .title {
