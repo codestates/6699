@@ -8,7 +8,7 @@ import Modal from '../Modal';
 function PostModalSay(){
   let [isOpen,setIsOpen] = useState(false);
   return(
-    <Link className={style.link} to ='/postsaymodal'><div className = {style.post} onClick={()=> 
+    <Link className={style.link} to ='/mainpage/postsaymodal'><div className = {style.post} onClick={()=> 
       {
       <PostSayModal/>
       }

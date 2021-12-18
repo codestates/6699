@@ -31,7 +31,7 @@ import Modal from '../Modal';
 function PostModalPost(){
     let [isOpen,setIsOpen] = useState(false);
     return(
-      <Link className={style.link} to ='/postpostmodal'><div className = {style.post} onClick={()=> 
+      <Link className={style.link} to ='/mainpage/postpostmodal'><div className = {style.post} onClick={()=> 
         {
         <PostPostModal/>
         }

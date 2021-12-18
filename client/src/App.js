@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 import Header from '../src/components/Header';
 import LandingPage from '../src/pages/LandingPage';
+import CurrentPage from '../src/components/LandingPage/Saying';
 import MyPage from '../src/pages/MyPage';
 import MainPage from '../src/pages/MainPage';
 import RankingPage from '../src/pages/RankingPage';
@@ -19,13 +20,13 @@ function App() {
       <Header />
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
-        <Route path = '/postpostmodal' element={<PostPostModal/>}/>
-        <Route path = '/postsaymodal' element={<PostSayModal/>}/>
+        <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>
+        <Route path = '/mainpage/postsaymodal' element={<PostSayModal/>}/>
       </Routes>
       <div className={style.header_downside}>
         <Routes>
-          <Route exact path='/' element={<LandingPage/>}/>
-          <Route path='/mainpage' element={<MainPage/>}/>
+          <Route path='/' element={<LandingPage/>}/>
+          <Route path='/mainpage/*' element={<MainPage/>}/>
           <Route path='/mypage' element={<MyPage/>}/>
           <Route path='/editpage' element={<MyEditPage/>}/>
           <Route path='/rankingpage' element={<RankingPage/>}/>

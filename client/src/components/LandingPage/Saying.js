@@ -1,13 +1,25 @@
-import React from 'react'
 import style from './Saying.module.css';
-
+import React, { useState }from 'react';
 function Saying(){
+  let [curPage,setPage] = useState(1);
+      {/* {props.setPage(curPage+1)} */}
  return (
   <div className={style.container}>
      {/* Jumbotron Zone */}
     <div className={style.jumbotron}>
-      <div className={style.left_arrow}/>
-      <div className={style.right_arrow}/>
+      <div className={style.left_arrow} onClick={()=>{ console.log(curPage)
+      return(
+        curPage > 1
+        ?setPage(curPage-1)
+        :null
+      )
+      }}/>
+      <div className={style.right_arrow} onClick={()=> {console.log(curPage)
+        return( 
+        curPage < 5
+        ?setPage(curPage+1)
+        :null
+      )}}/>
       <div className={style.left_66}/>
       <div className={style.right_99}/>
 
