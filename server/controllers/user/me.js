@@ -64,6 +64,7 @@ module.exports = {
       // 업데이트된 회원정보 반환
       res.status(200).json({ data: { userInfo: newUserInfo }, message: 'Updated Success!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   },

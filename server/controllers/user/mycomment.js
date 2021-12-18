@@ -6,8 +6,8 @@ module.exports = {
     try {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
-      const { email } = req.body;
-      const userInfo = await users.findOne({ where: { email: email }});
+      const { user_id } = req.body;
+      const userInfo = await users.findOne({ where: { id: user_id }});
       
       // 내가 쓴 댓글이 없다면 메시지 반환
       const filteredComment = await comments.findAll({ where: { user_id: userInfo.id } });
@@ -18,12 +18,22 @@ module.exports = {
       for(let comment of filteredComment) {
         myArticle.push( await articles.findOne({ where : { id: comment.article_id } }) );
       }
-      // 배열 내부 중복값 제거
-      const uniqeMyArticle = Array.from(new Set(myArticle));
+      
+      // 배열 내부 중복값 제거 => 코드 refactoring이 필요함!
+      const uniqueMyArticle = []
+      for(let i = 0; i < myArticle.length; i++) {
+        if(i === 0) uniqueMyArticle.push(myArticle[i])
+        else {
+          for(let j = 0; j < uniqueMyArticle.length; j++) {
+            if(myArticle[i].id === uniqueMyArticle[j].id) break;
+            else if(j === uniqueMyArticle.length - 1) uniqueMyArticle.push(myArticle[i])
+          }
+        }
+      }
 
-      res.status(200).json({ data: { filteredArticle: uniqeMyArticle }, message: 'My Article' });
+      res.status(200).json({ data: { filteredArticle: uniqueMyArticle }, message: 'My Article' });
     } catch (err) {
-      return res.status(500).send('Error!');
+      return res.status(500).send('Server Error!');
     }
   }
 };
