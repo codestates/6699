@@ -8,7 +8,7 @@
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
-    width:1430px;
+    width:1290px;
     height:650px;
   }
   .medal{
@@ -43,24 +43,7 @@
     text-align:left;
     
   }
-  .likenew_toggle{
-    float:left;
-    align-self: center;
-    justify-content: center;
-    margin-left:0%;
-    margin-top:-16%;
-    width:25px; height:25px;
 
-  }
-  .likenew{
-    position:absolute;
-    display: flex;
-    margin-top:10.5%;
-    margin-left:9%;
-    z-index: 0;
-    width: 80px;
-    text-align:left;
-  }
   .saying_box{
     display:flex;
   }

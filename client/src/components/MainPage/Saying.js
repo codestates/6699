@@ -1,8 +1,9 @@
 import React from 'react'
 import style from './Saying.module.css';
+
 function Saying(){
  return (
-  <div>
+  <div className={style.container}>
      {/* Jumbotron Zone */}
     <div className={style.jumbotron}>
       <div className={style.left_arrow}/>

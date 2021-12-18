@@ -1,7 +1,7 @@
 /*****done*****/
 import style from './MainPageSaying.module.css'
 import {Link} from 'react-router-dom';
-import MainPageSayingToggle from './MainPageSayingToggle';
+
 function MainPageSaying(){
   return (
     <div className={style.jumbotron}>
@@ -11,10 +11,6 @@ function MainPageSaying(){
          <Link to='/mainpageplusbutton'></Link>
          <Link className={style.link} to ='/rankingpage'>모든 명언 보기</Link>
 
-      <div className={style.likenew_toggle}>
-         <MainPageSayingToggle/>
-      </div>
-      <div className={style.likenew}>좋아요순</div>
       <div className={style.scroll_box}/>
     </div>
 
