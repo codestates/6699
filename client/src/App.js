@@ -14,6 +14,8 @@ import MyEditPage from '../src/pages/MyEditPage';
 import PostPostModal from './components/MainPage/PostPostModal';
 import PostSayModal from './components/MainPage/PostSayModal';
 
+
+
 function App() {
   return (
     <div className={style.container}>

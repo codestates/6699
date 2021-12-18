@@ -3,13 +3,12 @@ import Saying from '../components/LandingPage/Saying';
 import React, { useState } from 'react';
 import style from './LandingPage.module.css'
 import {Link} from 'react-router-dom';
-function LandingPage(){
-    let [curPage,setPage] = useState(1);
-    return(
 
+function LandingPage(){
+    return(
+      
     <div className={style.container}>
       <Saying/>
-      {/* <Saying setPage={setPage} curPage={curPage}/> */}
       {/* Example Zone */}
       <div className={style.example1}>
         <div className={style.ex1_image}/>
@@ -57,6 +56,8 @@ function LandingPage(){
       <div className={style.big_99}/>
     </div>
     </div>
+    
     )
+
 }
 export default LandingPage;

@@ -5,6 +5,11 @@
     width: 100%;
     height:4000px;
   }
+  .img{
+    display:flex;
+    width:100%;
+    height:30%;
+  }
   .jumbotron{
     justify-content:center;
     background-image: url("../../images/category_health.png");
@@ -83,8 +88,8 @@
     transform: translate(-50%,-50%);
   }
   .bid1{
-    width:20px;
-    height:20px;
+    width:200px;
+    height:200px;
     background-color:#FFBF31;
     position: absolute;
     left: 20%;

@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
+
+import { Provider } from 'react-redux';
+import store from './store/Store';
+
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <Router>
     <ScrollToTop/>
     <App />
     </Router>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
