@@ -31,9 +31,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vh;
-  height: 35vh;
-  border: 1px solid blue;
+  width: 45vh;
+  height: 45vh;
+  /* border: 1px solid blue; */
 }
 
 #user_mini_wrapper {
@@ -41,30 +41,30 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 35vh;
-  height: 35vh;
-  border: 1px solid green;
+  width: 42vh;
+  height: 42vh;
+  /* border: 1px solid green; */
 }
 
 #profile_image {
-  /* flex: none;
-  align-self: center; */
   border-radius: 100%;
   border: 3px solid #ffbf31;
-  width: 235px;
-  height: 235px;
+  width: 25vh;
+  height: 25vh;
+  padding-bottom: 25vh;
   background-image: url("../images/Kkobugi.png");
   background-size: 100% 100%;
 }
 
 #user_name {
-  /* align-self: center; */
-  width: 16vh;
-  height: 5vh;
-  font-size: 20pt;
+  /*꼬부기*/
+  width: 25%;
+  height: 5%;
+  padding-bottom: 25%;
+  font-size: 18pt;
   font-weight: bold;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #message_wrapper {
@@ -72,16 +72,16 @@
   justify-content: center;
   align-items: center;
   width: 40vh;
-  height: 30vh;
+  height: 20vh;
   background: #dcdcdc;
   border-radius: 20px;
 }
 
 #message {
   width: 35vh;
-  height: 25vh;
+  height: 15vh;
   font-size: 14pt;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .buttons {
   display: flex;
@@ -146,7 +146,7 @@
 #myposting_wrapper {
   width: 100vh;
   height: 80vh;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 #saying_box_wrapper {

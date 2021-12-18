@@ -31,44 +31,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vh;
-  height: 35vh;
+  width: 45vh;
+  height: 45vh;
+  /* border: 1px solid blue; */
 }
 
 #user_mini_wrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 35vh;
-  height: 35vh;
-  position: absolute;
+  align-items: center;
+  width: 42vh;
+  height: 42vh;
+  /* border: 1px solid green; */
 }
 
 #profile_image {
-  position: absolute;
-  top: 2vh;
-  flex: none;
-  align-self: center;
   border-radius: 100%;
   border: 3px solid #ffbf31;
-  width: 235px;
-  height: 235px;
+  width: 25vh;
+  height: 25vh;
+  padding-bottom: 25vh;
   background-image: url("../images/Kkobugi.png");
   background-size: 100% 100%;
 }
 
 #user_name {
-  position: absolute;
-  bottom: 3vh;
-  align-self: center;
-  width: 16vh;
-  height: 3vh;
-  font-size: 20pt;
+  /*꼬부기*/
+  width: 25%;
+  height: 5%;
+  padding-bottom: 25%;
+  font-size: 18pt;
   font-weight: bold;
   text-align: center;
-  margin-top: 2vh;
-  border: 0;
+  /* border: 1px solid black; */
 }
 
 #message_wrapper {
@@ -76,16 +72,18 @@
   justify-content: center;
   align-items: center;
   width: 40vh;
-  height: 30vh;
+  height: 20vh;
   background: #dcdcdc;
   border-radius: 20px;
 }
 
 #message {
   width: 35vh;
-  height: 25vh;
-  font-size: 15pt;
+  height: 15vh;
+  font-size: 14pt;
+  /* border: 1px solid red; */
 }
+
 .buttons_1 {
   display: flex;
   flex-direction: column;
@@ -142,7 +140,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   width: 100%;
@@ -151,11 +149,9 @@
 }
 
 #title {
-  position: absolute;
-  top: 1vh;
-  width: 20vh;
+  width: 50vh;
   text-align: center;
-  height: 6.5vh;
+  height: 7vh;
   color: #ffbf31;
   font-size: 30pt;
   font-weight: 600;
@@ -163,10 +159,8 @@
 }
 
 #explain {
-  position: absolute;
-  top: 11vh;
-  width: 22vh;
-  height: 3vh;
+  width: 30vh;
+  height: 4vh;
   text-align: center;
   font-size: 14pt;
   /* border: 1px solid green; */
@@ -192,7 +186,6 @@
   border-radius: 8px;
   font-size: 16pt;
   padding-left: 1vh;
-  padding-top: 1vh;
 }
 
 .buttons_2 {
