@@ -1,6 +1,7 @@
    /*****done*****/
    .container{
      position: relative;
+     width:100%;
      height:4000px;
    }
    .example1{
@@ -139,11 +140,10 @@
     position: absolute;
     background-image: url("../../src/images/66.png");
     background-size:100% 100%;
-    width: 1600px;
     width: 85px;
     height: 60px;
     top: 87%;
-    left: 23%;
+    left: 21%;
     transform: translate(-50%,-50%);
     color:rgb(20,20,20)
   }
@@ -154,7 +154,7 @@
     width: 85px;
     height: 60px;
     top: 87%;
-    left: 77%;
+    left: 79%;
     transform: translate(-50%,-50%);
     color:rgb(20,20,20)
   }

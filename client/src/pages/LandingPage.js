@@ -1,12 +1,15 @@
 /*****done*****/
-import Saying from '../components/MainPage/Saying';
+import Saying from '../components/LandingPage/Saying';
+import React, { useState } from 'react';
 import style from './LandingPage.module.css'
 import {Link} from 'react-router-dom';
 function LandingPage(){
+    let [curPage,setPage] = useState(1);
     return(
+
     <div className={style.container}>
       <Saying/>
-
+      {/* <Saying setPage={setPage} curPage={curPage}/> */}
       {/* Example Zone */}
       <div className={style.example1}>
         <div className={style.ex1_image}/>
