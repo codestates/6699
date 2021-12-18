@@ -24,7 +24,7 @@ function App() {
       </Routes>
       <div className={style.header_downside}>
         <Routes>
-          <Route exact path='/' element={<LandingPage/>}/>
+          <Route path='/' element={<LandingPage/>}/>
           <Route path='/mainpage' element={<MainPage/>}/>
           <Route path='/mypage' element={<MyPage/>}/>
           <Route path='/editpage' element={<MyEditPage/>}/>

@@ -6,7 +6,19 @@ import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
 import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
+import React, { useState } from 'react';
 function MyPage(){
+    const [postFocus,setPostFocus] = useState(false);
+    const [sayingFocus,setSayingFocus] = useState(false);
+    const [commentFocus,setCommentFocus] = useState(false);
+    const [likeFocus,setLikeFocus] = useState(false);
+    //카테고리를 선택하면 해당 componenet로 연결
+    function clickEvent(){
+      setPostFocus(true)
+      setSayingFocus(false)
+      setCommentFocus(false)
+      setLikeFocus(false)
+    }
     return (
         <div id={style.container}>
             {/*왼쪽 사용자 영역*/}
@@ -33,7 +45,9 @@ function MyPage(){
          {/*오른쪽 카테고리영역*/}
         <div id={style.posts_container}>
         <div id={style.category_wrapper}>
-        <MyPageCategory/>
+        <MyPageCategory  postFocus={postFocus} commentFocus={commentFocus} 
+        sayingFocus={sayingFocus} likeFocus={likeFocus}
+        clickEvent={clickEvent}/>
         </div>
 
         <div id={style.posts_board}>
