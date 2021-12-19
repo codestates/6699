@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
 
 import { Provider } from 'react-redux';
-import store from './store/Store';
+import store from './store/landingSlice';
 
 ReactDOM.render(
   <Provider store={store}>

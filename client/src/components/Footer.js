@@ -1,10 +1,20 @@
 import style from '../components/Footer.module.css';
 import {Link} from 'react-router-dom';
-function Footer(){
+import { connect } from "react-redux";
+import {health} from '../store/landingSlice';
+
+
+
+function Footer({store,goHealth}){
+  
+  /* 랜딩페이지(건강 카테고리)로 가는 함수 */
+    function goHealthPage(e){
+        goHealth(store.page);
+       }
     return (
         <div id={style.container}>
            <div id={style.logo_wrapper}>
-           <Link to ='/'><div id= {style.six_nine_logo}></div></Link>
+           <Link onClick={()=>{goHealthPage(store.page)}} to ='/'><div id= {style.six_nine_logo}></div></Link>
            </div>
 
            <div className= {style.team_members}>
@@ -46,4 +56,13 @@ function Footer(){
         </div>
     )
    }
-   export default Footer;
+   function mapStateToProps(state)
+{return {
+  store: state
+}};
+function mapDispatchToProps(dispatch)
+{ return {
+  goHealth: () => dispatch(health())
+ };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

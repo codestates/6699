@@ -22,7 +22,7 @@ function SignupModal(){
         <div className={style.buttonbox}>
           <div className={style.loginbutton}>로 그 인</div>
         </div>
-
+        
         {/* 텍스트 박스 */}
         <div className={style.textbox}>
           <div className={style.text}>회 원 가 입</div>

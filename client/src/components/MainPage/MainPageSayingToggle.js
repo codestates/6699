@@ -12,12 +12,10 @@ function MainPageSayingToggle(){
       ?setIsOpen(true)
       :setIsOpen(false)
      }}>
-      {isOpen
-        ?isOpen &&
+      {isOpen&&
         <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
           <MainSayingMiniModal/>
-        </Modal>
-        :null  
+        </Modal>  
       }
     </div>
   )

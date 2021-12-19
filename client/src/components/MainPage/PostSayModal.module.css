@@ -1,17 +1,33 @@
 /*******done*******/
 
 .container{
-    z-index:9999;
+    z-index:999;
     display:flex;
     align-items:center;
     justify-content:center;
-    position: relative;
+    position: fixed;
     background-color:rgba(0,0,0,35%);
-    position: absolute;
     width: 100%;
     height: 100%;
   }
+  .link{
+    z-index:9999;
+    text-decoration: none;
+    color: inherit;
+    cursor:Default;
+  }
+  .modalbox_bg{
+    z-index:99;
+    position: fixed;
+    background-color:rgba(0,0,0,35%);
+    width: 100%;
+    height: 100%;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+  }
   .modalbox{
+    z-index:9999;
     display:flex;
     position: absolute;
     background-color:white;
@@ -21,6 +37,7 @@
     height: 60%;
   }
   .image{
+    z-index:9999;
     position: absolute;
     display:flex;
     background-size:100% 100%;
@@ -35,11 +52,13 @@
     transform: translate(-50%,-50%);
   }
   .name{
+    z-index:9999;
     position: absolute;
     display: flex;
     align-items: center;
   }
   .contentbox{
+    z-index:9999;
     display:flex;
     position: absolute;
     height: 60.0%;
@@ -49,6 +68,7 @@
     transform: translate(-50%,-17.5%);
   }
   .titlebox{
+    z-index:9999;
     justify-content: center;
     display:flex;
     position: absolute;
@@ -59,10 +79,13 @@
     transform: translate(-50%,-50%);
   }
   .name{
+    z-index:9999;
     font-size:20px;
     font-weight:bold;
   }
   .category{
+    cursor:pointer;
+    z-index:9999;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -80,6 +103,8 @@
     transform: translate(-50%,50%);
   }
   .category_toggle{
+    cursor:pointer;
+    z-index:9999;
     position: absolute;
     background-image: url(../../images/Dark_Polygon.png);
     background-size:cover;
@@ -91,6 +116,7 @@
     transform: translate(-50%,50%);
   }
   .writebox{
+    z-index:9999;
     position:absolute;
     width:80%;
     height:48%;
@@ -103,6 +129,7 @@
     box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
   }
   .anotherbox{
+    z-index:9999;
     position: absolute;
     width:68%;
     height:11%;
@@ -112,6 +139,7 @@
   }
   
   .writebutton{
+    z-index:9999;
     font-size:15px;
     display:flex;
     align-items: center;
@@ -124,8 +152,10 @@
     left:0;
     bottom:2%;
     box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+    cursor:pointer;
   }
   .cancelbutton{
+    z-index:9999;
     font-size:15px;
     display:flex;
     align-items: center;
@@ -138,4 +168,5 @@
     right: 0;
     bottom:2%;
     box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+    cursor:pointer;
   }
