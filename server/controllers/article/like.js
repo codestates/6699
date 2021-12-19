@@ -10,7 +10,7 @@ module.exports = {
       // articleId, user_id 중 하나라도 전달되지 않았다면, 다음을 응답한다
       if(!articleId || !user_id) return res.status(400).json({ message: 'Bad Request!' });
       // 유저가 해당 게시글에 좋아요를 눌렀는지 확인
-      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) }});
+      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) } });
       // 만약 유저가 해당 게시글에 좋아요를 누르지 않았다면, 다음을 응답한다.
       if(!articleLikeInfo) return res.status(200).json({ state: false, message: 'No Like!' });
       // 만약 유저가 게시글에 좋아요를 눌렀다면, 다음을 응답한다.
@@ -28,7 +28,7 @@ module.exports = {
       // articleId, user_id 중 하나라도 전달되지 않았다면, 다음을 응답한다
       if(!articleId || !user_id) return res.status(400).json({ message: 'Bad Request!' });
        // 유저가 해당 게시글에 좋아요를 눌렀는지 확인
-      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) }})
+      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) } })
       // 이미 유저가 게시물에 좋아요를 눌렀다면, 다음을 응답한다
       if(articleLikeInfo) return res.status(409).json({ message: 'Already Like It!'})
       // 만약 유저가 게시물에 좋아요를 누르지 않았다면, 해당 게시물에 total_like 수에 +1 한다
@@ -55,7 +55,7 @@ module.exports = {
       // articleId, user_id 중 하나라도 전달되지 않았다면, 다음을 응답한다
       if(!articleId || !user_id) return res.status(400).json({ message: 'Bad Request!' });
       // 유저가 게시물에 좋아요를 눌렀는지 확인한다
-      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) }})
+      const articleLikeInfo = await article_likes.findOne({ where: { user_id: user_id, article_id: Number(articleId) } })
       // 만약 유저가 게시물에 좋아요를 눌렀었다면, 해당 게시물에 total_like에 수를 -1 한다
       // article_likes 테이블에서 user_id와 article_id와 일치한 행을 삭제한다
       if(articleLikeInfo) {
@@ -63,7 +63,7 @@ module.exports = {
         let minusTotalLike = articleInfo.total_like - 1;
         await articleInfo.update({ total_like: minusTotalLike });
 
-        article_likes.destroy({ where: { user_id: user_id, article_id: Number(articleId) }});
+        article_likes.destroy({ where: { user_id: user_id, article_id: Number(articleId) } });
 
         return res.status(200).json({ message: 'No More Like It!' });
       } 

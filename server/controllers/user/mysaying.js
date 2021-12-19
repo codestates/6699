@@ -1,5 +1,5 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
-const { users, sayings, comments, articles, saying_likes, article_likes } = require('../../models');
+const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 
 module.exports = {
   get: async (req, res) => {
@@ -8,9 +8,9 @@ module.exports = {
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
 
-      if(!user_id) return res.status(400).json({ message: "Please Login First!"})
+      if(!user_id) return res.status(400).json({ message: "Please Login First!" })
 
-      const userInfo = await users.findOne({ where: { id: user_id }});      
+      const userInfo = await users.findOne({ where: { id: user_id } });      
       
       const filteredSaying = await sayings.findAll({ where : { user_id: userInfo.id } });
       
@@ -18,7 +18,6 @@ module.exports = {
       
       res.status(200).json({ data: { filteredSaying: filteredSaying }, message: 'My Saying!' });
     } catch (err) {
-      console.log(err)
       return res.status(500).send('Server Error!');
     }
   },
@@ -27,7 +26,7 @@ module.exports = {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id }});
+      const userInfo = await users.findOne({ where: { id: user_id } });
 
       // params로 받은 sayingId 이 잘못된 요청일 경우 에러메시지 반환
       const { sayingId } = req.params;

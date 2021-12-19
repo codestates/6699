@@ -10,8 +10,8 @@ module.exports = {
       // 좋아요 기준으로 1등 명언, firstSaying
       const firstSaying = allSaying[0]
       // 1등 명언에 종속된 모든 게시물을 좋아요순으로 정렬시켜 articleInfo에 담는다
-      const articleInfo = await articles.findAll({ where: { user_id: firstSaying.id }, order: [['total_like', 'DESC']]})
-      res.status(200).json({ data: { allSaying: allSaying, articleInfo: articleInfo }, message: '메인페이지!' });
+      const articleInfo = await articles.findAll({ where: { user_id: firstSaying.id }, order: [['total_like', 'DESC']] })
+      res.status(200).json({ data: { allSaying: allSaying, articleInfo: articleInfo, firstSayingId: firstSaying.id }, message: '메인페이지!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

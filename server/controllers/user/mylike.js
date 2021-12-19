@@ -1,5 +1,5 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
-const { users, sayings, saying_likes, articles } = require('../../models');
+const { users, sayings, saying_likes, articles, article_likes } = require('../../models');
 
 module.exports = {
   get: async (req, res) => {
@@ -7,7 +7,7 @@ module.exports = {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id }});
+      const userInfo = await users.findOne({ where: { id: user_id } });
       
       // 요청 쿼리로 category를 받아온다
       const { category } = req.query;
@@ -16,28 +16,41 @@ module.exports = {
       // 받아온 category 모델을 검색한다
       let filteredLike;
 
-      // *********** 여기서부터 수정!!!! article이 여러개 일 수 있다는 점 ! 배열이라는 점 ! 을 기억하세요~~
+      // 만약 카테고리가 게시물(article)일 때, 다음을 실행한다
       if(category === 'article') {
-        filteredLike = await articles.findAll({ where : { user_id: userInfo.id } });
-      }
-      // 주의!!! 내가 좋아요에서 명언이 default 값이다 (ex. 내가 좋아요 카테고리를 클릭하면 내가 좋아요를 누른 명언이 먼저 나온다)
-      else {
-        const sayingLikeInfo = await saying_likes.findAll({ where: { user_id: user_id }})
-        if(!sayingLikeInfo) return res.status(200).json({ message: 'Empty!' });
+        // 현재 유저가 좋아요를 누른 게시물 정보가 articleLikeInfo에 담긴다
+        articleLikeInfo = await article_likes.findAll({ where : { user_id: userInfo.id } });
+        // 만약, 유저가 좋아요를 누른 게시물이 없다면, 다음을 응답한다
+        if(articleLikeInfo.length === 0) return res.status(200).json({ message: 'Empty!' })
+        // 만약 유저가 좋아요를 누른 게시물이 있다면, 다음을 실행한다
         else {
           filteredLike = []
-
-        for(let i = 0; i < sayingLikeInfo.length; i++) {
-          let temp = await sayings.findOne({ where: { id: sayingLikeInfo[i].saying_id }})
-          filteredLike.push(temp)
+          // 좋아요를 누른 게시물 각각을, filteredLikt 배열에 담는다
+          for(let i = 0; i < articleLikeInfo.length; i++) {
+            let filteredArticle = await articles.findOne({ where: { id: articleLikeInfo[i].article_id } })
+            filteredLike.push(filteredArticle)
+          }
+        }
+      }
+      // 만약 카테고리가 명언(sayings)일 때, 다음을 실행한다 (명언이 default 값이다)
+      else {
+        // 현재 유저가 좋아요를 누른 명언 정보가 sayingLikeInfo에 담긴다
+        const sayingLikeInfo = await saying_likes.findAll({ where: { user_id: user_id } })
+        // 만약, 유저가 좋아요를 누른 명언이 없다면, 다음을 응답한다
+        if(sayingLikeInfo.length === 0) return res.status(200).json({ message: 'Empty!' });
+        // 만약 유저가 좋아요를 누른 게시물이 없다면, 다음을 실행한다
+        else {
+          filteredLike = []
+          // 좋아요를 누른 명언 각각을, filteredLikt 배열에 담는다
+          for(let i = 0; i < sayingLikeInfo.length; i++) {
+            let filteredSaying = await sayings.findOne({ where: { id: sayingLikeInfo[i].saying_id } })
+            filteredLike.push(filteredSaying)
           }
         }
       }
       
-      if(filteredLike.length === 0) return res.status(200).json({ message: 'Empty!' });
       res.status(200).json({ data: { filteredLike: filteredLike }, message: 'My Like!' });
     } catch (err) {
-      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   }

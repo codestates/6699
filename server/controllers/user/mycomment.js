@@ -1,5 +1,5 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
-const { users, comments, articles } = require('../../models');
+const { users, articles, comments } = require('../../models');
 
 module.exports = {
   get: async (req, res) => {
@@ -7,7 +7,7 @@ module.exports = {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id }});
+      const userInfo = await users.findOne({ where: { id: user_id } });
       
       // 내가 쓴 댓글이 없다면 메시지 반환
       const filteredComment = await comments.findAll({ where: { user_id: userInfo.id } });
@@ -15,8 +15,8 @@ module.exports = {
 
       // 내 게시물 배열 안에 Comments 남긴 게시글들을 쌓는다
       let myArticle = [];
-      for(let comment of filteredComment) {
-        myArticle.push( await articles.findOne({ where : { id: comment.article_id } }) );
+      for(let i = 0; i < filteredComment.length; i++) {
+        myArticle.push( await articles.findOne({ where : { id: filteredComment[i].article_id } }));
       }
       
       // 배열 내부 중복값 제거 => 코드 refactoring이 필요함!
