@@ -3,27 +3,25 @@ import MyPagePagenation from './MyPagePagenation'
 import React, { useState } from 'react';
 import MySayingMiniModal from './MySayingMiniModal';
 import Modal from '../Modal';
+import MySayingBox from '../../components/MyPage/MySayingBox'
 function MyLike (){
     let [isOpen,setIsOpen] = useState(false);
+    const [post,setIsPost] = useState(true);
+  function MyPost(){
+    console.log(post)
+   setIsPost(true)
+   console.log(post)
+  }
+  function MySaying(){
+    console.log(post)
+    setIsPost(false)
+    console.log(post)
+  }
     return (
+        <>
+        {(post === true)?( //좋아요 누른 게시물
         <div id={style.changing_area}>
         <div id={style.posts_wrap}>
-
-        <div id={style.next_to_toggle}>게시물</div>
-        <div className = {style.saying_toggle} onClick={()=> {
-      !isOpen
-      ?setIsOpen(true)
-      :setIsOpen(false)
-     }}>
-      {isOpen
-        ?isOpen &&
-        <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <MySayingMiniModal/>
-        </Modal>
-        :null  
-      }
-    </div>
-
         <div className = {style.posts}>
         <div id={style.post}></div>
         <div id={style.post}></div>
@@ -34,11 +32,38 @@ function MyLike (){
         <div id={style.post}></div>
         <div id={style.post}></div>
         </div>
+       
         </div>
         <div id={style.pagenation_wrapper}>
         <MyPagePagenation/>
         </div>
+        </div>):(//좋아요 누른 명언
+        <div className={style.container}>
+        <MySayingBox/>
+        <MySayingBox/>
+        <MySayingBox/>
+        <MySayingBox/>
+        <MySayingBox/>
+        <div className={style.pagenation_wrapper}>
+        <MyPagePagenation/>
         </div>
+        </div>
+
+        )}
+        <div className = {style.saying_toggle} onClick={()=> {
+      !isOpen
+      ?setIsOpen(true)
+      :setIsOpen(false)
+     }}>
+      {isOpen
+        ?isOpen &&
+        <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
+          <MySayingMiniModal MyPost={MyPost} MySaying={MySaying} setIsPost={setIsPost} post={post}/>
+        </Modal>
+        :null  
+      }
+    </div>
+        </>
     )
 }
 
