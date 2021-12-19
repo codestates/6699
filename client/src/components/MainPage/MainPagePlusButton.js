@@ -11,6 +11,7 @@ function MainPagePlusButton(){
       !isOpen
       ?setIsOpen(true)
       :setIsOpen(false)
+      console.log("확인")
      }}>
      {isOpen&&
       <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>

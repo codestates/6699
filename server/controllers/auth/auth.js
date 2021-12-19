@@ -14,7 +14,7 @@ module.exports = {
       
       // accessToken에 담긴 정보가 유효한 정보인지 판별
       const { email } = accessTokenData;
-      const userInfo = await users.findOne({ where: { email: email }});
+      const userInfo = await users.findOne({ where: { email: email } });
       if(!userInfo) return res.status(200).json({ state: false, message: 'UserInfo Is Not Authorized!' });
 
       // accessToken이 유효하고 사용자 정보가 올바른 경우 사용자 정보와 함께 리턴
