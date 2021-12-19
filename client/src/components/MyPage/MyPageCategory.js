@@ -11,11 +11,11 @@ function MyPageCategory({sayingFocus,likeFocus,commentFocus,postFocus,clickEvent
             나의 게시물
             </Link>
             </li> 
-        <li className={style.menus} id={style.saying} focused={isFocus} onClick={clickEvent}>
+        <li className={style.menus} id={style.saying} onClick={clickEvent}>
             나의 명언
             </li>  
-        <li className={style.menus} id={style.comment} focused={isFocus}>내가 쓴 댓글</li>
-        <li className={style.menus} id={style.like} focused={isFocus}>좋아요</li>
+        <li className={style.menus} id={style.comment} >내가 쓴 댓글</li>
+        <li className={style.menus} id={style.like} >좋아요</li>
       </ul>
     </div>
   )
