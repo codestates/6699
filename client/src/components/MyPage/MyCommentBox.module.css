@@ -22,6 +22,8 @@
   background-size: 100%;
   width: 2vh;
   height: 2vh;
+  border: 1px solid red;
+  z-index: 80;
 }
 
 #set_title_middle_box {

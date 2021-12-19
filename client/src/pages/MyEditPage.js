@@ -6,14 +6,14 @@ function MyEditPage (){
 
         <div id={style.user_container}>
         <div id={style.user_profile_wrapper}>
-
+        
         <div id={style.user_mini_wrapper}>
             <div id={style.profile_image}>
             <div id={style.profile_image_camera}></div>
         </div>
-
+        
         <div id={style.user_name}>꼬기</div>
-
+    
         </div>
         </div>
         <div id={style.message_wrapper}>
@@ -21,17 +21,19 @@ function MyEditPage (){
             평생 다이어트중
             </div>
         </div>
+
+
         <div className = {style.buttons_1}>
         <button id={style.profile_setting}>프로필 설정</button>
         <Link to ='/mainpage'><button id= {style.logout}>로그아웃</button></Link>
         </div>
         </div>
 
-         <div id={style.setting_container}>
+        <div id={style.setting_container}>
         <div id={style.setting_outer_wrap}>
             <div className={style.info}>
             <b> <p id={style.title}>계 정 설 정</p> </b>
-             <p id={style.explain}>회원정보를 수정합니다.</p> 
+            <p id={style.explain}>회원정보를 수정합니다.</p> 
             </div>
             <div id={style.setting_inner_wrap}>
                 <div id={style.seeting_sub_wrap}>

@@ -7,7 +7,7 @@ module.exports = {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id }});
+      const userInfo = await users.findOne({ where: { id: user_id } });
       
       const filteredArticle = await articles.findAll({ where : { user_id: userInfo.id } });
       

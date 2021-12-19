@@ -2,6 +2,7 @@ const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, articles, article_likes, comments } = require('../../models');
 
 module.exports = {
+  // 주의!!! 에러 분기 다시 추가해야합니다 (2021.12.18.토)
   get: async (req, res) => {
     try {
       // 메인 페이지에서 (좋아요순 / 최신순) 선택했을때... default는 좋아요순!

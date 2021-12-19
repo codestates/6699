@@ -49,7 +49,7 @@ module.exports = {
       else {
         // Q. saying_id는 수정할 수 있게 할 것인가?! => 2주차 때는 너무 heavy한 이슈!
         await articleInfo.update({ title: title, content: content, image: image, saying_id: Number(sayingId) });
-        return res.status(200).json({ data: { articleInfo: articleInfo }, message: 'Edit Article!'});
+        return res.status(200).json({ data: { articleInfo: articleInfo }, message: 'Edit Article!' });
       }
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
@@ -73,28 +73,28 @@ module.exports = {
       // 관리자일 경우, 다음을 실행한다 (sayingId, articleId 모두 주어져있다)
       if(role === 1) {
         // 해당 게시물에 좋아요한 기록 삭제 (article_likes 테이블)
-        article_likes.destroy({ where: { article_id: Number(articleId) }});
+        article_likes.destroy({ where: { article_id: Number(articleId) } });
         // 해당 게시물에 작성된 댓글들 삭제 (comments 테이블)
-        comments.destroy({ where: { article_id: Number(articleId) }});
+        comments.destroy({ where: { article_id: Number(articleId) } });
         // 해당 게시물 삭제 (articles 테이블)
-        articles.destroy({ where: { id: Number(articleId) }});
+        articles.destroy({ where: { id: Number(articleId) } });
 
         return res.status(200).json({ message: 'Delete Article!' });
       } 
       // 관리자가 아닐 경우, (sayingId, articleId, user_id 모두 주어져있다)
       else if(role === 0) {
         // articleId와 user_id가 일치하는 게시물이 있는지 확인
-        const articleInfo = await articles.findOne({ where: {id: Number(articleId), user_id: user_id }});
+        const articleInfo = await articles.findOne({ where: {id: Number(articleId), user_id: user_id } });
         // 만약 일치하는 게시물이 없다면, 다음을 응답한다
         if(!articleInfo) return res.status(404).json({ message: 'No Matched Article!' });
         // 만약 일치하는 게시물이 있다면, 다음을 실행한다
         else {
           // 해당 게시물에 좋아요한 기록 삭제 (article_likes 테이블)
-          article_likes.destroy({ where: { article_id: Number(articleId) }});
+          article_likes.destroy({ where: { article_id: Number(articleId) } });
           // 해당 게시물에 작성된 댓글들 삭제 (comments 테이블)
-          comments.destroy({ where: { article_id: Number(articleId) }});
+          comments.destroy({ where: { article_id: Number(articleId) } });
           // 해당 게시물 삭제 (articles 테이블)
-          articles.destroy({ where: { id: Number(articleId) }});
+          articles.destroy({ where: { id: Number(articleId) } });
           
           return res.status(200).json({ message: 'Delete Article!' });
         }

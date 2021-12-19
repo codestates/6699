@@ -10,6 +10,7 @@ import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPage/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
 import MyEditPage from '../src/pages/MyEditPage';
+import MySayingDelete from './MySayingDelete';
 import PostPostModal from './components/MainPage/PostPostModal';
 import PostSayModal from './components/MainPage/PostSayModal';
 import LoginModal from './components/MainPage/LoginModal';
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className={style.container}>
+      {/* <MySayingDelete/> */}
       <Header />
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
