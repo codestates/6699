@@ -1,7 +1,10 @@
 import style from './PostSayModal.module.css';
+import {Link} from 'react-router-dom';
 function PostPostModal(){
   return (
+    
     <div className={style.container}>
+    <Link className={style.link} to ='/mainpage'><div className={style.modalbox_bg}/></Link>
       <div className={style.modalbox}>
         <div className={style.image}/>
 
@@ -15,11 +18,12 @@ function PostPostModal(){
 
         <div className={style.anotherbox}>
           <div className={style.writebutton}>작성하기</div>
-          <div className={style.cancelbutton}>취소</div>
+          <Link className={style.link} to ='/mainpage'><div className={style.cancelbutton}>취소</div></Link>
         </div>
       </div>
       </div>
     </div>
+
   )
 }
 export default PostPostModal;

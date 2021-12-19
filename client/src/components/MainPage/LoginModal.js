@@ -28,7 +28,7 @@ function LoginModal(){
         <div className={style.buttonbox}>
           <Link to='/mypage'><div className={style.loginbutton} onClick={() => dispatch(showLoginModal(false))}>로 그 인</div></Link>
         </div>
-
+        
         {/* 텍스트 박스 */}
         <div className={style.textbox}>
           <div className={style.text} onClick={() => {

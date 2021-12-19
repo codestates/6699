@@ -1,9 +1,9 @@
-/*****done*****/
+/***** 컨테이너 & 푸터 *****/
 .container{
   display:flex;
-  position: absolute;
+  position: relative;
   width: 100%;
-  height:1000px;
+  height:2800px;
   background-color: rgb(255,255,255);
 }
 .footer{
@@ -11,5 +11,110 @@
   position:absolute;
   height:40vh;
   bottom:0;
-  transform: translate(0, 670%)
+  transform: translate(0,0%)
+}
+/***** 카테고리 *****/
+.category_container{
+  display:flex;
+  width:100%;
+  height:210px;
+  position: absolute;
+  top:755px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.category_bar{
+  position: absolute;
+  font-size:25px;
+  color:rgb(20,20,20);
+  font-weight:bold;
+  display:flex;
+  width:70%;
+  height:40%;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgb(40,40,40);
+  border-radius:20px;
+}
+.category_all{
+  color:rgb(20,20,20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+  border-radius:20px 0px 0px 20px;
+}
+.category_all:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
+}
+.category_health{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+}
+.category_health:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
+}
+.category_study{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+}
+.category_study:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
+}
+.category_economy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+}
+.category_economy:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
+}
+.category_relationship{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+}
+.category_relationship:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
+}
+.category_love{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  width: 16.66%;
+  height: 100%;
+  border-radius:0px 20px 20px 0px;
+}
+.category_love:hover{
+  color:white;
+  background-color:#FFBF31;
+  cursor:pointer;
 }
