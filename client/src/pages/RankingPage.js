@@ -1,7 +1,30 @@
 import style from './RankingPage.module.css';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
-function RankingPage(){
+import { connect } from "react-redux";
+import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
+
+function RankingPage({store,goAll,goHealth,goStudy,goEconomy,goRelationship,goLove}){
+  /* 카테고리별로 가는 함수 */
+  function goAllPage(e){
+    goAll(store.page);
+   }
+   function goHealthPage(e){
+    goHealth(store.page);
+   }
+   function goStudyPage(e){
+    goStudy(store.page);
+   }
+   function goEconomyPage(e){
+    goEconomy(store.page);
+   }
+   function goRelationshipPage(e){
+    goRelationship(store.page);
+   }
+   function goLovePage(e){
+    goLove(store.page);
+   }
+
   return (
     <div className={style.container}>
 
@@ -34,19 +57,19 @@ function RankingPage(){
           <div className={style.rankingbox_sayingzone}>
             <div className={style.rankingbox_sayingzone_top3}>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} to='/mainpage'>땀은 지방의 눈물이다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goHealthPage(store.page)}} to='/mainpage'>땀은 지방의 눈물이다.</Link></div>
                 <div className={style.rankingbox_sayingzone_top3_image1}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>130</div>
               </div>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link}  to='/mainpage'>늦었다고 생각될 때가 진짜 늦었다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goStudyPage(store.page)}}  to='/mainpage'>늦었다고 생각될 때가 진짜 늦었다.</Link></div>
                 <div className={style.rankingbox_sayingzone_top3_image2}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>107</div>
               </div>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link}  to='/mainpage'>면에 가위를 대는 것은 예의가 아니다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goRelationshipPage(store.page)}} to='/mainpage'>면에 가위를 대는 것은 예의가 아니다.</Link></div>
                 <div className={style.rankingbox_sayingzone_top3_image3}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>90</div>
@@ -115,4 +138,18 @@ function RankingPage(){
     </div>     
   )
 }
-export default RankingPage;
+function mapStateToProps(state)
+{return {
+  store: state
+}};
+function mapDispatchToProps(dispatch)
+{ return {
+  goAll: () => dispatch(all()),
+  goHealth: () => dispatch(health()),
+  goStudy: () => dispatch(study()),
+  goEconomy: () => dispatch(economy()),
+  goRelationship: ()=> dispatch(relationship()),
+  goLove: ()=> dispatch(love())
+ };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RankingPage);

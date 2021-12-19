@@ -4,7 +4,7 @@
   position: fixed;
   bottom: 30px;
   left: 87%;
-
+  cursor: pointer;
   background-image: url("../../images/Plus_Button.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -12,4 +12,8 @@
   height: 110px;
   border-radius: 100%;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+
+.plus_button:hover{
+  border: 3px solid #FFBF31;
 }

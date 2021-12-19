@@ -116,6 +116,9 @@
   width: 79%;
   height:100%;
 }
+.rankingbox_sayingzone_top3_saying:hover{
+  color:#FFBF31;
+}
 .rankingbox_sayingzone_top3_image1{
   background-image: url('../images/porori.png');
   background-size: 45%;
