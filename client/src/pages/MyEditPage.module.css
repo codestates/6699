@@ -6,7 +6,7 @@
 
 #container {
   position: relative;
-  margin-top: 10px;
+  margin-top: 1%;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -116,12 +116,13 @@
 }
 
 #setting_container {
-  position: relative;
-  right: -23vh;
+  position: absolute;
+  left: 50vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 73%;
-  height: auto;
+  height: 100%;
   /* border: 1px solid blue; */
 }
 

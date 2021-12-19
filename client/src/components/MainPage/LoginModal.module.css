@@ -118,7 +118,7 @@
   font-weight: bold;
   position: absolute;
   color:#FFFFFF;
-  background-color:#000000;
+  background-color:#FFBF31;
   border-radius:10px;
   height:100%;
   width: 100%;
@@ -126,7 +126,6 @@
 }
 .loginbutton:hover{
   cursor: pointer;
-  background-color:#FFBF31;
 }
 
 .textbox{

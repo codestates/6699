@@ -51,3 +51,4 @@ const landingSlice = createSlice({
 
 export const { plus, minus, all, health, study, economy, relationship, love } = landingSlice.actions;
 export default landingSlice.reducer;
+
