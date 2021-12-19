@@ -1,7 +1,7 @@
 import style from './LoginModal.module.css';
 import {Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { showLoginModal, showSignupModal } from '../../store/modal-slice';
+import { showLoginModal, showSignupModal } from '../../store/ModalSlice';
 
 function LoginModal(){
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function LoginModal(){
         <div className={style.buttonbox}>
           <Link to='/mypage'><div className={style.loginbutton} onClick={() => dispatch(showLoginModal(false))}>로 그 인</div></Link>
         </div>
-
+        
         {/* 텍스트 박스 */}
         <div className={style.textbox}>
           <div className={style.text} onClick={() => {

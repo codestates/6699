@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import PostMiniModal from './PostMiniModal';
 import Modal from '../Modal';
 
-
 function MainPagePlusButton(){
   let [isOpen,setIsOpen] = useState(false);
   return(
@@ -14,12 +13,10 @@ function MainPagePlusButton(){
       :setIsOpen(false)
       console.log("확인")
      }}>
-      {isOpen
-        ?isOpen &&
-        <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <PostMiniModal/>
-        </Modal>
-        :null  
+     {isOpen&&
+      <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
+        <PostMiniModal/>
+      </Modal>
       }
     </div>
   )
