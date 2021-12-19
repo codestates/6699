@@ -13,8 +13,15 @@ import Footer from '../src/components/Footer';
 import MyEditPage from '../src/pages/MyEditPage';
 import PostPostModal from './components/MainPage/PostPostModal';
 import PostSayModal from './components/MainPage/PostSayModal';
+import LoginModal from './components/MainPage/LoginModal';
+import SignupModal from './components/MainPage/SignupModal';
+import { useSelector, useDispatch } from 'react-redux';
+import PrivacyModal from './components/MainPage/PrivacyModal';
 
 function App() {
+  const loginModal = useSelector((state) => state.loginModal);
+  const signupModal = useSelector((state) => state.signupModal);
+
   return (
     <div className={style.container}>
       <Header />
@@ -24,6 +31,9 @@ function App() {
         <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>
         <Route path = '/mainpage/postsaymodal' element={<PostSayModal/>}/>
       </Routes>
+      {loginModal ? <LoginModal /> : null}
+      {signupModal ? <SignupModal /> : null}
+      
       <div className={style.header_downside}>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
@@ -33,8 +43,6 @@ function App() {
           <Route path='/rankingpage' element={<RankingPage/>}/>
           <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
-      </div>
-      <div>
       </div>
     </div>
   );

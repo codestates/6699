@@ -8,17 +8,39 @@ import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
 import React, { useState } from 'react';
 function MyPage(){
-    const [postFocus,setPostFocus] = useState(false);
+    //상태 하나로 만들기. 중첩 너무많음
+    const [postFocus,setPostFocus] = useState(true);
     const [sayingFocus,setSayingFocus] = useState(false);
     const [commentFocus,setCommentFocus] = useState(false);
     const [likeFocus,setLikeFocus] = useState(false);
-    //카테고리를 선택하면 해당 componenet로 연결
-    function clickEvent(){
+    //나의 게시물 버튼을 눌렀을때 나의 게시물 component로 변함
+    function PostClickEvent(){
       setPostFocus(true)
       setSayingFocus(false)
       setCommentFocus(false)
       setLikeFocus(false)
     }
+    //나의 명언 버튼을 눌렀을때 나의 명언 component로 변함
+    function SayingClickEvent(){
+        setPostFocus(true)
+        setSayingFocus(false)
+        setCommentFocus(false)
+        setLikeFocus(false)
+      }
+      //내가 쓴 댓글 버튼을 눌렀을때 내가 쓴 댓글 component로 변함
+      function LikeClickEvent(){
+        setPostFocus(true)
+        setSayingFocus(false)
+        setCommentFocus(false)
+        setLikeFocus(false)
+      }
+      //좋아요 버튼을 눌렀을때 좋아요 component로 변함
+      function CommentClickEvent(){
+        setPostFocus(true)
+        setSayingFocus(false)
+        setCommentFocus(false)
+        setLikeFocus(false)
+      }
     return (
         <div id={style.container}>
             {/*왼쪽 사용자 영역*/}
@@ -47,19 +69,20 @@ function MyPage(){
         <div id={style.category_wrapper}>
         <MyPageCategory  postFocus={postFocus} commentFocus={commentFocus} 
         sayingFocus={sayingFocus} likeFocus={likeFocus}
-        clickEvent={clickEvent}/>
+        PostClickEvent={PostClickEvent} SayingClickEvent={SayingClickEvent}
+        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}/>
         </div>
 
         <div id={style.posts_board}>
-        <div id={style.myposting_wrapper}>
-        {/*onClick구현전까지 아래 주석 지우지마세용ㅜ*/}
-
-        {/* <MyPosting/> */}
-        <div id={style.saying_box_wrapper}>
-         {/* <MySaying/> */}
-         </div>
-         <MyComment/>
-         {/* <MyLike/> */}
+        <div id={style.component_wrapper}>
+        {(postFocus === true)?(
+        <MyPosting/>):(
+            (sayingFocus === true)?
+            (<MySaying/>):
+            (commentFocus === true)?
+            (<MyComment/>):
+            (likeFocus === true)?(<MyLike/>):(null))}
+    
         </div>
         </div>
 

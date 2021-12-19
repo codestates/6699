@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100vh;
-  height: 80vh;
+  height: 70vh;
   /* border: 1px solid orange; */
 }
 
@@ -35,4 +35,10 @@
   padding-bottom: 25vh;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+#pagenation_wrapper {
+  width: 12vh;
+  height: 5vh;
+  /* border: 1px solid red; */
 }
