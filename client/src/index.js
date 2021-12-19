@@ -7,12 +7,14 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
 import modalSlice from './store/ModalSlice';
 import landingSlice from './store/LandingSlice';
+import authSlice from './store/AuthSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from "@reduxjs/toolkit"; 
 
 const reducers = combineReducers({
   landing: landingSlice,
-  modal: modalSlice
+  modal: modalSlice,
+  auth: authSlice
 });
 
 const store = configureStore({ reducer: reducers });
