@@ -3,25 +3,26 @@ import style from '../pages/MyEditPage.module.css'
 function MyEditPage (){
     return (
         <div id={style.container}>
-
-        <div id={style.user_container}>
-        <div id={style.user_profile_wrapper}>
-        <div id={style.user_mini_wrapper}>
-        <div id={style.profile_image}></div>
-        <div id={style.user_name}>꼬부기</div>
+            <div id={style.user_container}>
+            <div id={style.user_profile_wrapper}>
+            <div id={style.user_mini_wrapper}>
+            <div id={style.profile_image}></div>
+            <div id={style.user_name}>꼬부기</div>
         </div>
+
         </div>
         <div id={style.message_wrapper}>
             <div id={style.message}>
-            평생 다이어트중
+                평생 다이어트중
             </div>
         </div>
+
         <div className = {style.buttons_1}>
         <button id={style.profile_setting}>프로필 설정</button>
         <Link to ='/mainpage'><button id= {style.logout}>로그아웃</button></Link>
         </div>
         </div>
-         <div id={style.setting_container}>
+        <div id={style.setting_container}>
         <div id={style.setting_outer_wrap}>
             <div className={style.info}>
             <p id={style.title}>계정 설정</p>
