@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { loginModal: false, signupModal: false };
 
@@ -16,5 +16,4 @@ const modalSlice = createSlice({
 });
 
 export const { showLoginModal, showSignupModal } = modalSlice.actions;
-
-export default configureStore({ reducer: modalSlice.reducer });
+export default modalSlice.reducer;

@@ -6,7 +6,7 @@
 
 #container {
   position: relative;
-  margin-top: 10px;
+  margin-top: 1%;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -22,7 +22,7 @@
   align-items: center;
   width: 45vh;
   height: 100%;
-  border: 1px solid #ccc;
+  border: 5px solid #ccc;
   border-radius: 20px;
 }
 
@@ -32,38 +32,49 @@
   justify-content: center;
   align-items: center;
   width: 45vh;
-  height: 45vh;
+  height: 30vh;
   /* border: 1px solid blue; */
 }
 
 #user_mini_wrapper {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: center; */
+  display: table-cell;
+  vertical-align: middle;
   width: 42vh;
-  height: 42vh;
-  /* border: 1px solid green; */
+  height: 20vh;
+  /* border: 3px solid blue; */
 }
 
 #profile_image {
-  border-radius: 100%;
-  border: 3px solid #ffbf31;
   width: 25vh;
   height: 25vh;
   padding-bottom: 25vh;
   background-image: url("../images/Kkobugi.png");
   background-size: 100% 100%;
+  transform: translate(33%, -10%)
+}
+
+#profile_image_camera {
+  position: flex;
+  width: 4vh;
+  height: 4vh;
+  background-image: url("../images/Profile_Picture.png");
+  background-size: 100% 100%;
+  transform: translate(490%, 500%);
+  z-index: 900;
 }
 
 #user_name {
   /*꼬부기*/
-  width: 25%;
-  height: 5%;
-  padding-bottom: 25%;
-  font-size: 18pt;
+  width: 100%;
+  /* height: 2%; */
+  font-size: 2.6vh;
   font-weight: bold;
   text-align: center;
+  /* transform: translate(143%, 0%); */
   /* border: 1px solid black; */
 }
 
@@ -72,15 +83,16 @@
   justify-content: center;
   align-items: center;
   width: 40vh;
-  height: 20vh;
+  height: 30vh;
   background: #dcdcdc;
   border-radius: 20px;
+  /* border: 2 solid black; */
 }
 
 #message {
   width: 35vh;
-  height: 15vh;
-  font-size: 14pt;
+  height: 28vh;
+  font-size: 2.1vh;
   /* border: 1px solid red; */
 }
 
@@ -101,7 +113,7 @@
   color: #fff;
   border-radius: 7px;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 2.1vh;
 }
 
 #logout {
@@ -112,16 +124,19 @@
   color: #fff;
   border-radius: 7px;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 2.1vh;
 }
 
+{/* --------- 계정 설정 --------- */}
+
 #setting_container {
-  position: relative;
-  right: -23vh;
+  position: absolute;
+  left: 50vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 73%;
-  height: auto;
+  height: 100%;
   /* border: 1px solid blue; */
 }
 
@@ -153,7 +168,7 @@
   text-align: center;
   height: 7vh;
   color: #ffbf31;
-  font-size: 30pt;
+  font-size: 6vh;
   font-weight: 600;
   /* border: 1px solid purple; */
 }
@@ -162,21 +177,32 @@
   width: 30vh;
   height: 4vh;
   text-align: center;
-  font-size: 14pt;
+  font-size: 2.5vh;
+  color: grey
   /* border: 1px solid green; */
 }
 
 #setting_inner_wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 85vh;
   height: 70vh;
   /* border: 1px solid purple; */
 }
 
+#seeting_sub_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 85vh;
+  height: 12.0vh;
+}
+
 .text {
-  font-size: 17pt;
+  font-size: 2.3vh;
+  font-weight: bold;
+  
 }
 
 .textarea {
@@ -184,8 +210,9 @@
   background: #dcdcdc;
   border: none;
   border-radius: 8px;
-  font-size: 16pt;
+  font-size: 2.1vh;
   padding-left: 1vh;
+  color: grey;
 }
 
 .buttons_2 {
@@ -205,7 +232,7 @@
   color: #fff;
   border-radius: 7px;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 2.1vh;
 }
 
 #btn2 {
@@ -216,12 +243,13 @@
   color: #fff;
   border-radius: 7px;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 2.1vh;
 }
 
 #resign_btn {
   background: transparent;
-  font-size: 13pt;
+  height: 9vh;
   border: 0;
+  font-size: 2.1vh;
   color: #4c4c4c;
 }

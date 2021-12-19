@@ -9,24 +9,21 @@ import MainPage from '../src/pages/MainPage';
 import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPage/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
-import Footer from '../src/components/Footer';
 import MyEditPage from '../src/pages/MyEditPage';
 import MySayingDelete from './MySayingDelete';
+import PostPostModal from './components/MainPage/PostPostModal';
 import PostSayModal from './components/MainPage/PostSayModal';
 import LoginModal from './components/MainPage/LoginModal';
 import SignupModal from './components/MainPage/SignupModal';
 import { useSelector, useDispatch } from 'react-redux';
-import PrivacyModal from './components/MainPage/PrivacyModal';
-import PostPostModal from './components/MainPage/PostPostModal';
 
 function App() {
-  const loginModal = useSelector((state) => state.loginModal);
-  const signupModal = useSelector((state) => state.signupModal);
-//
+  const { loginModal, signupModal } = useSelector((state) => state.modal);
+
   return (
     <div className={style.container}>
-      <MySayingDelete/>
-      {/* <Header />
+      {/* <MySayingDelete/> */}
+      <Header />
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
         <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>
@@ -44,7 +41,7 @@ function App() {
           <Route path='/rankingpage' element={<RankingPage/>}/>
           <Route path='/postingpage' element={<PostingPage/>}/>
         </Routes>
-      </div> */}
+      </div>
     </div>
   );
 }

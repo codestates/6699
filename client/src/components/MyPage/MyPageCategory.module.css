@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 12vh;
+  height: 10vh;
   /* border: 1px solid red; */
 }
 
@@ -31,68 +31,44 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background-color: #ffbf31;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-}
-
-#clicked_post {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #ffbf31;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-}
-
-#post:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffbf31;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  border-radius: 20px 0px 0px 20px;
-}
-
-.text:hover {
-  color: #fff;
-}
-
-.text2 {
   color: #000;
   text-decoration: none;
+  width: 25%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+}
+
+#focused_post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #ffbf31;
+  text-decoration: none;
+  width: 25%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
 }
 
 #saying {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  color: #000;
+  text-decoration: none;
   width: 25%;
   height: 100%;
 }
 
-#saying:hover {
+#focused_saying {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
   background-color: #ffbf31;
+  text-decoration: none;
   width: 25%;
   height: 100%;
-  color: #fff;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
 }
 
 #comment {
@@ -104,12 +80,12 @@
   height: 100%;
 }
 
-#comment:hover {
+#focused_comment {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffbf31;
   color: #fff;
+  background-color: #ffbf31;
   width: 25%;
   height: 100%;
 }
@@ -124,12 +100,12 @@
   border-radius: 0px 20px 20px 0px;
 }
 
-#like:hover {
+#focused_like {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffbf31;
   color: #fff;
+  background-color: #ffbf31;
   width: 25%;
   height: 100%;
   border-radius: 0px 20px 20px 0px;

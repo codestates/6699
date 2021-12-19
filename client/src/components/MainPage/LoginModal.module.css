@@ -25,7 +25,6 @@
   border-radius:50px;
   width: 30%;
   height: 76%;
-  border: solide yellowgreen;
 }
 .logobox{
   display:flex;
@@ -36,7 +35,6 @@
   left: 50%;
   top: 5%;
   transform: translate(-50%,-0%);
-  border: solid blue;
   /* border: 2px solid red; */
 }
 #logo {
@@ -48,9 +46,9 @@
   height: 40%;
   left: 50%;
   transform: translate(-50%,0%);
-  border: solid red;
   /* border: 1px solid red; */
 }
+
 .logotitle{
   position: absolute;
   display: flex;
@@ -64,7 +62,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%,0%);
-  border: solid yellowgreen;
   /* border: 1px solid red; */
 }
 .inputbox{
@@ -76,7 +73,6 @@
   left: 50%;
   top: 30%;
   transform: translate(-50%, 0%);
-  border: solid red;
   /* border: 2px solid blue; */
 }
 .subtitle{
@@ -89,7 +85,6 @@
   height:10%;
   top: 10%;
   margin-top: 5%;
-  border: solid yellowgreen;
   /* border: 1px solid blue; */
 }
 .input{
@@ -104,7 +99,6 @@
   top: 20%;
   margin-top: 1%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
-  border: solid yellowgreen;
   /* border: 1px solid blue; */
 }
 
@@ -116,7 +110,6 @@
   left: 50%;
   top: 65%;
   transform: translate(-50%, 0%);
-  border: solid red;
   /* border: 2px solid green; */
 }
 
@@ -128,16 +121,14 @@
   font-weight: bold;
   position: absolute;
   color:#FFFFFF;
-  background-color:#000000;
+  background-color:#FFBF31;
   border-radius:10px;
   height:100%;
   width: 100%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
-  border: solid blue;
 }
 .loginbutton:hover{
   cursor: pointer;
-  background-color:#FFBF31;
 }
 
 .textbox{
@@ -148,8 +139,6 @@
   left: 50%;
   top: 75%;
   transform: translate(-50%, 0%);
-  border: solid red;
-  border: solid blue;
   /* border: 2px solid green; */
 }
 .text{
@@ -164,9 +153,9 @@
   height:100%;
   left: 50%;
   transform: translate(-50%, 0%);
-  border: solid yellowgreen;
   /* border: 1px solid blue; */
 }
+
 .text:hover{
   font-weight: bolder;
   cursor: pointer;

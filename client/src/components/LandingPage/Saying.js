@@ -25,7 +25,7 @@ import ex_relationship3 from '../../images/category_relationship.png'
 import ex_love3 from '../../images/category_love.png'
 
 import { connect } from "react-redux";
-import {minus, plus} from '../../store/LandingSlice';
+import {minus, plus} from '../../store/LandingSlice'
 import {Link} from 'react-router-dom';
 
 function Saying({store,plusCount,minusCount}){
@@ -44,7 +44,7 @@ function Saying({store,plusCount,minusCount}){
     store.page < 5
     &&plusCount(store.page)
   }
- return (
+return (
   <div className={style.container} >
      {/* 대문, store.page에 따라 이미지 변경 */}
     <div className={style.jumbotron} style={{backgroundImage:`url(${jumboImage[store.page]})`}}>
@@ -53,28 +53,20 @@ function Saying({store,plusCount,minusCount}){
       <div className={style.left_66}/>
       <div className={style.right_99}/>
       <Link className={style.saying_link} to ='/mainpage'>
-      <div className={style.saying}>{store.page
-       ?store.saying[store.page]:store.saying[store.page]}</div></Link>
+      <div className={style.saying}>{store.page ? store.saying[store.page] : store.saying[store.page]}</div></Link>
 
       {/* 슬라이드바, store.page에 따라 색상 변경 */}
       <div className={style.slidebar} >
-        <div className={style.bid1} style={store.page === 1
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :store.page === 0
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :{backgroundColor:'white'}}/>
-        <div className={style.bid2} style={store.page === 2
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :{backgroundColor:'white'}}/>
-        <div className={style.bid3} style={store.page === 3
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :{backgroundColor:'white'}}/>
-        <div className={style.bid4} style={store.page === 4
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :{backgroundColor:'white'}}/>
-        <div className={style.bid5} style={store.page === 5
-                                           ?{backgroundColor:'#FFBF31'}
-                                           :{backgroundColor:'white'}}/>
+        <div className={style.bid1} style={
+          store.page === 1 ? {backgroundColor:'#FFBF31'} :store.page === 0 ?{backgroundColor:'#FFBF31'} :{backgroundColor:'white'}}/>
+        <div className={style.bid2} style={
+          store.page === 2 ?{backgroundColor:'#FFBF31'} :{backgroundColor:'white'}}/>
+        <div className={style.bid3} style={
+          store.page === 3 ?{backgroundColor:'#FFBF31'} :{backgroundColor:'white'}}/>
+        <div className={style.bid4} style={
+          store.page === 4 ? {backgroundColor:'#FFBF31'} :{backgroundColor:'white'}}/>
+        <div className={style.bid5} style={
+          store.page === 5 ?{backgroundColor:'#FFBF31'} :{backgroundColor:'white'}}/>
       </div>
     </div>
     {/* 인증글, store.page에 따라 이미지, 글귀 변경 */}
@@ -96,19 +88,18 @@ function Saying({store,plusCount,minusCount}){
         {store.example3[store.page]}
         </div>
       </div>
-  </div>
- )
-}
-function mapStateToProps(state)
-{return {
-  store: state
-}};
-function mapDispatchToProps(dispatch)
-{ return {
-  plusCount: () => dispatch(plus()),
-  minusCount: () => dispatch(minus())
- };
+    </div>
+  )}
+
+function mapStateToProps(state){
+  return {store: state}
 };
 
+function mapDispatchToProps(dispatch){ 
+  return {
+    plusCount: () => dispatch(plus()),
+    minusCount: () => dispatch(minus())
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Saying);
