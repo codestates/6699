@@ -15,9 +15,10 @@ PostClickEvent,SayingClickEvent,LikeClickEvent,CommentClickEvent}){
             나의 게시물
             </Link>
             </li> 
+
         <li className={style.menus} id={style.saying}  onClick={PostClickEvent}>
             나의 명언
-            </li>  
+        </li>  
         <li className={style.menus} id={style.comment} >내가 쓴 댓글</li>
         <li className={style.menus} id={style.like} >좋아요</li>
       </ul>
