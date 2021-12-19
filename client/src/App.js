@@ -29,8 +29,8 @@ function App() {
         <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>
         <Route path = '/mainpage/postsaymodal' element={<PostSayModal/>}/>
       </Routes>
-      {loginModal ? <LoginModal /> : null}
-      {signupModal ? <SignupModal /> : null}
+      {loginModal && <LoginModal />}
+      {signupModal && <SignupModal />}
       
       <div className={style.header_downside}>
         <Routes>

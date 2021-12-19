@@ -50,7 +50,7 @@
   justify-content: center;
   align-items: center;
   color:#000000;
-  font-size:30px;
+  font-size:20px;
   font-weight: bold;
   width:100%;
   height:50%;
@@ -62,7 +62,7 @@
 .logotitle>strong{
   margin-left: 5%;
   color: #FFBF31;
-  font-size:20px;
+  font-size:15px;
 }
 .textbox{
   display:flex;
@@ -107,13 +107,10 @@
   font-weight: bold;
   position: absolute;
   color:#FFFFFF;
-  background-color:#000000;
+  background-color:#FFBF31;
   border-radius:10px;
   height:100%;
   width: 100%;
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
-}
-.loginbutton:hover{
   cursor: pointer;
-  background-color:#FFBF31;
+  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }

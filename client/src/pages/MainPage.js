@@ -11,7 +11,7 @@ function MainPage({store}){
   let [curPage,setPage] = useState(store.page);
   return (
     <div className={style.container}>
-      {console.log(curPage)}
+      {console.log(process.env.REACT_APP_API_URL)}
       {/* MainPageSaying 컴포넌트로 현재페이지 상태 props 전달 */}
       <MainPageSaying curPage={curPage}/>
       <div className={style.category_container}>

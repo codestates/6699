@@ -29,11 +29,11 @@ function MyEditPage (){
         </div>
         </div>
 
-         <div id={style.setting_container}>
+        <div id={style.setting_container}>
         <div id={style.setting_outer_wrap}>
             <div className={style.info}>
             <b> <p id={style.title}>계 정 설 정</p> </b>
-             <p id={style.explain}>회원정보를 수정합니다.</p> 
+            <p id={style.explain}>회원정보를 수정합니다.</p> 
             </div>
             <div id={style.setting_inner_wrap}>
                 <div id={style.seeting_sub_wrap}>
