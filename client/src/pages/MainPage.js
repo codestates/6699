@@ -5,7 +5,7 @@ import PostBox from '../components/MainPage/PostBox';
 import Footer from '../components/Footer';
 import React,{useState} from 'react';
 import { connect } from "react-redux";
-import {minus, plus} from '../store/landingSlice';
+import {minus, plus} from '../store/LandingSlice';
 function MainPage({store}){
   /* 랜딩페이지에서 누른 명언 페이지 숫자를 받아 curPage 초기값으로  */
   let [curPage,setPage] = useState(store.page);

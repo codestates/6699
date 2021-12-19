@@ -1,7 +1,7 @@
 import style from '../components/Footer.module.css';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import {health} from '../store/landingSlice';
+import {health} from '../store/LandingSlice';
 
 
 

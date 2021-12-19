@@ -1,7 +1,7 @@
 
 
 import { configureStore, createSlice } from "@reduxjs/toolkit"; 
-const store = createSlice(
+const landingSlice = createSlice(
   { name: "storeReducer", 
     initialState: {saying:{0:'땀은 지방의 눈물이다.',
                            1:'땀은 지방의 눈물이다.',
@@ -42,6 +42,6 @@ const store = createSlice(
                 love: (state, action) => {state.page=5}  
                } });
                 
-export const { plus, minus, all, health, study, economy, relationship, love } = store.actions;
-export default configureStore({ reducer: store.reducer });
+export const { plus, minus, all, health, study, economy, relationship, love } = landingSlice.actions;
+export default configureStore({ reducer: landingSlice.reducer });
 

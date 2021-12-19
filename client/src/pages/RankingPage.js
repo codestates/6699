@@ -2,7 +2,7 @@ import style from './RankingPage.module.css';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import {all, health, study, economy, relationship, love} from '../store/landingSlice';
+import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
 
 function RankingPage({store,goAll,goHealth,goStudy,goEconomy,goRelationship,goLove}){
   /* 카테고리별로 가는 함수 */

@@ -3,7 +3,7 @@ import Saying from '../components/LandingPage/Saying';
 import style from './LandingPage.module.css'
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import {all} from '../store/landingSlice';
+import {all} from '../store/LandingSlice';
 
 
 function LandingPage({store,goAll}){
