@@ -21,7 +21,7 @@ import PrivacyModal from './components/MainPage/PrivacyModal';
 function App() {
   const loginModal = useSelector((state) => state.loginModal);
   const signupModal = useSelector((state) => state.signupModal);
-
+//
   return (
     <div className={style.container}>
       <Header />
