@@ -18,6 +18,7 @@ function App() {
   return (
     <div className={style.container}>
       <Header />
+      {/* <PostPostModal /> */}
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
         <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>

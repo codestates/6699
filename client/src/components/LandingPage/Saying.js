@@ -23,15 +23,15 @@ function Saying(){
       <div className={style.left_66}/>
       <div className={style.right_99}/>
 
-      <div className={style.saying}>땀은 지방의 눈물이다.</div>
+      <div className={style.saying}>땀은 땀이다.</div>
 
       {/* Slide Bar Zone */}
       <div className={style.slidebar}>
         <div className={style.bid1}/>
         <div className={style.bid2}/>
         <div className={style.bid3}/>
-        <div className={style.bid4}/>
-        <div className={style.bid5}/>
+         {/*<div className={style.bid4}/> */}  
+        {/*<div className={style.bid5}/> */}  
       </div>
     </div>
   </div>

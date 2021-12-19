@@ -3,7 +3,7 @@ import MyCommentBox from './MyCommentBox'
 import PageNation from './MyPagePagenation'
 function MyComment(){
     return (
-<div id={style.container}>
+<div id={style.container} >
 <div className={style.box_wrapper}>
 <MyCommentBox/>
 </div>
