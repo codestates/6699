@@ -9,18 +9,15 @@ import MainPage from '../src/pages/MainPage';
 import RankingPage from '../src/pages/RankingPage';
 import MainPagePlusButton from '../src/components/MainPage/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
-import Footer from '../src/components/Footer';
 import MyEditPage from '../src/pages/MyEditPage';
 import PostPostModal from './components/MainPage/PostPostModal';
 import PostSayModal from './components/MainPage/PostSayModal';
 import LoginModal from './components/MainPage/LoginModal';
 import SignupModal from './components/MainPage/SignupModal';
 import { useSelector, useDispatch } from 'react-redux';
-import PrivacyModal from './components/MainPage/PrivacyModal';
 
 function App() {
-  const loginModal = useSelector((state) => state.loginModal);
-  const signupModal = useSelector((state) => state.signupModal);
+  const { loginModal, signupModal } = useSelector((state) => state.modal);
 
   return (
     <div className={style.container}>

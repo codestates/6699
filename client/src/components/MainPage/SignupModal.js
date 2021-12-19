@@ -1,7 +1,7 @@
 import style from './SignupModal.module.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { showLoginModal, showSignupModal } from '../../store/modal-slice';
+import { showLoginModal, showSignupModal } from '../../store/ModalSlice';
 import ServiceModal from './ServiceModal';
 import PrivacyModal from './PrivacyModal';
 
