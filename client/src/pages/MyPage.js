@@ -72,14 +72,6 @@ function MyPage(){
         <div id={style.posts_board}>
         <div id={style.component_wrapper}>
           {ChangeComponent()}
-        {/* {(isFocus === 'mypost')?(
-        <MyPosting/>):(
-            (isFocus === 'mysaying')?
-            (<MySaying/>):
-            (isFocus === 'mycomment')?
-            (<MyComment/>):
-            (isFocus === 'mylike')?(<MyLike/>):(null))} */}
-    
         </div>
         </div>
 

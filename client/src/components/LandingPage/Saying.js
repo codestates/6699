@@ -25,7 +25,7 @@ import ex_relationship3 from '../../images/category_relationship.png'
 import ex_love3 from '../../images/category_love.png'
 
 import { connect } from "react-redux";
-import {minus, plus} from '../../store/LandingSlice';
+import {minus, plus} from '../../store/LandingSlice'
 import {Link} from 'react-router-dom';
 
 function Saying({store,plusCount,minusCount}){

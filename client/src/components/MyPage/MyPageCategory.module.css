@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 12vh;
+  height: 10vh;
   /* border: 1px solid red; */
 }
 
@@ -31,6 +31,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
+  text-decoration: none;
+  width: 25%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+}
+
+#focused_post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   background-color: #ffbf31;
   text-decoration: none;
@@ -38,28 +49,28 @@
   height: 100%;
   border-radius: 20px 0px 0px 20px;
 }
-
-/* #post:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffbf31;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  border-radius: 20px 0px 0px 20px;
-} */
 
 #saying {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
+  text-decoration: none;
+  width: 25%;
+  height: 100%;
+}
+
+#focused_saying {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   background-color: #ffbf31;
   text-decoration: none;
   width: 25%;
   height: 100%;
 }
+
 #comment {
   display: flex;
   justify-content: center;
@@ -69,11 +80,32 @@
   height: 100%;
 }
 
+#focused_comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #ffbf31;
+  width: 25%;
+  height: 100%;
+}
+
 #like {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
+  width: 25%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+
+#focused_like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #ffbf31;
   width: 25%;
   height: 100%;
   border-radius: 0px 20px 20px 0px;
