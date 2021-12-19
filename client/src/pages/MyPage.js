@@ -8,38 +8,35 @@ import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
 import React, { useState } from 'react';
 function MyPage(){
-    //상태 하나로 만들기. 중첩 너무많음
-    const [postFocus,setPostFocus] = useState(true);
-    const [sayingFocus,setSayingFocus] = useState(false);
-    const [commentFocus,setCommentFocus] = useState(false);
-    const [likeFocus,setLikeFocus] = useState(false);
+    //현재 누르고 있는 탭
+    const [isFocus,setIsFocus] = useState('mypost');
+ 
     //나의 게시물 버튼을 눌렀을때 나의 게시물 component로 변함
     function PostClickEvent(){
-      setPostFocus(true)
-      setSayingFocus(false)
-      setCommentFocus(false)
-      setLikeFocus(false)
+      setIsFocus('mypost')
     }
     //나의 명언 버튼을 눌렀을때 나의 명언 component로 변함
     function SayingClickEvent(){
-        setPostFocus(true)
-        setSayingFocus(false)
-        setCommentFocus(false)
-        setLikeFocus(false)
-      }
-      //내가 쓴 댓글 버튼을 눌렀을때 내가 쓴 댓글 component로 변함
-      function LikeClickEvent(){
-        setPostFocus(true)
-        setSayingFocus(false)
-        setCommentFocus(false)
-        setLikeFocus(false)
+      setIsFocus('mysaying')
       }
       //좋아요 버튼을 눌렀을때 좋아요 component로 변함
       function CommentClickEvent(){
-        setPostFocus(true)
-        setSayingFocus(false)
-        setCommentFocus(false)
-        setLikeFocus(false)
+        setIsFocus('mycomment')
+      }
+      //내가 쓴 댓글 버튼을 눌렀을때 내가 쓴 댓글 component로 변함
+      function LikeClickEvent(){
+        setIsFocus('mylike')
+      }
+      function ChangeComponent(){
+        if(isFocus === 'mypost'){
+          return <MyPosting/>
+        } else if(isFocus === 'mysaying'){
+          return <MySaying/>
+        } else if(isFocus === 'mycomment'){
+          return <MyComment/>
+        } else if(isFocus === 'mylike'){
+          return <MyLike/>
+        }
       }
     return (
         <div id={style.container}>
@@ -67,21 +64,21 @@ function MyPage(){
          {/*오른쪽 카테고리영역*/}
         <div id={style.posts_container}>
         <div id={style.category_wrapper}>
-        <MyPageCategory  postFocus={postFocus} commentFocus={commentFocus} 
-        sayingFocus={sayingFocus} likeFocus={likeFocus}
+        <MyPageCategory  isFocus={isFocus}
         PostClickEvent={PostClickEvent} SayingClickEvent={SayingClickEvent}
         LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}/>
         </div>
 
         <div id={style.posts_board}>
         <div id={style.component_wrapper}>
-        {(postFocus === true)?(
+          {ChangeComponent()}
+        {/* {(isFocus === 'mypost')?(
         <MyPosting/>):(
-            (sayingFocus === true)?
+            (isFocus === 'mysaying')?
             (<MySaying/>):
-            (commentFocus === true)?
+            (isFocus === 'mycomment')?
             (<MyComment/>):
-            (likeFocus === true)?(<MyLike/>):(null))}
+            (isFocus === 'mylike')?(<MyLike/>):(null))} */}
     
         </div>
         </div>

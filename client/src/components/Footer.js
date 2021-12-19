@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import {health} from '../store/LandingSlice';
 
-
-
 function Footer({store,goHealth}){
   
   /* 랜딩페이지(건강 카테고리)로 가는 함수 */

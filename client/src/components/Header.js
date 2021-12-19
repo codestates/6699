@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import style from '../components/Header.module.css'
 import {Link} from 'react-router-dom';
 import SignupModal from './MainPage/SignupModal';
-import { showLoginModal, showSignupModal } from '../store/modal-slice';
+import { showLoginModal, showSignupModal } from '../store/ModalSlice';
 
 function Header(){
     const dispatch = useDispatch();
