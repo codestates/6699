@@ -39,18 +39,6 @@
   border-radius: 20px 0px 0px 20px;
 }
 
-#clicked_post {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #ffbf31;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-}
-
 #post:hover {
   display: flex;
   justify-content: center;
@@ -60,15 +48,6 @@
   height: 100%;
   color: #fff;
   border-radius: 20px 0px 0px 20px;
-}
-
-.text:hover {
-  color: #fff;
-}
-
-.text2 {
-  color: #000;
-  text-decoration: none;
 }
 
 #saying {
