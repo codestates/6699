@@ -2,9 +2,53 @@ import style from './RankingPage.module.css';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
+import RankingLikeNewModal from '../components/RankingPage/RankingLikeNewModal';
+import RankingDropDown from '../components/RankingPage/RankingDropDown';
+import React, {useState} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 
 function RankingPage(){
+  let [isToggleOpen,setToggleOpen] = useState(false);
+  let [isDropDownOpen,setDropDownOpen] = useState(false);
+  let [isLikeOrNew,setLikeNew] = useState('좋아요순');
+  let [curCategory,setCategory] = useState('전체');
+
+
+  /* 창 닫는 함수 */
+  const toggleOff = () => {
+    setToggleOpen(false)};
+  const dropDownOff = () => {
+    setDropDownOpen(false)};
+  
+  /* 좋아요, 최신순 선택함수 */
+  const clickLike = () => {
+    toggleOff();
+    setLikeNew('좋아요순')};
+  const clickNew = () => {
+    toggleOff();
+    setLikeNew('최신순')};
+
+
+  /* 카테고리 선택함수 */
+  const clickAll = () => {
+    dropDownOff();
+    setCategory('전체')}
+  const clickHealth = () => {
+    dropDownOff();
+    setCategory('건강')}
+  const clickStudy = () => {
+    dropDownOff();
+    setCategory('학습')}
+  const clickEconomy = () => {
+    dropDownOff();
+    setCategory('경제')}
+  const clickRelationship = () => {
+    dropDownOff();
+    setCategory('인간관계')}
+const clickLove = () => {
+    dropDownOff();
+    setCategory('사랑')}
+
   const page = useSelector(state => state.landing.page);
   const dispatch = useDispatch();
   /* 카테고리별로 가는 함수 */
@@ -29,12 +73,24 @@ function RankingPage(){
 
   return (
     <div className={style.container}>
-
-      <div className={style.like_box}>
-
-      </div>
+       {/* 좋아요순, 최신순 토글 */}
       <div className={style.category_box}>
-        <div className={style.category_button}>전체</div>
+      <div className={style.like_box}>
+          <div className = {style.toggle} onClick={()=> {
+            !isToggleOpen
+            ?setToggleOpen(true)
+            :setToggleOpen(false)
+          }}></div>
+          <div className={style.likenew}>{isLikeOrNew}</div>
+        </div>
+        {isToggleOpen&&<RankingLikeNewModal toggleOff = {toggleOff} clickLike={clickLike} clickNew={clickNew}/>}
+        {/* 카테고리 클릭 드랍다운 */}
+        <div className={style.category_button} onClick={() =>{
+            !isDropDownOpen
+            ?setDropDownOpen(true)
+            :setDropDownOpen(false)
+        }}>{curCategory}</div>
+        {isDropDownOpen&&<RankingDropDown dropDownOff = {dropDownOff} clickAll={clickAll} clickHealth={clickHealth} clickStudy={clickStudy} clickEconomy={clickEconomy} clickRelationship={clickRelationship} clickLove={clickLove}/>}
       </div>
 
         <div className={style.ranking_box}>

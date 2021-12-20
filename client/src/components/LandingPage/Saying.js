@@ -109,12 +109,4 @@ return (
   </div>
  )
 }
-
-function mapDispatchToProps(dispatch){ 
-  return {
-    plusCount: () => dispatch(plus()),
-    minusCount: () => dispatch(minus())
-  };
-};
-
 export default Saying;
