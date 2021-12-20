@@ -1,6 +1,6 @@
 import style from './MySayingMiniModal.module.css'
 
-function MySayingMiniModal({MyPost,MySaying,post,setIsPost}){
+function MySayingMiniModal({MyPost,MySaying}){
 
     return(
         <div>
