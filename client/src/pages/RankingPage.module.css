@@ -9,6 +9,7 @@
   height:6%;
 }
 .category_button{
+  cursor: pointer;
   position: absolute;
   display:flex;
   top: 2%;
@@ -16,7 +17,7 @@
   justify-content: center;
   align-items:center;
   color:white;
-  font-size:25px;
+  font-size:20px;
   font-weight:bold;
   background-color: #FFBF31;
   height: 1.5%;
@@ -117,6 +118,7 @@
   height:100%;
 }
 .rankingbox_sayingzone_top3_saying:hover{
+  cursor:pointer;
   color:#FFBF31;
 }
 .rankingbox_sayingzone_top3_image1{
@@ -208,6 +210,10 @@
   height:100%;
   width:79%;
 }
+.rainking_sayingzone_top12_saying:hover{
+  color:#FFBF31;
+  cursor:pointer;
+}
 .rankingbox_sayingzone_top12_image{
   background-image: url('../images/publicicon.png');
   background-size: 30%;
@@ -259,4 +265,34 @@
 .link{
   text-decoration: none; 
   color: inherit; 
+}
+.toggle{
+  position: absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:15px; height:15px;
+  background-image: url("../../src/images/Dark_Polygon.png");
+  background-size:100% 100%;
+  background-position: center;
+  margin-top:9px;
+  left:0;
+  cursor: pointer;
+}
+.like_box{
+  display:flex;
+  position: absolute;
+  flex-wrap:wrap;
+  width:100px;
+  height:30px;
+  top: 2.4%;
+  right:18%;
+  transform: translate(-50%,0%)
+}
+.likenew{
+  position:absolute;
+  left:30px;
+  color: #707070;
+  font-weight: bold;
+  font-size:20px;
 }

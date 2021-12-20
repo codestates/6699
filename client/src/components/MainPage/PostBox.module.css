@@ -53,3 +53,40 @@
 .post_link:hover{
   border: 5px solid #FFBF31;
 }
+
+.page_box{
+  display:flex;
+  align-items: center;
+  position:absolute;
+  width:30%;
+  height:5%;
+  border:1px solid red;
+  bottom:2.6%;
+  flex-direction: row;
+}
+.page_pageBox{
+  display:flex;
+  position:absolute;
+  width:80%;
+  height:100%;
+  left:10%;
+  border:2px solid blue;
+}
+.page_box_left_arrow{
+  width:10%;
+  padding-bottom:10%;
+  position:absolute;
+  border:1px solid red;
+  background-image:url(../../images/Left_Page_Arrow.png);
+  background-size:cover;
+  left:0;
+}
+.page_box_right_arrow{
+  width:10%;
+  padding-bottom:10%;
+  position:absolute;
+  border:1px solid red;
+  background-image:url(../../images/Right_Page_Arrow.png);
+  background-size:cover;
+  right:0;
+}

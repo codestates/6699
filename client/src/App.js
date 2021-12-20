@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 import Header from '../src/components/Header';
 import LandingPage from '../src/pages/LandingPage';
-import CurrentPage from '../src/components/LandingPage/Saying';
 import MyPage from '../src/pages/MyPage';
 import MainPage from '../src/pages/MainPage';
 import RankingPage from '../src/pages/RankingPage';
