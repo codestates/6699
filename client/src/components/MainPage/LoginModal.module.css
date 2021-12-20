@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  border: solide yellowgreen;
+  /* border: solide yellowgreen; */
 }
 
 .containerbg{
@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   background-color:rgba(0,0,0,35%);
-  border: solide yellowgreen;
+  /* border: solide yellowgreen; */
 }
 
 .modalbox{
@@ -107,11 +107,11 @@
   position: absolute;
   flex-direction: column;
   width: 80%;
-  height: 10%;
+  height: 5%;
   left: 50%;
   top: 57.5%;
   transform: translate(-50%, 0%);
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .error{
   display: flex;
@@ -121,8 +121,8 @@
   font-weight: bold;
   font-size:13px;
   width:100%;
-  height:50%;
-  border: 2px solid red;
+  height:100%;
+  /* border: 2px solid red; */
 }
 
 .buttonbox{
@@ -131,9 +131,9 @@
   width: 80%;
   height: 8%;
   left: 50%;
-  top: 70%;
+  top: 65%;
   transform: translate(-50%, 0%);
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .loginbutton{
@@ -160,9 +160,9 @@
   width: 70%;
   height: 4%;
   left: 50%;
-  top: 80%;
+  top: 75%;
   transform: translate(-50%, 0%);
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 .text{
   display: flex;
