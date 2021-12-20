@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
 import modalSlice from './store/ModalSlice';
 import landingSlice from './store/LandingSlice';
+import mySlice from './store/MySlice';
 import authSlice from './store/AuthSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from "@reduxjs/toolkit"; 
@@ -23,7 +24,8 @@ const persistConfig = {
 const reducers = combineReducers({
   landing: landingSlice,
   modal: modalSlice,
-  auth: authSlice
+  auth: authSlice,
+  mypage: mySlice
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

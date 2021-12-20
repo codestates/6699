@@ -3,8 +3,8 @@ import MyPagePagenation from './MyPagePagenation'
 import React, { useState } from 'react';
 import MySayingMiniModal from './MySayingMiniModal';
 import Modal from '../Modal';
-import MySayingBox from '../../components/MyPage/MySayingBox'
-function MyLike (){
+import MyLikedSayingBox from '../../components/MyPage/MyLikedSayingBox'
+function MyLike ({likedSayings,likedComments}){
     let [isOpen,setIsOpen] = useState(false);
     const [post,setIsPost] = useState(true);
   function MyPost(){
@@ -15,7 +15,8 @@ function MyLike (){
   }
     return (
         <>
-        {(post === true)?( //좋아요 누른 게시물
+        {(post === true)?( 
+          //좋아요 누른 게시물
         <div id={style.changing_area}>
         <div id={style.posts_wrap}>
         <div className = {style.posts}>
@@ -33,13 +34,14 @@ function MyLike (){
         <div id={style.pagenation_wrapper}>
         <MyPagePagenation/>
         </div>
-        </div>):(//좋아요 누른 명언
+        </div>):(
+          //좋아요 누른 명언
         <div className={style.container}>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
+        {likedSayings.length >0 ?likedSayings.map((el)=>
+        <MyLikedSayingBox 
+        likedSaying={el}
+        />
+        ):("좋아요를 누른 명언이 없어요")}
         <div className={style.pagenation_wrapper}>
         <MyPagePagenation/>
         </div>

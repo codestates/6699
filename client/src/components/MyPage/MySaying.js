@@ -2,21 +2,8 @@ import style from './MySaying.module.css'
 import MyPagePagenation from './MyPagePagenation'
 import MySayingBox from './MySayingBox';
 import {useState} from 'react'
-function MySaying(){ /*나의 명언*/
-const [saying,setSaying] = useState([]);
 
-    // const getSaying = async () => {
-    //     try {
-    //       const response = await axios.get(
-    //         `${REACT_APP_API_URL}/:sayingId`,
-    //         { withCredentials: true }
-    //       );
-    
-    //       setSaying(response.data.filteredSaying);
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   };
+function MySaying({sayings}){ /*나의 명언*/
 
     //   const handleDelete = async (e) => {
     //     const postId = e.target.id;
@@ -29,14 +16,14 @@ const [saying,setSaying] = useState([]);
     //       console.log(err);
     //     }
     //   };
-
+console.log(saying)
     return (
         <div className={style.container}>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
+        {saying.length >0? sayings.map((el) =>
+        <MySayingBox 
+        saying={el}
+         key={el.id}/>)
+        :("내가 작성한 명언이 없습니다.")}
         <div className={style.pagenation_wrapper}>
         <MyPagePagenation/>
         </div>

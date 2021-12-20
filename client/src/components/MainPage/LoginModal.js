@@ -48,10 +48,8 @@ function LoginModal(){
         { email: inputEmail, password: inputPassword },
         { withCredentials: true }
       );
-
       /* 서버의 응답결과에 data.data.userInfo가 들어있다면 로그인 성공*/
       if(response.data.data.userInfo){
-
         setInfoIsValid(false);
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
