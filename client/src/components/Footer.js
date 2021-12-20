@@ -1,36 +1,44 @@
-import '../components/Footer.css';
+import style from '../components/Footer.module.css';
 import {Link} from 'react-router-dom';
-function Footer(){
+import { connect } from "react-redux";
+import {health} from '../store/LandingSlice';
+
+function Footer({store,goHealth}){
+  
+  /* 랜딩페이지(건강 카테고리)로 가는 함수 */
+    function goHealthPage(e){
+        goHealth(store.page);
+       }
     return (
-        <div id='footer-container'>
-           <div id='footer-logo-wrapper'>
-           <Link to ='/'><div id= 'footer-6699-logo'></div></Link>
+        <div id={style.container}>
+           <div id={style.logo_wrapper}>
+           <Link onClick={()=>{goHealthPage(store.page)}} to ='/'><div id= {style.six_nine_logo}></div></Link>
            </div>
 
-           <div className= 'footer-team-members'>
-           <span className= 'footer-github-logos'>
-           <div className= 'footer-github-logo'></div>
-           <div className= 'footer-github-logo'></div>
-           <div className= 'footer-github-logo'></div>
-           <div className= 'footer-github-logo'></div>
+           <div className= {style.team_members}>
+           <span className= {style.github_logos}>
+           <div className= {style.github_logo}></div>
+           <div className= {style.github_logo}></div>
+           <div className= {style.github_logo}></div>
+           <div className= {style.github_logo}></div>
            </span>
-           <div className= 'footer-profiles'>
-           <div className = 'footer-profile'>
+           <div className= {style.profiles}>
+           <div className = {style.profile}>
            <div>최선영</div>
            <div>Front end</div>
            <div>sy.choi1106@gmail.com</div>
            </div>
-           <div className = 'footer-profile'>
+           <div className = {style.profile}>
            <div>정재혁</div>
            <div>Front end</div>
            <div>nezcoreen@gmail.com</div>
            </div>
-           <div className = 'footer-profile'>
+           <div className = {style.profile}>
            <div>김정현</div>
            <div>Back end</div>
            <div>wjd5588@gmail.com</div>
            </div>
-           <div className = 'footer-profile'>
+           <div className = {style.profile}>
            <div>김기쁨</div>
            <div>Back end</div>
            <div>joykim9311@gmail.com</div>
@@ -38,12 +46,21 @@ function Footer(){
            </div>
            </div>
 
-           <div className ='footer-badges'>
-           <div id='footer-youtube-logo'></div>
-           <div id='footer-github-logo'></div>
+           <div className ={style.badges}>
+           <div id={style.youtube_logo}></div>
+           <div id={style.github_logo}></div>
            </div>
-           <div id='footer-copyright'>Copyrightⓒ 2021 weAct</div>
+           <div id={style.copyright}>Copyrightⓒ 2021 weAct</div>
         </div>
     )
    }
-   export default Footer;
+   function mapStateToProps(state)
+{return {
+  store: state
+}};
+function mapDispatchToProps(dispatch)
+{ return {
+  goHealth: () => dispatch(health())
+ };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

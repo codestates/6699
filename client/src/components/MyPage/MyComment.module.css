@@ -1,0 +1,31 @@
+#changing_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vh;
+  height: 70vh;
+  /* border: 1px solid orange; */
+}
+
+.box_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
+  height: 10vh;
+  /* border: 1px solid orange; */
+}
+
+.outer_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
+  height: 5vh;
+  /* border: 1px solid yellowgreen; */
+}
+
+#pagenation_wrapper {
+  width: 13vh;
+  height: 5vh;
+  /* border: 1px solid blue; */
+}

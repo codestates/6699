@@ -1,21 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'; 
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
+import modalSlice from './store/ModalSlice';
+import landingSlice from './store/LandingSlice';
+import authSlice from './store/AuthSlice';
+import { combineReducers } from 'redux';
+import { configureStore } from "@reduxjs/toolkit"; 
+
+const reducers = combineReducers({
+  landing: landingSlice,
+  modal: modalSlice,
+  auth: authSlice
+});
+
+const store = configureStore({ reducer: reducers });
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Router>
-    <ScrollToTop/>
-    <App />
+      <ScrollToTop/>
+      <App />
     </Router>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

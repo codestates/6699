@@ -13,17 +13,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ['https://localhost:3000'],
+    origin: ['http://localhost:3000'],
     credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS']
   })
 );
 
 // Routing
-app.use('/', router.indexRouter);
+app.use('/auth', router.authRouter);
 app.use('/user', router.userRouter);
-app.use('/saying', router.sayingRouter);
 app.use('/ranking', router.rankingRouter);
+app.use('/', router.sayingRouter);
 
 // Running
 const server = app.listen(port, () => console.log(`${port} port http server runnning`));

@@ -1,0 +1,66 @@
+   /*****done*****/
+   .container{
+     position: relative;
+     width:100%;
+     height:4000px;
+   }
+ 
+  
+  /*******************/
+  /* Landing-Example */
+  /*******************/
+  
+  
+  .big_message{
+    text-align: center;
+    width: 1000px;
+    font-size:70px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:rgb(20,20,20)
+  }
+  .start_button{
+    border-radius: 27px;
+    background: #1c1c1c;
+    box-shadow:  4px 4px 10px #101010,
+             -4px -4px 10px #282828;
+    font-size:20px;
+    font-weight:bold; 
+    color:white;
+    position:absolute;
+    width:120px;
+    height:60px;
+    top: 95.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor:pointer;
+  }
+  .big_66{
+    position: absolute;
+    background-image: url("../../src/images/66.png");
+    background-size:100% 100%;
+    width: 85px;
+    height: 60px;
+    top: 87%;
+    left: 21%;
+    transform: translate(-50%,-50%);
+    color:rgb(20,20,20)
+  }
+  .big_99{
+    position: absolute;
+    background-image: url("../../src/images/99.png");
+    background-size:100% 100%;
+    width: 85px;
+    height: 60px;
+    top: 87%;
+    left: 79%;
+    transform: translate(-50%,-50%);
+    color:rgb(20,20,20)
+  }
+  
+  /***********************/
+  /* Landing-Big Mention */
+  /***********************/
+  

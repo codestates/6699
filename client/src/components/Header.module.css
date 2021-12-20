@@ -1,0 +1,62 @@
+#box {
+  opacity: 90%;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  flex: 1 1 auto;
+  border: 1px solid #ccc;
+}
+
+#logo {
+  opacity: 100%;
+  z-index: 5;
+  display: flex;
+  background-image: url("../images/6699logo.png");
+  background-size: 100% 100%;
+  width: 78px;
+  height: 37px;
+  flex: 0 1 auto;
+  /*border: 1px solid red;*/
+}
+
+#search_box {
+  z-index: 4;
+  opacity: 100%;
+  display: flex;
+  border: 0;
+  flex: 2 1 auto;
+}
+
+.search {
+  align-self: center;
+  z-index: 5;
+  opacity: 100%;
+  position: absolute;
+  right: 110px;
+  background-image: url("../images/search.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+#login_btn {
+  z-index: 5;
+  opacity: 100%;
+  color: #fff;
+  background: #ffbf31;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  flex: 0 1 auto;
+  margin-right: 10px;
+}
+
