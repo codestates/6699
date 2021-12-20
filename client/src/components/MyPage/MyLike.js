@@ -8,14 +8,10 @@ function MyLike (){
     let [isOpen,setIsOpen] = useState(false);
     const [post,setIsPost] = useState(true);
   function MyPost(){
-    console.log(post)
    setIsPost(true)
-   console.log(post)
   }
   function MySaying(){
-    console.log(post)
     setIsPost(false)
-    console.log(post)
   }
     return (
         <>
@@ -58,7 +54,7 @@ function MyLike (){
       {isOpen
         ?isOpen &&
         <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <MySayingMiniModal MyPost={MyPost} MySaying={MySaying} setIsPost={setIsPost} post={post}/>
+          <MySayingMiniModal MyPost={MyPost} MySaying={MySaying} />
         </Modal>
         :null  
       }

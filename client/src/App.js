@@ -19,7 +19,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
   const { loginModal, signupModal } = useSelector((state) => state.modal);
-
+  const { isLogin } = useSelector((state) => state.auth);
   return (
     <div className={style.container}>
       {/* <MySayingDelete/> */}

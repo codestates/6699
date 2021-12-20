@@ -311,9 +311,12 @@
 #comment_user {
   /*뱃살대장보노*/
   position: relative;
+  height: 3vh;
   top: 5vh;
   left: 23vh;
   font-size: 11pt;
+  text-align: center;
+  color: #2c2c2c;
   /* border: 1px solid blue; */
 }
 
@@ -344,6 +347,9 @@
   position: relative;
   top: 5vh;
   left: 23vh;
+  text-align: center;
+  font-size: 11pt;
+  color: #2c2c2c;
   /* border: 1px solid purple; */
 }
 
