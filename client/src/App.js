@@ -1,5 +1,5 @@
 import style from  './App.module.css';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 import Header from '../src/components/Header';
 import LandingPage from '../src/pages/LandingPage';
@@ -36,7 +36,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
           <Route path='/mainpage/*' element={<MainPage/>}/>
-          {(isLogin === true)?(<Route path='/mypage' element={<MyPage/>}/>):(null)}
+          <Route path='/mypage' element={<MyPage/>}/>
           <Route path='/editpage' element={<MyEditPage/>}/>
           <Route path='/rankingpage' element={<RankingPage/>}/>
           <Route path='/postingpage' element={<PostingPage/>}/>

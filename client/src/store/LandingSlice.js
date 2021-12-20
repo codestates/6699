@@ -1,5 +1,3 @@
-
-
 import { configureStore, createSlice } from "@reduxjs/toolkit"; 
 const landingSlice = createSlice(
   { name: "storeReducer", 
