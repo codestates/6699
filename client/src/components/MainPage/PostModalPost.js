@@ -1,16 +1,13 @@
 import style from  './PostModalPost.module.css';
-import React, { useState } from 'react';
-import PostPostModal from './PostPostModal';
-import {Link} from 'react-router-dom'
-import Modal from '../Modal';
+import { showPostModal} from '../../store/ModalSlice';
+import { useDispatch } from 'react-redux'
 
 function PostModalPost(){
-    let [isOpen,setIsOpen] = useState(false);
+  const dispatch = useDispatch();
     return(
-      <Link className={style.link} to ='/mainpage/postpostmodal'><div className = {style.post}>
+      <div className = {style.post} onClick={() => dispatch(showPostModal(true))}>
        글 작성
       </div>
-      </Link>
     )
 }
 export default PostModalPost;

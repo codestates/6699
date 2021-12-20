@@ -44,8 +44,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3vh;
-  height: 3vh;
+  width: 2vh;
+  height: 2vh;
   background-image: url("../../images/Dark_Polygon.png");
   background-size: 100% 100%;
   background-position: center;

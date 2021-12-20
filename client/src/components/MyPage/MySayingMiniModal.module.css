@@ -12,7 +12,7 @@
   z-index: 3;
   position: absolute;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
-  transform: translate(9%, -15%);
+  transform: translate(20%, -15%);
 }
 .post {
   z-index: 9999;
@@ -22,6 +22,20 @@
   align-items: center;
   justify-content: center;
 }
+
+.post:hover {
+  z-index: 9999;
+  display: flex;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffbf31;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  cursor: pointer;
+}
+
 .say {
   z-index: 9999;
   display: flex;
@@ -29,4 +43,17 @@
   height: 50%;
   align-items: center;
   justify-content: center;
+}
+
+.say:hover {
+  z-index: 9999;
+  display: flex;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffbf31;
+  border-radius: 0 0 10px 10px;
+  color: #fff;
+  cursor: pointer;
 }
