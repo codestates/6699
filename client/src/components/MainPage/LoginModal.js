@@ -41,7 +41,6 @@ function LoginModal(){
         dispatch(login());
         dispatch(showLoginModal(false));
         navigate('/mypage');
-        console.log(response.data.userInfo)
       }
     } catch(err) {
       /* 상태코드 403번 에러 반환시 상태 변경 */
