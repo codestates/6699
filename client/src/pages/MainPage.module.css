@@ -118,3 +118,34 @@
   background-color:#FFBF31;
   cursor:pointer;
 }
+
+
+.toggle{
+  position: absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:15px; height:15px;
+  background-image: url("../../src/images/Dark_Polygon.png");
+  background-size:100% 100%;
+  background-position: center;
+  margin-top:9px;
+  left:0;
+  cursor: pointer;
+}
+.like_box{
+  top:30%;
+  display:flex;
+  position: absolute;
+  flex-wrap:wrap;
+  width:100px;
+  height:30px;
+  right: 14%;
+}
+.likenew{
+  position:absolute;
+  left:30px;
+  color: #707070;
+  font-weight: bold;
+  font-size:20px;
+}
