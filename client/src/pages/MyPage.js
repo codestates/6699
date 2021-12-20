@@ -1,21 +1,21 @@
 import MyPageCategory from '../components/MyPage/MyPageCategory.js';
 import MyEditPage from './MyEditPage.js';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route, Link, useNavigate} from 'react-router-dom';
 import MyPosting from '../components/MyPage/MyPosting'
 import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
 import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
 import{setSayings,setComments,setLikedSayings,setLikedComments} from '../store/MySlice'
 
 function MyPage(){
   const dispatch = useDispatch();
-  const { login, logout } = useSelector((state) => state.auth);
-  const {userInfo} = useSelector((state)=> state.auth);
+  const navigate = useNavigate();
 
 function handleSayingClick(){
  getSaying()
@@ -88,7 +88,7 @@ const getLikedComments = async () => {
     //나의 명언 버튼을 눌렀을때 나의 명언 component로 변함
     function SayingClickEvent(){
       setIsFocus('mysaying')
-      }
+    }
       //좋아요 버튼을 눌렀을때 좋아요 component로 변함
       function CommentClickEvent(){
         setIsFocus('mycomment')
@@ -109,7 +109,21 @@ const getLikedComments = async () => {
           return <MyLike likedSayings={likedSayings} likedComments={likedComments}/>
         }
       }
-
+    
+    const handleLogout = async () => {
+      try {
+        await axios.post(
+          `${REACT_APP_API_URL}/user/logout`,
+          {},
+          { withCredentials: true }
+        );
+        dispatch(logout());
+        navigate('/');
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    
     return (
         <div id={style.container}>
             {/*왼쪽 사용자 영역*/}
@@ -135,7 +149,7 @@ const getLikedComments = async () => {
           </button>
         </Link>
         <Link to ='/mainpage'>
-          <button id= {style.logout} onClick={()=> dispatch(logout())}>
+          <button id= {style.logout} onClick={handleLogout}>
             로그아웃
           </button>
           </Link>

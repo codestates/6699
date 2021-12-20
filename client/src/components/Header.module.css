@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 5vh;
+  height: 6vh;
   flex: 1 1 auto;
   border: 1px solid #ccc;
 }
@@ -18,6 +18,7 @@
   display: flex;
   background-image: url("../images/6699logo.png");
   background-size: 100% 100%;
+  cursor: pointer;
   width: 78px;
   height: 37px;
   flex: 0 1 auto;
@@ -37,11 +38,12 @@
   z-index: 5;
   opacity: 100%;
   position: absolute;
-  right: 110px;
+  top: 20%;
+  right: 6%;
   background-image: url("../images/search.png");
   background-size: cover;
-  width: 25px;
-  height: 25px;
+  width: 1.5%;
+  height: 60%;
 }
 
 #login_btn {
@@ -52,11 +54,27 @@
   cursor: pointer;
   border: 0;
   border-radius: 10px;
-  width: 90px;
-  height: 30px;
+  margin-right: 1%;
+  width: 4%;
+  height: 60%;
   font-size: 20px;
   font-weight: bold;
   flex: 0 1 auto;
-  margin-right: 10px;
+}
+
+#user_btn {
+  z-index: 5;
+  opacity: 80%;
+  position: absolute;
+  cursor: pointer;
+  top: 5%;
+  right: 1.75%;
+  border: 6px solid #ffbf31;
+  border-radius: 50%;
+  background-image: url("../images/userImage_default.png");
+  background-size: cover;
+  background-size: 100% 100%;
+  width: 2.5%;
+  height: 87.5%;
 }
 

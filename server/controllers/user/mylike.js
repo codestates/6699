@@ -5,10 +5,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-      const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id } });
-      
+      const userInfo = await userAuth(req, res);
       // 요청 쿼리로 category를 받아온다
       const { category } = req.query;
 

@@ -11,6 +11,15 @@ import mySlice from './store/MySlice';
 import authSlice from './store/AuthSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from "@reduxjs/toolkit"; 
+import { persistReducer, persistStore, PERSIST } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage
+};
 
 const reducers = combineReducers({
   landing: landingSlice,
@@ -19,14 +28,28 @@ const reducers = combineReducers({
   mypage: mySlice
 });
 
-const store = configureStore({ reducer: reducers });
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({ 
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [PERSIST]
+      }
+    })
+});
+
+let persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
     <Router>
       <ScrollToTop/>
       <App />
     </Router>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

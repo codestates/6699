@@ -35,7 +35,7 @@ function PostBox(){
         <Link className={style.post_link} to='/postingpage'/>
       </div>
       <div className={style.post_box_low_post}>
-        <Link className={style.post_link} to='/postingpage'/> 
+        <Link className={style.post_link} to='/postingpage'style={{opacity:0, pointerEvents:'none'}}/> 
       </div>
     </div>
   </div>
@@ -43,9 +43,11 @@ function PostBox(){
   <div className={style.page_box}>
     <div className={style.page_box_left_arrow}/>
     <div className={style.page_box_right_arrow}/>
-    <div className={style.page_box_number}/>
-    <div className={style.page_box_number}/>
-    <div className={style.page_box_number}/>
+    <div className={style.page_pageBox}>
+      <div className={style.page_box_number}/>
+      <div className={style.page_box_number}/>
+      <div className={style.page_box_number}/>
+    </div>
   </div>
 </div>
 )

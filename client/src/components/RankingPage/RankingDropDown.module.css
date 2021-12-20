@@ -1,0 +1,118 @@
+
+.box{
+  color:#404040;
+  font-size:20px;
+  font-weight:bold;
+  display: flex;
+  flex-wrap:wrap;
+  background-color: white;
+  border-radius:15px;
+  width: 200px;
+  height:265px;
+  z-index: 999;
+  position: absolute;
+  top:2%;
+  right:5%;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,25%);
+}
+.box_bg{
+  z-index:1;
+  position: fixed; 
+  width:100%;
+  height:2800px;
+}
+.all{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:15px 15px 0px 0px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.all:hover{
+  background-color:#FFBF31;
+  cursor:pointer;
+  color:white;
+}
+
+.health{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:0px 0px 0px 0px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.health:hover{
+  background-color:#FFBF31;
+  cursor:pointer;
+  color:white;
+}
+
+.study{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:0px 0px 0px 0px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.study:hover{
+  background-color:#FFBF31;
+  cursor:pointer;
+  color:white;
+}
+
+.economy{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:0px 0px 0px 0px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.economy:hover{
+  background-color:#FFBF31;
+  cursor:pointer;
+  color:white;
+}
+
+.relationship{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:0px 0px 0px 0px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.relationship:hover{
+  background-color:#FFBF31;
+  cursor:pointer;
+  color:white;
+}
+
+.love{
+  align-items: center;
+  justify-content: center;
+  border-radius:0px 0px 15px 15px;
+  background-color: white;
+  display: flex;
+  width:100%;
+  height:16.66%;
+}
+.love:hover{
+  cursor:pointer;
+  background-color:#FFBF31;
+  color:white;
+}

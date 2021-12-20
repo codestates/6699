@@ -4,16 +4,18 @@ import React, { useState } from 'react';
 import PostMiniModal from './PostMiniModal';
 
 function MainPagePlusButton(){
+
   let [isOpen,setIsOpen] = useState(false);
+  const modalOff = () => {setIsOpen(false)}
   return(
-    <div className = {style.plus_button} onClick={()=> {
-      !isOpen
-      ?setIsOpen(true)
-      :setIsOpen(false)
-      console.log("확인")
-     }}>
-     {isOpen&&<PostMiniModal isOpen={isOpen} setIsOpen={setIsOpen}/>
-      }
+    <div>
+      <div className = {style.plus_button} onClick={()=> {
+        !isOpen
+        ?setIsOpen(true)
+        :setIsOpen(false)
+       }}/>
+
+      {isOpen&&<PostMiniModal modalOff = {modalOff}/>}
     </div>
   )
 }
