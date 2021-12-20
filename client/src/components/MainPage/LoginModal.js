@@ -1,7 +1,7 @@
 import style from './LoginModal.module.css';
 import {Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { showLoginModal, showSignupModal } from '../../store/modal-slice';
+import { showLoginModal, showSignupModal } from '../../store/ModalSlice';
 
 function LoginModal(){
   const dispatch = useDispatch();

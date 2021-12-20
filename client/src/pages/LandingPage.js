@@ -1,16 +1,17 @@
 /*****done*****/
 import Saying from '../components/LandingPage/Saying';
 import style from './LandingPage.module.css'
-import {Link} from 'react-router-dom';
-import { connect } from "react-redux";
-import {all} from '../store/LandingSlice';
+import { Link } from 'react-router-dom';
+import { all } from '../store/LandingSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 
-function LandingPage({store,goAll}){
-
+function LandingPage(){
+  const page = useSelector(state => state.landing.page);
+  const dispatch = useDispatch();
   /* 전체 페이지로 가는 함수 */
-  function goAllPage(e){
-    goAll(store.page);
+  function goAllPage(){
+    dispatch(all());
    }
     return( 
     <div className={style.container}>
@@ -23,7 +24,7 @@ function LandingPage({store,goAll}){
         모두를 움직이게 만드는
         <br/>당신의 명언,        
         <br/>지금 시작해보세요.</div>
-        <Link  onClick={() => {goAllPage(store.page)}} to ='/mainpage'>
+        <Link  onClick={() => {goAllPage()}} to ='/mainpage'>
           <button className={style.start_button}>
             시작하기
           </button>
@@ -37,13 +38,5 @@ function LandingPage({store,goAll}){
     )
 
 }
-function mapStateToProps(state)
-{return {
-  store: state
-}};
-function mapDispatchToProps(dispatch)
-{ return {
-  goAll: () => dispatch(all())
- };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+
+export default LandingPage;

@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; 
-import store from './store/modal-slice';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ScrollToTop from '../src/components/ScrollRestoration';
+import modalSlice from './store/ModalSlice';
+import landingSlice from './store/LandingSlice';
+// import authSlice from './store/AuthSlice';
 import { combineReducers } from 'redux';
-import landingstore from './store/LandingSlice';
+import { configureStore } from "@reduxjs/toolkit"; 
 
-// const rootReducer = combineReducers({
-//    modal: modalSlice,
-//  landing: landingstore
-// });
+const reducers = combineReducers({
+  landing: landingSlice,
+  modal: modalSlice
+  // auth: authSlice
+});
+const store = configureStore({ reducer: reducers });
+
 ReactDOM.render(
-  <Provider store={landingstore}>
+  <Provider store={store}>
     <Router>
       <ScrollToTop/>
       <App />

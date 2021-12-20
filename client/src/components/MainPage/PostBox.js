@@ -1,6 +1,6 @@
 import style from './PostBox.module.css';
 import {Link} from 'react-router-dom';
-function PostBox(props){
+function PostBox(){
   return(
   /****** 게시물 묶음 ******/
 <div className={style.container}>

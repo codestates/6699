@@ -2,7 +2,6 @@
 import style from './MainPagePlusButton.module.css';
 import React, { useState } from 'react';
 import PostMiniModal from './PostMiniModal';
-import Modal from '../Modal';
 
 function MainPagePlusButton(){
   let [isOpen,setIsOpen] = useState(false);
@@ -12,10 +11,7 @@ function MainPagePlusButton(){
       ?setIsOpen(true)
       :setIsOpen(false)
      }}>
-     {isOpen&&
-      <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-        <PostMiniModal/>
-      </Modal>
+     {isOpen&&<PostMiniModal isOpen={isOpen} setIsOpen={setIsOpen}/>
       }
     </div>
   )

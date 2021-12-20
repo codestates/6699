@@ -11,28 +11,25 @@ import MainPagePlusButton from '../src/components/MainPage/MainPagePlusButton';
 import PostingPage from '../src/pages/PostingPage';
 import Footer from '../src/components/Footer';
 import MyEditPage from '../src/pages/MyEditPage';
-import PostPostModal from './components/MainPage/PostPostModal';
-import PostSayModal from './components/MainPage/PostSayModal';
 import LoginModal from './components/MainPage/LoginModal';
 import SignupModal from './components/MainPage/SignupModal';
 import { useSelector, useDispatch } from 'react-redux';
 import PrivacyModal from './components/MainPage/PrivacyModal';
+import PostModal from '../src/components/MainPage/PostModal';
+import SayingModal from '../src/components/MainPage/SayingModal';
 
 function App() {
-  const loginModal = useSelector((state) => state.loginModal);
-  const signupModal = useSelector((state) => state.signupModal);
-
+  const { loginModal, signupModal,postModal,sayingModal } = useSelector((state) => state.modal);
   return (
     <div className={style.container}>
       <Header />
       <Routes>
         <Route path = '/mainpage' element={<MainPagePlusButton/>}/>
-        <Route path = '/mainpage/postpostmodal' element={<PostPostModal/>}/>
-        <Route path = '/mainpage/postsaymodal' element={<PostSayModal/>}/>
       </Routes>
-      {loginModal ? <LoginModal /> : null}
-      {signupModal ? <SignupModal /> : null}
-      
+      {loginModal ? <LoginModal/> : null}
+      {signupModal ? <SignupModal/> : null}
+      {postModal ? <PostModal/> : null}
+      {sayingModal ? <SayingModal/> : null}
       <div className={style.header_downside}>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
