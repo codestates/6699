@@ -1,4 +1,5 @@
 import style from './MainPage.module.css'
+import { useEffect } from 'react';
 import MainPageSaying from '../components/MainPage/MainPageSaying';
 import PostBox from '../components/MainPage/PostBox';
 import Footer from '../components/Footer';
@@ -6,6 +7,9 @@ import {all, health, study, economy, relationship, love} from '../store/LandingS
 import React, { useState } from 'react';
 import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
+import { login, logout, getUserInfo } from '../store/AuthSlice';
+import { REACT_APP_API_URL } from '../config';
+import axios from 'axios';
 
 function MainPage(){
   const page = useSelector(state => state.landing.page);
@@ -46,6 +50,8 @@ function MainPage(){
    function goLovePage(){
     dispatch(love());
    }
+
+   
 
   /* 랜딩페이지에서 누른 명언 페이지 숫자를 받아 curPage 초기값으로  */
   return (
