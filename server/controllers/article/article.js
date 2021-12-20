@@ -29,17 +29,18 @@ module.exports = {
   },
   post: async (req, res) => {
     try {
-      // 주의! cookie!!!
+      // 로그인 인증 검사
+      const userInfo = await userAuth(req, res);
       // 주의! sayingId는 문자열
       const { sayingId } = req.params;
       // Q. content은 필수일 필요는 없지? => 필수가 아니어도 OK
-      const { title, content, image, user_id } = req.body;
+      const { title, content, image } = req.body;
 
-      // sayingId, title, user_id 중 하나라도 전달되지 않았다면, 다음을 응답한다
-      if(!sayingId || !title || !user_id) return res.status(400).json({ message: 'Bad Request!' });
+      // sayingId, title 중 하나라도 전달되지 않았다면, 다음을 응답한다
+      if(!sayingId || !title ) return res.status(400).json({ message: 'Bad Request!' });
       
       // 새로운 게시글이 작성되었다면, articles 테이블에 해당 명언을 저장한다
-      const articleInfo = await articles.create({ title, content, image, user_id, saying_id: Number(sayingId) });
+      const articleInfo = await articles.create({ title, content, image, user_id: userInfo.id, saying_id: Number(sayingId) });
       res.status(201).json({ data: { articleInfo: articleInfo }, message: 'Create Article!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });

@@ -1,17 +1,23 @@
 /*****done*****/
 import style from './PostMiniModal.module.css'
-import PostModalPost from './PostModalPost';
-import PostModalSay from './PostModalSay';
+import { showPostModal, showSayingModal} from '../../store/ModalSlice';
 import React, {useState} from 'react';
+import { useDispatch } from 'react-redux'
 
-function PostMiniModal(isOpen,setIsOpen){
+function PostMiniModal({modalOff}){
+  const dispatch = useDispatch();
   return(
-    <div className={style.container} onClick = {()=>{setIsOpen(false)}}>
+    <div className={style.box_bg} onClick = {modalOff}>
       <div className={style.box}>
-        <div className={style.post}><PostModalPost/></div>
-        <div className={style.say}><PostModalSay/></div>
+        <div className={style.post}onClick={() => dispatch(showPostModal(true))}>
+          글 작성
+        </div>
+        <div className={style.say}onClick={() => dispatch(showSayingModal(true))}>
+          명언 작성
+        </div>
       </div>
-    </div>         
+    </div>
+      
   )
 }
 export default PostMiniModal;

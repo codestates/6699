@@ -1,6 +1,6 @@
 import MyPageCategory from '../components/MyPage/MyPageCategory.js';
 import MyEditPage from './MyEditPage.js';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route, Link, useNavigate} from 'react-router-dom';
 import MyPosting from '../components/MyPage/MyPosting'
 import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
@@ -8,14 +8,75 @@ import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
+import axios from 'axios';
+import{setSayings,setComments,setLikedSayings,setLikedComments} from '../store/MySlice'
+
 function MyPage(){
-  //유저 상태 변경 (로그인,로그아웃)
-  //login이 true이고  MyPage에서 유저관련 모든 정보가 뜨고
-  //로그아웃 버튼을 누르면 login이 false, logout이 true상태로 변한다.
   const dispatch = useDispatch();
-  const { login, logout } = useSelector((state) => state.auth);
-  const {userInfo} = useSelector((state)=> state.auth);
+  const navigate = useNavigate();
+
+function handleSayingClick(){
+ getSaying()
+}
+
+function handleCommentsClick(){
+  getComments()
+ }
+
+ function handleLikedSayingClick(){
+  getLikedSaying()
+ }
+
+ function handleLikedCommentsClick(){
+  getLikedComments()
+ }
+const getSaying = async () => {
+  try {
+    // console.log(userInfo.id)
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/mysaying`,
+      { withCredentials: true }
+    );
+    if(response.data.data.userInfo){
+      dispatch(setSayings(response.data.filteredSaying));
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getComments = async () => {
+  try {
+    const response = await axios.get(`${REACT_APP_API_URL}/user/mycomment`);
+    dispatch(setComments(response.data.content));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getLikedSaying = async () => {
+  try {
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/mylike`,
+      { withCredentials: true }
+    );
+
+    dispatch(setLikedSayings(response.data.filteredLike.content))
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getLikedComments = async () => {
+  try {
+    const response = await axios.get(`${REACT_APP_API_URL}/user/mycomment`);
+    dispatch(setLikedComments(response.data.filteredLike.title));
+  } catch (err) {
+    console.log(err);
+  }
+};
 
     //현재 누르고 있는 탭
     const [isFocus,setIsFocus] = useState('mypost');
@@ -27,7 +88,7 @@ function MyPage(){
     //나의 명언 버튼을 눌렀을때 나의 명언 component로 변함
     function SayingClickEvent(){
       setIsFocus('mysaying')
-      }
+    }
       //좋아요 버튼을 눌렀을때 좋아요 component로 변함
       function CommentClickEvent(){
         setIsFocus('mycomment')
@@ -41,14 +102,27 @@ function MyPage(){
         if(isFocus === 'mypost'){
           return <MyPosting/>
         } else if(isFocus === 'mysaying'){
-          return <MySaying/>
+          return <MySaying sayings={sayings}/>
         } else if(isFocus === 'mycomment'){
-          return <MyComment/>
+          return <MyComment comments={comments}/>
         } else if(isFocus === 'mylike'){
-          return <MyLike/>
+          return <MyLike likedSayings={likedSayings} likedComments={likedComments}/>
         }
       }
-
+    
+    const handleLogout = async () => {
+      try {
+        await axios.post(
+          `${REACT_APP_API_URL}/user/logout`,
+          {},
+          { withCredentials: true }
+        );
+        dispatch(logout());
+        navigate('/');
+      } catch (err) {
+        console.log(err);
+      }
+    }
     
     return (
         <div id={style.container}>
@@ -75,7 +149,7 @@ function MyPage(){
           </button>
         </Link>
         <Link to ='/mainpage'>
-          <button id= {style.logout} onClick={()=> dispatch(logout())}>
+          <button id= {style.logout} onClick={handleLogout}>
             로그아웃
           </button>
           </Link>
@@ -86,7 +160,10 @@ function MyPage(){
          <div id={style.category_wrapper}>
           <MyPageCategory  isFocus={isFocus}
         PostClickEvent={PostClickEvent} SayingClickEvent={SayingClickEvent}
-        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}/>
+        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}
+       handleSayingClick={handleSayingClick}
+       handleCommentsClick={handleCommentsClick}
+       handleLikedSayingClick={handleLikedSayingClick}/>
         </div>
 
         <div id={style.posts_board}>

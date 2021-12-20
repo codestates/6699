@@ -8,11 +8,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-
-      const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id } });
-      
+      const userInfo = await userAuth(req, res);
       // 회원의 민감정보(비밀번호) 삭제
       delete userInfo.dataValues.password;
 
@@ -26,11 +22,10 @@ module.exports = {
     try {
 
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
+      const userInfo = await userAuth(req, res);
+      // 요청바디
       const { email, username, introduction, password } = req.body;
 
-      const userInfo = await users.findOne({ where: { email: email } });
-  
       // 요청 바디에 username이 있다면, 나를 제외한 username 중 이미 존재하는지 검사
       if(username) {
         const usernameInfo = await users.findOne({ 
@@ -73,14 +68,8 @@ module.exports = {
   delete: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-      const { email, password } = req.body;
+      const userInfo = await userAuth(req, res);
 
-      // email, password 중 하나라도 전달이 되지 않은 경우, 다음을 응답한다
-      if(!email || !password) return res.status(400).json({ message: 'Bad Request!' });
-
-      const userInfo = await users.findOne({ where: { email: email } });
-      // 만약 DB에 일치하는 유저 정보가 없다면, 다음을 응답한다
       if(!userInfo) {
         return res.status(403).json({ message: 'Invalid User!' });
       }

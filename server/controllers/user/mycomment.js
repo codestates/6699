@@ -5,9 +5,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-      const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id } });
+      const userInfo = await userAuth(req, res);
       
       // 내가 쓴 댓글이 없다면 메시지 반환
       const filteredComment = await comments.findAll({ where: { user_id: userInfo.id } });
