@@ -19,7 +19,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
   const { loginModal, signupModal } = useSelector((state) => state.modal);
-
+  const { isLogin } = useSelector((state) => state.auth);
   return (
     <div className={style.container}>
       {/* <MySayingDelete/> */}
@@ -36,7 +36,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
           <Route path='/mainpage/*' element={<MainPage/>}/>
-          <Route path='/mypage' element={<MyPage/>}/>
+          {(isLogin === true)?(<Route path='/mypage' element={<MyPage/>}/>):(null)}
           <Route path='/editpage' element={<MyEditPage/>}/>
           <Route path='/rankingpage' element={<RankingPage/>}/>
           <Route path='/postingpage' element={<PostingPage/>}/>

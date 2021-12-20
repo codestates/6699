@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { loginModal: false, signupModal: false };
+const initialState = { loginModal: false, signupModal: false }; //state2개
 
 const modalSlice = createSlice({
   name: 'modal',
