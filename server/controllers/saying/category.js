@@ -18,15 +18,17 @@ module.exports = {
   },
   post: async (req, res) => {
     try {
-      // 주의! 본인인증 코드 작성이 필요!!!
+      // 로그인 인증 검사
+      const userInfo = await userAuth(req, res);
+
       const { category } = req.query;
-      const { content, user_id } = req.body;
-      // content, category, user_id 중 하나라도 전달되지 않았다면, 다음을 응답한다
-      if(!category || !content || !user_id) return res.status(400).json({ message: 'Bad Request!' });
+      const { content } = req.body;
+      // content, category 중 하나라도 전달되지 않았다면, 다음을 응답한다
+      if(!category || !content ) return res.status(400).json({ message: 'Bad Request!' });
        // 양식에 맞지 않은 카테고리가 전달된 경우, 다음을 응답한다
       if(categoryList.indexOf(category) === -1) return res.status(400).json({ message: 'Bad Request!' })
       // 명언이 작성되었다면, sayings 테이블에 해당 명언을 저장한다
-      const sayingInfo = await sayings.create({ content: content, category: category, user_id: user_id });
+      const sayingInfo = await sayings.create({ content: content, category: category, user_id: userInfo.id });
       res.status(201).json({ data: { sayingInfo: sayingInfo }, message: 'Create Saying!' });
     } catch (err) {
       console.log(err)

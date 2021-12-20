@@ -5,13 +5,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-      const { user_id } = req.body;
-
-      if(!user_id) return res.status(400).json({ message: "Please Login First!" })
-
-      const userInfo = await users.findOne({ where: { id: user_id } });      
-      
+      const userInfo = await userAuth(req, res);
       const filteredSaying = await sayings.findAll({ where : { user_id: userInfo.id } });
       
       if(filteredSaying.length === 0) return res.status(200).json({ message: 'Empty!' });
@@ -24,12 +18,10 @@ module.exports = {
   delete: async (req, res) => {
     try{
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
-      const { user_id } = req.body;
-      const userInfo = await users.findOne({ where: { id: user_id } });
-
+      const userInfo = await userAuth(req, res);
       // params로 받은 sayingId 이 잘못된 요청일 경우 에러메시지 반환
       const { sayingId } = req.params;
+      
       if(isNaN(sayingId)) return res.status(400).json({ message: 'Bad Request!' });
 
       // 명언 정보 확인 후 존재하지 않는 명언일 경우 에레메시지 반환

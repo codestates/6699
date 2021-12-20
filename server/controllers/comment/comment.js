@@ -5,7 +5,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
+      const userInfo = await userAuth(req, res);
 
       // 현재 게시글 id를 params에서 받아온다
       const { articleId } = req.params;
@@ -24,17 +24,16 @@ module.exports = {
   post: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
+      const userInfo = await userAuth(req, res);
 
       // 주의! error 분기!!!
       // 요청 바디에서 댓글 내용을 받아온다
-      const { user_id, content } = req.body;
+      const { content } = req.body;
       // 현재 게시글 id를 params에서 받아온다
       const { articleId } = req.params;
 
       // articleId, content가 없을때 error return 
       if(!articleId || !content) return res.status(400).json({ message: 'Bad Request!' })
-      const userInfo = await users.findOne({ where: { id: user_id } });
       const articleInfo = await articles.findOne({ where: { id: Number(articleId) } });
 
       // article의 total_comment +1
@@ -52,16 +51,14 @@ module.exports = {
   patch: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
+      const userInfo = await userAuth(req, res);
 
       // 요청 바디에서 댓글 내용을 받아온다
-      const { user_id, content } = req.body;
+      const { content } = req.body;
       // 현재 게시글 id를 params에서 받아온다
       const { commentId } = req.params;
       // content가 전달되지 않았을 때, 다음을 응답한다
       if(!content) return res.status(400).json({ message: 'Bad Request!' })
-
-      const userInfo = await users.findOne({ where: { id: user_id } });
       const commentInfo = await comments.findOne({ where: { id: Number(commentId) } });
 
       // 타인이 작성한 댓글 수정 불가
@@ -77,13 +74,10 @@ module.exports = {
   delete: async (req, res) => {
     try {
       // 로그인 인증 검사
-      // const userInfo = await userAuth(req, res);
+      const userInfo = await userAuth(req, res);
 
-      const { user_id } = req.body;
       // 현재 게시글 id를 params에서 받아온다
       const { articleId, commentId } = req.params;
-
-      const userInfo = await users.findOne({ where: { id: user_id } });
       const articleInfo = await articles.findOne({ where: { id: Number(articleId) } });
       const commentInfo = await comments.findOne({ where: { id: Number(commentId) } });
 
