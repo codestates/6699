@@ -6,11 +6,12 @@ import { showLoginModal } from '../store/ModalSlice';
 
 function Header(){
     const page = useSelector(state => state.landing.page);
+    const { isLogin, userInfo } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
-    function goAllPage(){
-      dispatch(all());
+
+    const goAllPage = () => {
+        dispatch(all());
     }
-    const { isLogin } = useSelector((state) => state.auth);
 
     return (
         <div id ={style.box}>
@@ -18,7 +19,7 @@ function Header(){
             <div id ={style.search_box}>
                 <div className = {style.search}></div>
             </div>
-            {isLogin ? <Link to ='/mypage'><button id={style.login_btn}>마이페이지</button></Link> : <button id={style.login_btn} onClick={() => dispatch(showLoginModal(true))}>로그인</button>}
+            {isLogin ? <Link to ='/mypage'><button id={style.user_btn}/></Link> : <button id={style.login_btn} onClick={() => dispatch(showLoginModal(true))}>로그인</button>}
         </div>
     )
 }
