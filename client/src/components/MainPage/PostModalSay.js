@@ -1,21 +1,14 @@
 /*****done*****/
 import style from './PostModalSay.module.css';
-import React, { useState } from 'react';
-import PostSayModal from './PostSayModal';
-import {Link} from 'react-router-dom';
-import Modal from '../Modal';
+import { showSayingModal } from '../../store/ModalSlice';
+import { useSelector,useDispatch } from 'react-redux';
 
 function PostModalSay(){
-  let [isOpen,setIsOpen] = useState(false);
+  const dispatch = useDispatch();
   return(
-    <Link className={style.link} to ='/mainpage/postsaymodal'><div className = {style.post} onClick={()=> 
-      {
-      <PostSayModal/>
-      }
-    }>
+    <div className = {style.post} onClick={()=> dispatch(showSayingModal(true))}>
      명언 작성
     </div>
-    </Link>
   )
 }
 export default PostModalSay;
