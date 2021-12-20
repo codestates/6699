@@ -25,22 +25,27 @@ function LoginModal(){
     }
   }, [inputEmailIsValid, inputPwIsValid]);
 
-  const handleLogin = () => {
-    axios
-      .post(
-        `${REACT_APP_API_URL}/login`,
-        {
-          email: inputEmail,
-          password: inputPassword
-        },
+  const handleLogin = async () => {
+    try {
+      /* response 변수에 /login 서버 응답결과를 담는다 */
+      const response = await axios.post(
+        `${REACT_APP_API_URL}/auth/login`,
+        { email: inputEmail, password: inputPassword },
         { withCredentials: true }
-      )
-      .then((res)=>{
-        dispatch(getUserInfo(res.data.userInfo));
+      );
+      
+      /* 서버의 응답결과에 data가 들어있다면 로그인 성공*/
+      if(response.data){
+        setInfoIsValid(false);
+        dispatch(getUserInfo(response.data.userInfo));
         dispatch(login());
         dispatch(showLoginModal(false));
         navigate('/mypage');
-      });
+      }
+    } catch(err) {
+      /* 상태코드 403번 에러 반환시 상태 변경 */
+      if(err.response.status === 403) setInfoIsValid(true);
+    }
   };
 
   const emailChangeHandler = (e) => {
