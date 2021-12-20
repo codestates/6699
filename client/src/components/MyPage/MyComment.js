@@ -1,16 +1,15 @@
 import style from './MyComment.module.css'
 import MyCommentBox from './MyCommentBox'
 import PageNation from './MyPagePagenation'
-function MyComment({comments}){
+import{useSelector,useDispatch} from 'react-redux';
+
+function MyComment(){
+const { comments } = useSelector((state) => state.mypage);
+console.log('comments',comments)
     return (
 <div id={style.changing_area}>
  <div className={style.box_wrapper}>
-  {comments.length >0 ? comments.map((el)=>
-  <MyCommentBox
-  comment= {el}
-  key= {el.key}
-  />)
-  :('내가 쓴 댓글이 없어요')}
+  <MyCommentBox/>
  </div>
 <div className={style.outer_wrapper}>
  <div id={style.pagenation_wrapper}>

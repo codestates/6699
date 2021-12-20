@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import PostMiniModal from './PostMiniModal';
 import Modal from '../Modal';
 
-function MyCommentBox({comment}){
-    let [isDelete, setIsDelete] = useState(false);
+function MyCommentBox(){
+  let [isDelete, setIsDelete] = useState(false);
+
     return (
         <div className={style.box}>
         <div className={style.post_image}></div>
@@ -12,7 +13,7 @@ function MyCommentBox({comment}){
        
        <div id={style.set_title_middle_box}>
         <div className={style.title}>
-        <p id={style.saying} >{comment.data.filteredArticle.title}</p>
+        <p id={style.saying} ></p>
         </div>
         </div>
     
