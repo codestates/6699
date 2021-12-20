@@ -10,6 +10,22 @@ import {useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice';
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
+import postData from '../components/MainPage/MainPostingDummy';
+import sayingData from '../components/MainPage/MainSayingDummy';
+
+
+const handleLogin = async () => {
+  try {
+    /* response 변수에 / 서버 응답결과를 담는다 */
+    const response = await axios.post(
+      `http://localhost:8080/`
+    );
+    console.log(response.data.data)
+  } catch(err) {
+
+  }
+};
+
 
 function MainPage(){
   const page = useSelector(state => state.landing.page);

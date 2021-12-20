@@ -1,7 +1,6 @@
 import style from './PostBox.module.css';
 import {Link} from 'react-router-dom';
-import postData from './MainPostingDummy';
-import sayingData from './MainSayingDummy';
+
 function PostBox(){
   return(
   /****** 게시물 묶음 ******/
@@ -37,7 +36,7 @@ function PostBox(){
         <Link className={style.post_link} to='/postingpage'/>
       </div>
         <div className={style.post_box_low_post}>
-          <Link className={style.post_link} to='/postingpage'/>     
+          <Link className={style.post_link} to='/postingpage' style={{opacity:0,pointerEvents: 'none'}}/>     
         </div>
     </div>
   </div>

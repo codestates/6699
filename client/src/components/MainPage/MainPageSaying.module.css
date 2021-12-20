@@ -72,6 +72,59 @@
     left: 85%;
     transform: translate(-50%,-50%);
   }
+  .saying_up{
+    width:50px;
+    height:50px;
+    background-image: url("../../images/up_arrow.png");
+    background-size:100% 100%;
+    opacity: 40%;
+    position: absolute;
+    top:  3%;
+    left: 50%;
+    transform: translate(-50%,0%);
+  }
+  .saying_up:hover{
+    opacity: 100%;
+    width:52px;
+    height:52px;
+    cursor:pointer;
+  }
+  .saying_down{
+
+    width:50px;
+    height:50px;
+    background-image: url("../../images/down_arrow.png");
+    background-size:100% 100%;
+    opacity: 40%;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%,0%);
+  }
+  .saying_down:hover{
+    opacity: 100%;
+    width:52px;
+    height:52px;
+    cursor:pointer;
+  }
+  .saying_up_message{
+    opacity:40%;
+    display:block;
+    text-align:center;
+    width: 930px;
+    font-weight: bold;
+    font-size:30px;
+    position: absolute;
+    opacity: 0%;
+    pointer-events:none;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    color:white;
+}
+.saying_down_message:hover{
+  opacity:100%;
+}
   .saying_message{
       display:block;
       text-align:center;
@@ -84,7 +137,7 @@
       transform: translate(-50%,-50%);
       color:white;
   }
-  .saying_sub_message{
+  .saying_down_message{
       opacity:40%;
       display:block;
       text-align:center;
@@ -92,10 +145,13 @@
       font-weight: bold;
       font-size:30px;
       position: absolute;
-      top: 72%;
+      bottom: 18%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%,-0%);
       color:white;
+  }
+  .saying_down_message:hover{
+    opacity:100%;
   }
   .like_box{
     width: 300px;

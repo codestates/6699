@@ -9,6 +9,7 @@ import modalSlice from './store/ModalSlice';
 import landingSlice from './store/LandingSlice';
 import mySlice from './store/MySlice';
 import authSlice from './store/AuthSlice';
+import mainSlice from './store/MainSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from "@reduxjs/toolkit"; 
 import { persistReducer, persistStore, PERSIST } from 'redux-persist';
@@ -25,7 +26,8 @@ const reducers = combineReducers({
   landing: landingSlice,
   modal: modalSlice,
   auth: authSlice,
-  mypage: mySlice
+  mypage: mySlice,
+  main: mainSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

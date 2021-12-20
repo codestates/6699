@@ -101,9 +101,10 @@
   background-image:url(../../images/Left_Page_Arrow.png);
   background-size:cover;
   left:0;
+  opacity: 30%;
 }
 .page_box_left_arrow:hover{
-  opacity: 30%;
+  opacity: 80%;
   cursor: pointer;
 }
 .page_box_right_arrow{
@@ -113,8 +114,9 @@
   background-image:url(../../images/Right_Page_Arrow.png);
   background-size:cover;
   right:0;
+  opacity: 30%;
 }
 .page_box_right_arrow:hover{
-  opacity: 30%;
+  opacity: 80%;
   cursor: pointer;
 }

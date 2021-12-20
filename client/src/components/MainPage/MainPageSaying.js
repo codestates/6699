@@ -5,8 +5,10 @@ import economy from '../../images/category_economy.png';
 import relationship from '../../images/category_relationship.png';
 import love from '../../images/category_love.png';
 import style from './MainPageSaying.module.css'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { REACT_APP_API_URL } from '../../config';
 
 /* 현재 페이지(curPage) props로 MainPage에서 받아옴 */
 function MainPageSaying(){
@@ -25,10 +27,13 @@ function MainPageSaying(){
 
   {/* Saying Zone */}
   <div className={style.saying_box}>
+    <div className={style.saying_up}/>
+    <div className={style.saying_down}/>
     <div className={style.saying_left_66}/>
     <div className={style.saying_right_99}/>
+    <div className={style.saying_up_message}>칼에 죽는 사람보다<br/>과식으로 죽는 사람이 더 많다.<br/></div>
     <div className={style.saying_message}>땀은 지방의 눈물이다.</div>
-    <div className={style.saying_sub_message}>칼에 죽는 사람보다<br/>과식으로 죽는 사람이 더 많다.<br/></div>
+    <div className={style.saying_down_message}>칼에 죽는 사람보다<br/>과식으로 죽는 사람이 더 많다.<br/></div>
   </div>  
   {/* Like Box Zone */}
     <div className={style.like_box}>
