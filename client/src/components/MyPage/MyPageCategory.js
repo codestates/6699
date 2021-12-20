@@ -1,7 +1,8 @@
 import style from '../MyPage/MyPageCategory.module.css'
 import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
-function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,CommentClickEvent}){
+function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,CommentClickEvent,handleMySayingClick,handleMyCommentsClick}){
+  //나의 명언 받아오는 요청
 
   return (
     // -> 해당 카테고리탭을 누르면 탭배경색상이 노란색으로 고정되어있기
@@ -12,11 +13,11 @@ function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,
     나의 게시물
     </li>
      <li className={style.menus} id={isFocus === 'mysaying'?(style.focused_saying):(style.saying)}
-      onClick={()=>SayingClickEvent()}>
+      onClick={()=>SayingClickEvent()} onClick={()=>handleMySayingClick()}>
      나의 명언
      </li>
      <li className={style.menus} id={isFocus === 'mycomment'?(style.focused_comment):(style.comment)}
-      onClick={()=>CommentClickEvent()}>
+      onClick={()=>CommentClickEvent()} onClick={()=>handleMyCommentsClick()}>
        내가 쓴 댓글</li>
        <li className={style.menus} id={isFocus === 'mylike'?(style.focused_like):(style.like)}
       onClick={()=>LikeClickEvent()}>

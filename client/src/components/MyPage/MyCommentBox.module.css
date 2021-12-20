@@ -6,7 +6,7 @@
   border-radius: 10px;
 }
 
-.category_image {
+.post_image {
   position: absolute;
   background-image: url("../../images/health-square.png");
   background-size: 100%;
@@ -22,7 +22,7 @@
   background-size: 100%;
   width: 2vh;
   height: 2vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   z-index: 80;
 }
 

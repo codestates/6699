@@ -6,9 +6,10 @@ import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
 import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { REACT_APP_API_URL } from '../config';
+import axios from 'axios';
 function MyPage(){
   //유저 상태 변경 (로그인,로그아웃)
   //login이 true이고  MyPage에서 유저관련 모든 정보가 뜨고
@@ -16,6 +17,39 @@ function MyPage(){
   const dispatch = useDispatch();
   const { login, logout } = useSelector((state) => state.auth);
   const {userInfo} = useSelector((state)=> state.auth);
+  const [sayings,setSayings] = useState([]);
+  const [comments,setComments] = useState([])
+
+function handleMySayingClick(){
+ getSaying()
+}
+
+function handleMyCommentsClick(){
+  getComments()
+ }
+
+const getSaying = async () => {
+  try {
+    // console.log(userInfo.id)
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/mysaying`,
+      { withCredentials: true }
+    );
+
+    setSayings(response.data.filteredSaying); //[{},{},{}...]
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getComments = async () => {
+  try {
+    const response = await axios.get(`${REACT_APP_API_URL}/user/mycomment`);
+    setComments(response.data.content);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
     //현재 누르고 있는 탭
     const [isFocus,setIsFocus] = useState('mypost');
@@ -41,15 +75,14 @@ function MyPage(){
         if(isFocus === 'mypost'){
           return <MyPosting/>
         } else if(isFocus === 'mysaying'){
-          return <MySaying/>
+          return <MySaying sayings={sayings}/>
         } else if(isFocus === 'mycomment'){
-          return <MyComment/>
+          return <MyComment comments={comments}/>
         } else if(isFocus === 'mylike'){
           return <MyLike/>
         }
       }
 
-    
     return (
         <div id={style.container}>
             {/*왼쪽 사용자 영역*/}
@@ -86,7 +119,9 @@ function MyPage(){
          <div id={style.category_wrapper}>
           <MyPageCategory  isFocus={isFocus}
         PostClickEvent={PostClickEvent} SayingClickEvent={SayingClickEvent}
-        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}/>
+        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}
+       handleMySayingClick={handleMySayingClick}
+       handleMyCommentsClick={handleMyCommentsClick}/>
         </div>
 
         <div id={style.posts_board}>
