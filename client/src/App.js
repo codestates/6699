@@ -1,5 +1,5 @@
 import style from  './App.module.css';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 import Header from '../src/components/Header';
 import LandingPage from '../src/pages/LandingPage';
