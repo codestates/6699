@@ -1,12 +1,25 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
+const { isAuthorized } = require('../../middlewares/tokenFunction');
 
 module.exports = {
   get: async (req, res) => {
     try {
+
+      const accessTokenData = isAuthorized(req)
+
+      console.log(accessTokenData)
+
+      
+
+     
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { user_id } = req.body;
+
+      console.log(" ****** mysaying 확인!!! ******** ")
+
+      console.log(" user_id:", user_id)
 
       if(!user_id) return res.status(400).json({ message: "Please Login First!" })
 
@@ -18,6 +31,7 @@ module.exports = {
       
       res.status(200).json({ data: { filteredSaying: filteredSaying }, message: 'My Saying!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).send('Server Error!');
     }
   },

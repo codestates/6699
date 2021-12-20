@@ -2,6 +2,7 @@ const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
+const { isAuthorized } = require('../../middlewares/tokenFunction');
 
 module.exports = {
   get: async (req, res) => {
@@ -23,6 +24,7 @@ module.exports = {
   },
   patch: async (req, res) => {
     try {
+
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
       const { email, username, introduction, password } = req.body;
@@ -42,16 +44,17 @@ module.exports = {
         if(usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
       }
       // 요청 바디에 password가 있다면, password를 해싱한다
-      if(password) {
-        const hash = await bcrypt.hash(password, 10);
-      }
+      // if(password) {
+      //   const hash = await bcrypt.hash(password, 10);
+      // }
       
       // 요청 바디가 없는 값은 그대로 유지, 있다면 새로 업데이트 한다
       await users.update(
         {
           username: username ? username : userInfo.username,
           introduction: introduction ? introduction : userInfo.introduction,
-          password: password ? hash : userInfo.password
+          // password: password ? hash : userInfo.password
+           password: password
         },
         { where : { id: userInfo.id } }
       );
