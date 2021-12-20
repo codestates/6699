@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { sayings: [], comments: [],
-  likedSayings:[],likedComments:[] };
+const initialState = { sayings: [], comments: [], likedSayings:[],likedComments:[] };
 
 const mySlice = createSlice({
   name: 'mypage',

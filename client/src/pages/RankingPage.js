@@ -2,17 +2,48 @@ import style from './RankingPage.module.css';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
+import {setAllRank, setHealthRank, setStudyRank, setEcoRank, setRelRank, setLoveRank, setNewRank} from '../store/rankSlice'
+import axios from 'axios';
 import RankingLikeNewModal from '../components/RankingPage/RankingLikeNewModal';
 import RankingDropDown from '../components/RankingPage/RankingDropDown';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
+import { REACT_APP_API_URL } from '../config';
 
 function RankingPage(){
+  const dispatch = useDispatch();
+
   let [isToggleOpen,setToggleOpen] = useState(false);
   let [isDropDownOpen,setDropDownOpen] = useState(false);
-  let [isLikeOrNew,setLikeNew] = useState('좋아요순');
+  let [isLikeOrNew,setLikeNew] = useState('like');
   let [curCategory,setCategory] = useState('전체');
+  let rainkingARr = [];
+  const { page } = useSelector(state => state.landing);
+  // const { allRank, healthRank, studyRank, economyRank, relationshipRank, loveRank, newRank } = useSelector((state) => state.rank);
 
+  console.log(rainkingARr);
+  console.log(setAllRank);
+  const getLikeRaking = async () => {
+    try {
+      const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${curCategory}`,
+      {withCredentials: true});
+      const resMessage = response.data.data.message;
+
+      rainkingARr = response.data.data.allSaying ? response.data.data.allSaying : response.data.data.filteredSaying;
+      if(resMessage === '전체 명언 좋아요순!') dispatch(setAllRank);
+      else if(resMessage === '건강 카테고리 좋아요순!') dispatch(setHealthRank);
+      else if(resMessage === '학습 카테고리 좋아요순!') dispatch(setStudyRank);
+      else if(resMessage === '경제 카테고리 좋아요순!') dispatch(setEcoRank);
+      else if(resMessage === '인간관계 카테고리 좋아요순!') dispatch(setRelRank);
+      else if(resMessage === '사랑 카테고리 좋아요순!') dispatch(setLoveRank);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getLikeRaking();
+  }, [curCategory]);
 
   /* 창 닫는 함수 */
   const toggleOff = () => {
@@ -23,53 +54,47 @@ function RankingPage(){
   /* 좋아요, 최신순 선택함수 */
   const clickLike = () => {
     toggleOff();
-    setLikeNew('좋아요순')};
+    setLikeNew('like')
+  };
   const clickNew = () => {
     toggleOff();
-    setLikeNew('최신순')};
-
-
+    setLikeNew('new')
+  };
   /* 카테고리 선택함수 */
   const clickAll = () => {
     dropDownOff();
-    setCategory('전체')}
+    setCategory('전체')
+  }
   const clickHealth = () => {
     dropDownOff();
-    setCategory('건강')}
+    setCategory('건강')
+  }
   const clickStudy = () => {
     dropDownOff();
-    setCategory('학습')}
+    setCategory('학습')
+  }
   const clickEconomy = () => {
     dropDownOff();
-    setCategory('경제')}
+    setCategory('경제')
+  }
   const clickRelationship = () => {
     dropDownOff();
-    setCategory('인간관계')}
-const clickLove = () => {
+    setCategory('인간관계')
+  }
+  const clickLove = () => {
     dropDownOff();
-    setCategory('사랑')}
+    setCategory('사랑')
+  }
 
-  const page = useSelector(state => state.landing.page);
-  const dispatch = useDispatch();
   /* 카테고리별로 가는 함수 */
-  function goAllPage(){
-    dispatch(all());
-   }
-   function goHealthPage(){
-    dispatch(health());
-   }
-   function goStudyPage(){
-    dispatch(study());
-   }
-   function goEconomyPage(){
-    dispatch(economy());
-   }
-   function goRelationshipPage(){
-    dispatch(relationship());
-   }
-   function goLovePage(){
-    dispatch(love());
-   }
+  const goPage = () => {
+    if(curCategory==='전체') dispatch(all());
+    else if(curCategory==='건강') dispatch(health());
+    else if(curCategory==='학습') dispatch(study());
+    else if(curCategory==='경제') dispatch(economy());
+    else if(curCategory==='인간관계') dispatch(relationship());
+    else if(curCategory==='사랑') dispatch(love());
+  }
 
   return (
     <div className={style.container}>
@@ -81,7 +106,7 @@ const clickLove = () => {
             ?setToggleOpen(true)
             :setToggleOpen(false)
           }}></div>
-          <div className={style.likenew}>{isLikeOrNew}</div>
+          <div className={style.likenew}>{isLikeOrNew === 'like' ? '좋아요순' : '최신순'}</div>
         </div>
         {isToggleOpen&&<RankingLikeNewModal toggleOff = {toggleOff} clickLike={clickLike} clickNew={clickNew}/>}
         {/* 카테고리 클릭 드랍다운 */}
@@ -115,19 +140,22 @@ const clickLove = () => {
           <div className={style.rankingbox_sayingzone}>
             <div className={style.rankingbox_sayingzone_top3}>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goHealthPage()}} to='/mainpage'>땀은 지방의 눈물이다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}>
+                  <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>{1}
+                  </Link>
+                </div>
                 <div className={style.rankingbox_sayingzone_top3_image1}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>130</div>
               </div>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goStudyPage()}}  to='/mainpage'>늦었다고 생각될 때가 진짜 늦었다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goPage()}}  to='/mainpage'>2</Link></div>
                 <div className={style.rankingbox_sayingzone_top3_image2}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>107</div>
               </div>
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goRelationshipPage()}} to='/mainpage'>면에 가위를 대는 것은 예의가 아니다.</Link></div>
+                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goPage()}} to='/mainpage'>면에 가위를 대는 것은 예의가 아니다.</Link></div>
                 <div className={style.rankingbox_sayingzone_top3_image3}/>
                 <div className={style.rankingbox_sayingzone_top3_like}/>
                 <div className={style.rankingbox_sayingzone_top3_likenumber}>90</div>
