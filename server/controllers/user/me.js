@@ -1,5 +1,5 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
-const { users, sayings, comments, articles, saying_likes, article_likes } = require('../../models');
+const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
 
@@ -9,8 +9,8 @@ module.exports = {
       // 로그인 인증 검사
       // const userInfo = await userAuth(req, res);
 
-      const { email } = req.body;
-      const userInfo = await users.findOne({ where: { email: email }});
+      const { user_id } = req.body;
+      const userInfo = await users.findOne({ where: { id: user_id } });
       
       // 회원의 민감정보(비밀번호) 삭제
       delete userInfo.dataValues.password;
@@ -27,7 +27,7 @@ module.exports = {
       // const userInfo = await userAuth(req, res);
       const { email, username, introduction, password } = req.body;
 
-      const userInfo = await users.findOne({ where: { email: email }});
+      const userInfo = await users.findOne({ where: { email: email } });
   
       // 요청 바디에 username이 있다면, 나를 제외한 username 중 이미 존재하는지 검사
       if(username) {
@@ -42,7 +42,6 @@ module.exports = {
         if(usernameInfo) return res.status(409).json({ message: 'Username Is Already Existed!' });
       }
       // 요청 바디에 password가 있다면, password를 해싱한다
-      
       if(password) {
         const hash = await bcrypt.hash(password, 10);
       }
@@ -54,11 +53,11 @@ module.exports = {
           introduction: introduction ? introduction : userInfo.introduction,
           password: password ? hash : userInfo.password
         },
-        { where : { id: userInfo.id }}
+        { where : { id: userInfo.id } }
       );
       
       // 새로 업데이트한 회원정보 조회 후 민감정보(비밀번호) 삭제
-      const newUserInfo = await users.findOne({ where: { id: userInfo.id }});
+      const newUserInfo = await users.findOne({ where: { id: userInfo.id } });
       delete newUserInfo.dataValues.password;
       
       // 업데이트된 회원정보 반환
@@ -77,7 +76,7 @@ module.exports = {
       // email, password 중 하나라도 전달이 되지 않은 경우, 다음을 응답한다
       if(!email || !password) return res.status(400).json({ message: 'Bad Request!' });
 
-      const userInfo = await users.findOne({ where: { email: email }});
+      const userInfo = await users.findOne({ where: { email: email } });
       // 만약 DB에 일치하는 유저 정보가 없다면, 다음을 응답한다
       if(!userInfo) {
         return res.status(403).json({ message: 'Invalid User!' });
@@ -101,7 +100,7 @@ module.exports = {
         sayings.destroy({ where: { user_id: userInfo.id } });  // 명언 삭제
 
         // 유저 삭제
-        users.destroy({ where: { email: email }}); // 유저 삭제
+        users.destroy({ where: { email: email } }); 
         res.status(200).json({ message: 'Goodbye!' });
       }
     } catch (err) {

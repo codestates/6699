@@ -9,10 +9,12 @@ module.exports = {
 
       // 현재 게시글 id를 params에서 받아온다
       const { articleId } = req.params;
-      // articleId가 없을때 error return 
+      // articleId가 없을때, 다음을 응답한다
       if(!articleId) return res.status(400).json({ message: 'Bad Request!' })
       // 게시글에 작성된 모든 댓글들을 commentInfo에 담는다
-      const commentInfo = await comments.findAll({ where: { article_id: Number(articleId) }});
+      const commentInfo = await comments.findAll({ where: { article_id: Number(articleId) } });
+      // 게시글에 작성된 댓글이 없다면, 다음을 응답한다
+      if(commentInfo.length === 0) return res.status(200).json({ message: 'No Comment!' })
 
       res.status(200).json({ data: { commentInfo: commentInfo }, message: 'All Comment!' });      
     } catch (err) {
@@ -33,7 +35,7 @@ module.exports = {
       // articleId, content가 없을때 error return 
       if(!articleId || !content) return res.status(400).json({ message: 'Bad Request!' })
       const userInfo = await users.findOne({ where: { id: user_id } });
-      const articleInfo = await articles.findOne({ where: { id: Number(articleId) }});
+      const articleInfo = await articles.findOne({ where: { id: Number(articleId) } });
 
       // article의 total_comment +1
       let plusTotalComment = articleInfo.total_comment + 1;

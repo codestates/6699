@@ -1,4 +1,5 @@
 import React, {  useEffect, useRef } from 'react';
+
 const Modal =({isOpen, setIsOpen, children})=> {
   const wrapperRef = useRef();
   useEffect(()=>{

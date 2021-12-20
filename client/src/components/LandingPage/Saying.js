@@ -54,7 +54,7 @@ function Saying(){
     page < 5
     &&plusCount();
   }
- return (
+return (
   <div className={style.container} >
      {/* 대문, store.page에 따라 이미지 변경 */}
     <div className={style.jumbotron} style={{backgroundImage:`url(${jumboImage[page]})`}}>
@@ -110,5 +110,11 @@ function Saying(){
  )
 }
 
+function mapDispatchToProps(dispatch){ 
+  return {
+    plusCount: () => dispatch(plus()),
+    minusCount: () => dispatch(minus())
+  };
+};
 
 export default Saying;

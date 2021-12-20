@@ -1,5 +1,3 @@
-
-
 import { createSlice } from "@reduxjs/toolkit"; 
 const landingSlice = createSlice(
   { name: 'landing', 

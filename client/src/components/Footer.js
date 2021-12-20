@@ -5,7 +5,6 @@ import {health} from '../store/LandingSlice';
 import {useSelector, useDispatch } from 'react-redux';
 
 
-
 function Footer(){
   const page = useSelector(state => state.landing.page);
   const dispatch = useDispatch();

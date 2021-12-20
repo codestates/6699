@@ -1,9 +1,11 @@
 .container {
+  position: absolute;
+  top: 0%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 12vh;
+  height: 10%;
   /* border: 1px solid red; */
 }
 
@@ -13,8 +15,8 @@
   font-weight: bold;
   display: flex;
   width: 100%;
-  height: 10vh;
-  border: 2px solid #ccc;
+  height: 9vh;
+  border: 1px solid #ccc;
   border-radius: 20px;
   flex-direction: row;
 }
@@ -31,68 +33,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background-color: #ffbf31;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-}
-
-#clicked_post {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #ffbf31;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0px 0px 20px;
-}
-
-#post:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffbf31;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  border-radius: 20px 0px 0px 20px;
-}
-
-.text:hover {
-  color: #fff;
-}
-
-.text2 {
   color: #000;
   text-decoration: none;
+  width: 25%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+  cursor: pointer;
+}
+
+#focused_post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #ffbf31;
+  text-decoration: none;
+  width: 25%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+  cursor: pointer;
 }
 
 #saying {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  color: #000;
+  text-decoration: none;
   width: 25%;
   height: 100%;
+  cursor: pointer;
 }
 
-#saying:hover {
+#focused_saying {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
   background-color: #ffbf31;
+  text-decoration: none;
   width: 25%;
   height: 100%;
-  color: #fff;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
+  cursor: pointer;
 }
 
 #comment {
@@ -102,16 +84,18 @@
   background-color: white;
   width: 25%;
   height: 100%;
+  cursor: pointer;
 }
 
-#comment:hover {
+#focused_comment {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffbf31;
   color: #fff;
+  background-color: #ffbf31;
   width: 25%;
   height: 100%;
+  cursor: pointer;
 }
 
 #like {
@@ -122,15 +106,17 @@
   width: 25%;
   height: 100%;
   border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
 }
 
-#like:hover {
+#focused_like {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffbf31;
   color: #fff;
+  background-color: #ffbf31;
   width: 25%;
   height: 100%;
   border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
 }
