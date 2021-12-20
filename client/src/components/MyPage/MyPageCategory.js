@@ -1,7 +1,8 @@
 import style from '../MyPage/MyPageCategory.module.css'
 import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
-function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,CommentClickEvent,handleMySayingClick,handleMyCommentsClick}){
+function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,CommentClickEvent,
+  handleSayingClick,handleCommentsClick,handleLikedSayingClick}){
   //나의 명언 받아오는 요청
 
   return (
@@ -13,14 +14,14 @@ function MyPageCategory({isFocus,PostClickEvent,SayingClickEvent,LikeClickEvent,
     나의 게시물
     </li>
      <li className={style.menus} id={isFocus === 'mysaying'?(style.focused_saying):(style.saying)}
-      onClick={()=>SayingClickEvent()} onClick={()=>handleMySayingClick()}>
+      onClick={()=>SayingClickEvent()} onClick={()=>handleSayingClick()}>
      나의 명언
      </li>
      <li className={style.menus} id={isFocus === 'mycomment'?(style.focused_comment):(style.comment)}
-      onClick={()=>CommentClickEvent()} onClick={()=>handleMyCommentsClick()}>
+      onClick={()=>CommentClickEvent()} onClick={()=>handleCommentsClick()}>
        내가 쓴 댓글</li>
        <li className={style.menus} id={isFocus === 'mylike'?(style.focused_like):(style.like)}
-      onClick={()=>LikeClickEvent()}>
+      onClick={()=>LikeClickEvent()} onClick={()=>handleLikedSayingClick()}>
        좋아요</li>
       </ul>
     </div>)
