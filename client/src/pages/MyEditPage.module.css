@@ -196,13 +196,21 @@
   flex-direction: column;
   justify-content: space-around;
   width: 85vh;
-  height: 12.0vh;
+  height: 13.0vh;
+}
+
+#space_area {
+  height: 0.8vh;
+  /* border: solid red; */
+  border-radius: 8px;
+  font-size: 2.0vh;
+  padding-left: 1vh;
+  /* border: 1px solid red; */
 }
 
 .text {
   font-size: 2.3vh;
   font-weight: bold;
-  
 }
 
 .textarea {
@@ -213,6 +221,19 @@
   font-size: 2.1vh;
   padding-left: 1vh;
   color: grey;
+}
+
+#err {
+  height: 4vh;
+  /* border: solid red; */
+  border-radius: 8px;
+  font-size: 2.0vh;
+  padding-left: 1vh;
+  color: red;
+}
+
+#hidden {
+  display: none;
 }
 
 .buttons_2 {
@@ -252,4 +273,13 @@
   border: 0;
   font-size: 2.1vh;
   color: #4c4c4c;
+}
+
+#resign_btn:hover {
+  background: transparent;
+  height: 9vh;
+  border: 0;
+  font-size: 2.1vh;
+  color: #4c4c4c;
+  cursor: pointer;
 }
