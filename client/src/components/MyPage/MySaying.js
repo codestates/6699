@@ -2,24 +2,16 @@ import style from './MySaying.module.css'
 import MyPagePagenation from './MyPagePagenation'
 import MySayingBox from './MySayingBox';
 import {useState} from 'react'
+import{setSayings} from '../../store/MySlice'
+import{useSelector, useDispatch} from 'react-redux';
+function MySaying(){ /*나의 명언*/
 
-function MySaying({sayings}){ /*나의 명언*/
-
-    //   const handleDelete = async (e) => {
-    //     const postId = e.target.id;
-    //     try {
-    //       await axios.delete(`${REACT_APP_API_URL}/posts/${postId}`, {
-    //         withCredentials: true
-    //       });
-    //       getSaying();
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   };
-console.log(saying)
+    const dispatch = useDispatch();
+    const { sayings } = useSelector((state) => state.mypage);
+    
     return (
         <div className={style.container}>
-        {saying.length >0? sayings.map((el) =>
+        {sayings.length >0? sayings.map((el) =>
         <MySayingBox 
         saying={el}
          key={el.id}/>)
