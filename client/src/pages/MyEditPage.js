@@ -170,20 +170,39 @@ function MyEditPage (){
             setInputIntro(e.target.value)
         }
 
-        // // 이미지 가져오기 TEST
+        // 이미지 가져오기 TEST
 
-        // const [files, setFiles] = useState('');
+  //       const [file, setFile] = useState();
+  // const [fileName, setFileName] = useState("");
 
-        // const onLoadFile = async (e) => {
-        //   const file = e.target.files;
-        //   console.log(file);
-        //   setFiles(file);
-        // }
+  // const saveFile = (e) => {
+  //   setFile(e.target.files[0]);
+  //  // setFileName(e.target.files[0].name);
+  // };
 
-        // const imgUpload = (e) => {
+  // const uploadFile = async (e) => {
 
-        // }
-  
+  //   const formData = new FormData();
+
+  //   const config={
+  //     header: {'content-type' : 'multipart/form-data'}
+  //   }
+
+  //   for (const key of Object.keys(file)) {
+  //     formData.append('file', file[key]);
+  // }
+  // //formData.append("file", file);
+
+  //   axios.post('http://localhost:8080/api/product/image', formData, config)
+  //   .then(res => {
+  //     if(res.data.success) {
+  //       console.log(response.data)
+  //     } else {
+  //       alert('파일저장실패')
+  //     }
+  //   })
+  // };
+
   return (
     <div id={style.container}>
       {DropaccountModalState ? <DropaccountModal handleDropaccountModal={handleDropaccountModal}/> : null}
@@ -193,9 +212,8 @@ function MyEditPage (){
               {/* 프로필 이미지 및 카메라 사진*/}
                 <div id={style.profile_image}>
                   <div id={style.profile_image_camera}></div>
-                  {/* <input type='file' id='imgae' accept='img/*' onChange={onLoadFile}/> */}
                 </div>
-            
+
               {/* 프로필 닉네임 */}
                 <div id={style.user_name}> {username} </div>
             </div>
