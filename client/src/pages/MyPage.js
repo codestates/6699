@@ -18,13 +18,9 @@ function MyPage(){
   const navigate = useNavigate();
   const { isFocus } = useSelector((state) => state.mypage)
 
- function handleArticleClick(){
-  getArticle()
-}
-
- function handleSayingClick(){
-  getSaying()
- }
+//  function handleSayingClick(){
+//   getSaying()
+//  }
 
  function handleCommentsClick(){
   getComments()
@@ -38,29 +34,20 @@ function MyPage(){
   getLikedArticle()
  }
 
- const getArticle = async () => {
-  try {
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/user/myarticle`,
-      { withCredentials: true }
-    );
-      dispatch(setArticles(response.data.data.filteredArticle));
-  } catch (err) {
-    console.log(err);
-  }
-};
 
-const getSaying = async () => {
-  try {
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mysaying`,
-      { withCredentials: true }
-    );
-      dispatch(setSayings(response.data.data.filteredSaying));
-  } catch (err) {
-    console.log(err);
-  }
-};
+// const getSaying = async () => {
+//   try {
+//     const response = await axios.get(
+//       `${REACT_APP_API_URL}/user/mysaying`,
+//       { withCredentials: true }
+//     );
+//     if(Array.isArray(response.data.data.filteredSaying)){
+//       dispatch(setSayings(response.data.data.filteredSaying));
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 const getComments = async () => {
   try {
@@ -68,7 +55,9 @@ const getComments = async () => {
       `${REACT_APP_API_URL}/user/mycomment`,
     {withCredentials:true}
     );
+    if(Array.isArray(response.data.data.filteredArticle)){
     dispatch(setComments(response.data.data.filteredArticle));
+    }
   } catch (err) {
     console.log(err);
   }
@@ -80,7 +69,9 @@ const getLikedSaying = async () => {
       `${REACT_APP_API_URL}/user/mylike/?category=saying`,
       { withCredentials: true }
     );
+    if(Array.isArray(response.data.data.filteredLike)){
     dispatch(setLikedSayings(response.data.data.filteredLike))
+    }
   } catch (err) {
     console.log(err);
   }
@@ -92,7 +83,9 @@ const getLikedArticle = async () => {
       `${REACT_APP_API_URL}/user/mylike/?category=article`,
       { withCredentials: true }
       );
+      if(Array.isArray(response.data.data.filteredArticle)){
     dispatch(setLikedArticle(response.data.data.filteredLike));
+      }
   } catch (err) {
     console.log(err);
   }
@@ -147,11 +140,9 @@ const getLikedArticle = async () => {
         <div id={style.posts_container}>
          <div id={style.category_wrapper}>
           <MyPageCategory
-            handleArticleClick={handleArticleClick}
-            handleSayingClick={handleSayingClick}
+            // handleSayingClick={handleSayingClick}
             handleCommentsClick={handleCommentsClick}
-            handleLikedArticleClick={handleLikedArticleClick}
-            handleLikedSayingClick={handleLikedSayingClick}/>
+           />
         </div>
 
         <div id={style.posts_board}>
@@ -164,8 +155,8 @@ const getLikedArticle = async () => {
           (<MyComment/>):(null)}
           {isFocus === 'like' ? 
           (<MyLike 
-            getLikedArticle={getLikedArticle}
-            getLikedSaying={getLikedSaying}
+            handleLikedArticleClick={handleLikedArticleClick}
+            handleLikedSayingClick={handleLikedSayingClick}
           />):(null)}
          </div>
         </div>

@@ -1,5 +1,5 @@
-import style from './MyPagePagenation.module.css'
-function MainPagePagenation(){
+import style from './MyPagePagenationBtn.module.css'
+function MainPagePagenationBtn(){
     return (
         <div className = {style.page_buttons}>
         <button id={style.pagenation}>1</button>
@@ -7,4 +7,4 @@ function MainPagePagenation(){
         </div>
     )
 }
-export default MainPagePagenation;
+export default MainPagePagenationBtn;

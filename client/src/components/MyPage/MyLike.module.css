@@ -14,7 +14,7 @@
   align-items: center;
   width: 90vh;
   height: 65vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .posts {
@@ -23,18 +23,7 @@
   justify-content: space-around;
   width: 90vh;
   height: 25vh;
-  border: 1px solid blue;
-}
-
-#post {
-  background-image: url("../../images/sweat3.png");
-  background-position: center;
-  background-size: 100%;
-  width: 25vh;
-  height: 25vh;
-  padding-bottom: 25vh;
-  /* border: 1px solid black; */
-  border-radius: 10px;
+  /* border: 1px solid blue; */
 }
 
 .saying_toggle {

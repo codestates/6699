@@ -4,8 +4,25 @@ import{useState} from 'react'
 import PostingMiniModal from '../components/PostingPage/PostingMiniModal';
 import Modal from '../components/Modal';
 import PostingMakeCommentBox from '../components/PostingPage/PostingMakeCommentBox'
+import axios from 'axios';
+import {useSelector, useDispatch} from 'react-redux';
+
 function PostingPage(){
-  let [isOpen,setIsOpen] = useState(false);
+const [isOpen,setIsOpen] = useState(false);
+
+  // const getArticle = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       `${REACT_APP_API_URL}/:sayingId/article/:articleId`,
+  //       { withCredentials: true }
+  //       );
+  //       if(response.data !== undefined){
+    
+  //       }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
     return(
     <div className= {style.container}>
