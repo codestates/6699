@@ -1,0 +1,81 @@
+.posted_comment_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vh;
+  height: 13vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#comment_border {
+  position: absolute;
+  width: 65vh;
+  height: 10vh;
+  /* border: 1px solid pink; */
+}
+
+#user_image2 {
+  background-image: url("../../images/bono.png");
+  background-size: 100%;
+  width: 8vh;
+  height: 8vh;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+.saying_toggle {
+  position: absolute;
+  top: 0vh;
+  right: 0vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2vh;
+  height: 2vh;
+  background-image: url("../../images/tripledot.png");
+  background-size: 100% 100%;
+  background-position: center;
+  /* border: 1px solid blue; */
+}
+
+#comment_border > p {
+  /*나도 살빼야 되는데ㅜ 눈팅 그만하고싶어여*/
+  position: relative;
+  top: -65px;
+  left: 110px;
+  font-size: 14pt;
+}
+
+#comment_user {
+  /*뱃살대장보노*/
+  position: relative;
+  height: 3vh;
+  top: 5vh;
+  left: 23vh;
+  font-size: 11pt;
+  text-align: center;
+  color: #2c2c2c;
+  /* border: 1px solid blue; */
+}
+
+#comment_created_at {
+  /*30분전*/
+  width: 7vh;
+  height: 3vh;
+  position: relative;
+  top: 5vh;
+  left: 23vh;
+  text-align: center;
+  font-size: 11pt;
+  color: #2c2c2c;
+  /* border: 1px solid purple; */
+}
+
+#see_more_btn {
+  background-color: transparent;
+  border: 1px solid orange;
+  font-size: 13pt;
+  border: 0;
+}
