@@ -17,26 +17,99 @@ function MyEditPage (){
     const { isLogin, userInfo } = useSelector((state) => state.auth);
     
     // auth를 통해서 받아온 유저정보
-    console.log(userInfo)
     const { id, email, username, image, introduction } = userInfo
     
+    // 고양이 삭제 모달 state
     const [ DropaccountModalState, SetDropaccountModalState ] = useState(false)
         
     /*유효성 검사 상태*/
     // 닉네임 변경 input
     const [inputNickname, setInputNickname] = useState(`${username}`)
+    const [passInputNickname, setPassInputNickname] = useState(true)
     // 비밀번호 수정 input
     const [inputPassWord, setInputPassword] = useState('');
     const [passwordErr, setPasswordErr] = useState(false);
-    
     const [completePasswordCheck, setCompletePasswordCheck] = useState(false);
     // 비밀번호 수정 확인 input
     const [inputConfirmPassWord, setInputConfirmPassWord] = useState('');
     const [confirmPasswordErr, setConfirmPasswordErr] = useState(false);
-    
     const [confirmPasswordCheck, setConfirmPassWordCheck] = useState(false);
     // 프로필 자기소개 state
     const [inputIntro, setInputIntro] = useState(introduction);
+
+    // 비밀번호 변경 Hooks
+    useEffect(() => {
+      // 비밀번호 유효성 검사 조건
+      let passwordExp = /^[a-zA-z0-9]{6,12}$/;
+      // 비밀번호 변경란에 아무런 값이 없으면...
+      if(inputPassWord === '') {
+        setPasswordErr(false)
+        setCompletePasswordCheck(false)
+      } 
+      // 입력한 비밀번호가 비밀번호 유효성 검사 (정규식)을 만족하면, "사용가능한 비밀번호입니다." 문구를 띄운다
+      // 그때 입력창은 하늘색이다.
+      else if(passwordExp.test(inputPassWord)) {
+        setCompletePasswordCheck(true)
+        setPasswordErr(false)
+      } 
+      // 비밀번호가 비밀번호 유효성 검사를 만족하지 못하면, "비밀번호는 영문 대소문자와 숫자 6-12자리로 입력해야합니다" 문구를 띄운다
+      // 그때 입력창은 회색이다
+      else {
+        setCompletePasswordCheck(false)
+        setPasswordErr(true)
+      }      
+    }, [inputPassWord])
+
+    // 비밀번호 변경 확인 Hooks
+    useEffect(() => {
+      // 비밀번호 확인창
+      // 새로운 비밀번호와 새로운 비밀번호 확인 같고 새로운 비밀번호가 null이 아니며 유효성 검사를 통과했다면
+      // 비밀번호 수정 확인, 입력창은 하늘색으로 바뀌며 "비밀번호가 일치합니다" 문구를 띄운다
+      if(inputPassWord === inputConfirmPassWord && inputPassWord !== '' && completePasswordCheck === true) {
+        setConfirmPasswordErr(false)
+        setConfirmPassWordCheck(true)
+      }
+      // 만약 비밀번호 수정 확인창에 아무값도(null) 들어가지 않았다면, 입력창은 회색이며 아무런 notice도 띄우지 않는다
+      else if (inputConfirmPassWord === '') {
+        setConfirmPasswordErr(false)
+      }
+      // 만약 위 조건 하나라도 만족하지 않는다면, 비밀번호 수정 확인 입력창은 회색이며
+      // "비밀번호가 일치하지 않습니다" 문구를 띄운다
+      else {
+        setConfirmPasswordErr(true)
+        setConfirmPassWordCheck(false)
+      } 
+    }, [inputConfirmPassWord])
+
+    // // 닉네임 중복 여부 확인!
+    // useEffect(async () => {
+    //     try {
+    //     // response 변수에 서버 응답결과를 담는다
+    //     const response = await axios.get(
+    //         `${REACT_APP_API_URL}/user/alluser`,
+    //         { withCredentials: true }
+    //         )
+
+    //         for(let i = 0; i < response.data.data.userAllInfo.length; i++) {
+
+    //           console.log(inputNickname)
+    //           console.log(response.data.data.userAllInfo[i].username)
+    //           console.log(passInputNickname)
+
+    //           if(inputNickname === response.data.data.userAllInfo[i].username || inputNickname === '') {
+    //             setPassInputNickname(false)
+
+    //             return;                
+    //           }
+    //         }
+
+    //         setPassInputNickname(true)
+    //         return;
+
+    //       } catch (err) {
+    //         console.log(err)
+    //       }         
+    // }, [inputNickname])
 
     // 로그아웃 handler
     const handleLogout = async () => {
@@ -87,7 +160,7 @@ function MyEditPage (){
                 }
             } 
             
-            // 닉네임 / 자기소개 / 비밀번호 
+            // 정보별 error 메시지
             else {
                 // 닉네임 입력창이 비어있으면, 다음을 응답한다
                 if(inputNickname === '') {
@@ -100,12 +173,12 @@ function MyEditPage (){
                 // 비밀번호 입력창이 비어있으면, 다음을 응답한다
                 
                 if(inputPassWord === '' || passwordErr) {
-                    alert('𝟲𝟲𝟵𝟵\n비밀번호 변경런을 확인해주세요! 😖');
+                    alert('𝟲𝟲𝟵𝟵\n비밀번호 변경란을 확인해주세요! 😖');
                     return
                 } 
                 
                 if(inputConfirmPassWord === '' || confirmPasswordErr) {
-                    alert('𝟲𝟲𝟵𝟵\n비밀번호 수정 변경란을 확인해주세요! 😖')
+                    alert('𝟲𝟲𝟵𝟵\n비밀번호 변경 확인란을 확인해주세요! 😖')
                     return
                 }
                 else {
@@ -115,52 +188,11 @@ function MyEditPage (){
             }
         }
         
-        // 비밀번호 및 비밀번호 확인 창이 바뀔때마다 발생한다
-        useEffect(() => {
-            // 비밀번호 유효성 검사 정규식
-            let passwordExp = /^[a-zA-z0-9]{6,12}$/;
-            // 비밀번호를 입력하지 않았으면, 아무런 notice가 없어야한다.
-            // 그때 입력창은 회색이다
-            if(inputPassWord === '') {
-                setPasswordErr(false)
-                setCompletePasswordCheck(false)
-            } 
-            // 입력한 비밀번호가 비밀번호 유효성 검사 (정규식)을 만족하면, "사용가능한 비밀번호입니다." 문구를 띄운다
-            // 그때 입력창은 하늘색이다.
-            else if(passwordExp.test(inputPassWord)) {
-                setCompletePasswordCheck(true)
-                setPasswordErr(false)
-            } 
-            // 비밀번호가 비밀번호 유효성 검사를 만족하지 못하면, "비밀번호는 영문 대소문자와 숫자 6-12자리로 입력해야합니다" 문구를 띄운다
-            // 그때 입력창은 회색이다
-            else {
-                setCompletePasswordCheck(false)
-                setPasswordErr(true)
-            }
-            // 비밀번호 확인창
-            // 새로운 비밀번호와 새로운 비밀번호 확인 같고 새로운 비밀번호가 null이 아니며 유효성 검사를 통과했다면
-            // 비밀번호 수정 확인, 입력창은 하늘색으로 바뀌며 "비밀번호가 일치합니다" 문구를 띄운다
-            if(inputPassWord === inputConfirmPassWord && inputPassWord !== '' && completePasswordCheck === true) {
-                setConfirmPasswordErr(false)
-                setConfirmPassWordCheck(true)
-            }
-            // 만약 비밀번호 수정 확인창에 아무값도(null) 들어가지 않았다면, 입력창은 회색이며 아무런 notice도 띄우지 않는다
-            else if (inputConfirmPassWord === '') {
-                setConfirmPasswordErr(false)
-            }
-            // 만약 위 조건 하나라도 만족하지 않는다면, 비밀번호 수정 확인 입력창은 회색이며
-            // "비밀번호가 일치하지 않습니다" 문구를 띄운다
-            else {
-                setConfirmPasswordErr(true)
-                setConfirmPassWordCheck(false)
-            }
-        }, [inputNickname, inputPassWord, inputConfirmPassWord]);
-        
         // 닉네임 중복 확인
         const checkNickname = (e) => {
-            setInputNickname(e.target.value)
-            console.log("inputIntro :", inputIntro )
+            setInputNickname(e.target.value)                    
         };
+
         // 비밀번호 유효성 검사
         const passwordValidCheck = (e) => {
             setInputPassword(e.target.value)
@@ -173,41 +205,44 @@ function MyEditPage (){
         const handleIntro = (e) => {
             setInputIntro(e.target.value)
         }
+        const handleProfileEditBtn = (e) => {
+          handleProfileEdit()
+        }
+        const handleProfileEditEnter = (e) => {
+          if(e.key === 'Enter') handleProfileEdit()
+        }
 
-        // 이미지 가져오기 TEST
+        const [content, setContent] = useState('')
 
-  //       const [file, setFile] = useState();
-  // const [fileName, setFileName] = useState("");
+        /* 이미지 업로드 테스트 */
+        const onChange = (e) => {
 
-  // const saveFile = (e) => {
-  //   setFile(e.target.files[0]);
-  //  // setFileName(e.target.files[0].name);
-  // };
+          setContent(e.target.files[0]);
+        }
 
-  // const uploadFile = async (e) => {
+        const onSubmit = (e) => {
+          e.preventDefault();
+          const formData = new FormData();
+          formData.append('img', content);
 
-  //   const formData = new FormData();
-
-  //   const config={
-  //     header: {'content-type' : 'multipart/form-data'}
-  //   }
-
-  //   for (const key of Object.keys(file)) {
-  //     formData.append('file', file[key]);
-  // }
-  // //formData.append("file", file);
-
-  //   axios.post('http://localhost:8080/api/product/image', formData, config)
-  //   .then(res => {
-  //     if(res.data.success) {
-  //       console.log(response.data)
-  //     } else {
-  //       alert('파일저장실패')
-  //     }
-  //   })
-  // };
+          axios.post('http://localhost:8080/upload', formData, {
+            headers: {
+              'Content-Type' : 'multipart/form-data'
+            }
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log('fail!!!')
+            console.log(err)
+          })
+        }
 
   return (
+
+    
+
     <div id={style.container}>
       {DropaccountModalState ? <DropaccountModal handleDropaccountModal={handleDropaccountModal}/> : null}
         <div id={style.user_container}>
@@ -217,6 +252,18 @@ function MyEditPage (){
                 <div id={style.profile_image}>
                   <div id={style.profile_image_camera}></div>
                 </div>
+
+                {/* 이미지 업로드 테스트  */}
+                {/* <div>
+                  <input name='img'
+                         type='file'
+                         id='customFile'
+                         onChange={onChange} />
+                </div>
+                <div>
+                  <input type='submit' 
+                          value='Upload' />
+                </div> */}
 
               {/* 프로필 닉네임 */}
                 <div id={style.user_name}> {username} </div>
@@ -272,7 +319,10 @@ function MyEditPage (){
                                    
                                    {/* 닉네임 변경창, 주의! value 값 로그인 계정 닉네임으로 변경(변수)해야함*/}
                                      <input 
-                                       className={style.textarea_confirm} 
+                                       className={ passInputNickname 
+                                       ? style.textarea_confirm 
+                                       : style.textarea 
+                                       } 
                                        value={inputNickname}
                                        onChange={checkNickname} 
                                      />
@@ -297,7 +347,7 @@ function MyEditPage (){
                                           { completePasswordCheck
                                           ? <p id={style.match}>사용가능한 비밀번호 입니다.</p> 
                                           : <p id={passwordErr ? style.err : style.hidden}> 
-                                          비밀번호는 영문 대소문자와 숫자 6~12자리로 입력해야합니다. 
+                                          6~12자 영문 대 소문자, 숫자를 사용하세요. 
                                             </p>
                                           } 
                                       </div>
@@ -328,7 +378,8 @@ function MyEditPage (){
                                     {/* 프로필 변경 버튼 */}
                                       <button 
                                         id={style.btn1}
-                                        onClick={handleProfileEdit}
+                                        onClick={handleProfileEditBtn}
+                                        onKeyPress={handleProfileEditEnter}
                                       >
                                         프로필 변경
                                       </button>
