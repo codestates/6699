@@ -6,22 +6,27 @@ import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
 import MyComment from '../components/MyPage/MyComment'
 import MyLike from '../components/MyPage/MyLike'
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
-import{setSayings,setComments,setLikedSayings,setLikedComments} from '../store/MySlice'
+import{setArticles,setSayings,setComments,setLikedSayings,setLikedComments} from '../store/MySlice'
 
 function MyPage(){
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isFocus } = useSelector((state) => state.mypage)
 
-function handleSayingClick(){
- getSaying()
+ function handleArticleClick(){
+  getArticle()
 }
 
-function handleCommentsClick(){
+ function handleSayingClick(){
+  getSaying()
+ }
+
+ function handleCommentsClick(){
   getComments()
  }
 
@@ -32,16 +37,26 @@ function handleCommentsClick(){
  function handleLikedCommentsClick(){
   getLikedComments()
  }
+
+ const getArticle = async () => {
+  try {
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/myarticle`,
+      { withCredentials: true }
+    );
+      dispatch(setArticles(response.data.data.filteredArticle));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const getSaying = async () => {
   try {
-    // console.log(userInfo.id)
     const response = await axios.get(
       `${REACT_APP_API_URL}/user/mysaying`,
       { withCredentials: true }
     );
-    if(response.data.data.userInfo){
-      dispatch(setSayings(response.data.filteredSaying));
-    }
+      dispatch(setSayings(response.data.data.filteredSaying));
   } catch (err) {
     console.log(err);
   }
@@ -49,8 +64,12 @@ const getSaying = async () => {
 
 const getComments = async () => {
   try {
-    const response = await axios.get(`${REACT_APP_API_URL}/user/mycomment`);
-    dispatch(setComments(response.data.content));
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/mycomment`,
+    {withCredentials:true}
+    );
+    
+    dispatch(setComments(response.data.data.filteredArticle));
   } catch (err) {
     console.log(err);
   }
@@ -62,8 +81,7 @@ const getLikedSaying = async () => {
       `${REACT_APP_API_URL}/user/mylike`,
       { withCredentials: true }
     );
-
-    dispatch(setLikedSayings(response.data.filteredLike.content))
+    dispatch(setLikedSayings(response.data.data.filteredLike.content))
   } catch (err) {
     console.log(err);
   }
@@ -71,44 +89,15 @@ const getLikedSaying = async () => {
 
 const getLikedComments = async () => {
   try {
-    const response = await axios.get(`${REACT_APP_API_URL}/user/mycomment`);
-    dispatch(setLikedComments(response.data.filteredLike.title));
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/user/mycomment`,
+      { withCredentials: true }
+      );
+    dispatch(setLikedComments(response.data.data.filteredLike.title));
   } catch (err) {
     console.log(err);
   }
 };
-
-    //현재 누르고 있는 탭
-    const [isFocus,setIsFocus] = useState('mypost');
- 
-    //나의 게시물 버튼을 눌렀을때 나의 게시물 component로 변함
-    function PostClickEvent(){
-      setIsFocus('mypost')
-    }
-    //나의 명언 버튼을 눌렀을때 나의 명언 component로 변함
-    function SayingClickEvent(){
-      setIsFocus('mysaying')
-    }
-      //좋아요 버튼을 눌렀을때 좋아요 component로 변함
-      function CommentClickEvent(){
-        setIsFocus('mycomment')
-      }
-      //내가 쓴 댓글 버튼을 눌렀을때 내가 쓴 댓글 component로 변함
-      function LikeClickEvent(){
-        setIsFocus('mylike')
-      }
-      //카테고리 탭에 따라 컴포넌트 변경
-      function ChangeComponent(){
-        if(isFocus === 'mypost'){
-          return <MyPosting/>
-        } else if(isFocus === 'mysaying'){
-          return <MySaying sayings={sayings}/>
-        } else if(isFocus === 'mycomment'){
-          return <MyComment comments={comments}/>
-        } else if(isFocus === 'mylike'){
-          return <MyLike likedSayings={likedSayings} likedComments={likedComments}/>
-        }
-      }
     
     const handleLogout = async () => {
       try {
@@ -158,17 +147,23 @@ const getLikedComments = async () => {
          {/*오른쪽 카테고리영역*/}
         <div id={style.posts_container}>
          <div id={style.category_wrapper}>
-          <MyPageCategory  isFocus={isFocus}
-        PostClickEvent={PostClickEvent} SayingClickEvent={SayingClickEvent}
-        LikeClickEvent={LikeClickEvent} CommentClickEvent={CommentClickEvent}
-       handleSayingClick={handleSayingClick}
-       handleCommentsClick={handleCommentsClick}
-       handleLikedSayingClick={handleLikedSayingClick}/>
+          <MyPageCategory
+            handleArticleClick={handleArticleClick}
+            handleSayingClick={handleSayingClick}
+            handleCommentsClick={handleCommentsClick}
+            handleLikedSayingClick={handleLikedSayingClick}/>
         </div>
 
         <div id={style.posts_board}>
          <div id={style.component_wrapper}>
-          {ChangeComponent()}
+          {isFocus === 'post' ? 
+          (<MyPosting/>):(null)}
+          {isFocus === 'saying' ? 
+          (<MySaying/>):(null)}
+          {isFocus === 'comment' ? 
+          (<MyComment/>):(null)}
+          {isFocus === 'like' ? 
+          (<MyLike/>):(null)}
          </div>
         </div>
 
