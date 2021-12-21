@@ -2,7 +2,7 @@ const { isAuthorized } = require('../tokenFunction');
 const { users } = require('../../models');
 
 module.exports = {
-  get: async (req, res) => {
+  userAuth: async (req, res) => {
     try {
       // 쿠키에 accessToken이 있는지 판별
       const { accessToken } = req.cookies;
