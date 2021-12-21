@@ -41,7 +41,7 @@ function App() {
   
   useEffect(() => {
     authentication();
-  }, []);
+  }, [isLogin]);
   
   return (
     <div className={style.container}>

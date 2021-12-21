@@ -16,7 +16,13 @@ module.exports = {
       // 만약 카테고리가 게시물(article)일 때, 다음을 실행한다
       if(category === 'article') {
         // 현재 유저가 좋아요를 누른 게시물 정보가 articleLikeInfo에 담긴다
-        articleLikeInfo = await article_likes.findAll({ where : { user_id: userInfo.id } });
+        articleLikeInfo = await article_likes.findAll({ 
+          include : [{
+            model: sayings,
+            attributes: ['category']
+          }],
+          where : { user_id: userInfo.id } 
+        });
         // 만약, 유저가 좋아요를 누른 게시물이 없다면, 다음을 응답한다
         if(articleLikeInfo.length === 0) return res.status(200).json({ message: 'Empty!' })
         // 만약 유저가 좋아요를 누른 게시물이 있다면, 다음을 실행한다
