@@ -122,7 +122,8 @@ const getLikedArticle = async () => {
         </div>
         <div className = {style.buttons}>
             <Routes>
-                <Route path='/editpage' element={<MyEditPage/>}></Route>
+                {/* <Route path='/editpage' element={<MyEditPage/>}></Route> */}
+                <Route path='/editpage/*' element={<MyEditPage/>}></Route>
             </Routes>
         <Link to ='/editpage'>
           <button id={style.profile_setting}>

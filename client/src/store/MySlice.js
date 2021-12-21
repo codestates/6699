@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// const initialState = { articles: [],sayings: [],comments: [],
+//   likedSayings:[],likedArticle:[],isFocus:'post' };
+
 const initialState = { articles: [],sayings: [],comments: [],
   likedSayings:[],likedArticles:[],isFocus:'post' };
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { articles: [], sayings: [], isRendered:false, isFirst:'',isLikeNew:1 }; 
+const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[],likes:[], focusedSayingId:0, sayingIds:[], posts:[]}; 
 const mainSlice = createSlice(
   { name: 'main', 
     initialState: initialState,
@@ -7,20 +7,29 @@ const mainSlice = createSlice(
     setArticles:(state,{payload})=> {
       state.articles = payload;
     },
-    setSayings: (state,{payload}) => {
-      state.sayings = payload;
-    },
     setIsRendered:(state, { payload }) => {
       state.isRendered = payload;
     },
-    setIsFirst:(state, { payload }) => {
-      state.isFirst = payload;
+    setFocusedTitle:(state, { payload }) => {
+      state.focusedTitle = payload;
     },
-    setIsLikeNew:(state,{ payload}) => {
-      state.isLikeNew = payload;
+    setSayingTitles:(state, { payload }) => {
+      state.sayingTitles = payload;
+    },
+    setLikes:(state,{ payload}) => {
+      state.likes= payload;
+    },
+    setFocusedSayingId:(state,{ payload}) => {
+      state.focusedSayingId = payload;
+    },
+    setSayingIds:(state,{ payload}) => {
+      state.sayingIds = payload;
+    },
+    setPosts:(state,{ payload}) => {
+      state.posts = payload;
     }
     }});
                 
-export const { setArticles, setSayings, setIsRendered, setIsFirst, setIsLikeNew } = mainSlice.actions;
+export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts } = mainSlice.actions;
 export default mainSlice.reducer;
 

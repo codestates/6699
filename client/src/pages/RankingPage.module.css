@@ -4,16 +4,96 @@
   width:100%;
   height:2900px;
 }
-.category_box{
-  width:100%;
-  height:6%;
+.category_all{
+  position:absolute;
+  background: #575757 90%;
+  background-image: url(../images/6699logo.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
 }
+.category_health{
+  position:absolute;
+  background-image: url(../images/posting-health.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
+}
+.category_economy{
+  position:absolute;
+  background-image: url(../images/posting_economy.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
+}
+.category_love{
+  position:absolute;
+  background-image: url(../images/posting_love.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
+}
+.category_relationship{
+  position:absolute;
+  background-image: url(../images/posting_relationship.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
+}
+.category_study{
+  position:absolute;
+  background-image: url(../images/posting_study.png);
+  width:70%;
+  height:13%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat:no-repeat;
+  transform: translate(-50%,0%);
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,25%);
+}
+
 .category_button{
+  z-index: 5;
   cursor: pointer;
   position: absolute;
   display:flex;
-  top: 2%;
-  right:5%;
+  top: 10%;
+  right:17.5%;
   justify-content: center;
   align-items:center;
   color:white;
@@ -21,20 +101,20 @@
   font-weight:bold;
   background-color: #FFBF31;
   height: 1.5%;
-  width: 200px;
+  width: 10%;
   border-radius: 15px;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }
 .ranking_box{
-  margin-top:10%;
   flex-direction: row;
   flex-wrap:wrap-reverse;
   position:absolute;
   border:2px solid #ccc;
   border-radius:30px;
-  width:90%;
-  height:78%;
+  width:70%;
+  height:70%;
   left: 50%;
+  top:14%;
   transform: translate(-50%,0%);
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }
@@ -50,17 +130,17 @@
   position:sticky;
 
   border-radius: 25px 25px 0px 25px;
-  height:16.99%;
+  height:13%;
   top: 0;
   z-index:3;
 }
 .rankingbox_medalzone_top3_medal1{
   display:flex;
-  height:33.33%;
+  height:33%;
   background-image:url(../images/gold_medal.png); 
   align-items: center;
   justify-content: center;
-  background-size: 55%;
+  background-size: 40%;
   background-position: center;
   background-repeat:no-repeat;
 }
@@ -70,7 +150,7 @@
   background-image:url(../images/silver_medal.png); 
   align-items: center;
   justify-content: center;
-  background-size: 55%;
+  background-size: 40%;
   background-position: center;
   background-repeat:no-repeat;
 }
@@ -80,7 +160,7 @@
   background-image:url(../images/bronze_medal.png); 
   align-items: center;
   justify-content: center;
-  background-size: 55%;
+  background-size: 40%;
   background-position: center;
   background-repeat:no-repeat;
 }
@@ -95,7 +175,7 @@
   background-color:white;
   position:sticky;
   border-radius:0px 25px 25px 25px;
-  height:17%;
+  height:13%;
   top: 0;
   z-index:3;
 }
@@ -112,7 +192,7 @@
   display:flex;
   align-items:center;
   color:#1E1E1E;
-  font-size: 50px;
+  font-size: 35px;
   font-weight:bold;
   width: 79%;
   height:100%;
@@ -131,8 +211,8 @@
   border: 6px solid #ffbf31;
   border-radius: 50%;
   margin-left: 3%;
-  height:32.5%;
-  width: 2.75%;
+  height:40%;
+  width: 3%;
 }
 .rankingbox_sayingzone_top3_like{
   background-image: url('../images/Red_Heart.png');
@@ -156,19 +236,20 @@
   height:50%;
   width: 4%;
 }
+
+/* 순위권 밖 */
 .rankingbox_medalzone_top12{
   height: 81.1%;
 }
 .rankingbox_medalzone_top12_ranking{
   color:rgba(0,0,0,60%);
-  font-size:40px;
+  font-size:30px;
   font-weight:bold;
   display:flex;
   align-items: center;
   justify-content: center;
-  height:11.11%;
+  height:6%;
 }
-
 .rankingbox_sayingzone_top12{
   height:81.1%; 
 }
@@ -176,15 +257,13 @@
   width:99%;
   margin-left: 3%;
   color:rgba(0,0,0,60%);
-  font-size:40px;
-  font-weight:bold;
   display:flex;
   align-items: center;
-  height:11.11%;
+  height:6%;
 }
 .rankingbox_sayingzone_top12_saying{
   color:rgba(0,0,0,60%);
-  font-size:30px;
+  font-size:25px;
   font-weight:bold;
   display:flex;
   align-items: center;
@@ -195,7 +274,6 @@
   color:#FFBF31;
   cursor:pointer;
 }
-
 .rankingbox_sayingzone_top12_like{
   background-image: url('../images/Red_Heart.png');
   background-size: 65%;
@@ -232,38 +310,7 @@
   height:40px;
   background-color: #FFBF31;
 }
-
 .link{
   text-decoration: none; 
   color: inherit; 
-}
-.toggle{
-  position: absolute;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:15px; height:15px;
-  background-image: url("../../src/images/Dark_Polygon.png");
-  background-size:100% 100%;
-  background-position: center;
-  margin-top:9px;
-  left:0;
-  cursor: pointer;
-}
-.like_box{
-  display:flex;
-  position: absolute;
-  flex-wrap:wrap;
-  width:100px;
-  height:30px;
-  top: 2.4%;
-  right:18%;
-  transform: translate(-50%,0%)
-}
-.likenew{
-  position:absolute;
-  left:30px;
-  color: #707070;
-  font-weight: bold;
-  font-size:19px;
 }
