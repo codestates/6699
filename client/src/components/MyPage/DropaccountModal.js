@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { logout, getUserInfo } from '../../store/AuthSlice'
 import { useSelector, useDispatch } from 'react-redux';
 
 function DropaccountModal( { handleDropaccountModal }){
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // 삭제하기 버튼 handler
@@ -19,6 +21,7 @@ function DropaccountModal( { handleDropaccountModal }){
   
       alert('𝟲𝟲𝟵𝟵\nGoodbye! 😖')
       // mainpage로 이동
+      dispatch(logout());
       navigate('/mainpage');
 
     } catch(err) {
