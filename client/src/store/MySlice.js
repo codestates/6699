@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { articles: [],sayings: [],comments: [],
-  likedSayings:[],likedComments:[],isFocus:'post' };
+  likedSayings:[],likedArticle:[],isFocus:'post' };
 
 const mySlice = createSlice({
   name: 'mypage',
@@ -19,7 +19,7 @@ const mySlice = createSlice({
     setLikedSayings: (state, { payload }) => {
       state.likedSayings = payload;
     },
-    setLikedComments: (state,{payload}) => {
+    setLikedArticle: (state,{payload}) => {
       state.likedComments = payload;
     },
     setIsFocus:(state, { payload }) => {
@@ -28,7 +28,7 @@ const mySlice = createSlice({
   }
 });
 
-export const { setArticles, setSayings, setComments, setLikedSayings, setLikedComments, setIsFocus }
+export const { setArticles, setSayings, setComments, setLikedSayings, setLikedArticle, setIsFocus }
  = mySlice.actions;
 
 export default mySlice.reducer;

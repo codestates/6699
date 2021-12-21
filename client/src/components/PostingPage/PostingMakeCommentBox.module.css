@@ -1,0 +1,52 @@
+.comment_writting_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vh;
+  height: 13vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#writting_comment_border {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 65vh;
+  height: 10vh;
+  /* border: 1px solid orange; */
+}
+
+#user_image {
+  background-image: url("../../images/Kkobugi.png");
+  background-size: 100%;
+  width: 8vh;
+  height: 8vh;
+}
+
+input {
+  width: 50vh;
+  height: 8vh;
+  font-size: 13pt;
+  padding-left: 1vh;
+  color: #7c7c7c;
+  border: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+#make_comment {
+  /*게시하기*/
+  width: 8vh;
+  height: 3vh;
+  background-color: transparent;
+  position: relative;
+  top: 5vh;
+  left: 28vh;
+  color: #7c7c7c;
+  font-size: 11pt;
+  border: 0;
+}

@@ -121,47 +121,28 @@
   cursor:pointer;
   color:#FFBF31;
 }
-.rankingbox_sayingzone_top3_image1{
-  background-image: url('../images/porori.png');
-  background-size: 45%;
-  background-repeat: no-repeat;
-  background-position: center;
+.rankingbox_sayingzone_top3_image{
+  background-image: url('../images/userImage_default.png');
+  background-size: cover;
+  background-size: 100% 100%;
+  opacity: 70%;
   display:flex;
   position: relative;
-  left: 0;
-  height:100%;
-  width: 9%;
-}
-.rankingbox_sayingzone_top3_image2{
-  background-image: url('../images/bono.png');
-  background-size: 45%;
-  background-repeat: no-repeat;
-  background-position: center;
-  display:flex;
-  position: relative;
-  left: 0;
-  height:100%;
-  width: 9%;
-}
-.rankingbox_sayingzone_top3_image3{
-  background-image: url('../images/neoburi.png');
-  background-size: 45%;
-  background-repeat: no-repeat;
-  background-position: center;
-  display:flex;
-  position: relative;
-  left: 0;
-  height:100%;
-  width: 9%;
+  border: 6px solid #ffbf31;
+  border-radius: 50%;
+  margin-left: 3%;
+  height:32.5%;
+  width: 2.75%;
 }
 .rankingbox_sayingzone_top3_like{
-  background-image: url('../images/emptyheart.png');
+  background-image: url('../images/Red_Heart.png');
   background-size: 65%;
   background-repeat: no-repeat;
   background-position: center;
   display:flex;
   position: relative;
   left: 0;
+  margin-left: 2%;
   height:50%;
   width: 4%;
 }
@@ -214,27 +195,17 @@
   color:#FFBF31;
   cursor:pointer;
 }
-.rankingbox_sayingzone_top12_image{
-  background-image: url('../images/publicicon.png');
-  background-size: 30%;
-  background-repeat: no-repeat;
-  background-position: center;
-  display:flex;
-  position: relative;
-  left: 0;
-  height:100%;
-  width: 9%;
-}
+
 .rankingbox_sayingzone_top12_like{
-  background-image: url('../images/emptyheart.png');
+  background-image: url('../images/Red_Heart.png');
   background-size: 65%;
   background-repeat: no-repeat;
   background-position: center;
   display:flex;
   position: relative;
-  left: 0;
-  height:50%;
-  width: 4%;
+  left: 8.5%;
+  height:30%;
+  width: 2.5%;
 }
 .rankingbox_sayingzone_top12_likenumber{
   color:rgba(0,0,0,15%);
@@ -242,7 +213,7 @@
   font-size:20px;
   display:flex;
   position: relative;
-  left: 0;
+  left: 9%;
   height:50%;
   width: 4%;
 }
@@ -294,5 +265,5 @@
   left:30px;
   color: #707070;
   font-weight: bold;
-  font-size:20px;
+  font-size:19px;
 }

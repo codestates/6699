@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 import MySayingMiniModal from './MySayingMiniModal';
 import Modal from '../Modal';
 import MyLikedSayingBox from '../../components/MyPage/MyLikedSayingBox'
-function MyLike ({likedSayings,likedComments}){
+import{useSelector, useDispatch} from 'react-redux';
+
+function MyLike ({getLikedArticle,getLikedSaying}){
     let [isOpen,setIsOpen] = useState(false);
     const [post,setIsPost] = useState(true);
+    const { likedSayings } = useSelector((state) => state.mypage);
+
   function MyPost(){
    setIsPost(true)
   }
@@ -23,13 +27,7 @@ function MyLike ({likedSayings,likedComments}){
         <div id={style.post}></div>
         <div id={style.post}></div>
         <div id={style.post}></div>
-        </div>
-        <div className={style.posts}>
-        <div id={style.post}></div>
-        <div id={style.post}></div>
-        <div id={style.post}></div>
-        </div>
-       
+        </div>   
         </div>
         <div id={style.pagenation_wrapper}>
         <MyPagePagenation/>
@@ -37,11 +35,12 @@ function MyLike ({likedSayings,likedComments}){
         </div>):(
           //좋아요 누른 명언
         <div className={style.container}>
-        {likedSayings.length >0 ?likedSayings.map((el)=>
-        <MyLikedSayingBox 
-        likedSaying={el}
-        />
-        ):("좋아요를 누른 명언이 없어요")}
+          {likedSayings.length >0 ? likedSayings.map((el)=>
+          <MyLikedSayingBox
+          saying ={el}
+          key={el.id}
+          />)
+          :("좋아요를 누른 명언이 없어요")}
         <div className={style.pagenation_wrapper}>
         <MyPagePagenation/>
         </div>
@@ -56,7 +55,11 @@ function MyLike ({likedSayings,likedComments}){
       {isOpen
         ?isOpen &&
         <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <MySayingMiniModal MyPost={MyPost} MySaying={MySaying} />
+          <MySayingMiniModal 
+          MyPost={MyPost} MySaying={MySaying}
+          getLikedArticle={getLikedArticle}
+          getLikedSaying= {getLikedSaying}
+           />
         </Modal>
         :null  
       }

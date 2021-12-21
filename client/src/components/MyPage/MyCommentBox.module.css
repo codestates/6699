@@ -42,6 +42,8 @@
   text-align: center;
   width: 65vh;
   height: 5vh;
+  text-decoration: none;
+  color: #000;
   /* border: 1px solid red; */
 }
 

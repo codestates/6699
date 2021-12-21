@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {setIsFocus} from '../../store/MySlice'
 
-function MyPageCategory({handleArticleClick,handleSayingClick,handleCommentsClick,handleLikedSayingClick}){
+function MyPageCategory({handleArticleClick,handleSayingClick,handleCommentsClick,handleLikedSayingClick,handleLikedArticleClick}){
 const dispatch = useDispatch();
   //나의 명언 받아오는 요청
 const [isSelected,setIsSelected] = useState('post')
@@ -48,7 +48,7 @@ function LikeClickEvent(){
       </li>
        <li className={style.menus} id={isSelected === 'like'?(style.focused_like):(style.like)}
         onClick={()=>{LikeClickEvent()
-        handleLikedSayingClick()}}>
+        handleLikedArticleClick()}}>
          좋아요
        </li>
       </ul>

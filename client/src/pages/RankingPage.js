@@ -2,17 +2,39 @@ import style from './RankingPage.module.css';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
+import axios from 'axios';
 import RankingLikeNewModal from '../components/RankingPage/RankingLikeNewModal';
 import RankingDropDown from '../components/RankingPage/RankingDropDown';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
+import { REACT_APP_API_URL } from '../config';
 
 function RankingPage(){
+  const dispatch = useDispatch();
+
   let [isToggleOpen,setToggleOpen] = useState(false);
   let [isDropDownOpen,setDropDownOpen] = useState(false);
-  let [isLikeOrNew,setLikeNew] = useState('좋아요순');
+  let [isLikeOrNew,setLikeNew] = useState('like');
   let [curCategory,setCategory] = useState('전체');
+  let [ranking,setRanking] = useState([]);
+  const { page } = useSelector(state => state.landing);
 
+  const getLikeRaking = async () => {
+    try {
+      const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${curCategory}`,
+      {withCredentials: true});
+      
+      setRanking(response.data.data.allSaying ? response.data.data.allSaying : response.data.data.filteredSaying);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  console.log(ranking)
+
+  useEffect(() => {
+    getLikeRaking();
+  }, [curCategory]);
 
   /* 창 닫는 함수 */
   const toggleOff = () => {
@@ -23,53 +45,47 @@ function RankingPage(){
   /* 좋아요, 최신순 선택함수 */
   const clickLike = () => {
     toggleOff();
-    setLikeNew('좋아요순')};
+    setLikeNew('like')
+  };
   const clickNew = () => {
     toggleOff();
-    setLikeNew('최신순')};
-
-
+    setLikeNew('new')
+  };
   /* 카테고리 선택함수 */
   const clickAll = () => {
     dropDownOff();
-    setCategory('전체')}
+    setCategory('전체')
+  }
   const clickHealth = () => {
     dropDownOff();
-    setCategory('건강')}
+    setCategory('건강')
+  }
   const clickStudy = () => {
     dropDownOff();
-    setCategory('학습')}
+    setCategory('학습')
+  }
   const clickEconomy = () => {
     dropDownOff();
-    setCategory('경제')}
+    setCategory('경제')
+  }
   const clickRelationship = () => {
     dropDownOff();
-    setCategory('인간관계')}
-const clickLove = () => {
+    setCategory('인간관계')
+  }
+  const clickLove = () => {
     dropDownOff();
-    setCategory('사랑')}
+    setCategory('사랑')
+  }
 
-  const page = useSelector(state => state.landing.page);
-  const dispatch = useDispatch();
   /* 카테고리별로 가는 함수 */
-  function goAllPage(){
-    dispatch(all());
-   }
-   function goHealthPage(){
-    dispatch(health());
-   }
-   function goStudyPage(){
-    dispatch(study());
-   }
-   function goEconomyPage(){
-    dispatch(economy());
-   }
-   function goRelationshipPage(){
-    dispatch(relationship());
-   }
-   function goLovePage(){
-    dispatch(love());
-   }
+  const goPage = () => {
+    if(curCategory==='전체') dispatch(all());
+    else if(curCategory==='건강') dispatch(health());
+    else if(curCategory==='학습') dispatch(study());
+    else if(curCategory==='경제') dispatch(economy());
+    else if(curCategory==='인간관계') dispatch(relationship());
+    else if(curCategory==='사랑') dispatch(love());
+  }
 
   return (
     <div className={style.container}>
@@ -81,7 +97,7 @@ const clickLove = () => {
             ?setToggleOpen(true)
             :setToggleOpen(false)
           }}></div>
-          <div className={style.likenew}>{isLikeOrNew}</div>
+          <div className={style.likenew}>{isLikeOrNew === 'like' ? '좋아요순' : '최신순'}</div>
         </div>
         {isToggleOpen&&<RankingLikeNewModal toggleOff = {toggleOff} clickLike={clickLike} clickNew={clickNew}/>}
         {/* 카테고리 클릭 드랍다운 */}
@@ -96,43 +112,54 @@ const clickLove = () => {
         <div className={style.ranking_box}>
           <div className={style.rankingbox_medalzone}>
             <div className={style.rankingbox_medalzone_top3}>
-              <div className={style.rankingbox_medalzone_top3_medal1}/>
-              <div className={style.rankingbox_medalzone_top3_medal2}/>
-              <div className={style.rankingbox_medalzone_top3_medal3}/>
+              {ranking.length > 0 && <div className={style.rankingbox_medalzone_top3_medal1}/>}
+              {ranking.length > 1 && <div className={style.rankingbox_medalzone_top3_medal2}/>}
+              {ranking.length > 2 && <div className={style.rankingbox_medalzone_top3_medal3}/>}
             </div>
             <div className={style.rankingbox_medalzone_top12}>
-              <div className={style.rankingbox_medalzone_top12_ranking}>4위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>5위</div>
+              {ranking.map((el)=>
+                <div className={style.rankingbox_medalzone_top12_ranking}>위</div>
+              )}
+              
+              {/* <div className={style.rankingbox_medalzone_top12_ranking}>5위</div>
               <div className={style.rankingbox_medalzone_top12_ranking}>6위</div>
               <div className={style.rankingbox_medalzone_top12_ranking}>7위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>8위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>9위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>10위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>11위</div>
-              <div className={style.rankingbox_medalzone_top12_ranking}>12위</div>
+              <div className={style.rankingbox_medalzone_top12_ranking}>8위</div> */}
+          
             </div>
           </div>
           <div className={style.rankingbox_sayingzone}>
             <div className={style.rankingbox_sayingzone_top3}>
+              {/* 1등 */}
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goHealthPage()}} to='/mainpage'>땀은 지방의 눈물이다.</Link></div>
-                <div className={style.rankingbox_sayingzone_top3_image1}/>
-                <div className={style.rankingbox_sayingzone_top3_like}/>
-                <div className={style.rankingbox_sayingzone_top3_likenumber}>130</div>
+                <div className={style.rankingbox_sayingzone_top3_saying}>
+                  <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>
+                    {ranking.length > 0 && ranking[0].content}</Link></div>
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_image}/>}
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_like}/>}
+                <div className={style.rankingbox_sayingzone_top3_likenumber}>{ranking.length > 0 && ranking[0].total_like}</div>
               </div>
+              {/* 2등 */}
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goStudyPage()}}  to='/mainpage'>늦었다고 생각될 때가 진짜 늦었다.</Link></div>
-                <div className={style.rankingbox_sayingzone_top3_image2}/>
-                <div className={style.rankingbox_sayingzone_top3_like}/>
-                <div className={style.rankingbox_sayingzone_top3_likenumber}>107</div>
+                <div className={style.rankingbox_sayingzone_top3_saying}>
+                  <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>
+                    {ranking.length > 1 && ranking[1].content}</Link></div>
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_image}/>}
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_like}/>}
+                <div className={style.rankingbox_sayingzone_top3_likenumber}>{ranking.length > 1 && ranking[1].total_like}</div>
               </div>
+              {/* 3등 */}
               <div className={style.rankingbox_sayingzone_top3_sayingzone}>
-                <div className={style.rankingbox_sayingzone_top3_saying}><Link className={style.link} onClick={()=>{goRelationshipPage()}} to='/mainpage'>면에 가위를 대는 것은 예의가 아니다.</Link></div>
-                <div className={style.rankingbox_sayingzone_top3_image3}/>
-                <div className={style.rankingbox_sayingzone_top3_like}/>
-                <div className={style.rankingbox_sayingzone_top3_likenumber}>90</div>
+                <div className={style.rankingbox_sayingzone_top3_saying}>
+                  <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>
+                    {ranking.length > 2 && ranking[2].content}</Link></div>
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_image}/>}
+                {ranking.length > 0 && <div className={style.rankingbox_sayingzone_top3_like}/>}
+                <div className={style.rankingbox_sayingzone_top3_likenumber}>{ranking.length > 2 && ranking[2].total_like}</div>
               </div>
             </div>
+
+            {/* 순위권 밖 */}
             <div className={style.rankingbox_sayingzone_top12}>
               <div className={style.rankingbox_sayingzone_top12_sayingzone}>  
                 <div className={style.rankingbox_sayingzone_top12_saying}>피할 수 없으면 즐겨라.</div>
@@ -164,7 +191,7 @@ const clickLove = () => {
                 <div className={style.rankingbox_sayingzone_top12_like}/>
                 <div className={style.rankingbox_sayingzone_top12_likenumber}>39</div>              
               </div>
-              <div className={style.rankingbox_sayingzone_top12_sayingzone}>  
+              {/* <div className={style.rankingbox_sayingzone_top12_sayingzone}>  
                 <div className={style.rankingbox_sayingzone_top12_saying}>내가 믿는 사람은 오늘 미룬 일을 해낼 내일의 나… </div>
                 <div className={style.rankingbox_sayingzone_top12_image}/>
                 <div className={style.rankingbox_sayingzone_top12_like}/>
@@ -187,7 +214,7 @@ const clickLove = () => {
                 <div className={style.rankingbox_sayingzone_top12_image}/>
                 <div className={style.rankingbox_sayingzone_top12_like}/>
                 <div className={style.rankingbox_sayingzone_top12_likenumber}>15</div>              
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={style.rankingbox_ViewMoreButton}>더 보기</div>
