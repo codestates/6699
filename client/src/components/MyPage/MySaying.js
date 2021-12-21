@@ -11,14 +11,14 @@ function MySaying(){ /*나의 명언*/
     
     return (
         <div className={style.container}>
-        {sayings.length >0? sayings.map((el) =>
-        <MySayingBox 
-        saying={el}
-         key={el.id}/>)
-        :("내가 작성한 명언이 없습니다.")}
-        <div className={style.pagenation_wrapper}>
-        <MyPagePagenation/>
-        </div>
+         {sayings.length >0? sayings.map((el) =>
+          <MySayingBox 
+          saying={el}
+          key={el.id}/>)
+          :("내가 작성한 명언이 없습니다.")}
+         <div className={style.pagenation_wrapper}>
+          <MyPagePagenation/>
+         </div>
         </div>
     )
 }

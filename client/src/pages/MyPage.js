@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
-import{setArticles,setSayings,setComments,setLikedSayings,setLikedComments} from '../store/MySlice'
+import{setArticles,setSayings,setComments,setLikedSayings,setLikedArticle} from '../store/MySlice'
 
 function MyPage(){
   const dispatch = useDispatch();
@@ -34,8 +34,8 @@ function MyPage(){
   getLikedSaying()
  }
 
- function handleLikedCommentsClick(){
-  getLikedComments()
+ function handleLikedArticleClick(){
+  getLikedArticle()
  }
 
  const getArticle = async () => {
@@ -68,8 +68,7 @@ const getComments = async () => {
       `${REACT_APP_API_URL}/user/mycomment`,
     {withCredentials:true}
     );
-    console.log('response.data.data',response.data.data)
-    dispatch(setComments(response.data.data.filteredArticle.title));
+    dispatch(setComments(response.data.data.filteredArticle));
   } catch (err) {
     console.log(err);
   }
@@ -78,22 +77,22 @@ const getComments = async () => {
 const getLikedSaying = async () => {
   try {
     const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mylike`,
+      `${REACT_APP_API_URL}/user/mylike/?category=saying`,
       { withCredentials: true }
     );
-    dispatch(setLikedSayings(response.data.data.filteredLike.content))
+    dispatch(setLikedSayings(response.data.data.filteredLike))
   } catch (err) {
     console.log(err);
   }
 };
 
-const getLikedComments = async () => {
+const getLikedArticle = async () => {
   try {
     const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mycomment`,
+      `${REACT_APP_API_URL}/user/mylike/?category=article`,
       { withCredentials: true }
       );
-    dispatch(setLikedComments(response.data.data.filteredLike.title));
+    dispatch(setLikedArticle(response.data.data.filteredLike));
   } catch (err) {
     console.log(err);
   }
@@ -151,6 +150,7 @@ const getLikedComments = async () => {
             handleArticleClick={handleArticleClick}
             handleSayingClick={handleSayingClick}
             handleCommentsClick={handleCommentsClick}
+            handleLikedArticleClick={handleLikedArticleClick}
             handleLikedSayingClick={handleLikedSayingClick}/>
         </div>
 
@@ -163,7 +163,10 @@ const getLikedComments = async () => {
           {isFocus === 'comment' ? 
           (<MyComment/>):(null)}
           {isFocus === 'like' ? 
-          (<MyLike/>):(null)}
+          (<MyLike 
+            getLikedArticle={getLikedArticle}
+            getLikedSaying={getLikedSaying}
+          />):(null)}
          </div>
         </div>
 
