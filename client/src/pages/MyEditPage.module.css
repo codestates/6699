@@ -21,8 +21,8 @@
   justify-content: space-around;
   align-items: center;
   width: 45vh;
-  height: 100%;
-  border: 5px solid #ccc;
+  height: 98%;
+  border: 3px solid #ccc;
   border-radius: 20px;
 }
 
@@ -84,7 +84,8 @@
   align-items: center;
   width: 40vh;
   height: 30vh;
-  background: #dcdcdc;
+  /* background: #dcdcdc; */
+  background: #e6f4fa;
   border-radius: 20px;
   /* border: 2 solid black; */
 }
@@ -93,6 +94,7 @@
   width: 35vh;
   height: 28vh;
   font-size: 2.1vh;
+  background: #e6f4fa;
   /* border: 1px solid red; */
 }
 
@@ -147,8 +149,9 @@
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100%;
-  border: 1px solid #ccc;
+  height: 98%;
+  /* border: 1px solid #ccc; */
+  border: 3px solid #ccc;
   border-radius: 20px;
 }
 
@@ -200,7 +203,7 @@
 }
 
 #space_area {
-  height: 0.8vh;
+  height: 0.4vh;
   /* border: solid red; */
   border-radius: 8px;
   font-size: 2.0vh;
@@ -215,8 +218,19 @@
 
 .textarea {
   height: 6vh;
+  width: 85vh;
   background: #dcdcdc;
-  /* background: #e6f4fa; */
+  border: none;
+  border-radius: 8px;
+  font-size: 2.1vh;
+  padding-left: 1vh;
+  color: grey;
+}
+
+.textarea_confirm {
+  height: 6vh;
+  width: 85vh;
+  background: #e6f4fa;
   border: none;
   border-radius: 8px;
   font-size: 2.1vh;
@@ -227,7 +241,8 @@
 #introduction {
   height: 28vh;
   width: 35vh;
-  background: #dcdcdc;
+  /* background: #dcdcdc; */
+  background: #e6f4fa;
   border: none;
   border-radius: 8px;
   font-size: 2.1vh;
@@ -240,7 +255,8 @@
 #introduction_null {
   height: 28vh;
   width: 35vh;
-  background: red;
+  /* background: #dcdcdc; */
+  background: #e6f4fa;
   border: none;
   border-radius: 8px;
   font-size: 2.1vh;
@@ -251,22 +267,15 @@
   z-index: 999;
 }
 
-.textarea_confirm {
-  height: 6vh;
-  background: #e6f4fa;
-  border: none;
-  border-radius: 8px;
-  font-size: 2.1vh;
-  padding-left: 1vh;
-  color: grey;
-}
+
 
 #match {
   height: 4vh;
   /* border: solid red; */
   border-radius: 8px;
   font-size: 2.0vh;
-  padding-left: 1vh;
+  padding-left: 0.2vh;
+  padding-top: 0.2vh;
   color: blue;
 }
 
@@ -275,7 +284,8 @@
   /* border: solid red; */
   border-radius: 8px;
   font-size: 2.0vh;
-  padding-left: 1vh;
+  padding-left: 0.2vh;
+  padding-top: 0.2vh;
   color: red;
 }
 
