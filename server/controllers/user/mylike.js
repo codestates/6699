@@ -32,7 +32,7 @@ module.exports = {
       // 만약 카테고리가 명언(sayings)일 때, 다음을 실행한다 (명언이 default 값이다)
       else {
         // 현재 유저가 좋아요를 누른 명언 정보가 sayingLikeInfo에 담긴다
-        const sayingLikeInfo = await saying_likes.findAll({ where: { user_id: user_id } })
+        const sayingLikeInfo = await saying_likes.findAll({ where: { user_id: userInfo.id } })
         // 만약, 유저가 좋아요를 누른 명언이 없다면, 다음을 응답한다
         if(sayingLikeInfo.length === 0) return res.status(200).json({ message: 'Empty!' });
         // 만약 유저가 좋아요를 누른 게시물이 없다면, 다음을 실행한다

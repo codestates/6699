@@ -15,11 +15,14 @@ module.exports = {
       // 회원정보 반환
       res.status(200).json({ data: { userInfo: userInfo }, message: 'Welcome Mypage!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   },
   patch: async (req, res) => {
     try {
+
+      console.log("PATCH 확인!!!")
 
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
@@ -92,10 +95,11 @@ module.exports = {
         sayings.destroy({ where: { user_id: userInfo.id } });  // 명언 삭제
 
         // 유저 삭제
-        users.destroy({ where: { email: email } }); 
+        users.destroy({ where: { email: userInfo.email } }); 
         res.status(200).json({ message: 'Goodbye!' });
       }
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   }
