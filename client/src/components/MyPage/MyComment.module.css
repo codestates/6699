@@ -8,13 +8,15 @@
   /* border: 1px solid orange; */
 }
 
-.box_wrapper {
+/* .box_wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 100vh;
-  height: 10vh;
-  /* border: 1px solid orange; */
-}
+  height: 70vh;
+  border: 1px solid blue;
+} */
 
 .outer_wrapper {
   display: flex;

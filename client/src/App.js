@@ -22,7 +22,7 @@ function App() {
   const dispatch = useDispatch();
   const { loginModal, signupModal, postModal, sayingModal } = useSelector((state) => state.modal);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
-
+  
   const authentication = async () => {
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/auth`, {

@@ -7,13 +7,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import DropaccountModal from '../components/MyPage/DropaccountModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 
+
+
 function MyEditPage (){
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { isLogin, userInfo } = useSelector((state) => state.auth);
+    
     // auth를 통해서 받아온 유저정보
+    console.log(userInfo)
     const { id, email, username, image, introduction } = userInfo
     
     const [ DropaccountModalState, SetDropaccountModalState ] = useState(false)

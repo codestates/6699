@@ -1,8 +1,6 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 const { Op } = require('sequelize');
-const bcrypt = require('bcrypt');
-const { isAuthorized } = require('../../middlewares/tokenFunction');
 
 module.exports = {
   get: async (req, res) => {
