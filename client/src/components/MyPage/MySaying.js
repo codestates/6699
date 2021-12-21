@@ -1,23 +1,43 @@
 import style from './MySaying.module.css'
-import MyPagePagenation from './MyPagePagenation'
+import Pagination from './Pagination';
 import MySayingBox from './MySayingBox';
 import {useState} from 'react'
 import{setSayings} from '../../store/MySlice'
 import{useSelector, useDispatch} from 'react-redux';
 function MySaying(){ /*나의 명언*/
 
-    const dispatch = useDispatch();
-    const { sayings } = useSelector((state) => state.mypage);
+const [sayings,setSayings] = useState([]);
+const [loading,setLoading] = useState(false);
+const [currentPage,setCurrentPage] = useState(1);
+const [sayingsPerPage,setSayingsPerPage] = useState(6);
+// const { sayings } = useSelector((state) => state.mypage);
     
+useEffect(()=>{
+    const fetchPosts = async () => {
+        setLoading(true)
+     const res = await axios.get(
+         `${REACT_APP_API_URL}/user/mysaying`,
+         {withCredentials: true}
+         );
+      setPosts(res.data.data.filteredSaying);
+      setLoading(false);
+    }
+    fetchPosts();
+},[])
+
+//Get current posts
+const indexOfLastSaying = currentPage * sayingsPerPage;
+const indexOfFirstSaying = indexOfLastPost - sayingsPerPage;
+const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
+
+//Change page
+const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
     return (
         <div className={style.container}>
-         {sayings.length >0? sayings.map((el) =>
-          <MySayingBox 
-          saying={el}
-          key={el.id}/>)
-          :("내가 작성한 명언이 없습니다.")}
+          <MySayingBox posts={currentSayings} loading={loading}/>
          <div className={style.pagenation_wrapper}>
-          <MyPagePagenation/>
+          <Pagenation sayingsPerPage={postsPerPage} totalPosts={sayings.length} paginate={paginate}/>
          </div>
         </div>
     )

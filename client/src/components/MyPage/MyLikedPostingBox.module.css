@@ -1,0 +1,9 @@
+#post {
+  background-position: center;
+  background-size: 100%;
+  width: 25vh;
+  height: 25vh;
+  padding-bottom: 25vh;
+  border: 1px solid black;
+  border-radius: 10px;
+}

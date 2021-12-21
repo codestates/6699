@@ -54,6 +54,7 @@ module.exports = {
       
       res.status(200).json({ data: { filteredLike: filteredLike }, message: 'My Like!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   }
