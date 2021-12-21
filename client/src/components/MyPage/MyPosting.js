@@ -10,11 +10,11 @@ const articles = useSelector((state) => state.mypage.articles);
     return (
         <div id={style.changing_area}>
          <div id={style.posts_wrap}>
-             {articles.length >0 ? articles.map((el)=>
+             {/* {articles.length >0 ? articles.map((el)=>
              <MyPostingBox
              post={el}
              key={el.id}
-             />):("나의 게시물이 없어요")}
+             />):("나의 게시물이 없어요")} */}
          </div>
          <div id={style.pagenation_wrapper}>
          <MyPagePagenation/>

@@ -18,7 +18,6 @@ import { login, logout, getUserInfo } from './store/AuthSlice';
 import { REACT_APP_API_URL } from './config';
 import axios from 'axios';
 
-
 function App() {
   const dispatch = useDispatch();
   const { loginModal, signupModal, postModal, sayingModal } = useSelector((state) => state.modal);

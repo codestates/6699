@@ -5,8 +5,7 @@ import Modal from '../Modal';
 import {Link} from 'react-router-dom';
 
 function MyCommentBox({comment}){
-  let [isDelete, setIsDelete] = useState(false);
-
+    let [isDelete, setIsDelete] = useState(false);
     return (
       <Link to ='/postingpage'>
         <div className={style.box}>
