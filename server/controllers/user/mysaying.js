@@ -12,6 +12,7 @@ module.exports = {
       
       res.status(200).json({ data: { filteredSaying: filteredSaying }, message: 'My Saying!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).send('Server Error!');
     }
   },

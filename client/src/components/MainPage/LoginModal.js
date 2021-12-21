@@ -4,7 +4,7 @@ import {Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { showLoginModal, showSignupModal } from '../../store/ModalSlice';
-import { login, getUserInfo } from '../../store/AuthSlice';
+import { login } from '../../store/AuthSlice';
 import { REACT_APP_API_URL } from '../../config';
 
 function LoginModal(){
@@ -48,14 +48,13 @@ function LoginModal(){
         { email: inputEmail, password: inputPassword },
         { withCredentials: true }
       );
-      /* 서버의 응답결과에 data.data.userInfo가 들어있다면 로그인 성공*/
-      if(response.data.data.userInfo){
+
+      /* 서버의 응답결과에 data가 들어있다면 로그인 성공*/
+      if(response.data){
         setInfoIsValid(false);
-        dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
         dispatch(showLoginModal(false));
         navigate('/mainpage');
-        
       }
     } catch(err) {
       /* 상태코드 403번 에러 반환시 상태 변경 */

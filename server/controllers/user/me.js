@@ -1,7 +1,6 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 const { Op } = require('sequelize');
-const bcrypt = require('bcrypt');
 
 module.exports = {
   get: async (req, res) => {
@@ -14,11 +13,15 @@ module.exports = {
       // 회원정보 반환
       res.status(200).json({ data: { userInfo: userInfo }, message: 'Welcome Mypage!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   },
   patch: async (req, res) => {
     try {
+
+      console.log("PATCH 확인!!!")
+
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
       // 요청바디
@@ -46,7 +49,8 @@ module.exports = {
         {
           username: username ? username : userInfo.username,
           introduction: introduction ? introduction : userInfo.introduction,
-          password: password ? hash : userInfo.password
+          // password: password ? hash : userInfo.password
+           password: password
         },
         { where : { id: userInfo.id } }
       );
@@ -89,10 +93,11 @@ module.exports = {
         sayings.destroy({ where: { user_id: userInfo.id } });  // 명언 삭제
 
         // 유저 삭제
-        users.destroy({ where: { email: email } }); 
+        users.destroy({ where: { email: userInfo.email } }); 
         res.status(200).json({ message: 'Goodbye!' });
       }
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   }
