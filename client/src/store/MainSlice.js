@@ -1,18 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createSlice } from "@reduxjs/toolkit";
+const initialState = { articles: [], sayings: [], isRendered:false, isFirst:'',isLikeNew:1 }; 
 const mainSlice = createSlice(
   { name: 'main', 
-    initialState: {page: 1},
-    reducers: { page: (state,action) =>{state.page},
-                plus: (state,action) => {state.page++},
-                minus: (state, action) => {state.page--},
-                all: (state, action) => {state.page=0},
-                health: (state, action) => {state.page=1},
-                study: (state, action) => {state.page=2},
-                economy: (state, action) => {state.page=3},
-                relationship: (state, action) => {state.page=4},
-                love: (state, action) => {state.page=5},
-               } });
+    initialState: initialState,
+    reducers: {
+    setArticles:(state,{payload})=> {
+      state.articles = payload;
+    },
+    setSayings: (state,{payload}) => {
+      state.sayings = payload;
+    },
+    setIsRendered:(state, { payload }) => {
+      state.isRendered = payload;
+    },
+    setIsFirst:(state, { payload }) => {
+      state.isFirst = payload;
+    },
+    setIsLikeNew:(state,{ payload}) => {
+      state.isLikeNew = payload;
+    }
+    }});
                 
-export const { page, plus, minus, all, health, study, economy, relationship, love } = mainSlice.actions;
+export const { setArticles, setSayings, setIsRendered, setIsFirst, setIsLikeNew } = mainSlice.actions;
 export default mainSlice.reducer;
 
