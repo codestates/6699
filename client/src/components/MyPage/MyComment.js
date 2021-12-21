@@ -5,9 +5,10 @@ import{useSelector,useDispatch} from 'react-redux';
 
 function MyComment(){
 const { comments } = useSelector((state) => state.mypage);
-
+console.log(comments)
     return (
 <div id={style.changing_area}>
+ 
  
   {comments.length >0 ? comments.map((el)=>
   <MyCommentBox
