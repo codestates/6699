@@ -1,5 +1,13 @@
 import style from './PostBox.module.css';
 import {Link} from 'react-router-dom';
+// const postArr = [], grid = [], pages = [], dataGrid = [], dataPages = [];
+
+// const makePostingGrid = (posts) => {
+//   for (let i = 1; i <= posts.length;i++){
+//     postArr.push(i);
+
+//   }
+// }
 
 function PostBox(){
   return(
@@ -36,7 +44,7 @@ function PostBox(){
         <Link className={style.post_link} to='/postingpage'/>
       </div>
         <div className={style.post_box_low_post}>
-          <Link className={style.post_link} to='/postingpage' style={{opacity:0,pointerEvents: 'none'}}/>     
+          <Link className={style.post_link} to='/postingpage' style={{opacity:0, pointerEvents: 'none'}}/>     
         </div>
     </div>
   </div>
