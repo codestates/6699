@@ -35,14 +35,14 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div id={style.changing_area}>
-        <div id={style.posts_wrap}>
-            <div className = {style.posts}>
-                <MyPostingBox posts={currentPosts} loading={loading}/>
-            </div>
-        </div>
-        <div id={style.pagenation_wrapper}>
-            <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
-        </div>
+         <div id={style.posts_wrap}>
+             <div className = {style.posts}>
+             <MyPostingBox posts={currentPosts} loading={loading}/>
+             </div>
+         </div>
+         <div id={style.pagenation_wrapper}>
+             <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+         </div>
         </div>
     )
 }

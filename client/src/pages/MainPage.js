@@ -197,7 +197,7 @@ function MainPage(){
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강')
-                                                             getLikeRanking('건강')
+                                                            getLikeRanking('건강')
                                                             goHealthPage()}} 
                                             style={curCategory === '건강'
                                             ?{backgroundColor:'#FFBF31',color:'white'}

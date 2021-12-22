@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { logout, getUserInfo } from '../../store/AuthSlice'
 import { useSelector, useDispatch } from 'react-redux';
+import { REACT_APP_API_URL } from '../../config'
 
 function ProfileImageModal( { handleProfileImage }){
 
@@ -29,7 +30,7 @@ function ProfileImageModal( { handleProfileImage }){
           const formData = new FormData();
           formData.append('img', content, content.name);
 
-          const response = await axios.post('http://localhost:8080/upload', formData, {
+          const response = await axios.post(`${REACT_APP_API_URL}/upload`, formData, {
             headers: {
               'Content-Type' : 'multipart/form-data'
             }
@@ -38,7 +39,7 @@ function ProfileImageModal( { handleProfileImage }){
           const image = response.data.data.img
 
           if(response.data) {
-            await axios.post('http://localhost:8080/user/picture', 
+            await axios.post(`${REACT_APP_API_URL}user/picture`, 
             { image: image },
             { withCredentials: true }
             );
@@ -87,7 +88,7 @@ function ProfileImageModal( { handleProfileImage }){
           {/* 삭제하기 버튼 */}
           <div 
           className={style.deletebutton}
-          onClick={() => handleDeleteBtn()}
+          // onClick={() => handleDeleteBtn()}
           >
             취소
           </div>

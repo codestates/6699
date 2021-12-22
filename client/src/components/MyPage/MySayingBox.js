@@ -14,13 +14,28 @@ function MySayingBox({sayings,loading}){
   }
 
  return (
-  <ul>
-  {sayings.map(post => (
-    <li key ={post.id} id={style.post}>
-      {post.title}
-    </li>
+  <ul id={style.container}>
+  {sayings.map(saying => (
+     <li key ={saying.id} className={style.saying}>
+       <div className={style.category_image}></div>
+       <div id={style.trashcan}></div>
+
+       <div id={style.set_title_middle_box}>
+    <div className={style.title}>
+    <div id={style.icon_66}></div>
+    <p id={style.saying}>{saying.content}</p>
+    <div id={style.icon_99}></div>
+    </div>
+    </div>
+
+      <div className={style.icon_box}>
+      <div id={style.heart}></div>
+      <div id={style.post}></div>
+     </div>
+     </li>
   ))}
   </ul>
- )   
+  )   
 }
+
 export default MySayingBox;

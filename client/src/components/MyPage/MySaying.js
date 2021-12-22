@@ -1,9 +1,7 @@
 import style from './MySaying.module.css'
-import MyPostPagination from '../Pagination/MyPostPagination';
+import MySayingPagination from '../Pagination/MySayingPagination';
 import MySayingBox from './MySayingBox';
 import {useState,useEffect} from 'react'
-import{setSayings} from '../../store/MySlice'
-import{useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import {REACT_APP_API_URL} from '../../config'
 function MySaying(){ /*나의 명언*/
@@ -11,7 +9,7 @@ function MySaying(){ /*나의 명언*/
 const [sayings,setSayings] = useState([]);
 const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
-const [sayingsPerPage,setSayingsPerPage] = useState(6);
+const [sayingsPerPage,setSayingsPerPage] = useState(4);
     
 useEffect(()=>{
     const fetchPosts = async () => {
@@ -35,10 +33,14 @@ const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
-        <div className={style.container}>
+        <div className={style.changing_area}>
+            <div id={style.sayings_wrap}>
+            <div className={style.sayings}>
           <MySayingBox sayings={currentSayings} loading={loading}/>
-         <div className={style.pagenation_wrapper}>
-          <MyPostPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
+          </div>
+          </div> 
+         <div id={style.pagenation_wrapper}>
+          <MySayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
          </div>
         </div>
     )
