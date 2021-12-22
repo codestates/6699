@@ -70,7 +70,7 @@ function MainPage(){
   /* 게시물 수집 함수 */
   const getPosts = (posts) => {dispatch(setPosts(posts))};
   /* 모달 ON,OFF state */
-
+  const getLikeOrNew = (likeOrNew) => {dispatch(setLikeOrNew(likeOrNew))}
 
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
@@ -80,11 +80,9 @@ function MainPage(){
 
   const upSaying = () => {
     if ((index -1) > -1){
-
       getFocusedSayingId(sayingIds[index-1]);
       getFocusedTitle(sayingTitles[index-1]);
       getIndex(index-1);
-      console.log(index);
     }
   }
   const downSaying = () => {
@@ -92,18 +90,20 @@ function MainPage(){
       getFocusedSayingId(sayingIds[index+1]);
       getFocusedTitle(sayingTitles[index+1]);
       getIndex(index+1);
-      console.log(index);
     }
   }
 
-  const clickLike = () => {setLikeNew('좋아요순')
+  const clickIsLike = () => {setLikeNew('좋아요순')
+                            getLikeOrNew(('like'));
+                            console.log(likeOrNew)
+                           getLikeRankingPost(focusedSayingId)
+                           setIsOpen(false)}
+  const clickIsNew = () => {setLikeNew('최신순')
+                          getLikeOrNew(('new'));
+                          console.log(likeOrNew);
                            setIsOpen(false)
-                           getLikeRankingPost(focusedSayingId)}
-                           setLikeOrNew('like');
-  const clickNew = () => {setLikeNew('최신순')
-                           setIsOpen(false)
-                           getNewRankingPost(focusedSayingId)}
-                           setLikeOrNew('new');
+                           getNewRankingPost(focusedSayingId)
+                           setIsOpen(false)}
   const modalOff = () => {setIsOpen(false)}
 
   const getLikeRanking = async (curCategory) => {
@@ -117,8 +117,6 @@ function MainPage(){
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
         getIndex(0);
-        console.log(sayingIds)
-        console.log(focusedSayingId)
       }
       else {
         getFocusedTitle(response.data.data.filteredSaying[0].content);
@@ -127,8 +125,6 @@ function MainPage(){
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
         getIndex(0);
-        console.log(sayingIds)
-        console.log(focusedSayingId)
       }
     } catch (err) {
       console.log(err);
@@ -198,8 +194,8 @@ function MainPage(){
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>인간관계</div>
         <div className={style.category_love} onClick={()=>{setCategory('사랑')
-getLikeRanking('사랑')
-goLovePage()}}
+                                                           getLikeRanking('사랑')
+                                                           goLovePage()}}
                                             style={curCategory === '사랑'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>사랑</div>
@@ -216,35 +212,36 @@ goLovePage()}}
           <div className={style.likenew}>{isLikeNew}</div>
         </div>
       </div>
-       {isOpen&&<MainSayingMiniModal modalOff = {modalOff} clickLike = {clickLike} clickNew = {clickNew} />}
+       {isOpen&&<MainSayingMiniModal modalOff = {modalOff} clickIsLike = {clickIsLike} clickIsNew = {clickIsNew} />}
         {/* 게시물 묶음 */}
 
      {/* Like Box Zone */}
-    <div className={style.like_box}>
-      <div className={style.profile}/>
-      <div className={style.heart_icon}/>
-      <div className={style.like_count}>{likes[sayingTitles.indexOf(focusedTitle)]}</div>
-    </div>
+
 
       {/* jumbotron 이미지 현재페이지에 따라 꺼내옴  */}
     <div className={style.jumbotron} style={{backgroundImage : `url(${categoryImage[page]})`}}>
         {/* Sub Zone */}
-      <div className={style.medal} style={{backgroundImage:`url(${medalImage[sayingTitles.indexOf(focusedTitle)]})`}}/>
+      <div className={style.like_box}>
+      <div className={style.profile}/>
+      <div className={style.heart_icon}/>
+      <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div>
+    </div>
+      <div className={style.medal} style={{backgroundImage:`url(${medalImage[sayingIds.indexOf(focusedSayingId)]})`}}/>
       <div className={style.sub_box}>
         <Link className={style.link} to ='/rankingpage'>모든 명언 보기</Link>
       <div className={style.scroll_box}/>
      </div>
 
         {/* Saying Zone */}
-      <div className={style.saying_box}>
-      <div className={style.saying_up} onClick={upSaying}/>
-      <div className={style.saying_down} onClick={downSaying}/>
-      <div className={style.saying_left_66}/>
-      <div className={style.saying_right_99}/>
-      <div className={style.saying_up_message} onClick={upSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)-1]}<br/></div>
-      <div className={style.saying_message}>{focusedTitle}</div>
-      <div className={style.saying_down_message} onClick={downSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)+1]}<br/></div>
-      </div>  
+        <div className={style.saying_box}>
+          <div className={style.saying_up} onClick={upSaying}/>
+          <div className={style.saying_down} onClick={downSaying}/>
+          <div className={style.saying_left_66}/>
+          <div className={style.saying_right_99}/>
+          <div className={style.saying_up_message} onClick={upSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)-1]}<br/></div>
+          <div className={style.saying_message}>{focusedTitle}</div>
+          <div className={style.saying_down_message} onClick={downSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)+1]}<br/></div>
+         </div>  
       </div>
 
 
