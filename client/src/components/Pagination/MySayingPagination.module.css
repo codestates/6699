@@ -18,6 +18,8 @@ li {
   width: 45vh;
   height: 5vh;
   /* border: 1px solid purple; */
+  position: absolute;
+  top: 0;
 }
 
 .btns {

@@ -1,8 +1,7 @@
-#container {
+#comment_wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   width: 80vh;
   height: 60vh;
   /* border: 1px solid blue; */

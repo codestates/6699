@@ -14,10 +14,13 @@ li {
 #wrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 45vh;
+  justify-content: space-around;
+  width: 30vh;
   height: 5vh;
+  bottom:5vh;
   /* border: 1px solid purple; */
+  position: relative;
+  top: 0vh;
 }
 
 .btns {

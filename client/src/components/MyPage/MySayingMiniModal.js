@@ -1,14 +1,17 @@
 import style from './MySayingMiniModal.module.css'
+import {useSelector, useDispatch} from 'react-redux';
+import {setIsPost} from '../../store/MySlice'
 
 function MySayingMiniModal(){
+  const dispatch = useDispatch();
+
   return(
     <div>
     <div className={style.box}>
-      <div className={style.post}
-      onClick={()=>console.log('확인') }>
+      <div className={style.post} onClick={()=> dispatch(setIsPost(true))}>
         게시물
       </div>
-      <div className={style.say} onClick={()=> console.log('gg')}>
+      <div className={style.say}>
         명언
       </div>
     </div>

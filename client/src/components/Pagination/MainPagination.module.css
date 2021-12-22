@@ -1,23 +1,22 @@
 nav {
   position:absolute;
-  width: 100vh;
+  width: 50vh;
   height: 5vh;
-  /* border: 1px solid hotpink; */
   display: flex;
   justify-content: center;
-  bottom: 13vh;
+  bottom: 9vh;
 }
 
-ul,
-li {
+ul,li {
   list-style: none;
+  border:0px;
 }
 
 #wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45vh;
+  width: 5vh;
   height: 5vh;
 }
 
