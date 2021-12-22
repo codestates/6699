@@ -135,13 +135,14 @@
   cursor:pointer;
 }
 .cancelbutton{
+  color:white;
   font-weight:bold;
   font-size:15px;
   display:flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color:#C4C4C4;
+  background-color:#404040;
   border-radius:10px;
   height:100%;
   width: 40%;

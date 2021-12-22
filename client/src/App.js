@@ -13,6 +13,8 @@ import PostModal from './components/MainPage/PostModal';
 import SayingModal from './components/MainPage/SayingModal';
 import LoginModal from './components/MainPage/LoginModal';
 import SignupModal from './components/MainPage/SignupModal';
+import SayingCategoryModal from './components/MainPage/SayingCategoryModal';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from './store/AuthSlice';
 import { REACT_APP_API_URL } from './config';
@@ -23,8 +25,8 @@ let selectedCategory = '건강'
 
 function App() {
   const dispatch = useDispatch();
+  const { loginModal, signupModal, postModal, sayingModal, sayingCategoryModal } = useSelector((state) => state.modal);
   const { focusedSayingId } = useSelector(state => state.main);
-  const { loginModal, signupModal, postModal, sayingModal } = useSelector((state) => state.modal);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
 
   const authentication = async () => {
@@ -33,6 +35,7 @@ function App() {
         withCredentials: true
       });
       if (response.data.data) {
+
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
       } else {
@@ -73,6 +76,7 @@ function App() {
       {signupModal ? <SignupModal/> : null}
       {postModal ? <PostModal selectedCategory={selectedCategory} /> : null}
       {sayingModal ? <SayingModal/> : null}
+      {sayingCategoryModal ? <SayingCategoryModal/> : null}
       <div className={style.header_downside}>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>

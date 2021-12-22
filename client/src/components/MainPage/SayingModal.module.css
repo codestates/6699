@@ -1,9 +1,177 @@
 .container{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
+    z-index:999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position: fixed;
+    background-color:rgba(0,0,0,35%);
+    width: 100%;
+    height: 100%;
+  }
+  .link{
+    z-index:9999;
+    text-decoration: none;
+    color: inherit;
+    cursor:Default;
+  }
+  .modalbox_bg{
+    z-index:99;
+    position: fixed;
+    background-color:rgba(0,0,0,35%);
+    width: 100%;
+    height: 100%;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+  }
+  .modalbox{
+    z-index:9999;
+    display:flex;
+    position: absolute;
+    background-color:white;
+    border: 1px solid #ccc;
+    border-radius:50px;
+    width: 30%;
+    height: 60%;
+  }
+  .image{
+    z-index:9999;
+    position: absolute;
+    display:flex;
+    background-size:100% 100%;
+    background-position: center;
+    border: 3px solid #FFBF31;
+    border-radius:100%;
+    background-image: url(../../images/Kkobugi.png);
+    width:33%;
+    padding-bottom: 33%;
+    left:50%;
+    top:21.0%;
+    transform: translate(-50%,-50%);
+  }
+  .name{
+    z-index:9999;
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+  .contentbox{
+    z-index:9999;
+    display:flex;
+    position: absolute;
+    height: 60.0%;
+    width:100%;
+    left:50%;
+    top: 49%;
+    transform: translate(-50%,-17.5%);
+  }
+  .titlebox{
+    z-index:9999;
+    justify-content: center;
+    display:flex;
+    position: absolute;
+    height: 8%;
+    width:100%;
+    left:50%;
+    top: 9%;
+    transform: translate(-50%,-50%);
+  }
+  .name{
+    z-index:9999;
+    font-size:20px;
+    font-weight:bold;
+  }
+  .category{
+    cursor:pointer;
+    z-index:9999;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#404040;
+    font-size:15px;
+    font-weight: bold;
+    border-radius:10px;
+    background-color:#F5F5F5;
+    width:25%;
+    height:100%;
+    box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+    left:50%;
+    top:100%;
+    transform: translate(-50%,50%);
+  }
+  .category_toggle{
+    cursor:pointer;
+    z-index:9999;
+    position: absolute;
+    background-image: url(../../images/Dark_Polygon.png);
+    background-size:cover;
+    background-position: center;
+    width:10px;
+    height:10px;
+    left:59%;
+    top:165%;
+    transform: translate(-50%,50%);
+  }
+  .writebox{
+    font-size:20px;
+    z-index:9999;
+    word-break:break-all;
+    white-space:pre;
+    position:absolute;
+    width:80%;
+    height:48%;
+    border-radius:10px;
+    background-color:#F5F5F5;
+    border:1px solid #ccc;
+    left:50%;
+    top:31.5%;
+    transform: translate(-50%,-0%);
+    box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+  }
+  .anotherbox{
+    z-index:9999;
+    position: absolute;
+    width:80%;
+    height:11%;
+    left:50%;
+    bottom:3%;
+    transform: translate(-50%,0%);
+  }
   
+  .writebutton{
+    color:white;
+    font-weight:bold;
+    z-index:9999;
+    font-size:15px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color:#FFBF31;
+    border-radius:10px;
+    height:100%;
+    width: 40%;
+    left:0;
+    bottom:2%;
+    box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+    cursor:pointer;
+  }
+  .cancelbutton{
+    color:white;
+    font-weight:bold;
+    z-index:9999;
+    font-size:15px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color:#404040;
+    border-radius:10px;
+    height:100%;
+    width: 40%;
+    right: 0;
+    bottom:2%;
+    box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+    cursor:pointer;
+  }

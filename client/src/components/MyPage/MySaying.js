@@ -34,7 +34,7 @@ useEffect(()=>{
 //Get current posts
 const indexOfLastSaying = currentPage * sayingsPerPage;
 const indexOfFirstSaying = indexOfLastSaying - sayingsPerPage;
-const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
+// const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
 
 //Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -42,10 +42,10 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
     return (
         <div className={style.changing_area}>
             <div id={style.sayings_wrap}>
-          <MySayingBox sayings={currentSayings} loading={loading}/>
+          {/* <MySayingBox sayings={currentSayings} loading={loading}/> */}
          </div>
          <div className={style.pagenation_wrapper}>
-          <MySayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
+          {/* <MySayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/> */}
          </div>
          {/* <DeleteSayingModal/> */}
         </div>

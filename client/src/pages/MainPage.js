@@ -212,11 +212,11 @@ function MainPage(){
         {/* Sub Zone */}
       <div className={style.like_box}>
         {/* 프로필 사진 Zone */}
-      <img alt={images[sayingIds.indexOf(focusedSayingId)]} 
+      {/* <img alt={images[sayingIds.indexOf(focusedSayingId)]} 
         src={images[sayingIds.indexOf(focusedSayingId)] ?
         `${REACT_APP_API_URL}/upload/${images[sayingIds.indexOf(focusedSayingId)]}`:
         defaultImg}
-        className={style.profile}/>
+        className={style.profile}/> */}
       <div className={style.heart_icon}><SayingLike /></div>
       <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div>
     </div>

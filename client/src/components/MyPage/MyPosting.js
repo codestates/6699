@@ -1,5 +1,5 @@
 import style from'./MyPosting.module.css'
-import {setPosts} from '../../store/MySlice'
+import {setPosts,setIsLoading} from '../../store/MySlice'
 import {useDispatch,useSelector} from 'react-redux' 
 import MyPostingBox from './MyPostingBox';
 import { REACT_APP_API_URL } from '../../config';

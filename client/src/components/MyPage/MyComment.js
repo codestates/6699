@@ -33,7 +33,7 @@ useEffect(()=>{
 //Get current posts
 const indexOfLastComment = currentPage * commentsPerPage;
 const indexOfFirstComment = indexOfLastComment - commentsPerPage;
-const currentSayings = comments.slice(indexOfFirstComment,indexOfLastComment);
+// const currentSayings = comments.slice(indexOfFirstComment,indexOfLastComment);
 
 //Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -41,10 +41,10 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
     return (
           <div className={style.changing_area}>
             <div id={style.sayings_wrap}>
-          <MyCommentBox comments={currentSayings} loading={loading}/>
+          {/* <MyCommentBox comments={currentSayings} loading={loading}/> */}
           </div> 
          <div className={style.pagenation_wrapper}>
-          <MyCommentPagination commentsPerPage={commentsPerPage} totalPosts={comments.length} paginate={paginate}/>
+          {/* <MyCommentPagination commentsPerPage={commentsPerPage} totalPosts={comments.length} paginate={paginate}/> */}
          </div>
        </div>     
     )

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {isFocus:'post', isPost:true ,posts:[], sayings:[],
-comments:[], likedPosts:[], likedSayings:[]};
+comments:[], likedPosts:[], likedSayings:[], isLoading:false};
 
 const mySlice = createSlice({
   name: 'mypage',
@@ -38,7 +38,7 @@ const mySlice = createSlice({
 });
 
 export const {setIsFocus ,setIsPost, setPosts, setSayings, setComments,
-setLikedPost, setLikedSaying}
+setLikedPost, setLikedSaying, setIsLoading}
  = mySlice.actions;
 
 export default mySlice.reducer;
