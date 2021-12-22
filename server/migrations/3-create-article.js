@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING 
       },
       image: {
-        type: Sequelize.BLOB
+        type: Sequelize.STRING
       },
       total_like: {
         allowNull: false,
