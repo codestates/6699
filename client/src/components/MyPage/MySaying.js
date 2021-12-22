@@ -6,6 +6,7 @@ import{setSayings} from '../../store/MySlice'
 import{useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import {REACT_APP_API_URL} from '../../config'
+import DeleteSayingModal from './DeleteSayingModal'
 
 function MySaying(){
 const dispatch = useDispatch();
@@ -22,7 +23,6 @@ useEffect(()=>{
          {withCredentials: true}
          )
          if(rendering){
-            console.log('res: ', res);
            dispatch(setSayings(res.data.data.filteredSaying))
            setRendering(false)
            setLoading(false);         
@@ -47,6 +47,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
          <div className={style.pagenation_wrapper}>
           <MySayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
          </div>
+         {/* <DeleteSayingModal/> */}
         </div>
     )
 }
