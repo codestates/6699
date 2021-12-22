@@ -5,91 +5,18 @@ import MyPosting from '../components/MyPage/MyPosting'
 import MySaying from '../components/MyPage/MySaying'
 import style from '../pages/MyPage.module.css'
 import MyComment from '../components/MyPage/MyComment'
-import MyLike from '../components/MyPage/MyLike'
+import MyLikedPosting from '../components/MyPage/MyLikedPosting'
+import MyLikedSaying from '../components/MyPage/MyLikedSaying'
 import React, { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
-import{setArticles,setSayings,setComments,setLikedSayings,setLikedArticle} from '../store/MySlice'
 
 function MyPage(){
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isFocus } = useSelector((state) => state.mypage)
-
-//  function handleSayingClick(){
-//   getSaying()
-//  }
-
- function handleCommentsClick(){
-  getComments()
- }
-
- function handleLikedSayingClick(){
-  getLikedSaying()
- }
-
- function handleLikedArticleClick(){
-  getLikedArticle()
- }
-
-
-// const getSaying = async () => {
-//   try {
-//     const response = await axios.get(
-//       `${REACT_APP_API_URL}/user/mysaying`,
-//       { withCredentials: true }
-//     );
-//     if(Array.isArray(response.data.data.filteredSaying)){
-//       dispatch(setSayings(response.data.data.filteredSaying));
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-const getComments = async () => {
-  try {
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mycomment`,
-    {withCredentials:true}
-    );
-    if(Array.isArray(response.data.data.filteredArticle)){
-    dispatch(setComments(response.data.data.filteredArticle));
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const getLikedSaying = async () => {
-  try {
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mylike/?category=saying`,
-      { withCredentials: true }
-    );
-    if(Array.isArray(response.data.data.filteredLike)){
-    dispatch(setLikedSayings(response.data.data.filteredLike))
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const getLikedArticle = async () => {
-  try {
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/user/mylike/?category=article`,
-      { withCredentials: true }
-      );
-      if(Array.isArray(response.data.data.filteredArticle)){
-    dispatch(setLikedArticle(response.data.data.filteredLike));
-      }
-  } catch (err) {
-    console.log(err);
-  }
-};
     
     const handleLogout = async () => {
       try {
@@ -140,10 +67,7 @@ const getLikedArticle = async () => {
          {/*오른쪽 카테고리영역*/}
         <div id={style.posts_container}>
          <div id={style.category_wrapper}>
-          <MyPageCategory
-            // handleSayingClick={handleSayingClick}
-            handleCommentsClick={handleCommentsClick}
-           />
+          <MyPageCategory/>
         </div>
 
         <div id={style.posts_board}>
@@ -154,11 +78,10 @@ const getLikedArticle = async () => {
           (<MySaying/>):(null)}
           {isFocus === 'comment' ? 
           (<MyComment/>):(null)}
+          {/* {isFocus === 'like' ? 
+          (<MyLikedPosting/>):(null)} */}
           {isFocus === 'like' ? 
-          (<MyLike 
-            handleLikedArticleClick={handleLikedArticleClick}
-            handleLikedSayingClick={handleLikedSayingClick}
-          />):(null)}
+          (<MyLikedSaying/>):(null)}
          </div>
         </div>
 

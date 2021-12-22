@@ -10,19 +10,20 @@
 
 #posts_wrap {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   width: 90vh;
   height: 65vh;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .posts {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  width: 90vh;
-  height: 25vh;
+  width: 80vh;
+  height: 60vh;
   /* border: 1px solid blue; */
 }
 
@@ -52,7 +53,9 @@
 }
 
 .pagenation_wrapper {
-  width: 12vh;
+  display: flex;
+  flex-direction: row;
+  width: 100vh;
   height: 5vh;
-  /* border: 1px solid blue; */
+  border: 1px solid red;
 }

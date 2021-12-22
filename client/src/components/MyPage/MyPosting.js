@@ -1,15 +1,12 @@
 import style from'./MyPosting.module.css'
 import {setArticles, setLikedArticle} from '../../store/MySlice'
-import {useSelector,useDispatch} from 'react-redux'
 import MyPostingBox from './MyPostingBox';
 import { REACT_APP_API_URL } from '../../config';
 import {useEffect,useState} from 'react'
 import axios from 'axios';
-import Pagination from './Pagination';
+import MyPostPagination from '../Pagination/MyPostPagination';
 
 function MyPosting(){
-// const articles = useSelector((state) => state.mypage.articles);
-const dispatch = useDispatch();
 const [posts,setPosts] = useState([]);
 const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
@@ -44,7 +41,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
              </div>
          </div>
          <div id={style.pagenation_wrapper}>
-             <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+             <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
          </div>
         </div>
     )
