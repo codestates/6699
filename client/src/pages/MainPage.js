@@ -43,6 +43,8 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
+  console.log('메인페이지 / 현재 focusedSayingId : ', focusedSayingId);
+
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
   const goHealthPage = () =>{dispatch(health())};
@@ -58,7 +60,6 @@ function MainPage(){
   const getFocusedSayingId = (sayingIds) =>{dispatch(setFocusedSayingId(sayingIds))};
   /* 인덱스 저장 함수 */
   const getIndex = (idx) =>{dispatch(setIndex(idx))};
-                                   
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */
@@ -71,43 +72,32 @@ function MainPage(){
   const getPosts = (posts) => {dispatch(setPosts(posts))};
   /* 모달 ON,OFF state */
 
-
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
+
   
-
-
-
-
-
 
   /***********     정현님께!!!!!   ********************/
 
-  /* sayingIds: (mainSlice에 들어있는 sayingId들 넣는 배열 */
+  /* sayingIds: 스테이트(mainSlice에 들어있는 sayingId들 넣는 배열 */
 
-  /* getfocusedSayingId: (현재 포커싱된 sayingId를 넣으면 게시물과 현재 위치가 갱신됩니다.)
+  /* getfocusedSayingId: 액션(현재 포커싱된 sayingId를 넣으면 게시물과 현재 위치가 갱신됩니다.)
 
-  /* 메인페이지에서 랭킹을 받아올 때 index의 초기값은 0으로 설정됩니다. */
+  /* 메인페이지에서 랭킹을 받아올 때 index의 초기값은 0으로 설정됩니다. */ 
 
-  /* 랭킹 페이지에서 받아올 때에는 현재 선택한 명언 id를 따로 받아와서 
+  /* 랭킹 페이지에서 받아올 때에는 현재 선택한 명언 id를 따로 받아와서   
   
   /* 메인페이지의 sayingIds.indexOf(선택한명언id) 값을 getIndex(index)에 넣어준 뒤 */
 
   /* getFocusedSayingId(sayingIds[index]) 해주시면 게시물과 현재 위치가 갱신될겁니다! */
 
   /**************************************************/
-  
-
-
-
-
 
   const upSaying = () => {
     if ((index -1) > -1){
       getIndex(index-1);
       getFocusedSayingId(sayingIds[index]);
       getFocusedTitle(sayingTitles[index]);
-      console.log(index);
     }
   }
   const downSaying = () => {
@@ -115,7 +105,6 @@ function MainPage(){
       getIndex(index+1);
       getFocusedSayingId(sayingIds[index]);
       getFocusedTitle(sayingTitles[index]);
-      console.log(index);
     }
   }
 

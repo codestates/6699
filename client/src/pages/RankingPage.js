@@ -7,6 +7,7 @@ import RankingPagination from '../components/Pagination/RankingPagination'
 import RankingDropDown from '../components/RankingPage/RankingDropDown';
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
+import { setFocusedSayingId } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 
 function RankingPage(){
@@ -26,7 +27,9 @@ function RankingPage(){
   const indexOfLastPost = currentPage * rankingPerPage;
   const indexOfFirstPost = indexOfLastPost - rankingPerPage;
   const currentRanking = notTop3Ranking.slice(indexOfFirstPost,indexOfLastPost);
+  const { sayingIds, focusedSayingId } = useSelector(state => state.main);
 
+  console.log('랭킹 페이지 / 페이지 진입 시 focusedSayingId : ', focusedSayingId);
   // 랭킹 상태 업데이트 (카테고리 변경시마다)
   useEffect(() => {
     const getLikeRaking = async () => {
@@ -63,7 +66,12 @@ function RankingPage(){
       top3Arr.push(
         <div className={style.rankingbox_sayingzone_top3_sayingzone}>
           <div className={style.rankingbox_sayingzone_top3_saying}>
-            <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>
+            <Link className={style.link} onClick={()=>{
+              console.log('랭킹 페이지 / 내가 누른 명언 id: ', top3Ranking[i].id);
+              dispatch(setFocusedSayingId(top3Ranking[i].id));
+              console.log('랭킹 페이지 / 지금 누른 focusedSayingId : ', focusedSayingId);
+              goPage();
+              }} to='/mainpage'>
               {top3Ranking.length > i && top3Ranking[i].content}</Link></div>
           {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_image}/>}
           {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_like}/>}
@@ -79,7 +87,14 @@ function RankingPage(){
     for(let i=0; i<currentRanking.length; i++){
       notTop3Arr.push(
         <div className={style.rankingbox_sayingzone_top12_sayingzone}>
-          <div className={style.rankingbox_sayingzone_top12_saying}>{currentRanking.length > i && currentRanking[i].content}</div>
+          <div className={style.rankingbox_sayingzone_top12_saying}>
+            <Link className={style.link} onClick={()=>{
+              console.log('랭킹 페이지 / 내가 누른 명언 id: ', currentRanking[i].id);
+              dispatch(setFocusedSayingId(currentRanking[i].id));
+              console.log('랭킹 페이지 / 지금 누른 focusedSayingId : ', focusedSayingId);
+              goPage();
+            }} to='/mainpage'>
+            {currentRanking.length > i && currentRanking[i].content}</Link></div>
           <div className={currentRanking.length > i ? style.rankingbox_sayingzone_top12_image : style.hidden}/>
           {currentRanking.length > i && <div className={style.rankingbox_sayingzone_top12_like}/>}
           <div className={style.rankingbox_sayingzone_top12_likenumber}>{currentRanking.length > i && currentRanking[i].total_like}</div>
