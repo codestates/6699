@@ -2,11 +2,11 @@ import axios from 'axios';
 import style from '../pages/MyEditPage.module.css'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { REACT_APP_API_URL } from '../config';
 import { useSelector, useDispatch } from 'react-redux';
 import DropaccountModal from '../components/MyPage/DropaccountModal.js';
 import ProfileImageModal from '../components/MyPage/ProfileImageModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
+import { REACT_APP_API_URL } from '../config';
 
 function MyEditPage (){
 

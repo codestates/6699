@@ -7,6 +7,7 @@ import RankingPagination from '../components/Pagination/RankingPagination'
 import RankingDropDown from '../components/RankingPage/RankingDropDown';
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
+import { setIsRendered, setFocusedSayingId, setFocusedTitle, setSayingTitles, setSayingIds, setIndex,  } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 
 function RankingPage(){
@@ -26,23 +27,25 @@ function RankingPage(){
   const indexOfLastPost = currentPage * rankingPerPage;
   const indexOfFirstPost = indexOfLastPost - rankingPerPage;
   const currentRanking = notTop3Ranking.slice(indexOfFirstPost,indexOfLastPost);
-
-  if(ranking.length>0) console.log(ranking[0].user);
+  const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // 랭킹 상태 업데이트 (카테고리 변경시마다)
+
   useEffect(() => {
     const getLikeRaking = async () => {
       try {
         const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${curCategory}`,
         {withCredentials: true});
-        
+
+        dispatch(setSayingIds(ranking.map((el)=>{return el.id})));
         setRanking(response.data.data.allSaying ? response.data.data.allSaying : response.data.data.filteredSaying);
+        dispatch(setSayingTitles(ranking.map((el)=>{return el.content})));
       } catch (err) {
         console.log(err);
       }
     };
-
+    
     getLikeRaking();
-  }, [curCategory]);
+  }, [curCategory, sayingIds]);
 
   // 페이지 변경 함수
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -65,7 +68,16 @@ function RankingPage(){
       top3Arr.push(
         <div className={style.rankingbox_sayingzone_top3_sayingzone}>
           <div className={style.rankingbox_sayingzone_top3_saying}>
-            <Link className={style.link} onClick={()=>goPage()} to='/mainpage'>
+            <Link className={style.link} onClick={()=>{
+              dispatch(setFocusedSayingId(top3Ranking[i].id));
+              dispatch(setFocusedTitle(top3Ranking[i].content));
+              dispatch(setIndex(sayingIds.indexOf(top3Ranking[i].id)));
+              dispatch(setIsRendered(true));
+              console.log('sayingIds: ',sayingIds)
+              console.log( '누른 애 id 값: ', currentRanking[i].id)
+              console.log('index: ',index);
+              goPage();
+              }} to='/mainpage'>
               {top3Ranking.length > i && top3Ranking[i].content}</Link></div>
           {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_image}/>}
           {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_like}/>}
@@ -81,7 +93,15 @@ function RankingPage(){
     for(let i=0; i<currentRanking.length; i++){
       notTop3Arr.push(
         <div className={style.rankingbox_sayingzone_top12_sayingzone}>
-          <div className={style.rankingbox_sayingzone_top12_saying}>{currentRanking.length > i && currentRanking[i].content}</div>
+          <div className={style.rankingbox_sayingzone_top12_saying}>
+            <Link className={style.link} onClick={()=>{
+              dispatch(setFocusedSayingId(currentRanking[i].id));
+              dispatch(setFocusedTitle(currentRanking[i].content));
+              dispatch(setIndex(sayingIds.indexOf(currentRanking[i].id)));
+              dispatch(setIsRendered(true));
+              goPage();
+            }} to='/mainpage'>
+            {currentRanking.length > i && currentRanking[i].content}</Link></div>
           <div className={currentRanking.length > i ? style.rankingbox_sayingzone_top12_image : style.hidden}/>
           {currentRanking.length > i && <div className={style.rankingbox_sayingzone_top12_like}/>}
           <div className={style.rankingbox_sayingzone_top12_likenumber}>{currentRanking.length > i && currentRanking[i].total_like}</div>

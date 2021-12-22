@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { logout, getUserInfo } from '../../store/AuthSlice'
 import { useSelector, useDispatch } from 'react-redux';
-import { REACT_APP_API_URL } from '../../config';
+import { REACT_APP_API_URL } from '../../config'
 
 function DropaccountModal({ handleDropaccountModal }){
 

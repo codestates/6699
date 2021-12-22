@@ -120,6 +120,28 @@
 }
 
 
+
+.liketoggle_box{
+  z-index:99;
+  top:34%;
+  right: 15%;
+  display:flex;
+  align-content: center;
+  position: absolute;
+  flex-wrap:wrap;
+  width:120px;
+  height:35px;
+
+}
+
+
+.likenew{
+  right:0;
+  position:absolute;
+  font-weight: bold;
+  font-size:20px;
+  top:0;
+}
 .toggle{
   position: absolute;
   display:flex;
@@ -129,26 +151,9 @@
   background-image: url("../images/Dark_Polygon.png");
   background-size:100% 100%;
   background-position: center;
-  margin-top:9px;
-  left:0;
+  top:28%;
+  left:18%;
   cursor: pointer;
-}
-.like_box{
-  z-index:99;
-  top:34.6%;
-  display:flex;
-  position: absolute;
-  flex-wrap:wrap;
-  width:100px;
-  height:30px;
-  right: 14%;
-}
-.likenew{
-  position:absolute;
-  left:30px;
-  color: #707070;
-  font-weight: bold;
-  font-size:20px;
 }
 
 .jumbotron{
@@ -169,7 +174,7 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 7%;
-  padding-bottom:7.5%;
+  padding-bottom:7%;
   position: absolute;
   top: 13%;
   left: 93%;
@@ -313,12 +318,12 @@ text-shadow: 0px 0px 5px white;
   text-shadow: 0px 0px 5px white;
 }
 .like_box{
-  border:1px solid red;
+  z-index:99;
   width: 300px;
   height:200px;
   position: absolute;
-  top: 84.5%;
-  left: 89.5%;
+  top: 22.5%;
+  right: 5%;
   transform: translate(-50%,-50%);
 }
 .profile{

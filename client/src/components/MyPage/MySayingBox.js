@@ -35,6 +35,7 @@ function MySayingBox({sayings,loading}){
      </li>
   ))}
   </ul>
- )   
+  )   
 }
+
 export default MySayingBox;
