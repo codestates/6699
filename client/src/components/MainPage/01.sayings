@@ -23,6 +23,11 @@ INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id)
 INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (123,"인간관계 테스트 명언2","인간관계",175,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
 INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (124,"사랑 테스트 명언1","사랑",17,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
 INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (125,"사랑 테스트 명언2","사랑",77,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
+INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (127,"사랑합니다.","사랑",999,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
+INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (128,"건강합니다.","건강",998,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
+INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (129,"학습합니다.","학습",997,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
+INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (130,"인간관계합니다.","인간관계",57,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
+INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (131,"경제합니다.","경제",123,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
 
 //done
 

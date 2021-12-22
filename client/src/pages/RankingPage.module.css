@@ -202,14 +202,11 @@
   color:#FFBF31;
 }
 .rankingbox_sayingzone_top3_image{
-  background-image: url('../images/userImage_default.png');
-  background-size: cover;
-  background-size: 100% 100%;
   opacity: 70%;
   display:flex;
   position: relative;
-  border: 6px solid #ffbf31;
-  border-radius: 50%;
+  border: 2px solid #ffbf31;
+  border-radius: 100%;
   margin-left: 3%;
   height:40%;
   width: 3%;
@@ -274,6 +271,17 @@
   color:#FFBF31;
   cursor:pointer;
 }
+.rankingbox_sayingzone_top12_image{
+  opacity: 70%;
+  display:flex;
+  position: relative;
+  border: 2px solid #ffbf31;
+  border-radius: 100%;
+  margin-left: 2.5%;
+  left: 1%;
+  height:30%;
+  width: 2.5%;
+}
 .rankingbox_sayingzone_top12_like{
   background-image: url('../images/Red_Heart.png');
   background-size: 65%;
@@ -281,7 +289,8 @@
   background-position: center;
   display:flex;
   position: relative;
-  left: 8.5%;
+  margin-left: 2.5%;
+  left: 1.25%;
   height:30%;
   width: 2.5%;
 }
@@ -291,7 +300,7 @@
   font-size:20px;
   display:flex;
   position: relative;
-  left: 9%;
+  left: 2%;
   height:50%;
   width: 4%;
 }

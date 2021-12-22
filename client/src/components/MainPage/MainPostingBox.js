@@ -16,8 +16,8 @@ function MainPostingBox({posts,loading}){
       {posts.map(post => (
         <li key ={post.id} id={style.post}>
           <div>
-             <div className={style.thumbnail}>
-               {post.title}
+            <div className={style.thumbnail}>
+              {post.title}
             </div>
           </div>
           <div className={style.likeBox}>
