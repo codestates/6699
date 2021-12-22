@@ -24,13 +24,6 @@ import { login, logout, getUserInfo } from '../store/AuthSlice';
 import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
-import postData from '../components/MainPage/MainPostingDummy';
-import sayingData from '../components/MainPage/MainSayingDummy';
-
-<<<<<<< HEAD
-
-=======
->>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
 
 function MainPage(){
   const likes = useSelector(state =>state.main.likes);
@@ -42,11 +35,8 @@ function MainPage(){
   const sayingIds = useSelector(state => state.main.sayingIds);
   const posts = useSelector(state => state.main.posts);
   const likeOrNew = useSelector(state => state.main.likeOrNew);
-<<<<<<< HEAD
-=======
 
   let categoryImage = [category_all, category_health, category_study, category_economy, category_relationship, category_love];
->>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
   let category = ['전체','건강', '학습', '경제', '인간관계', '사랑']
   let medalImage = [gold,silver,bronze]
   let [curCategory,setCategory] = useState(category[page]);
@@ -67,13 +57,6 @@ function MainPage(){
   const renderingDone = () => {dispatch(setIsRendered(true))};
   /* 포커싱된 sayingId 갱신 함수 */
   const getFocusedSayingId = (sayingId) =>{dispatch(setFocusedSayingId(sayingId))};
-<<<<<<< HEAD
-
-  /* sayingId 재갱신 함수 (위아래버튼) */
-  const getReNewSayingId = (index) => {dispatch(setFocusedSayingId(sayingIds[index]))}
-=======
->>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
-                                   
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */
@@ -135,7 +118,7 @@ function MainPage(){
         console.log(focusedSayingId)
       }
       else {
-        getFocusTitle(response.data.data.filteredSaying[0].content);
+        getFocusedTitle(response.data.data.filteredSaying[0].content);
         getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
@@ -180,27 +163,39 @@ function MainPage(){
         <div className={style.category_bar}>
         
         {/* 현재페이지(curPage)에 따라 색 변경 */}   
-        <div className={style.category_all} onClick={()=>{setCategory('전체'),getLikeRanking('전체'), goAllPage()}}
+        <div className={style.category_all} onClick={()=>{setCategory('전체')
+        getLikeRanking('전체')
+        goAllPage()}}
                                             style={curCategory === '전체'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
-        <div className={style.category_health} onClick={()=>{setCategory('건강'),getLikeRanking('건강'),goHealthPage()}} 
+        <div className={style.category_health} onClick={()=>{setCategory('건강')
+        getLikeRanking('건강')
+        goHealthPage()}} 
                                             style={curCategory === '건강'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>건강</div>
-        <div className={style.category_study} onClick={()=>{setCategory('학습'),getLikeRanking('학습'),goStudyPage()}}
+        <div className={style.category_study} onClick={()=>{setCategory('학습')
+        getLikeRanking('학습')
+        goStudyPage()}}
                                             style={curCategory === '학습'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>학습</div>
-        <div className={style.category_economy} onClick={()=>{setCategory('경제'),getLikeRanking('경제'),goEconomyPage()}}
+        <div className={style.category_economy} onClick={()=>{setCategory('경제')
+        getLikeRanking('경제')
+        goEconomyPage()}}
                                             style={curCategory === '경제'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>경제</div>
-        <div className={style.category_relationship} onClick={()=>{setCategory('인간관계'),getLikeRanking('인간관계'),goRelationshipPage()}}
+        <div className={style.category_relationship} onClick={()=>{setCategory('인간관계')
+        getLikeRanking('인간관계')
+        goRelationshipPage()}}
                                             style={curCategory === '인간관계'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>인간관계</div>
-        <div className={style.category_love} onClick={()=>{setCategory('사랑'),getLikeRanking('사랑'),goLovePage()}}
+        <div className={style.category_love} onClick={()=>{setCategory('사랑')
+        getLikeRanking('사랑')
+        goLovePage()}}
                                             style={curCategory === '사랑'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>사랑</div>
