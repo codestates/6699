@@ -1,7 +1,7 @@
 nav {
   width: 100vh;
   height: 5vh;
-  border: 1px solid hotpink;
+  /* border: 1px solid hotpink; */
   display: flex;
   justify-content: center;
 }
@@ -17,7 +17,9 @@ li {
   justify-content: space-between;
   width: 45vh;
   height: 5vh;
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
+  position: absolute;
+  top: 0;
 }
 
 .btns {

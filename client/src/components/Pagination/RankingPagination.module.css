@@ -1,6 +1,7 @@
 nav {
   width: 100vh;
   height: 5vh;
+  margin-bottom: 1vh;
   /* border: 1px solid hotpink; */
   display: flex;
   justify-content: center;
@@ -9,6 +10,7 @@ nav {
 ul,
 li {
   list-style: none;
+  /* border: 1px solid purple; */
 }
 
 #wrap {
@@ -18,13 +20,12 @@ li {
   width: 45vh;
   height: 5vh;
   /* border: 1px solid purple; */
-  position: absolute;
-  top: 0;
 }
 
 .btns {
   width: 5vh;
   height: 5vh;
+  margin-right: 1vh;
   /* border: 1px solid green; */
 }
 
@@ -40,7 +41,6 @@ li {
   margin-right: 1.66%;
   border-radius: 15px;
   background-color: #404040;
-
   width: 5vh;
   height: 5vh;
 }

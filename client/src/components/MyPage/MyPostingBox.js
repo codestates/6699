@@ -11,13 +11,15 @@ function MyPostingBox({posts,loading}){
   }
 
     return (
-      <ul>
+      <div id={style.container}>
+        <div id={style.posts_wrap}>
       {posts.map(post => (
         <li key ={post.id} id={style.post}>
           {post.title}
         </li>
       ))}
-      </ul>
+      </div>
+      </div>
     )
 }
 export default MyPostingBox;

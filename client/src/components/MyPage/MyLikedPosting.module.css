@@ -16,7 +16,7 @@
   align-items: center;
   width: 90vh;
   height: 65vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .posts {
@@ -52,10 +52,10 @@
   /* border: 1px solid orange; */
 }
 
-.pagenation_wrapper {
+#pagenation_wrapper {
   display: flex;
   flex-direction: row;
   width: 100vh;
   height: 5vh;
-  border: 1px solid red;
+  /* background: pink; */
 }

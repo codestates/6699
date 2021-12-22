@@ -45,7 +45,6 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
-
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
   const goHealthPage = () =>{dispatch(health())};
@@ -174,8 +173,8 @@ function MainPage(){
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강'),getLikeRanking('건강'),goHealthPage()}} 
                                             style={curCategory === '건강'
-                                           ?{backgroundColor:'#FFBF31',color:'white'}
-                                           :{backgroundColor:'white', color:'#404040'}}>건강</div>
+                                            ?{backgroundColor:'#FFBF31',color:'white'}
+                                            :{backgroundColor:'white', color:'#404040'}}>건강</div>
         <div className={style.category_study} onClick={()=>{setCategory('학습'),getLikeRanking('학습'),goStudyPage()}}
                                             style={curCategory === '학습'
                                             ?{backgroundColor:'#FFBF31',color:'white'}

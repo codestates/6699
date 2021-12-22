@@ -9,7 +9,7 @@ function MyLikedSayingPagination({sayingsPerPage,totalPosts, paginate}){
 
   return (
     <nav>
-      <ul id={style.wrap}>
+      <div id={style.wrap}>
         {pageNumbers.map(number =>(
           <li className={style.btns} key ={number}>
             <button id= {style.btn} onClick={()=> paginate(number)}>
@@ -17,7 +17,7 @@ function MyLikedSayingPagination({sayingsPerPage,totalPosts, paginate}){
             </button>
           </li>
         ))}
-      </ul>
+      </div>
     </nav>
   )
 }

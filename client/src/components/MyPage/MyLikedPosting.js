@@ -6,13 +6,16 @@ import MyLikedPostingBox from './MyLikedPostingBox';
 import axios from 'axios';
 import {REACT_APP_API_URL} from '../../config'
 import MyLikedPostPagination from '../Pagination/MyLikedPostPagination';
+import {useSelector, useDispatch} from 'react-redux';
+import{setLikedPost} from '../../store/MySlice';
 
 function MyLikedPosting (){
+const dispatch = useDispatch();
 //토글 open여부 확인 state
 let [isOpen,setIsOpen] = useState(false);
 
 // //좋아요 누른 게시물 state
-const [posts,setPosts] = useState([]);
+const {likedPosts} = useSelector((state) => state.mypage)
 const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
 const [postsPerPage,setPostsPerPage] = useState(6);
@@ -24,9 +27,11 @@ useEffect(()=>{
        `${REACT_APP_API_URL}/user/mylike/?category=article`,
        {withCredentials: true}
        );
-       if(Array.isArray(res.data.data.filteredLike)){
-    setPosts(res.data.data.filteredLike);
+       if(res.data.data){
+         if(res.data.data.filteredLike){
+    dispatch(setLikedPost(res.data.data.filteredLike))
     setLoading(false);
+         }
        }
   }
   fetchPosts();
@@ -35,7 +40,7 @@ useEffect(()=>{
 //Get current posts
 const indexOfLastPost = currentPage * postsPerPage;
 const indexOfFirstPost = indexOfLastPost - postsPerPage;
-const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
+const currentPosts = likedPosts.slice(indexOfFirstPost,indexOfLastPost);
 
 //Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -49,7 +54,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
              </div>
          </div>
          <div id={style.pagenation_wrapper}>
-             <MyLikedPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+             <MyLikedPostPagination postsPerPage={postsPerPage} totalPosts={likedPosts.length} paginate={paginate}/>
          </div>
         </div>
          {/*토글*/}
