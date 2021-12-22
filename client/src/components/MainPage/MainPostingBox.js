@@ -10,7 +10,6 @@ function MainPostingBox({posts,loading}){
     return <h2 className={style.noPost}>loading...</h2>
   }
     if(posts.length > 0){
-    console.log(posts);
     return (
       // <div id={style.post}>{post.image}</div>
       <ul>

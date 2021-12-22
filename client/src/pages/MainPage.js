@@ -43,6 +43,9 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
+  console.log('메인페이지 / sayingIds :',sayingIds);
+  console.log('메인페이지 / idx :',index);
+
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
   const goHealthPage = () =>{dispatch(health())};
@@ -58,7 +61,6 @@ function MainPage(){
   const getFocusedSayingId = (sayingIds) =>{dispatch(setFocusedSayingId(sayingIds))};
   /* 인덱스 저장 함수 */
   const getIndex = (idx) =>{dispatch(setIndex(idx))};
-                                   
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */
@@ -71,16 +73,11 @@ function MainPage(){
   const getPosts = (posts) => {dispatch(setPosts(posts))};
   /* 모달 ON,OFF state */
 
-
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
-  
-
-
 
   const upSaying = () => {
     if ((index -1) > -1){
-
       getFocusedSayingId(sayingIds[index-1]);
       getFocusedTitle(sayingTitles[index-1]);
       getIndex(index-1);
@@ -127,8 +124,6 @@ function MainPage(){
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
         getIndex(0);
-        console.log(sayingIds)
-        console.log(focusedSayingId)
       }
     } catch (err) {
       console.log(err);

@@ -10,7 +10,7 @@ import MainPagination from '../../components/Pagination/MainPagination';
 function PostBox(){
   const likeOrNew = useSelector(state => state.main.likeOrNew)
   const getPosts = (data) =>{setPosts(data)};
-  const focusedSayingId = useSelector(state => state.main.focusedSayingId);
+  const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // const articles = useSelector((state) => state.mypage.articles);
   const dispatch = useDispatch();
   const [posts,setPosts] = useState([]);
