@@ -13,6 +13,8 @@ import PostModal from './components/MainPage/PostModal';
 import SayingModal from './components/MainPage/SayingModal';
 import LoginModal from './components/MainPage/LoginModal';
 import SignupModal from './components/MainPage/SignupModal';
+import SayingCategoryModal from './components/MainPage/SayingCategoryModal';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from './store/AuthSlice';
 import { REACT_APP_API_URL } from './config';
@@ -20,7 +22,7 @@ import axios from 'axios';
 
 function App() {
   const dispatch = useDispatch();
-  const { loginModal, signupModal, postModal, sayingModal } = useSelector((state) => state.modal);
+  const { loginModal, signupModal, postModal, sayingModal, sayingCategoryModal } = useSelector((state) => state.modal);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
 
   const authentication = async () => {
@@ -30,7 +32,6 @@ function App() {
       });
       if (response.data.data) {
 
-        console.log("auth dispatch 확인:", response.data.data.userInfo)
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
       } else {
@@ -55,6 +56,7 @@ function App() {
       {signupModal ? <SignupModal/> : null}
       {postModal ? <PostModal/> : null}
       {sayingModal ? <SayingModal/> : null}
+      {sayingCategoryModal ? <SayingCategoryModal/> : null}
       <div className={style.header_downside}>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>

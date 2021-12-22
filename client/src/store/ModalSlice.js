@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { loginModal: false, signupModal: false, postModal: false, sayingModal: false };
+const initialState = { loginModal: false, signupModal: false, postModal: false, sayingModal: false, sayingCategoryModal: false };
 
 const modalSlice = createSlice({
   name: 'modal',
@@ -17,8 +17,12 @@ const modalSlice = createSlice({
     },
     showSayingModal: (state, { payload }) => {
       state.sayingModal = payload;
-    }
+    },
+    showSayingCategoryModal: (state, { payload }) => {
+      state.sayingCategoryModal = payload;
+    },
+
   }
 });
-export const { showLoginModal, showSignupModal, showPostModal, showSayingModal } = modalSlice.actions;
+export const { showLoginModal, showSignupModal, showPostModal, showSayingModal,showSayingCategoryModal } = modalSlice.actions;
 export default modalSlice.reducer;

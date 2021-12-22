@@ -30,7 +30,6 @@ function PostBox(){
         setLoading(false)}
         else {
         setPosts([])
-        console.log(res.data.data.articleInfo);
         setLoading(false)}
         }
       fetchPosts();

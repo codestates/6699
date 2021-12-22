@@ -43,8 +43,6 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
-  console.log('메인페이지 / sayingIds :',sayingIds);
-  console.log('메인페이지 / idx :',index);
 
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
@@ -94,12 +92,10 @@ function MainPage(){
 
   const clickIsLike = () => {setLikeNew('좋아요순')
                             getLikeOrNew(('like'));
-                            console.log(likeOrNew)
                            getLikeRankingPost(focusedSayingId)
                            setIsOpen(false)}
   const clickIsNew = () => {setLikeNew('최신순')
                           getLikeOrNew(('new'));
-                          console.log(likeOrNew);
                            setIsOpen(false)
                            getNewRankingPost(focusedSayingId)
                            setIsOpen(false)}
@@ -140,7 +136,6 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
-      console.log(posts);
     } catch (err) {
       console.log(err);
     }
@@ -151,7 +146,6 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=new`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
-      console.log(posts);
     } catch (err) {
       console.log(err);
     }

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[],likes:[], focusedSayingId:0, sayingIds:[], posts:[],likeOrNew:'like',index:0}; 
+const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[],likes:[], focusedSayingId:0, sayingIds:[], posts:[], likeOrNew:'like', index:0, nowCategory:'전체'}; 
 const mainSlice = createSlice(
   { name: 'main', 
     initialState: initialState,
@@ -33,9 +33,12 @@ const mainSlice = createSlice(
     },
     setLikeOrNew:(state,{ payload}) => {
       state.likeOrNew = payload;
-    }
+    },
+    setCategory:(state,{ payload}) => {
+      state.nowCategory = payload;
+    },
     }});
                 
-export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex } = mainSlice.actions;
+export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex, setCategory } = mainSlice.actions;
 export default mainSlice.reducer;
 

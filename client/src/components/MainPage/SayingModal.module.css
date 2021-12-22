@@ -109,14 +109,17 @@
     background-image: url(../../images/Dark_Polygon.png);
     background-size:cover;
     background-position: center;
-    width:7px;
-    height:7px;
+    width:10px;
+    height:10px;
     left:59%;
-    top:170%;
+    top:165%;
     transform: translate(-50%,50%);
   }
   .writebox{
+    font-size:20px;
     z-index:9999;
+    word-break:break-all;
+    white-space:pre;
     position:absolute;
     width:80%;
     height:48%;
@@ -131,7 +134,7 @@
   .anotherbox{
     z-index:9999;
     position: absolute;
-    width:68%;
+    width:80%;
     height:11%;
     left:50%;
     bottom:3%;
@@ -139,6 +142,8 @@
   }
   
   .writebutton{
+    color:white;
+    font-weight:bold;
     z-index:9999;
     font-size:15px;
     display:flex;
@@ -155,13 +160,15 @@
     cursor:pointer;
   }
   .cancelbutton{
+    color:white;
+    font-weight:bold;
     z-index:9999;
     font-size:15px;
     display:flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color:#C4C4C4;
+    background-color:#404040;
     border-radius:10px;
     height:100%;
     width: 40%;

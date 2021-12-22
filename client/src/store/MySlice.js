@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {isFocus:'post', isPost:true ,posts:[], sayings:[],
-comments:[], likedPosts:[], likedSayings:[]};
+comments:[], likedPosts:[], likedSayings:[], isLoading:false};
 
 const mySlice = createSlice({
   name: 'mypage',
@@ -33,12 +33,16 @@ const mySlice = createSlice({
     //MyLikedSaying 좋아요 누른 명언
     setLikedSaying:(state, { payload }) => {
       state.likedSayings = payload;
+    },
+    //로딩중인지 여부확인
+    setIsLoading:(state, { payload })=>{
+      state.isLoading = payload;
     }
   }
 });
 
 export const {setIsFocus ,setIsPost, setPosts, setSayings, setComments,
-setLikedPost, setLikedSaying}
+setLikedPost, setLikedSaying, setIsLoading}
  = mySlice.actions;
 
 export default mySlice.reducer;
