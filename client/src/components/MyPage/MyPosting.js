@@ -21,9 +21,13 @@ useEffect(()=>{
         `${REACT_APP_API_URL}/user/myarticle`,
         {withCredentials: true}
         );
+        if(res.data){
+            if(res.data.data.filteredArticle){
     dispatch(setPosts(res.data.data.filteredArticle))
     setLoading(false);
     }
+ }
+}
     fetchPosts();
 },[])
 
