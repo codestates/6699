@@ -1,6 +1,15 @@
-.box {
-  position: relative;
-  width: 90vh;
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80vh;
+  height: 60vh;
+  /* border: 1px solid blue; */
+}
+
+.saying {
+  width: 80vh;
   height: 10vh;
   border: 1px solid rgb(153, 148, 148);
   border-radius: 10px;
@@ -17,7 +26,7 @@
 
 #trashcan {
   position: absolute;
-  right: 2vh;
+  right: 15vh;
   background-image: url("../../images/Can_Trash.png");
   background-size: 100%;
   width: 2vh;
@@ -38,14 +47,14 @@
 .title {
   position: relative;
   text-align: center;
-  width: 65vh;
+  width: 70vh;
   height: 5vh;
   /* border: 1px solid red; */
 }
 
 #icon_66 {
   position: absolute;
-  left: 10vh;
+  left: 7vh;
   background-image: url("../../images/66.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -56,7 +65,7 @@
 #icon_99 {
   position: absolute;
   top: 0vh;
-  right: 10vh;
+  right: 7vh;
   background-image: url("../../images/99.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -70,9 +79,9 @@
 }
 
 .icon_box {
-  position: absolute;
-  bottom: 0;
-  right: 2vh;
+  position: relative;
+  left: 65vh;
+  top: 7vh;
   display: flex;
   justify-content: space-between;
   width: 10vh;

@@ -11,7 +11,6 @@ function MyPostingBox({posts,loading}){
   }
 
     return (
-      // <div id={style.post}>{post.image}</div>
       <ul>
       {posts.map(post => (
         <li key ={post.id} id={style.post}>

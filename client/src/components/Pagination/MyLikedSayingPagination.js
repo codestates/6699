@@ -1,9 +1,9 @@
-import style from './MyPostPagination.module.css'
+import style from './MyLikedSayingPagination.module.css';
 
-function Pagination ({postsPerPage,totalPosts, paginate}){
+function MyLikedSayingPagination({sayingsPerPage,totalPosts, paginate}){
   const pageNumbers = [];
 
-  for(let i=1; i <= Math.ceil(totalPosts/postsPerPage); i++){
+  for(let i=1; i <= Math.ceil(totalPosts/sayingsPerPage); i++){
     pageNumbers.push(i);
   }
 
@@ -22,4 +22,4 @@ function Pagination ({postsPerPage,totalPosts, paginate}){
   )
 }
 
-export default Pagination
+export default MyLikedSayingPagination;

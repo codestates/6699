@@ -1,8 +1,19 @@
 import style from './MyLikedPostingBox.module.css'
 
-function MyLikedPostingBox({post}){
+function MyLikedPostingBox({posts,loading}){
+
+  if(loading){
+    return <h2>loading...</h2>
+  }
+
   return (
-    <div id={style.post}>{post.image}</div>
+    <ul>
+      {posts.map(post => (
+        <li key ={post.id} id={style.post}>
+          {post.title}
+        </li>
+      ))}
+      </ul>
   )
 }
 

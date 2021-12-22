@@ -5,7 +5,9 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
+      console.log('유저인포전')
       const userInfo = await userAuth(req, res);
+      console.log('유저인포후')
       // 요청 쿼리로 category를 받아온다
       const { category } = req.query;
 
@@ -17,10 +19,6 @@ module.exports = {
       if(category === 'article') {
         // 현재 유저가 좋아요를 누른 게시물 정보가 articleLikeInfo에 담긴다
         articleLikeInfo = await article_likes.findAll({ 
-          include : [{
-            model: sayings,
-            attributes: ['category']
-          }],
           where : { user_id: userInfo.id } 
         });
         // 만약, 유저가 좋아요를 누른 게시물이 없다면, 다음을 응답한다
@@ -30,7 +28,13 @@ module.exports = {
           filteredLike = []
           // 좋아요를 누른 게시물 각각을, filteredLikt 배열에 담는다
           for(let i = 0; i < articleLikeInfo.length; i++) {
-            let filteredArticle = await articles.findOne({ where: { id: articleLikeInfo[i].article_id } })
+            let filteredArticle = await articles.findOne({ 
+              include : [{
+                model: sayings,
+                attributes: ['category']
+              }],
+              where: { id: articleLikeInfo[i].article_id } 
+            })
             filteredLike.push(filteredArticle)
           }
         }

@@ -5,6 +5,7 @@ module.exports = {
   // Mypage Edit
   me: require('./me'),
   picture: require('./picture'),
+  alluser: require('./alluser'),
 
   // Mypage Category
   mylike: require('./mylike'),
