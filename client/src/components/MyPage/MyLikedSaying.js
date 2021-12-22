@@ -6,13 +6,16 @@ import axios from 'axios';
 import {REACT_APP_API_URL} from '../../config'
 import MySayingMiniModal from './MySayingMiniModal';
 import Modal from '../Modal';
+import{useDispatch,useSelector} from 'react-redux'
+import {setLikedSaying} from '../../store/MySlice'
 
 function MyLikedSaying(){
+const dispatch = useDispatch();
 //토글 open여부 확인 state
 let [isOpen,setIsOpen] = useState(false);
 
 //좋아요 누른 명언 state
-const [sayings,setSayings] = useState([]);
+const {likedSayings} = useSelector((state) => state.mypage)
 const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
 const [sayingsPerPage,setSayingsPerPage] = useState(4);
@@ -24,8 +27,12 @@ useEffect(()=>{
        `${REACT_APP_API_URL}/user/mylike`,
        {withCredentials: true}
        );
-    setSayings(res.data.data.filteredLike);
-    setLoading(false);
+       if(res.data.data){
+         if(res.data.data.filteredLike){
+           dispatch(setSayings(res.data.data.filteredLike))
+           setLoading(false);
+         }
+       }
   }
   fetchPosts();
 },[])
@@ -33,7 +40,7 @@ useEffect(()=>{
 //Get current posts
 const indexOfLastSaying = currentPage * sayingsPerPage;
 const indexOfFirstSaying = indexOfLastSaying - sayingsPerPage;
-const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
+const currentSayings = likedSayings.slice(indexOfFirstSaying,indexOfLastSaying);
 
 //Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -42,12 +49,10 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
     <>
       <div className={style.changing_area}>
             <div id={style.sayings_wrap}>
-            <div className={style.sayings}>
           <MyLikedSayingBox sayings={currentSayings} loading={loading}/>
-          </div>
           </div> 
          <div id={style.pagenation_wrapper}>
-          <MyLikedSayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
+          <MyLikedSayingPagination sayingsPerPage={sayingsPerPage} totalPosts={likedSayings.length} paginate={paginate}/>
          </div>
       </div>
        {/*토글*/}

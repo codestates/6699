@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vh;
   height: 70vh;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 #sayings_wrap {
@@ -19,23 +19,25 @@
   /* border: 1px solid red; */
 }
 
-.saying_toggle {
-  width: 10vh;
-  height: 5vh;
-  border: 1px solid red;
-}
-.sayings {
-  display: flex;
-  justify-content: space-around;
-  width: 80vh;
-  height: 60vh;
-  /* border: 1px solid blue; */
-}
-
 #pagenation_wrapper {
   display: flex;
   flex-direction: row;
   width: 90vh;
   height: 5vh;
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
+}
+
+.saying_toggle {
+  position: relative;
+  left: 95vh;
+  top: -70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2vh;
+  height: 2vh;
+  background-image: url("../../images/Dark_Polygon.png");
+  background-size: 100% 100%;
+  background-position: center;
+  /* border: 1px solid blue; */
 }

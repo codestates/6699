@@ -1,5 +1,6 @@
 import style from'./MyPosting.module.css'
-import {setArticles, setLikedArticle} from '../../store/MySlice'
+import {setPosts} from '../../store/MySlice'
+import {useDispatch,useSelector} from 'react-redux' 
 import MyPostingBox from './MyPostingBox';
 import { REACT_APP_API_URL } from '../../config';
 import {useEffect,useState} from 'react'
@@ -7,7 +8,8 @@ import axios from 'axios';
 import MyPostPagination from '../Pagination/MyPostPagination';
 
 function MyPosting(){
-const [posts,setPosts] = useState([]);
+const dispatch = useDispatch();
+const {posts} = useSelector((state) => state.mypage)
 const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
 const [postsPerPage,setPostsPerPage] = useState(6);
@@ -19,7 +21,7 @@ useEffect(()=>{
         `${REACT_APP_API_URL}/user/myarticle`,
         {withCredentials: true}
         );
-    setPosts(res.data.data.filteredArticle);
+    dispatch(setPosts(res.data.data.filteredArticle))
     setLoading(false);
     }
     fetchPosts();
@@ -35,14 +37,14 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div id={style.changing_area}>
-         <div id={style.posts_wrap}>
-             <div className = {style.posts}>
-             <MyPostingBox posts={currentPosts} loading={loading}/>
-             </div>
-         </div>
-         <div id={style.pagenation_wrapper}>
-             <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
-         </div>
+        <div id={style.posts_wrap}>
+            <div className = {style.posts}>
+                <MyPostingBox posts={currentPosts} loading={loading}/>
+            </div>
+        </div>
+        <div id={style.pagenation_wrapper}>
+            <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+        </div>
         </div>
     )
 }

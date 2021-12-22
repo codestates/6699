@@ -9,7 +9,7 @@ function MyCommentBox({comments,loading}){
     }
 
     return (
-      <ul id={style.container}>
+      <div id={style.comment_wrap}>
       {comments.map(saying => (
          <li key ={saying.id} className={style.saying}>
            <div className={style.category_image}></div>
@@ -29,7 +29,7 @@ function MyCommentBox({comments,loading}){
          </div>
          </li>
       ))}
-      </ul>
+      </div>
     )
 }
 export default MyCommentBox;

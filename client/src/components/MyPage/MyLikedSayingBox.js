@@ -15,7 +15,7 @@ function MyLikedSayingBox({sayings,loading}){
   }
   
  return (
-  <ul id={style.container}>
+  <div id={style.saying_wrap}>
   {sayings.map(saying => (
      <li key ={saying.id} className={style.saying}>
        <div className={style.category_image}></div>
@@ -35,7 +35,7 @@ function MyLikedSayingBox({sayings,loading}){
      </div>
      </li>
   ))}
-  </ul>
+  </div>
  )   
 }
 export default MyLikedSayingBox;
