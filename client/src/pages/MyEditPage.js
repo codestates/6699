@@ -2,12 +2,11 @@ import axios from 'axios';
 import style from '../pages/MyEditPage.module.css'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { REACT_APP_API_URL } from '../config';
 import { useSelector, useDispatch } from 'react-redux';
 import DropaccountModal from '../components/MyPage/DropaccountModal.js';
 import ProfileImageModal from '../components/MyPage/ProfileImageModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
-
+import { REACT_APP_API_URL } from '../config'
 
 
 function MyEditPage (){
@@ -237,7 +236,7 @@ function MyEditPage (){
           const formData = new FormData();
           formData.append('img', content, content.name);
 
-          const response = await axios.post('http://localhost:8080/upload', formData, {
+          const response = await axios.post(`${REACT_APP_API_URL}/upload`, formData, {
             headers: {
               'Content-Type' : 'multipart/form-data'
             }
@@ -248,7 +247,7 @@ function MyEditPage (){
           const image = response.data.data.img
 
           if(response.data) {
-            await axios.post('http://localhost:8080/user/picture', 
+            await axios.post(`${REACT_APP_API_URL}/user/picture`, 
             { image: image },
             { withCredentials: true }
             );
@@ -273,7 +272,7 @@ function MyEditPage (){
               {/* 주의!!! DB에서 image 데이터타입을 string으로 바꿔야함! */}
               <img
                 id={style.profile_image}
-                src={`http://localhost:8080/${image}`} 
+                src={`${REACT_APP_API_URL}/${image}`} 
                 onClick={() => {handleProfileImage()}} />
                               
                 {/* <div id={style.profile_image}> */}

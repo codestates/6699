@@ -44,7 +44,7 @@ function LoginModal(){
     try {
       /* response 변수에 /login 서버 응답결과를 담는다 */
       const response = await axios.post(
-        `http://localhost:8080/auth/login`,
+        `${REACT_APP_API_URL}/auth/login`,
         { email: inputEmail, password: inputPassword },
         { withCredentials: true }
       );

@@ -27,7 +27,6 @@ function RankingPage(){
   const indexOfFirstPost = indexOfLastPost - rankingPerPage;
   const currentRanking = notTop3Ranking.slice(indexOfFirstPost,indexOfLastPost);
 
-  if(ranking.length>0) console.log(ranking[0].user);
   // 랭킹 상태 업데이트 (카테고리 변경시마다)
   useEffect(() => {
     const getLikeRaking = async () => {
@@ -40,7 +39,6 @@ function RankingPage(){
         console.log(err);
       }
     };
-
     getLikeRaking();
   }, [curCategory]);
 
