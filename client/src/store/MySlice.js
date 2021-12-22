@@ -34,10 +34,6 @@ const mySlice = createSlice({
     setLikedSaying:(state, { payload }) => {
       state.likedSayings = payload;
     },
-    //로딩중인지 여부확인
-    setIsLoading:(state, { payload })=>{
-      state.isLoading = payload;
-    }
   }
 });
 

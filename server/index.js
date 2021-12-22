@@ -56,7 +56,7 @@ app.post('/upload', upload.single('img'), async (req, res) => {
   const description = req.body.description
 
   // res.status(200).json({ data: { img: req.file.path }, message: 'Image Upload Success!' })
-  res.json({ imagePath: `/upload/${result.key}`})
+  res.json({ result: result, imagePath: `/upload/${result.key}`})
 });
 
 // ****************** multer 테스트 ************************ //

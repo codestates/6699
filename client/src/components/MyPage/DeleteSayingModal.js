@@ -1,4 +1,4 @@
-import style from './DeletePostModal.module.css'
+import style from './DeleteSayingModal.module.css'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';

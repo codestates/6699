@@ -16,26 +16,25 @@ let [isOpen,setIsOpen] = useState(false);
 
 // //좋아요 누른 게시물 state
 const {likedPosts} = useSelector((state) => state.mypage)
-const [loading,setLoading] = useState(false);
+const [loading,setLoading] = useState(true);
 const [currentPage,setCurrentPage] = useState(1);
 const [postsPerPage,setPostsPerPage] = useState(6);
+const [rendering, setRendering] = useState(true);
 
 useEffect(()=>{
   const fetchPosts = async () => {
-      setLoading(true)
    const res = await axios.get(
        `${REACT_APP_API_URL}/user/mylike/?category=article`,
-       {withCredentials: true}
+        {withCredentials: true}
        );
-       if(res.data.data){
-         if(res.data.data.filteredLike){
-    dispatch(setLikedPost(res.data.data.filteredLike))
-    setLoading(false);
-         }
+       if(rendering){
+         dispatch(setLikedPost(res.data.data.filteredLike));
+         setRendering(false);
+         setLoading(false);
        }
   }
   fetchPosts();
-},[])
+},[rendering])
 
 //Get current posts
 const indexOfLastPost = currentPage * postsPerPage;

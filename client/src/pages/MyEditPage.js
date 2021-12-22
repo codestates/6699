@@ -81,10 +81,10 @@ function MyEditPage (){
       } 
     }, [inputConfirmPassWord])
 
-    // // 닉네임 중복 여부 확인!
+    // 닉네임 중복 여부 확인!
     // useEffect(async () => {
     //     try {
-    //     // response 변수에 서버 응답결과를 담는다
+        // response 변수에 서버 응답결과를 담는다
     //     const response = await axios.get(
     //         `${REACT_APP_API_URL}/user/alluser`,
     //         { withCredentials: true }
@@ -276,7 +276,7 @@ function MyEditPage (){
 
               <img
                 id={style.profile_image}
-                src={`${REACT_APP_API_URL}/${image}`} 
+                src={`${REACT_APP_API_URL}/upload/${image}`} 
                 onClick={() => {handleProfileImage()}} />
                               
                 {/* <div id={style.profile_image}> */}

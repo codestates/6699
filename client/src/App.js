@@ -20,9 +20,13 @@ import { login, logout, getUserInfo } from './store/AuthSlice';
 import { REACT_APP_API_URL } from './config';
 import axios from 'axios';
 
+
+let selectedCategory = '건강'
+
 function App() {
   const dispatch = useDispatch();
   const { loginModal, signupModal, postModal, sayingModal, sayingCategoryModal } = useSelector((state) => state.modal);
+  const { focusedSayingId } = useSelector(state => state.main);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
 
   const authentication = async () => {
@@ -45,6 +49,22 @@ function App() {
   useEffect(() => {
     authentication();
   }, [isLogin]);
+
+  // PostModal에 현재 카테고리를 전달하기 위한 useEffect
+  // focusedSayingId가 바뀔때마다 useEffect는 실행된다
+  useEffect(async () => {
+    // 현재 선택된 명언의 정보를 가지고 온다
+    const sayingInfo = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}`)
+    // 만약 카테고리를 찾지 못했다면, 그냥 return
+    if(!sayingInfo.data.data.filteredSaying.category) {
+      return
+    } 
+    // 카테고리를 찾았다면, selectedCategory에 현재 선택된 category를 넣어준다
+    else {
+      selectedCategory = sayingInfo.data.data.filteredSaying.category
+      return
+    }
+  }, [focusedSayingId])
   
   return (
     <div className={style.container}>
@@ -54,7 +74,7 @@ function App() {
       </Routes>
       {loginModal ? <LoginModal/> : null}
       {signupModal ? <SignupModal/> : null}
-      {postModal ? <PostModal/> : null}
+      {postModal ? <PostModal selectedCategory={selectedCategory} /> : null}
       {sayingModal ? <SayingModal/> : null}
       {sayingCategoryModal ? <SayingCategoryModal/> : null}
       <div className={style.header_downside}>

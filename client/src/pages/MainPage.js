@@ -7,42 +7,33 @@ import category_love from '../images/category_love.png';
 import gold from '../images/gold_medal.png';
 import silver from '../images/silver_medal.png';
 import bronze from '../images/bronze_medal.png';
-
+import defaultImg from '../images/userImage_default.png'
 import style from './MainPage.module.css'
 import { useEffect } from 'react';
 // import MainPageSaying from '../components/MainPage/MainPageSaying';
 import PostBox from '../components/MainPage/PostBox';
+import SayingLike from '../components/MainPage/SayingLike';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
-
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
-
 import React, { useState } from 'react';
 import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice';
-import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
+import { setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId, setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
 
 function MainPage(){
-  const likes = useSelector(state =>state.main.likes);
   const page = useSelector(state => state.landing.page);
-  const isRendered = useSelector(state => state.main.isRendered);
-  const focusedTitle = useSelector(state => state.main.focusedTitle);
-  const sayingTitles = useSelector(state => state.main.sayingTitles);
-  const focusedSayingId = useSelector(state => state.main.focusedSayingId);
-  const sayingIds = useSelector(state => state.main.sayingIds);
-  const posts = useSelector(state => state.main.posts);
-  const likeOrNew = useSelector(state => state.main.likeOrNew);
-  const index = useSelector(state => state.main.index);
+  const { likes, images, isRendered, focusedTitle, sayingTitles, focusedSayingId, sayingIds, posts, likeOrNew, index } = useSelector(state =>state.main);
 
   let categoryImage = [category_all, category_health, category_study, category_economy, category_relationship, category_love];
   let category = ['전체','건강', '학습', '경제', '인간관계', '사랑']
   let medalImage = [gold,silver,bronze]
   let [curCategory,setCategory] = useState(category[page]);
+  let [selectHeart,setSelectHeart] = useState(false);
   const dispatch = useDispatch();
-
 
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
@@ -65,6 +56,8 @@ function MainPage(){
   const getTitles = (titles) => {dispatch(setSayingTitles(titles))};
   /* 좋아요 수집 함수 */
   const getLikes = (likes) =>{dispatch(setLikes(likes))};
+  /* 이미지 수집 함수 */
+  const getImages = (images) =>{dispatch(setImages(images))};
   /* sayingId 수집 함수 */
   const getSayingId = (sayingIds) => {dispatch(setSayingIds(sayingIds))};
   /* 게시물 수집 함수 */
@@ -109,6 +102,7 @@ function MainPage(){
         getFocusedTitle(response.data.data.allSaying[0].content);
         getTitles(response.data.data.allSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.allSaying.map((el)=>{return el.total_like}));
+        getImages(response.data.data.allSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
         getIndex(0);
@@ -117,6 +111,7 @@ function MainPage(){
         getFocusedTitle(response.data.data.filteredSaying[0].content);
         getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
+        getImages(response.data.data.filteredSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
         getIndex(0);
@@ -150,6 +145,7 @@ function MainPage(){
       console.log(err);
     }
   };
+
   return (
     <div className={style.container}>
       <div className={style.category_container}>
@@ -215,8 +211,13 @@ function MainPage(){
     <div className={style.jumbotron} style={{backgroundImage : `url(${categoryImage[page]})`}}>
         {/* Sub Zone */}
       <div className={style.like_box}>
-      <div className={style.profile}/>
-      <div className={style.heart_icon}/>
+        {/* 프로필 사진 Zone */}
+      {/* <img alt={images[sayingIds.indexOf(focusedSayingId)]} 
+        src={images[sayingIds.indexOf(focusedSayingId)] ?
+        `${REACT_APP_API_URL}/upload/${images[sayingIds.indexOf(focusedSayingId)]}`:
+        defaultImg}
+        className={style.profile}/> */}
+      <div className={style.heart_icon}><SayingLike /></div>
       <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div>
     </div>
       <div className={style.medal} style={{backgroundImage:`url(${medalImage[sayingIds.indexOf(focusedSayingId)]})`}}/>
