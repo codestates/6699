@@ -62,19 +62,16 @@
   flex: 0 1 auto;
 }
 
-#user_btn {
+.user_btn {
   z-index: 5;
-  opacity: 80%;
+  opacity: 100%;
   position: absolute;
   cursor: pointer;
   top: 5%;
   right: 1.75%;
-  border: 6px solid #ffbf31;
-  border-radius: 50%;
-  background-image: url("../images/userImage_default.png");
-  background-size: cover;
-  background-size: 100% 100%;
-  width: 2.5%;
+  border: 2px solid #ffbf31;
+  border-radius: 100%;
+  width: 2.25%;
   height: 87.5%;
 }
 

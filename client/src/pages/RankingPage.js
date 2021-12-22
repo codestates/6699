@@ -1,4 +1,5 @@
 import style from './RankingPage.module.css';
+import defaultImg from '../images/userImage_default.png'
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
@@ -30,6 +31,7 @@ function RankingPage(){
   const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // 랭킹 상태 업데이트 (카테고리 변경시마다)
 
+  console.log(ranking);
   useEffect(() => {
     const getLikeRaking = async () => {
       try {
@@ -73,13 +75,10 @@ function RankingPage(){
               dispatch(setFocusedTitle(top3Ranking[i].content));
               dispatch(setIndex(sayingIds.indexOf(top3Ranking[i].id)));
               dispatch(setIsRendered(true));
-              console.log('sayingIds: ',sayingIds)
-              console.log( '누른 애 id 값: ', currentRanking[i].id)
-              console.log('index: ',index);
               goPage();
               }} to='/mainpage'>
               {top3Ranking.length > i && top3Ranking[i].content}</Link></div>
-          {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_image}/>}
+          {top3Ranking.length > i && <img alt={top3Ranking[i].id} src={top3Ranking[i].user.image ? `${REACT_APP_API_URL}/upload/${top3Ranking[i].user.image}` : defaultImg} className={style.rankingbox_sayingzone_top3_image}/>}
           {top3Ranking.length > i && <div className={style.rankingbox_sayingzone_top3_like}/>}
           <div className={style.rankingbox_sayingzone_top3_likenumber}>{top3Ranking.length > i && top3Ranking[i].total_like}</div>
         </div>
@@ -102,7 +101,7 @@ function RankingPage(){
               goPage();
             }} to='/mainpage'>
             {currentRanking.length > i && currentRanking[i].content}</Link></div>
-          <div className={currentRanking.length > i ? style.rankingbox_sayingzone_top12_image : style.hidden}/>
+            {currentRanking.length > i && <img alt={currentRanking[i].id} src={currentRanking[i].user.image ? `${REACT_APP_API_URL}/upload/${currentRanking[i].user.image}` : defaultImg} className={style.rankingbox_sayingzone_top12_image}/>}
           {currentRanking.length > i && <div className={style.rankingbox_sayingzone_top12_like}/>}
           <div className={style.rankingbox_sayingzone_top12_likenumber}>{currentRanking.length > i && currentRanking[i].total_like}</div>
         </div>

@@ -7,7 +7,7 @@ import {REACT_APP_API_URL} from '../../config'
 import MySayingMiniModal from './MySayingMiniModal';
 import Modal from '../Modal';
 import{useDispatch,useSelector} from 'react-redux'
-import {setLikedSaying} from '../../store/MySlice'
+import {setLikedSaying, setSayings} from '../../store/MySlice'
 
 function MyLikedSaying(){
 const dispatch = useDispatch();
@@ -16,26 +16,25 @@ let [isOpen,setIsOpen] = useState(false);
 
 //좋아요 누른 명언 state
 const {likedSayings} = useSelector((state) => state.mypage)
-const [loading,setLoading] = useState(false);
+const [loading,setLoading] = useState(true);
 const [currentPage,setCurrentPage] = useState(1);
 const [sayingsPerPage,setSayingsPerPage] = useState(4);
+const [rendering, setRendering] = useState(true);
 
 useEffect(()=>{
   const fetchPosts = async () => {
-      setLoading(true)
    const res = await axios.get(
        `${REACT_APP_API_URL}/user/mylike`,
        {withCredentials: true}
        );
-       if(res.data.data){
-         if(res.data.data.filteredLike){
+       if(rendering){
            dispatch(setSayings(res.data.data.filteredLike))
+           setRendering(false);
            setLoading(false);
-         }
        }
   }
   fetchPosts();
-},[])
+},[rendering])
 
 //Get current posts
 const indexOfLastSaying = currentPage * sayingsPerPage;
