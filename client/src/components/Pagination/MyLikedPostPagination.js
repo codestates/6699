@@ -1,6 +1,6 @@
-import style from './MyPostPagination.module.css'
+import style from './MyLikedPostPagination.module.css'
 
-function Pagination ({postsPerPage,totalPosts, paginate}){
+function MyLikedPostPagination({postsPerPage,totalPosts, paginate}){
   const pageNumbers = [];
 
   for(let i=1; i <= Math.ceil(totalPosts/postsPerPage); i++){
@@ -22,4 +22,4 @@ function Pagination ({postsPerPage,totalPosts, paginate}){
   )
 }
 
-export default Pagination
+export default MyLikedPostPagination;
