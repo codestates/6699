@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[],likes:[], focusedSayingId:0, sayingIds:[], posts:[],likeOrNew:'like'}; 
+const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[],likes:[], focusedSayingId:0, sayingIds:[], posts:[],likeOrNew:'like',index:0}; 
 const mainSlice = createSlice(
   { name: 'main', 
     initialState: initialState,
@@ -25,14 +25,17 @@ const mainSlice = createSlice(
     setSayingIds:(state,{ payload}) => {
       state.sayingIds = payload;
     },
-    setPosts:(state,{ payload}) => {
+    setPosts:(state,{ payload }) => {
       state.posts = payload;
+    },
+    setIndex:(state,{ payload }) => {
+      state.index = payload;
     },
     setLikeOrNew:(state,{ payload}) => {
       state.likeOrNew = payload;
     }
     }});
                 
-export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew } = mainSlice.actions;
+export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex } = mainSlice.actions;
 export default mainSlice.reducer;
 
