@@ -8,42 +8,41 @@ import axios from 'axios';
 import MyPostPagination from '../Pagination/MyPostPagination';
 
 function MyPosting(){
-const dispatch = useDispatch();
-const {posts} = useSelector((state) => state.mypage)
-const [loading,setLoading] = useState(false);
-const [currentPage,setCurrentPage] = useState(1);
-const [postsPerPage,setPostsPerPage] = useState(6);
+    const dispatch = useDispatch();
+    const {posts} = useSelector((state) => state.mypage)
+    const [loading,setLoading] = useState(true);
+    const [currentPage,setCurrentPage] = useState(1);
+    const [postsPerPage,setPostsPerPage] = useState(6);
+    const [rendering, setRendering] = useState(true);
 
-useEffect(()=>{
-    const fetchPosts = async () => {
-        setLoading(true)
-    const res = await axios.get(
-        `${REACT_APP_API_URL}/user/myarticle`,
-        {withCredentials: true}
-        );
-        if(res.data){
-            if(res.data.data.filteredArticle){
-    dispatch(setPosts(res.data.data.filteredArticle))
-    setLoading(false);
-    }
- }
-}
-    fetchPosts();
-},[])
+    useEffect(()=>{
+        const fetchPosts = async () => {
+            const res = await axios.get(
+                `${REACT_APP_API_URL}/user/myarticle`,
+                {withCredentials: true}
+            );
+            if(rendering){
+                dispatch(setPosts(res.data.data.filteredArticle));
+                setRendering(false);
+                setLoading(false);
+            }
+        }
+        fetchPosts();
+    },[rendering])
 
-//Get current posts
-const indexOfLastPost = currentPage * postsPerPage;
-const indexOfFirstPost = indexOfLastPost - postsPerPage;
-const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
+    //Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
 
-//Change page
-const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    //Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div id={style.changing_area}>
         <div id={style.posts_wrap}>
             <div className = {style.posts}>
-                <MyPostingBox posts={currentPosts} loading={loading}/>
+                <MyPostingBox posts={currentPosts} loading={loading}/> 
             </div>
         </div>
         <div id={style.pagenation_wrapper}>
@@ -52,4 +51,5 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
         </div>
     )
 }
+
 export default MyPosting;

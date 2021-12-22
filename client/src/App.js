@@ -29,8 +29,6 @@ function App() {
         withCredentials: true
       });
       if (response.data.data) {
-
-        console.log("auth dispatch 확인:", response.data.data.userInfo)
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
       } else {

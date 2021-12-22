@@ -10,15 +10,17 @@ function MyCommentBox({comments,loading}){
 
     return (
       <div id={style.comment_wrap}>
-      {comments.map(saying => (
-         <li key ={saying.id} className={style.saying}>
-           <div className={style.category_image}></div>
-           <div id={style.trashcan}></div>
+      {comments.map(comment => (
+         <li key ={comment.id} className={style.saying}>
+           <div className={style.category_image} id={style.health}>
+           </div> 
+          <div id={style.trashcan}>
+           </div>
     
            <div id={style.set_title_middle_box}>
         <div className={style.title}>
         <div id={style.icon_66}></div>
-        <p id={style.saying}>{saying.content}</p>
+        <p id={style.saying}>{comment.content}</p>
         <div id={style.icon_99}></div>
         </div>
         </div>

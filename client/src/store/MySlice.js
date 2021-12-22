@@ -33,7 +33,7 @@ const mySlice = createSlice({
     //MyLikedSaying 좋아요 누른 명언
     setLikedSaying:(state, { payload }) => {
       state.likedSayings = payload;
-    }
+    },
   }
 });
 
