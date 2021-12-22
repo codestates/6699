@@ -8,15 +8,15 @@ import React, { useState } from 'react';
 import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice';
-import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts } from '../store/MainSlice';
+import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
 import postData from '../components/MainPage/MainPostingDummy';
 import sayingData from '../components/MainPage/MainSayingDummy';
 
+
+
 function MainPage(){
-
-
   const likes = useSelector(state =>state.main.likes);
   const page = useSelector(state => state.landing.page);
   const isRendered = useSelector(state => state.main.isRendered);
@@ -25,10 +25,10 @@ function MainPage(){
   const focusedSayingId = useSelector(state => state.main.focusedSayingId);
   const sayingIds = useSelector(state => state.main.sayingIds);
   const posts = useSelector(state => state.main.posts);
+  const likeOrNew = useSelector(state => state.main.likeOrNew);
   let category = ['전체','건강', '학습', '경제', '인간관계', '사랑']
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
-
 
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
@@ -47,12 +47,8 @@ function MainPage(){
   const getFocusedSayingId = (sayingId) =>{dispatch(setFocusedSayingId(sayingId))};
 
   /* sayingId 재갱신 함수 (위아래버튼) */
-  const getReNewSayingId = (index) => {dispatch(setFocusedSayingId(sayingIds[index]))
-                                       console.log(sayingIds);
-                                       console.log(sayingIds[index])
-                                       getLikeRanking
-                                      }
-                                       
+  const getReNewSayingId = (index) => {dispatch(setFocusedSayingId(sayingIds[index]))}
+                                   
   /* 현재 포커싱된 명언 갱신 함수 */
   const focusTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */
@@ -64,17 +60,21 @@ function MainPage(){
   /* 게시물 수집 함수 */
   const getPosts = (posts) => {dispatch(setPosts(posts))};
   /* 모달 ON,OFF state */
+
+
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
   
   const clickLike = () => {setLikeNew('좋아요순')
                            setIsOpen(false)
                            getLikeRankingPost(focusedSayingId)}
+                           setLikeOrNew('like');
   const clickNew = () => {setLikeNew('최신순')
                            setIsOpen(false)
                            getNewRankingPost(focusedSayingId)}
-                           
+                           setLikeOrNew('new');
   const modalOff = () => {setIsOpen(false)}
+
 
   const getLikeRanking = async (curCategory) => {
     try {
@@ -87,7 +87,10 @@ function MainPage(){
         getLikes(response.data.data.allSaying.map((el)=>{return el.total_like}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
-        getLikeRankingPost(focusedSayingId);
+        console.log(sayingIds)
+        console.log(focusedSayingId)
+        console.log(focusedTitle)
+        console.log(sayingTitles)
       }
       else {
         focusTitle(response.data.data.filteredSaying[0].content);
@@ -95,12 +98,20 @@ function MainPage(){
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
-        getLikeRankingPost(focusedSayingId);
+        console.log(sayingIds)
+        console.log(focusedSayingId)
+        console.log(focusedTitle)
+        console.log(sayingTitles)
       }
     } catch (err) {
       console.log(err);
     }
   };
+  /* 첫 렌더링일 시 해당 카테고리 명언 가져오기 */
+    if (isRendered === false){
+      getLikeRanking(category[page]);
+      renderingDone()
+    }  
   /* 좋아요순 게시물 */
   const getLikeRankingPost = async (focusedSayingId) => {
     try {
@@ -123,13 +134,6 @@ function MainPage(){
       console.log(err);
     }
   };
-
-
-  /* 첫 렌더링일 시 해당 카테고리 명언 가져오기 */
-  if (isRendered === false){
-    getLikeRanking(category[page]);
-    renderingDone()
-  }
   return (
     <div className={style.container}>
       {/* MainPageSaying 컴포넌트 */}
@@ -144,8 +148,8 @@ function MainPage(){
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강'),getLikeRanking('건강'),goHealthPage()}} 
                                             style={curCategory === '건강'
-                                           ?{backgroundColor:'#FFBF31',color:'white'}
-                                           :{backgroundColor:'white', color:'#404040'}}>건강</div>
+                                            ?{backgroundColor:'#FFBF31',color:'white'}
+                                            :{backgroundColor:'white', color:'#404040'}}>건강</div>
         <div className={style.category_study} onClick={()=>{setCategory('학습'),getLikeRanking('학습'),goStudyPage()}}
                                             style={curCategory === '학습'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
@@ -177,6 +181,7 @@ function MainPage(){
       </div>
        {isOpen&&<MainSayingMiniModal modalOff = {modalOff} clickLike = {clickLike} clickNew = {clickNew} />}
         {/* 게시물 묶음 */}   
+        <MainPageSaying/>
         <PostBox />
         <div className={style.footer}>
         {/* 푸터 */}   

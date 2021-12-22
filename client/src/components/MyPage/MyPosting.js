@@ -5,7 +5,7 @@ import MyPostingBox from './MyPostingBox';
 import { REACT_APP_API_URL } from '../../config';
 import {useEffect,useState} from 'react'
 import axios from 'axios';
-import Pagination from './Pagination';
+import MyPostPagination from '../Pagination/MyPostPagination';
 
 function MyPosting(){
 // const articles = useSelector((state) => state.mypage.articles);
@@ -18,12 +18,12 @@ const [postsPerPage,setPostsPerPage] = useState(6);
 useEffect(()=>{
     const fetchPosts = async () => {
         setLoading(true)
-     const res = await axios.get(
-         `${REACT_APP_API_URL}/user/myarticle`,
-         {withCredentials: true}
-         );
-      setPosts(res.data.data.filteredArticle);
-      setLoading(false);
+    const res = await axios.get(
+        `${REACT_APP_API_URL}/user/myarticle`,
+        {withCredentials: true}
+        );
+    setPosts(res.data.data.filteredArticle);
+    setLoading(false);
     }
     fetchPosts();
 },[])
@@ -38,14 +38,14 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
         <div id={style.changing_area}>
-         <div id={style.posts_wrap}>
-             <div className = {style.posts}>
-             <MyPostingBox posts={currentPosts} loading={loading}/>
-             </div>
-         </div>
-         <div id={style.pagenation_wrapper}>
-             <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
-         </div>
+        <div id={style.posts_wrap}>
+            <div className = {style.posts}>
+                <MyPostingBox posts={currentPosts} loading={loading}/>
+            </div>
+        </div>
+        <div id={style.pagenation_wrapper}>
+            <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+        </div>
         </div>
     )
 }
