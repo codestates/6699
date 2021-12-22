@@ -1,4 +1,15 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 80vh;
+  height: 60vh;
+  /* border: 1px solid blue; */
+}
+
 #post {
+  display: inline-block;
   background-position: center;
   background-size: 100%;
   width: 25vh;

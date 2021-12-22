@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-=======
+import style from './MyLikedSayingPagination.module.css';
 
->>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
-import style from './MyPostPagination.module.css'
-
-function Pagination ({postsPerPage,totalPosts, paginate}){
+function MyLikedSayingPagination({sayingsPerPage,totalPosts, paginate}){
   const pageNumbers = [];
 
-  for(let i=1; i <= Math.ceil(totalPosts/postsPerPage); i++){
+  for(let i=1; i <= Math.ceil(totalPosts/sayingsPerPage); i++){
     pageNumbers.push(i);
   }
 
@@ -26,4 +22,4 @@ function Pagination ({postsPerPage,totalPosts, paginate}){
   )
 }
 
-export default Pagination
+export default MyLikedSayingPagination;

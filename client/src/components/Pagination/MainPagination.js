@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
 import style from './MyPostPagination.module.css'
 
 function Pagination ({postsPerPage,totalPosts, paginate}){

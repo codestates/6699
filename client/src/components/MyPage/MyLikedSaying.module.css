@@ -19,6 +19,11 @@
   /* border: 1px solid red; */
 }
 
+.saying_toggle {
+  width: 10vh;
+  height: 5vh;
+  border: 1px solid red;
+}
 .sayings {
   display: flex;
   justify-content: space-around;
