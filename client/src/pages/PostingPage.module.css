@@ -17,7 +17,7 @@
 }
 
 .jumbotron {
-  background-image: url("../../src/images/posting-jumbotron.png");
+  background-image: url("../../src/images/posting-health.png");
   background-position: center;
   background-size: cover;
   justify-content: center;
@@ -95,13 +95,12 @@
   left: 67vh;
 }
 
-#setting {
+.setting_toggle {
   background-image: url("../../src/images/tripledot.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 3vh;
   height: 3vh;
-  opacity: 50%;
   /* border: 1px solid red; */
   position: absolute;
   right: 67vh;
@@ -110,6 +109,7 @@
   font-size: 25pt;
   color: rgb(20, 20, 20);
   text-align: center;
+  z-index: 888;
 }
 
 #image {
@@ -224,55 +224,6 @@
   /* border: 1px solid red; */
 }
 
-.comment_writting_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vh;
-  height: 13vh;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-}
-
-#writting_comment_border {
-  position: absolute;
-  width: 65vh;
-  height: 10vh;
-  /* border: 1px solid orange; */
-}
-
-#user_image {
-  background-image: url("../../src/images/Kkobugi.png");
-  background-size: 100%;
-  width: 8vh;
-  height: 8vh;
-  position: relative;
-  top: 10px;
-  left: 10px;
-}
-
-#writting_comment_border > p {
-  /*나꼬북으로 댓글달기*/
-  position: relative;
-  top: -65px;
-  left: 110px;
-  font-size: 14pt;
-  color: #7c7c7c;
-}
-
-#make_comment {
-  /*게시하기*/
-  width: 8vh;
-  height: 3vh;
-  background-color: transparent;
-  position: relative;
-  top: 5vh;
-  left: 28vh;
-  color: #7c7c7c;
-  font-size: 11pt;
-  border: 0;
-}
-
 .posted_comment_container {
   display: flex;
   justify-content: center;
@@ -318,26 +269,6 @@
   text-align: center;
   color: #2c2c2c;
   /* border: 1px solid blue; */
-}
-
-.posted_comment_container2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vh;
-  height: 13vh;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-}
-
-#user_image3 {
-  background-image: url("../../src/images/neoburi.png");
-  background-size: 100%;
-  width: 8vh;
-  height: 8vh;
-  position: relative;
-  top: 10px;
-  left: 10px;
 }
 
 #comment_created_at {

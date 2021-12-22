@@ -28,11 +28,17 @@ import {minus, plus} from '../../store/LandingSlice';
 import {useSelector, useDispatch } from 'react-redux';
 
 import {Link} from 'react-router-dom';
+import { setIsRendered } from '../../store/MainSlice'
 
 function Saying(){
   const page = useSelector(state => state.landing.page);
+  const isRendered = useSelector(state => state.main.isRendered);
   const dispatch = useDispatch();
 
+  /* 렌더링 상태 초기화 함수 */
+  function renderingNone(){
+    dispatch(setIsRendered(false))
+  }
   function plusCount(){
     dispatch(plus());
   }
@@ -54,9 +60,11 @@ function Saying(){
     page < 5
     &&plusCount();
   }
+  /* 메인페이지 렌더링 기록 있을 시 초기화 */
+  if (isRendered === true) renderingNone();
 return (
   <div className={style.container} >
-     {/* 대문, store.page에 따라 이미지 변경 */}
+     {/* 대문, landing.page에 따라 이미지 변경 */}
     <div className={style.jumbotron} style={{backgroundImage:`url(${jumboImage[page]})`}}>
       <div className={style.left_arrow} onClick={leftClick}/>
       <div className={style.right_arrow} onClick={rightClick}/>
@@ -66,7 +74,7 @@ return (
       <div className={style.saying}>{page
        ?data.saying[page]:data.saying[page]}</div></Link>
 
-      {/* 슬라이드바, store.page에 따라 색상 변경 */}
+      {/* 슬라이드바, landing.page에 따라 색상 변경 */}
       <div className={style.slidebar} >
         <div className={style.bid1} style={page === 1
                                            ?{backgroundColor:'#FFBF31'}
@@ -87,7 +95,7 @@ return (
                                            :{backgroundColor:'white'}}/>
       </div>
     </div>
-    {/* 인증글, store.page에 따라 이미지, 글귀 변경 */}
+    {/* 인증글, landing.page에 따라 이미지, 글귀 변경 */}
     <div className={style.example1}>
         <div className={style.ex1_image} style={{backgroundImage:`url(${ex1Image[page]})`}}/>
         <div className={style.ex1_mention}>
@@ -109,12 +117,4 @@ return (
   </div>
  )
 }
-
-function mapDispatchToProps(dispatch){ 
-  return {
-    plusCount: () => dispatch(plus()),
-    minusCount: () => dispatch(minus())
-  };
-};
-
 export default Saying;

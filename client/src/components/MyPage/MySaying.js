@@ -1,45 +1,52 @@
 import style from './MySaying.module.css'
-import MyPagePagenation from './MyPagePagenation'
+import MySayingPagination from '../Pagination/MySayingPagination'
 import MySayingBox from './MySayingBox';
-import {useState} from 'react'
-function MySaying(){ /*나의 명언*/
-const [saying,setSaying] = useState([]);
-
-    // const getSaying = async () => {
-    //     try {
-    //       const response = await axios.get(
-    //         `${REACT_APP_API_URL}/:sayingId`,
-    //         { withCredentials: true }
-    //       );
+import {useState,useEffect} from 'react'
+import{setSayings} from '../../store/MySlice'
+import{useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
+import {REACT_APP_API_URL} from '../../config'
+function MySaying(){
+const dispatch = useDispatch();
+const {sayings} = useSelector((state) => state.mypage)
+const [loading,setLoading] = useState(false);
+const [currentPage,setCurrentPage] = useState(1);
+const [sayingsPerPage,setSayingsPerPage] = useState(4);
     
-    //       setSaying(response.data.filteredSaying);
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   };
+useEffect(()=>{
+    const fetchPosts = async () => {
+        setLoading(true)
+     const res = await axios.get(
+         `${REACT_APP_API_URL}/user/mysaying`,
+         {withCredentials: true}
+         )
+         console.log(res.data)
+         if(res.data){
+             if(res.data.data.filteredSaying){
+      dispatch(setSayings(res.data.data.filteredSaying))
+      setLoading(false);
+             }
+         }
+    }
+    fetchPosts();
+},[])
 
-    //   const handleDelete = async (e) => {
-    //     const postId = e.target.id;
-    //     try {
-    //       await axios.delete(`${REACT_APP_API_URL}/posts/${postId}`, {
-    //         withCredentials: true
-    //       });
-    //       getSaying();
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   };
+//Get current posts
+const indexOfLastSaying = currentPage * sayingsPerPage;
+const indexOfFirstSaying = indexOfLastSaying - sayingsPerPage;
+const currentSayings = sayings.slice(indexOfFirstSaying,indexOfLastSaying);
+
+//Change page
+const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
-        <div className={style.container}>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <MySayingBox/>
-        <div className={style.pagenation_wrapper}>
-        <MyPagePagenation/>
-        </div>
+        <div className={style.changing_area}>
+            <div id={style.sayings_wrap}>
+          <MySayingBox sayings={currentSayings} loading={loading}/>
+         </div>
+         <div className={style.pagenation_wrapper}>
+          <MySayingPagination sayingsPerPage={sayingsPerPage} totalPosts={sayings.length} paginate={paginate}/>
+         </div>
         </div>
     )
 }

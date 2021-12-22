@@ -1,31 +1,29 @@
-#changing_area {
+.changing_area {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   width: 100vh;
   height: 70vh;
   /* border: 1px solid orange; */
 }
 
-.box_wrapper {
+#sayings_wrap {
   display: flex;
-  justify-content: center;
-  width: 100vh;
-  height: 10vh;
-  /* border: 1px solid orange; */
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 90vh;
+  height: 65vh;
+  /* border: 1px solid red; */
 }
 
-.outer_wrapper {
+.pagenation_wrapper {
   display: flex;
-  justify-content: center;
-  width: 100vh;
+  flex-direction: row;
+  width: 90vh;
   height: 5vh;
-  /* border: 1px solid yellowgreen; */
-}
-
-#pagenation_wrapper {
-  width: 13vh;
-  height: 5vh;
+  position: absolute;
+  bottom: 0;
   /* border: 1px solid blue; */
 }

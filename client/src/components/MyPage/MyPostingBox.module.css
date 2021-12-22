@@ -1,0 +1,29 @@
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vh;
+  height: 65vh;
+  /* border: 1px solid blue; */
+}
+
+#posts_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vh;
+  height: 60vh;
+  /* border: 1px solid green; */
+}
+
+#post {
+  display: inline-block;
+  background-position: center;
+  background-size: 100%;
+  width: 25vh;
+  height: 25vh;
+  padding-bottom: 25vh;
+  border: 1px solid black;
+  border-radius: 10px;
+}
