@@ -17,8 +17,10 @@ module.exports = {
       const userInfo = await users.findOne({ where: { email: email } });
       if(!userInfo) return res.status(200).json({ state: false, message: 'UserInfo Is Not Authorized!' });
 
+      delete userInfo.dataValues.password;
+
       // accessToken이 유효하고 사용자 정보가 올바른 경우 사용자 정보와 함께 리턴
-      res.status(200).json({ state: true, data: userInfo });
+      res.status(200).json({ state: true, data: { userInfo: userInfo } });
     } catch (err) {
       console.log(err);
       return res.status(500).json({ message: 'Server Error!' });
