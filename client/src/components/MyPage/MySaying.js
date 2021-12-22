@@ -1,5 +1,5 @@
 import style from './MySaying.module.css'
-import Pagination from './Pagination';
+import MyPostPagination from '../Pagination/MyPostPagination';
 import MySayingBox from './MySayingBox';
 import {useState} from 'react'
 import{setSayings} from '../../store/MySlice'
@@ -37,7 +37,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
         <div className={style.container}>
           <MySayingBox posts={currentSayings} loading={loading}/>
          <div className={style.pagenation_wrapper}>
-          <Pagenation sayingsPerPage={postsPerPage} totalPosts={sayings.length} paginate={paginate}/>
+          <MyPostPagination sayingsPerPage={postsPerPage} totalPosts={sayings.length} paginate={paginate}/>
          </div>
         </div>
     )

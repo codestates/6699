@@ -1,4 +1,4 @@
-import style from './Pagination.module.css'
+import style from './MainPagination.module.css'
 
 function Pagination ({postsPerPage,totalPosts, paginate}){
   const pageNumbers = [];
