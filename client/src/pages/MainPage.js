@@ -43,6 +43,9 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
+  console.log('메인페이지 / sayingIds :',sayingIds);
+  console.log('메인페이지 / idx :',index);
+
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
   const goHealthPage = () =>{dispatch(health())};
@@ -58,7 +61,6 @@ function MainPage(){
   const getFocusedSayingId = (sayingIds) =>{dispatch(setFocusedSayingId(sayingIds))};
   /* 인덱스 저장 함수 */
   const getIndex = (idx) =>{dispatch(setIndex(idx))};
-                                   
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */
@@ -74,9 +76,6 @@ function MainPage(){
 
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
-  
-
-
 
   const upSaying = () => {
     if ((index -1) > -1){

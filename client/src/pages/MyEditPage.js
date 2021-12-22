@@ -6,14 +6,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import DropaccountModal from '../components/MyPage/DropaccountModal.js';
 import ProfileImageModal from '../components/MyPage/ProfileImageModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
-import { REACT_APP_API_URL } from '../config'
-
+import { REACT_APP_API_URL } from '../config';
 
 function MyEditPage (){
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const { isLogin, userInfo } = useSelector((state) => state.auth);
     
     // auth를 통해서 받아온 유저정보
@@ -113,32 +111,6 @@ function MyEditPage (){
     //       }         
     // }, [inputNickname])
 
-    // 로그아웃 handler
-    const handleLogout = async () => {
-        try {
-          await axios.post(
-            `${REACT_APP_API_URL}/user/logout`,
-            {},
-            { withCredentials: true }
-          );
-          dispatch(logout());
-          navigate('/');
-        } catch (err) {
-          console.log(err);
-        }
-      }
-
-    // 고양이 삭제 모달 handler
-    const handleDropaccountModal = () => {
-        SetDropaccountModalState(!DropaccountModalState)
-    }
-    // 프로필 변경 모달 handler
-    const handleProfileImage = (e) => {
-      SetProfileImageModalState(!ProfileImageModalState)
-
-      console.log("프로필 변경 모달!")
-    }
-    
     // 프로필 변경 handler
     const handleProfileEdit = async () => {
         if(completePasswordCheck && confirmPasswordCheck) {
@@ -146,18 +118,31 @@ function MyEditPage (){
                 // response 변수에 서버 응답결과를 담는다
                 const response = await axios.patch(
                     `${REACT_APP_API_URL}/user/me`,
+                    // { 
+                    //     email: `${email}`,
+                    //     password: `${inputPassWord}`,
+                    //     username: `${inputNickname}`,
+                    //     image: `${image}`,
+                    //     introduction: `${inputIntro}`
+                    // },
                     { 
-                        email: `${email}`,
-                        password: `${inputPassWord}`,
-                        username: `${inputNickname}`,
-                        image: `${image}`,
-                        introduction: `${inputIntro}`
-                    },
+                      password: `${inputPassWord}`,
+                      username: `${inputNickname}`,
+                      introduction: `${inputIntro}`
+                  },
                     { withCredentials: true }
                     )
                     
                     // 서버의 응답결과에 data가 들어있다면 프로필 변경 성공
                     if(response.data) {
+                      // 주의(질문)!!! 변경된 패스워드를 dispatch해줄 필요가 있는가?!
+                      dispatch(getUserInfo({
+                        username: response.data.data.userInfo.username,
+                        image: response.data.data.userInfo.image,
+                        introduction: response.data.data.userInfo.introduction
+                      }))
+
+                      console.log("프로필 변경 완료 확인:", response.data.data.userInfo)
                         alert('𝟲𝟲𝟵𝟵\n프로필 변경이 완료했습니다! 😖')
                         // 프로필 변경이 완료된 후, 마이페이지로 이동
                         navigate('/mypage');
@@ -195,12 +180,32 @@ function MyEditPage (){
                 }
             }
         }
-        
+        // 로그아웃 handler
+        const handleLogout = async () => {
+          try {
+            await axios.post(
+              `${REACT_APP_API_URL}/user/logout`,
+              {},
+              { withCredentials: true }
+              );
+              dispatch(logout());
+              navigate('/');
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        // 고양이 삭제 모달 handler
+        const handleDropaccountModal = () => {
+          SetDropaccountModalState(!DropaccountModalState)
+        }
+        // 프로필 변경 모달 handler
+        const handleProfileImage = (e) => {
+          SetProfileImageModalState(!ProfileImageModalState)
+        }
         // 닉네임 중복 확인
         const checkNickname = (e) => {
             setInputNickname(e.target.value)                    
         };
-
         // 비밀번호 유효성 검사
         const passwordValidCheck = (e) => {
             setInputPassword(e.target.value)
@@ -213,50 +218,50 @@ function MyEditPage (){
         const handleIntro = (e) => {
             setInputIntro(e.target.value)
         }
+        //
         const handleProfileEditBtn = (e) => {
           handleProfileEdit()
         }
+        //
         const handleProfileEditEnter = (e) => {
           if(e.key === 'Enter') handleProfileEdit()
         }
 
-         /******** 이미지 업로드 테스트 ************/
-        const [content, setContent] = useState('')
+        //  /******** 이미지 업로드 테스트 ************/
+        // const [content, setContent] = useState('')
 
-        // 이미지 파일 선택
-        const onChange = (e) => {
-          console.log(e.target.files)
-          setContent(e.target.files[0]);
-        }
+        // // 이미지 파일 선택
+        // const onChange = (e) => {
+        //   console.log(e.target.files)
+        //   setContent(e.target.files[0]);
+        // }
 
-        // 이미지 업로드
-        const onSubmit = async (e) => {
+        // // 이미지 업로드
+        // const onSubmit = async (e) => {
 
-          e.preventDefault();
-          const formData = new FormData();
-          formData.append('img', content, content.name);
+        //   e.preventDefault();
+        //   const formData = new FormData();
+        //   formData.append('img', content, content.name);
 
-          const response = await axios.post(`${REACT_APP_API_URL}/upload`, formData, {
-            headers: {
-              'Content-Type' : 'multipart/form-data'
-            }
-          })
+        //   const response = await axios.post(`${REACT_APP_API_URL}/upload`, formData, {
+        //     headers: {
+        //       'Content-Type' : 'multipart/form-data'
+        //     }
+        //   })
           
-          console.log("확인:", response.data.data.img)
+        //   console.log("확인:", response.data.data.img)
 
-          const image = response.data.data.img
+        //   const image = response.data.data.img
 
-          if(response.data) {
-            await axios.post(`${REACT_APP_API_URL}/user/picture`, 
-            { image: image },
-            { withCredentials: true }
-            );
-          }
-        }
+        //   if(response.data) {
+        //     await axios.post(`${REACT_APP_API_URL}/user/picture`, 
+        //     { image: image },
+        //     { withCredentials: true }
+        //     );
+        //   }
+        // }
 
-        console.log("이미지 url 확인!!!", image)
-
-        /******** 이미지 업로드 테스트 ************/
+        // /******** 이미지 업로드 테스트 ************/
 
   return (
     <div id={style.container}>
@@ -269,7 +274,6 @@ function MyEditPage (){
             <div id={style.user_mini_wrapper}>
               {/* 프로필 이미지 및 카메라 사진*/}
 
-              {/* 주의!!! DB에서 image 데이터타입을 string으로 바꿔야함! */}
               <img
                 id={style.profile_image}
                 src={`${REACT_APP_API_URL}/${image}`} 
@@ -288,38 +292,14 @@ function MyEditPage (){
 
         {/* <div id={style.message_wrapper}> */}
             {/* 프로필 자기소개 (introduction) */}
-              {/* <div id={style.message}>
+              <div id={style.message}>
                   <input 
                   id={inputIntro === null ? style.introduction_null : style.introduction }
                   value={inputIntro}
                   onChange={handleIntro} 
                   />
-              </div> */}
+              </div>
 
-              
-
-
-              {/* 이미지 업로드 테스트  */}
-              <div>
-                  <input name='img'
-                         type='file'
-                         id='customFile'
-                         onChange={onChange} />
-                   {/* <button 
-                      id={style.upload}
-                      value='Upload'
-                      onChange={onSubmit}>
-                   </button> */}
-                   <div
-                    id={style.upload}> 
-                   <button 
-                      id={style.btn1}
-                      onClick={onSubmit}>
-                      업로드
-                   </button>
-                   </div>
-                </div>
-        {/* </div> */}
         
         {/* 프로필 설정 및 로그아웃 버튼 */}
            <div className = {style.buttons_1}>

@@ -64,13 +64,37 @@
   transform: translate(-50%, -57%);
 }
 
+#preview_camera{
+  position: absolute;
+  display:flex;
+  background-size:100% 100%;
+  background-position: center;
+  border-radius:20px;
+  width:45vh;
+  height:45vh;
+  left:50%;
+  transform: translate(-50%, 0%);
+}
+
+#preview_image{
+  position: absolute;
+  display:flex;
+  background-size:100% 100%;
+  background-position: center;
+  border-radius:20px;
+  width:40vh;
+  height:40vh;
+  left:50%;
+  transform: translate(-50%, -3%);
+}
+
 #catimage{
   position: absolute;
   display:flex;
   background-size:100% 100%;
   background-position: center;
   border-radius:20px;
-  background-image: url('../../images/iOS 14.jpeg');
+  /* background-image: url('../../images/iOS 14.jpeg'); */
   width:100%;
   height: 100%;
   left:50%;

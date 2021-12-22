@@ -10,13 +10,18 @@ import MyLikedSaying from '../components/MyPage/MyLikedSaying'
 import React, { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
+import {setIsPost} from '../store/MySlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
+import Footer from '../components/Footer';
 
 function MyPage(){
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { isFocus } = useSelector((state) => state.mypage)
+const dispatch = useDispatch();
+const navigate = useNavigate();
+//카테고리 탭에서 어떤 탭을 눌렀는지 여부
+const { isFocus } = useSelector((state) => state.mypage)
+//토글에서 게시물 눌렀는지 여부
+const {isPost} = useSelector((state) => state.mypage)
     
     const handleLogout = async () => {
       try {
@@ -34,6 +39,7 @@ function MyPage(){
     
     return (
         <div id={style.container}>
+          <div id = {style.under_container}>
             {/*왼쪽 사용자 영역*/}
          <div id={style.user_container}>
           <div id={style.user_profile_wrapper}>
@@ -78,13 +84,19 @@ function MyPage(){
           (<MySaying/>):(null)}
           {isFocus === 'comment' ? 
           (<MyComment/>):(null)}
-          {/* {isFocus === 'like' ? 
-          (<MyLikedPosting/>):(null)} */}
-          {isFocus === 'like' ? 
+          {isFocus === 'like' && isPost === true? 
+          (<MyLikedPosting/>):(null)}
+          {isFocus === 'like' && isPost === false? 
           (<MyLikedSaying/>):(null)}
          </div>
         </div>
 
+         </div>
+         </div> {/*유저컨테이너 + 포스팅 컨테이너 묶음*/}
+
+
+         <div id={style.footer_wrapper}>
+         <Footer/>
          </div>
         </div>
     )

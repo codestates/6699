@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
   articles.init({
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    image: DataTypes.BLOB,
+    image: DataTypes.STRING,
     total_like: DataTypes.INTEGER,
     total_comment: DataTypes.INTEGER,
     view: DataTypes.INTEGER,
