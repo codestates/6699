@@ -21,12 +21,9 @@ import React, { useState } from 'react';
 import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice';
-import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew } from '../store/MainSlice';
+import { setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
-import postData from '../components/MainPage/MainPostingDummy';
-import sayingData from '../components/MainPage/MainSayingDummy';
-
 
 function MainPage(){
   const likes = useSelector(state =>state.main.likes);
@@ -38,6 +35,7 @@ function MainPage(){
   const sayingIds = useSelector(state => state.main.sayingIds);
   const posts = useSelector(state => state.main.posts);
   const likeOrNew = useSelector(state => state.main.likeOrNew);
+  const index = useSelector(state => state.main.index);
 
   let categoryImage = [category_all, category_health, category_study, category_economy, category_relationship, category_love];
   let category = ['전체','건강', '학습', '경제', '인간관계', '사랑']
@@ -57,7 +55,9 @@ function MainPage(){
   /* 렌더링 상태 변경 함수 */
   const renderingDone = () => {dispatch(setIsRendered(true))};
   /* 포커싱된 sayingId 갱신 함수 */
-  const getFocusedSayingId = (sayingId) =>{dispatch(setFocusedSayingId(sayingId))};
+  const getFocusedSayingId = (sayingIds) =>{dispatch(setFocusedSayingId(sayingIds))};
+  /* 인덱스 저장 함수 */
+  const getIndex = (idx) =>{dispatch(setIndex(idx))};
                                    
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
@@ -66,7 +66,7 @@ function MainPage(){
   /* 좋아요 수집 함수 */
   const getLikes = (likes) =>{dispatch(setLikes(likes))};
   /* sayingId 수집 함수 */
-  const getSayingId = (sayingId) => {dispatch(setSayingIds(sayingId))};
+  const getSayingId = (sayingIds) => {dispatch(setSayingIds(sayingIds))};
   /* 게시물 수집 함수 */
   const getPosts = (posts) => {dispatch(setPosts(posts))};
   /* 모달 ON,OFF state */
@@ -75,24 +75,47 @@ function MainPage(){
   const [isOpen,setIsOpen] = useState(false);
   const [isLikeNew,setLikeNew] = useState('좋아요순');
   
+
+
+
+
+
+
+  /***********     정현님께!!!!!   ********************/
+
+  /* sayingIds: (mainSlice에 들어있는 sayingId들 넣는 배열 */
+
+  /* getfocusedSayingId: (현재 포커싱된 sayingId를 넣으면 게시물과 현재 위치가 갱신됩니다.)
+
+  /* 메인페이지에서 랭킹을 받아올 때 index의 초기값은 0으로 설정됩니다. */
+
+  /* 랭킹 페이지에서 받아올 때에는 현재 선택한 명언 id를 따로 받아와서 
+  
+  /* 메인페이지의 sayingIds.indexOf(선택한명언id) 값을 getIndex(index)에 넣어준 뒤 */
+
+  /* getFocusedSayingId(sayingIds[index]) 해주시면 게시물과 현재 위치가 갱신될겁니다! */
+
+  /**************************************************/
+  
+
+
+
+
+
   const upSaying = () => {
-    if ((sayingTitles.indexOf(focusedTitle)-1) > -1){
-      getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)-1]);
-      getFocusedSayingId(sayingId[sayingTitles.indexOf(focusedTitle)-1]);
-      console.log(sayingIds)
-      console.log(focusedSayingId)
-      console.log(focusedTitle)
-      console.log(sayingTitles)
+    if ((index -1) > -1){
+      getIndex(index-1);
+      getFocusedSayingId(sayingIds[index]);
+      getFocusedTitle(sayingTitles[index]);
+      console.log(index);
     }
   }
   const downSaying = () => {
-    if ((sayingTitles.indexOf(focusedTitle)+1) < sayingTitles.length){
-      getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)+1]);
-      getFocusedSayingId(sayingId[sayingTitles.indexOf(focusedTitle)+1]);
-      console.log(sayingIds)
-      console.log(focusedSayingId)
-      console.log(focusedTitle)
-      console.log(sayingTitles)
+    if ((index+1) <= sayingIds.length){
+      getIndex(index+1);
+      getFocusedSayingId(sayingIds[index]);
+      getFocusedTitle(sayingTitles[index]);
+      console.log(index);
     }
   }
 
@@ -116,6 +139,7 @@ function MainPage(){
         getLikes(response.data.data.allSaying.map((el)=>{return el.total_like}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
+        getIndex(0);
         console.log(sayingIds)
         console.log(focusedSayingId)
       }
@@ -123,6 +147,7 @@ function MainPage(){
         getFocusedTitle(response.data.data.filteredSaying[0].content);
         getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
+        getIndex(0);
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
         console.log(sayingIds)
@@ -165,27 +190,39 @@ function MainPage(){
         <div className={style.category_bar}>
         
         {/* 현재페이지(curPage)에 따라 색 변경 */}   
-        <div className={style.category_all} onClick={()=>{setCategory('전체'),getLikeRanking('전체'), goAllPage()}}
+        <div className={style.category_all} onClick={()=>{setCategory('전체')
+                                                          getLikeRanking('전체')
+                                                          goAllPage()}}
                                             style={curCategory === '전체'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
-        <div className={style.category_health} onClick={()=>{setCategory('건강'),getLikeRanking('건강'),goHealthPage()}} 
+        <div className={style.category_health} onClick={()=>{setCategory('건강')
+                                                             getLikeRanking('건강')
+                                                            goHealthPage()}} 
                                             style={curCategory === '건강'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>건강</div>
-        <div className={style.category_study} onClick={()=>{setCategory('학습'),getLikeRanking('학습'),goStudyPage()}}
+        <div className={style.category_study} onClick={()=>{setCategory('학습')
+                                                            getLikeRanking('학습')
+                                                            goStudyPage()}}
                                             style={curCategory === '학습'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>학습</div>
-        <div className={style.category_economy} onClick={()=>{setCategory('경제'),getLikeRanking('경제'),goEconomyPage()}}
+        <div className={style.category_economy} onClick={()=>{setCategory('경제')
+                                                              getLikeRanking('경제')
+                                                              goEconomyPage()}}
                                             style={curCategory === '경제'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>경제</div>
-        <div className={style.category_relationship} onClick={()=>{setCategory('인간관계'),getLikeRanking('인간관계'),goRelationshipPage()}}
+        <div className={style.category_relationship} onClick={()=>{setCategory('인간관계')
+                                                                  getLikeRanking('인간관계')
+                                                                  goRelationshipPage()}}
                                             style={curCategory === '인간관계'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>인간관계</div>
-        <div className={style.category_love} onClick={()=>{setCategory('사랑'),getLikeRanking('사랑'),goLovePage()}}
+        <div className={style.category_love} onClick={()=>{setCategory('사랑')
+                                                            getLikeRanking('사랑')
+                                                            goLovePage()}}
                                             style={curCategory === '사랑'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>사랑</div>
