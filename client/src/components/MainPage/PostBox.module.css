@@ -16,12 +16,11 @@
 #posts_wrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   width: 150vh;
   height: 100vh;
-  /* border: 1px solid red; */
 }
 
 .posts {
@@ -36,11 +35,10 @@
   position:absolute;
   display: flex;
   flex-direction: row;
-  width: 100vh;
+  justify-content:center;
+  width: 50vh;
   height: 5vh;
-  transform: translate(0%,-20%);
-  bottom:-4%;
-  /* border: 1px solid red; */
+  bottom:5%;
 }
 
 

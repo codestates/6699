@@ -24,9 +24,14 @@ function PostBox(){
        const res = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
            {withCredentials: true}
            );
+        if (res.data.data.articleInfo.length > 0){
         setPosts(res.data.data.articleInfo);
-        setLoading(false);
-      }
+        setLoading(false)}
+        else {
+        setPosts([])
+        console.log(res.data.data.articleInfo);
+        setLoading(false)}
+        }
       fetchPosts();
   },[focusedSayingId])
   
