@@ -15,14 +15,22 @@ function MainPostingBox({posts,loading}){
       <ul>
       {posts.map(post => (
         <li key ={post.id} id={style.post}>
-          {post.title}
+          <div>
+             <div className={style.thumbnail}>
+               {post.title}
+            </div>
+          </div>
+          <div className={style.likeBox}>
+              <div className={style.likeHeart}/>
+              <div className={style.likeNumber}>{post.total_like}</div>
+          </div>
         </li>
       ))}
       </ul>
     )
     }else return (
     <div className = {style.noPost}>
-      게시물이 없습니다.
+      해당 명언의 게시물이 없습니다. 😢
     </div>)
 }
 export default MainPostingBox;

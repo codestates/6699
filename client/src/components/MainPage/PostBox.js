@@ -8,9 +8,10 @@ import axios from 'axios';
 import MainPagination from '../../components/Pagination/MainPagination';
 
 function PostBox(){
+
   const likeOrNew = useSelector(state => state.main.likeOrNew)
   const getPosts = (data) =>{setPosts(data)};
-  const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
+  const { isRendered, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // const articles = useSelector((state) => state.mypage.articles);
   const dispatch = useDispatch();
   const [posts,setPosts] = useState([]);
@@ -21,7 +22,7 @@ function PostBox(){
   useEffect(()=>{
       const fetchPosts = async () => {
           setLoading(true)
-       const res = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
+       const res = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=${likeOrNew}`,
            {withCredentials: true}
            );
         if (res.data.data.articleInfo.length > 0){
@@ -33,7 +34,7 @@ function PostBox(){
         setLoading(false)}
         }
       fetchPosts();
-  },[focusedSayingId])
+  },[focusedSayingId,likeOrNew])
   
   //Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
@@ -42,12 +43,11 @@ function PostBox(){
   
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  
       return (
           <div id={style.changing_area}>
            <div id={style.posts_wrap}>
                <div className = {style.posts}>
-               <MainPostingBox posts={currentPosts} loading={loading}/>
+               <MainPostingBox posts={currentPosts} loading={loading} paginate={paginate}/>
                </div>
            </div>
            <div id={style.pagenation_wrapper}>

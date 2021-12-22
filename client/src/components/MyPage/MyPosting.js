@@ -14,6 +14,8 @@ const [loading,setLoading] = useState(false);
 const [currentPage,setCurrentPage] = useState(1);
 const [postsPerPage,setPostsPerPage] = useState(6);
 
+//상태슬라이스 추가, 조건 걸어서 데이터 들어오면 true로 바꿔주고
+//if (상태 슬라이스 === false){
 useEffect(()=>{
     const fetchPosts = async () => {
         setLoading(true)
@@ -21,17 +23,22 @@ useEffect(()=>{
         `${REACT_APP_API_URL}/user/myarticle`,
         {withCredentials: true}
         );
-    dispatch(setPosts(res.data.data.filteredArticle))
-    setLoading(false);
+
+      if(res.data.data.filteredArticle){
+          dispatch(setPosts(res.data.data.filteredArticle))
+          setLoading(false);
+        }
     }
     fetchPosts();
 },[])
-
+//}
 //Get current posts
 const indexOfLastPost = currentPage * postsPerPage;
 const indexOfFirstPost = indexOfLastPost - postsPerPage;
-const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
+console.log(posts);
 
+const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
+console.log(currentPosts)
 //Change page
 const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -39,13 +46,15 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
         <div id={style.changing_area}>
         <div id={style.posts_wrap}>
             <div className = {style.posts}>
-                <MyPostingBox posts={currentPosts} loading={loading}/>
+                {/* {currentPosts&&
+                <MyPostingBox posts={currentPosts} loading={loading}/>} */}
             </div>
         </div>
         <div id={style.pagenation_wrapper}>
-            <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+            {/* <MyPostPagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/> */}
         </div>
         </div>
     )
 }
+
 export default MyPosting;
