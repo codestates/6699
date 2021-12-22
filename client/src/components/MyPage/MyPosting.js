@@ -31,7 +31,7 @@ useEffect(()=>{
     }
     fetchPosts();
 },[])
-//}
+
 //Get current posts
 const indexOfLastPost = currentPage * postsPerPage;
 const indexOfFirstPost = indexOfLastPost - postsPerPage;

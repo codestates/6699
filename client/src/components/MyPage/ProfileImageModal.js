@@ -9,15 +9,11 @@ import { REACT_APP_API_URL } from '../../config';
 
 function ProfileImageModal({ handleProfileImage }){
 
+  let resGet = ''
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLogin, userInfo } = useSelector((state) => state.auth);
-
-  console.log("프로필 이미지 모달 userInfo 확인:", userInfo)
-  console.log("프로필 이미지 모달 userInfo.username 확인:", userInfo.username)
-  console.log("프로필 이미지 모달 userInfo.image 확인:", userInfo.image)
-
-  
 
   /******** 이미지 업로드 테스트 ************/
   const [content, setContent] = useState('')
@@ -36,7 +32,7 @@ function ProfileImageModal({ handleProfileImage }){
               'Content-Type' : 'multipart/form-data'
             }
           })
-          setPreview(response.data.data.img)
+          setPreview(response.data.result.key)
           SetPreviewCamera(false)
     } 
   }, [content])
@@ -104,6 +100,7 @@ function ProfileImageModal({ handleProfileImage }){
              className={style.imgfind}
              onChange={onChange} />
 
+
         {/* preview 이미지: 이미지를 클릭하기전에는 default 카메라 이미지 / 이미지를 선택한 후는 해당 이미지를 띄운다 */}
         {previewCamera 
           ?
@@ -115,7 +112,9 @@ function ProfileImageModal({ handleProfileImage }){
           <img
           id={style.preview_image}
           alt='sample'
-          src={`${REACT_APP_API_URL}/${preview}`}/>
+          // src={`${REACT_APP_API_URL}/${preview}`}
+          src={`${REACT_APP_API_URL}/upload/${preview}`}
+          />
         }
 
         {/* --------- 여기부터, 저장하기 취소 버튼 --------- */}
