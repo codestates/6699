@@ -45,7 +45,6 @@ function MainPage(){
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
 
-
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
   const goHealthPage = () =>{dispatch(health())};
@@ -55,8 +54,6 @@ function MainPage(){
   const goLovePage = () => {dispatch(love())};
   /***************/
 
-
-  
   /* 렌더링 상태 변경 함수 */
   const renderingDone = () => {dispatch(setIsRendered(true))};
   /* 포커싱된 sayingId 갱신 함수 */
@@ -81,6 +78,7 @@ function MainPage(){
   const upSaying = () => {
     if ((sayingTitles.indexOf(focusedTitle)-1) > -1){
       getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)-1]);
+      getFocusedSayingId(sayingId[sayingTitles.indexOf(focusedTitle)-1]);
       console.log(sayingIds)
       console.log(focusedSayingId)
       console.log(focusedTitle)
@@ -90,6 +88,7 @@ function MainPage(){
   const downSaying = () => {
     if ((sayingTitles.indexOf(focusedTitle)+1) < sayingTitles.length){
       getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)+1]);
+      getFocusedSayingId(sayingId[sayingTitles.indexOf(focusedTitle)+1]);
       console.log(sayingIds)
       console.log(focusedSayingId)
       console.log(focusedTitle)
@@ -107,12 +106,10 @@ function MainPage(){
                            setLikeOrNew('new');
   const modalOff = () => {setIsOpen(false)}
 
-
   const getLikeRanking = async (curCategory) => {
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${curCategory}`,
       {withCredentials: true});
-
       if (response.data.data.allSaying) {
         getFocusedTitle(response.data.data.allSaying[0].content);
         getTitles(response.data.data.allSaying.map((el)=>{return el.content}));
@@ -123,7 +120,7 @@ function MainPage(){
         console.log(focusedSayingId)
       }
       else {
-        getFocusTitle(response.data.data.filteredSaying[0].content);
+        getFocusedTitle(response.data.data.filteredSaying[0].content);
         getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
@@ -196,7 +193,7 @@ function MainPage(){
       </div>
       <div>
         {/* 좋아요,최신순 토글 */}
-        <div className={style.like_box}>
+        <div className={style.liketoggle_box}>
           <div className = {style.toggle} onClick={()=> {
             !isOpen
             ?setIsOpen(true)
@@ -209,6 +206,12 @@ function MainPage(){
         {/* 게시물 묶음 */}
 
      {/* Like Box Zone */}
+    <div className={style.like_box}>
+      <div className={style.profile}/>
+      <div className={style.heart_icon}/>
+      <div className={style.like_count}>{likes[sayingTitles.indexOf(focusedTitle)]}</div>
+    </div>
+
       {/* jumbotron 이미지 현재페이지에 따라 꺼내옴  */}
     <div className={style.jumbotron} style={{backgroundImage : `url(${categoryImage[page]})`}}>
         {/* Sub Zone */}
