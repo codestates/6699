@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { REACT_APP_API_URL } from '../config';
 import { useSelector, useDispatch } from 'react-redux';
 import DropaccountModal from '../components/MyPage/DropaccountModal.js';
+import ProfileImageModal from '../components/MyPage/ProfileImageModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 
 
@@ -20,7 +21,9 @@ function MyEditPage (){
     const { id, email, username, image, introduction } = userInfo
     
     // 고양이 삭제 모달 state
-    const [ DropaccountModalState, SetDropaccountModalState ] = useState(false)
+    const [DropaccountModalState, SetDropaccountModalState] = useState(false)
+    // 프로필 변경 모달 state
+    const [ProfileImageModalState, SetProfileImageModalState] = useState(false)
         
     /*유효성 검사 상태*/
     // 닉네임 변경 input
@@ -130,6 +133,12 @@ function MyEditPage (){
     const handleDropaccountModal = () => {
         SetDropaccountModalState(!DropaccountModalState)
     }
+    // 프로필 변경 모달 handler
+    const handleProfileImage = (e) => {
+      SetProfileImageModalState(!ProfileImageModalState)
+
+      console.log("프로필 변경 모달!")
+    }
     
     // 프로필 변경 handler
     const handleProfileEdit = async () => {
@@ -212,74 +221,106 @@ function MyEditPage (){
           if(e.key === 'Enter') handleProfileEdit()
         }
 
+         /******** 이미지 업로드 테스트 ************/
         const [content, setContent] = useState('')
 
-        /* 이미지 업로드 테스트 */
+        // 이미지 파일 선택
         const onChange = (e) => {
-
+          console.log(e.target.files)
           setContent(e.target.files[0]);
         }
 
-        const onSubmit = (e) => {
+        // 이미지 업로드
+        const onSubmit = async (e) => {
+
           e.preventDefault();
           const formData = new FormData();
-          formData.append('img', content);
+          formData.append('img', content, content.name);
 
-          axios.post('http://localhost:8080/upload', formData, {
+          const response = await axios.post('http://localhost:8080/upload', formData, {
             headers: {
               'Content-Type' : 'multipart/form-data'
             }
           })
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log('fail!!!')
-            console.log(err)
-          })
+          
+          console.log("확인:", response.data.data.img)
+
+          const image = response.data.data.img
+
+          if(response.data) {
+            await axios.post('http://localhost:8080/user/picture', 
+            { image: image },
+            { withCredentials: true }
+            );
+          }
         }
 
+        console.log("이미지 url 확인!!!", image)
+
+        /******** 이미지 업로드 테스트 ************/
+
   return (
-
-    
-
     <div id={style.container}>
+      {/* 회원탈퇴 모달 (고양이) */}
       {DropaccountModalState ? <DropaccountModal handleDropaccountModal={handleDropaccountModal}/> : null}
+      {/* 프로필 사진 변경 모달 */}
+      {ProfileImageModalState ? <ProfileImageModal handleProfileImage={handleProfileImage}/> : null}
         <div id={style.user_container}>
           <div id={style.user_profile_wrapper}>
             <div id={style.user_mini_wrapper}>
               {/* 프로필 이미지 및 카메라 사진*/}
-                <div id={style.profile_image}>
-                  <div id={style.profile_image_camera}></div>
-                </div>
 
-                {/* 이미지 업로드 테스트  */}
-                {/* <div>
-                  <input name='img'
-                         type='file'
-                         id='customFile'
-                         onChange={onChange} />
-                </div>
-                <div>
-                  <input type='submit' 
-                          value='Upload' />
-                </div> */}
+              {/* 주의!!! DB에서 image 데이터타입을 string으로 바꿔야함! */}
+              <img
+                id={style.profile_image}
+                src={`http://localhost:8080/${image}`} 
+                onClick={() => {handleProfileImage()}} />
+                              
+                {/* <div id={style.profile_image}> */}
+                  {/* <div id={style.profile_image_camera}></div> */}
+                {/* </div> */}
+
+                
 
               {/* 프로필 닉네임 */}
                 <div id={style.user_name}> {username} </div>
             </div>
           </div>
 
-        <div id={style.message_wrapper}>
+        {/* <div id={style.message_wrapper}> */}
             {/* 프로필 자기소개 (introduction) */}
-              <div id={style.message}>
+              {/* <div id={style.message}>
                   <input 
                   id={inputIntro === null ? style.introduction_null : style.introduction }
                   value={inputIntro}
                   onChange={handleIntro} 
                   />
-              </div>
-        </div>
+              </div> */}
+
+              
+
+
+              {/* 이미지 업로드 테스트  */}
+              <div>
+                  <input name='img'
+                         type='file'
+                         id='customFile'
+                         onChange={onChange} />
+                   {/* <button 
+                      id={style.upload}
+                      value='Upload'
+                      onChange={onSubmit}>
+                   </button> */}
+                   <div
+                    id={style.upload}> 
+                   <button 
+                      id={style.btn1}
+                      onClick={onSubmit}>
+                      업로드
+                   </button>
+                   </div>
+                </div>
+        {/* </div> */}
         
         {/* 프로필 설정 및 로그아웃 버튼 */}
            <div className = {style.buttons_1}>

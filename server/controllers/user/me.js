@@ -19,9 +19,6 @@ module.exports = {
   },
   patch: async (req, res) => {
     try {
-
-      console.log("PATCH 확인!!!")
-
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
       // 요청바디
