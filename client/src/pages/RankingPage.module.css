@@ -270,7 +270,7 @@
   height:100%;
   width:79%;
 }
-.rainking_sayingzone_top12_saying:hover{
+.rankingbox_sayingzone_top12_saying:hover{
   color:#FFBF31;
   cursor:pointer;
 }
@@ -313,4 +313,16 @@
 .link{
   text-decoration: none; 
   color: inherit; 
+}
+.pagenation_wrapper {
+  z-index:10;
+  display: flex;
+  position:absolute;
+  bottom:0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 2.5%;
+  /* border: 1px solid red; */
 }

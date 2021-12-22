@@ -27,6 +27,10 @@ import axios from 'axios';
 import postData from '../components/MainPage/MainPostingDummy';
 import sayingData from '../components/MainPage/MainSayingDummy';
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
 
 function MainPage(){
   const likes = useSelector(state =>state.main.likes);
@@ -38,13 +42,15 @@ function MainPage(){
   const sayingIds = useSelector(state => state.main.sayingIds);
   const posts = useSelector(state => state.main.posts);
   const likeOrNew = useSelector(state => state.main.likeOrNew);
+<<<<<<< HEAD
+=======
 
   let categoryImage = [category_all, category_health, category_study, category_economy, category_relationship, category_love];
+>>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
   let category = ['전체','건강', '학습', '경제', '인간관계', '사랑']
   let medalImage = [gold,silver,bronze]
   let [curCategory,setCategory] = useState(category[page]);
   const dispatch = useDispatch();
-
 
   /* 이미지 변경 함수 */
   const goAllPage = () =>{dispatch(all())};
@@ -61,6 +67,12 @@ function MainPage(){
   const renderingDone = () => {dispatch(setIsRendered(true))};
   /* 포커싱된 sayingId 갱신 함수 */
   const getFocusedSayingId = (sayingId) =>{dispatch(setFocusedSayingId(sayingId))};
+<<<<<<< HEAD
+
+  /* sayingId 재갱신 함수 (위아래버튼) */
+  const getReNewSayingId = (index) => {dispatch(setFocusedSayingId(sayingIds[index]))}
+=======
+>>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
                                    
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
@@ -174,8 +186,8 @@ function MainPage(){
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강'),getLikeRanking('건강'),goHealthPage()}} 
                                             style={curCategory === '건강'
-                                           ?{backgroundColor:'#FFBF31',color:'white'}
-                                           :{backgroundColor:'white', color:'#404040'}}>건강</div>
+                                            ?{backgroundColor:'#FFBF31',color:'white'}
+                                            :{backgroundColor:'white', color:'#404040'}}>건강</div>
         <div className={style.category_study} onClick={()=>{setCategory('학습'),getLikeRanking('학습'),goStudyPage()}}
                                             style={curCategory === '학습'
                                             ?{backgroundColor:'#FFBF31',color:'white'}

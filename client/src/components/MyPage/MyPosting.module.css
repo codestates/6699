@@ -27,7 +27,7 @@
   /* border: 1px solid blue; */
 }
 
-#pagenation_wrapper {
+.pagenation_wrapper {
   display: flex;
   flex-direction: row;
   width: 100vh;

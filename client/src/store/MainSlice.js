@@ -34,5 +34,9 @@ const mainSlice = createSlice(
     }});
                 
 export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew } = mainSlice.actions;
+<<<<<<< HEAD
+export default mainSlice.reducer;
+=======
 export default mainSlice.reducer;
 
+>>>>>>> a47500496db3d82e18861cd94ae23594db338c3d
