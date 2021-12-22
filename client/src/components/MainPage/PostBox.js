@@ -10,7 +10,7 @@ import MainPagination from '../../components/Pagination/MainPagination';
 function PostBox(){
   const likeOrNew = useSelector(state => state.main.likeOrNew)
   const getPosts = (data) =>{setPosts(data)};
-  const focusedSayingId = useSelector(state => state.main.focusedSayingId);
+  const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // const articles = useSelector((state) => state.mypage.articles);
   const dispatch = useDispatch();
   const [posts,setPosts] = useState([]);
@@ -24,9 +24,14 @@ function PostBox(){
        const res = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
            {withCredentials: true}
            );
+        if (res.data.data.articleInfo.length > 0){
         setPosts(res.data.data.articleInfo);
-        setLoading(false);
-      }
+        setLoading(false)}
+        else {
+        setPosts([])
+        console.log(res.data.data.articleInfo);
+        setLoading(false)}
+        }
       fetchPosts();
   },[focusedSayingId])
   

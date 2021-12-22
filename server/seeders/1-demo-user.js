@@ -6,7 +6,7 @@ module.exports = {
     {
       id: 1,
       email: 'admin',
-      password: '1234',
+      password: '12341234',
       username: 'admin',
       image: '',
       introduction: '',

@@ -5,8 +5,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { logout, getUserInfo } from '../../store/AuthSlice'
 import { useSelector, useDispatch } from 'react-redux';
+import { REACT_APP_API_URL } from '../../config'
 
-function DropaccountModal( { handleDropaccountModal }){
+function DropaccountModal({ handleDropaccountModal }){
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,10 +16,9 @@ function DropaccountModal( { handleDropaccountModal }){
   const handleDeleteBtn = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/user/me`, 
+        `${REACT_APP_API_URL}/user/me`, 
         { withCredentials: true }
       )
-  
       alert('𝟲𝟲𝟵𝟵\nGoodbye! 😖')
       // mainpage로 이동
       dispatch(logout());
@@ -31,8 +31,8 @@ function DropaccountModal( { handleDropaccountModal }){
 
   return (
     <div className={style.container}
-    onClick={() =>  handleDropaccountModal()}
-    >
+    onClick={() =>  handleDropaccountModal()}>
+
       <div className={style.modalbox}>
 
       <div className={style.logobox}>
@@ -53,8 +53,7 @@ function DropaccountModal( { handleDropaccountModal }){
           {/* 삭제하기 버튼 */}
           <div 
           className={style.deletebutton}
-          onClick={() => handleDeleteBtn()}
-          >
+          onClick={() => handleDeleteBtn()}>
             삭제하기
           </div>
           
@@ -62,8 +61,7 @@ function DropaccountModal( { handleDropaccountModal }){
           <Link to='/editpage'>
             <div 
             className={style.cancelbutton}
-            onClick={() => handleDropaccountModal()}
-            >
+            onClick={() => handleDropaccountModal()}>
               유지하기
             </div>
             </Link>
