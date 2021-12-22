@@ -7,7 +7,7 @@ import RankingPagination from '../components/Pagination/RankingPagination'
 import RankingDropDown from '../components/RankingPage/RankingDropDown';
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
-import { setFocusedSayingId } from '../store/MainSlice';
+import { setIsRendered, setFocusedSayingId, setFocusedTitle, setSayingTitles, setSayingIds, setIndex,  } from '../store/MainSlice';
 import { REACT_APP_API_URL } from '../config';
 
 function RankingPage(){
@@ -27,23 +27,25 @@ function RankingPage(){
   const indexOfLastPost = currentPage * rankingPerPage;
   const indexOfFirstPost = indexOfLastPost - rankingPerPage;
   const currentRanking = notTop3Ranking.slice(indexOfFirstPost,indexOfLastPost);
-  const { sayingIds, focusedSayingId } = useSelector(state => state.main);
-
-  console.log('랭킹 페이지 / 페이지 진입 시 focusedSayingId : ', focusedSayingId);
+  const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
   // 랭킹 상태 업데이트 (카테고리 변경시마다)
+
   useEffect(() => {
     const getLikeRaking = async () => {
       try {
         const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${curCategory}`,
         {withCredentials: true});
-        
+
+        dispatch(setSayingIds(ranking.map((el)=>{return el.id})));
         setRanking(response.data.data.allSaying ? response.data.data.allSaying : response.data.data.filteredSaying);
+        dispatch(setSayingTitles(ranking.map((el)=>{return el.content})));
       } catch (err) {
         console.log(err);
       }
     };
+    
     getLikeRaking();
-  }, [curCategory]);
+  }, [curCategory, sayingIds]);
 
   // 페이지 변경 함수
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -67,9 +69,13 @@ function RankingPage(){
         <div className={style.rankingbox_sayingzone_top3_sayingzone}>
           <div className={style.rankingbox_sayingzone_top3_saying}>
             <Link className={style.link} onClick={()=>{
-              console.log('랭킹 페이지 / 내가 누른 명언 id: ', top3Ranking[i].id);
               dispatch(setFocusedSayingId(top3Ranking[i].id));
-              console.log('랭킹 페이지 / 지금 누른 focusedSayingId : ', focusedSayingId);
+              dispatch(setFocusedTitle(top3Ranking[i].content));
+              dispatch(setIndex(sayingIds.indexOf(top3Ranking[i].id)));
+              dispatch(setIsRendered(true));
+              console.log('sayingIds: ',sayingIds)
+              console.log( '누른 애 id 값: ', currentRanking[i].id)
+              console.log('index: ',index);
               goPage();
               }} to='/mainpage'>
               {top3Ranking.length > i && top3Ranking[i].content}</Link></div>
@@ -89,9 +95,10 @@ function RankingPage(){
         <div className={style.rankingbox_sayingzone_top12_sayingzone}>
           <div className={style.rankingbox_sayingzone_top12_saying}>
             <Link className={style.link} onClick={()=>{
-              console.log('랭킹 페이지 / 내가 누른 명언 id: ', currentRanking[i].id);
               dispatch(setFocusedSayingId(currentRanking[i].id));
-              console.log('랭킹 페이지 / 지금 누른 focusedSayingId : ', focusedSayingId);
+              dispatch(setFocusedTitle(currentRanking[i].content));
+              dispatch(setIndex(sayingIds.indexOf(currentRanking[i].id)));
+              dispatch(setIsRendered(true));
               goPage();
             }} to='/mainpage'>
             {currentRanking.length > i && currentRanking[i].content}</Link></div>
