@@ -1,4 +1,3 @@
-
 import style from './MyPostPagination.module.css'
 
 function Pagination ({postsPerPage,totalPosts, paginate}){
