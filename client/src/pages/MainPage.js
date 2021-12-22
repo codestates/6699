@@ -78,43 +78,20 @@ function MainPage(){
 
 
 
-
-
-
-  /***********     정현님께!!!!!   ********************/
-
-  /* sayingIds: (mainSlice에 들어있는 sayingId들 넣는 배열 */
-
-  /* getfocusedSayingId: (현재 포커싱된 sayingId를 넣으면 게시물과 현재 위치가 갱신됩니다.)
-
-  /* 메인페이지에서 랭킹을 받아올 때 index의 초기값은 0으로 설정됩니다. */
-
-  /* 랭킹 페이지에서 받아올 때에는 현재 선택한 명언 id를 따로 받아와서 
-  
-  /* 메인페이지의 sayingIds.indexOf(선택한명언id) 값을 getIndex(index)에 넣어준 뒤 */
-
-  /* getFocusedSayingId(sayingIds[index]) 해주시면 게시물과 현재 위치가 갱신될겁니다! */
-
-  /**************************************************/
-  
-
-
-
-
-
   const upSaying = () => {
     if ((index -1) > -1){
+
+      getFocusedSayingId(sayingIds[index-1]);
+      getFocusedTitle(sayingTitles[index-1]);
       getIndex(index-1);
-      getFocusedSayingId(sayingIds[index]);
-      getFocusedTitle(sayingTitles[index]);
       console.log(index);
     }
   }
   const downSaying = () => {
-    if ((index+1) <= sayingIds.length){
+    if ((index+1) < sayingIds.length){
+      getFocusedSayingId(sayingIds[index+1]);
+      getFocusedTitle(sayingTitles[index+1]);
       getIndex(index+1);
-      getFocusedSayingId(sayingIds[index]);
-      getFocusedTitle(sayingTitles[index]);
       console.log(index);
     }
   }
@@ -147,9 +124,9 @@ function MainPage(){
         getFocusedTitle(response.data.data.filteredSaying[0].content);
         getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
         getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
-        getIndex(0);
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
+        getIndex(0);
         console.log(sayingIds)
         console.log(focusedSayingId)
       }
@@ -221,8 +198,8 @@ function MainPage(){
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>인간관계</div>
         <div className={style.category_love} onClick={()=>{setCategory('사랑')
-                                                            getLikeRanking('사랑')
-                                                            goLovePage()}}
+getLikeRanking('사랑')
+goLovePage()}}
                                             style={curCategory === '사랑'
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>사랑</div>
@@ -264,9 +241,9 @@ function MainPage(){
       <div className={style.saying_down} onClick={downSaying}/>
       <div className={style.saying_left_66}/>
       <div className={style.saying_right_99}/>
-      <div className={style.saying_up_message} onClick={upSaying}>{sayingTitles[sayingTitles.indexOf(focusedTitle)-1]}<br/></div>
+      <div className={style.saying_up_message} onClick={upSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)-1]}<br/></div>
       <div className={style.saying_message}>{focusedTitle}</div>
-      <div className={style.saying_down_message} onClick={downSaying}>{sayingTitles[sayingTitles.indexOf(focusedTitle)+1]}<br/></div>
+      <div className={style.saying_down_message} onClick={downSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)+1]}<br/></div>
       </div>  
       </div>
 
