@@ -11,11 +11,13 @@
     width:1290px;
     height:650px;
   }
+
   .medal{
-    background-image: url("../../images/gold_medal.png");
     background-size:100% 100%;
-    width: 93px;
-    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 7%;
+    padding-bottom:7.5%;
     position: absolute;
     top: 13%;
     left: 93%;
@@ -90,7 +92,6 @@
     cursor:pointer;
   }
   .saying_down{
-
     width:50px;
     height:50px;
     background-image: url("../../images/down_arrow.png");

@@ -27,7 +27,7 @@ const reducers = combineReducers({
   modal: modalSlice,
   auth: authSlice,
   mypage: mySlice,
-  main: mainSlice
+  main: mainSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

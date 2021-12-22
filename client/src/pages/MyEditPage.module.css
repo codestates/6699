@@ -49,14 +49,18 @@
 }
 
 #profile_image {
-  border: 5px solid red;
   transform: translate(10vh, -10vh);
-  /* width: 25vh;
+  width: 25vh;
   height: 25vh;
-  padding-bottom: 25vh; */
-  /* background-image: url("../images/Kkobugi.png"); */
-  /* background-size: 100% 100%;
-  transform: translate(33%, -10%) */
+  transform: translate(33%, -10%);
+}
+
+#profile_image:hover {
+  transform: translate(10vh, -10vh);
+  width: 25vh;
+  height: 25vh;
+  transform: translate(33%, -10%);
+  cursor: pointer;
 }
 
 #profile_image_camera {
