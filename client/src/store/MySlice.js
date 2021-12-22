@@ -1,29 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = { articles: [],sayings: [],comments: [],
-//   likedSayings:[],likedArticle:[],isFocus:'post' };
-
-const initialState = { articles: [],sayings: [],comments: [],
-  likedSayings:[],likedArticle:[],isFocus:'post' };
+const initialState = {
+  likedSayings:[],likedArticles:[],isFocus:'post' };
 
 const mySlice = createSlice({
   name: 'mypage',
   initialState: initialState,
   reducers: {
-    setArticles:(state,{ payload})=> {
-      state.articles = payload;
-    },
-    setSayings: (state,{payload}) => {
-      state.sayings = payload;
-    },
-    setComments: (state,{payload}) => {
-      state.comments = payload;
-    },
     setLikedSayings: (state, { payload }) => {
       state.likedSayings = payload;
     },
     setLikedArticle: (state,{payload}) => {
-      state.likedArticle = payload;
+      state.likedArticles = payload;
     },
     setIsFocus:(state, { payload }) => {
       state.isFocus = payload;
@@ -31,7 +19,7 @@ const mySlice = createSlice({
   }
 });
 
-export const { setArticles, setSayings, setComments, setLikedSayings, setLikedArticle, setIsFocus }
+export const {setLikedSayings, setLikedArticle, setIsFocus }
  = mySlice.actions;
 
 export default mySlice.reducer;

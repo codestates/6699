@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {setIsFocus} from '../../store/MySlice'
 
-function MyPageCategory({handleArticleClick,handleSayingClick,handleCommentsClick,handleLikedSayingClick,handleLikedArticleClick}){
+function MyPageCategory(){
 const dispatch = useDispatch();
   //나의 명언 받아오는 요청
 const [isSelected,setIsSelected] = useState('post')
@@ -32,23 +32,19 @@ function LikeClickEvent(){
     <div className={style.container}>
       <ul className={style.bar}>
        <li className={style.menus} id={isSelected === 'post'?(style.focused_post):(style.post)}
-        onClick={()=>{PostClickEvent()
-        handleArticleClick()}}>
+        onClick={()=>PostClickEvent()}>
         나의 게시물
        </li>
        <li className={style.menus} id={isSelected === 'saying'?(style.focused_saying):(style.saying)}
-        onClick={()=>{SayingClickEvent();
-          handleSayingClick()}}>
+        onClick={()=>SayingClickEvent()}>
         나의 명언
        </li>
        <li className={style.menus} id={isSelected === 'comment'?(style.focused_comment):(style.comment)}
-        onClick={()=>{CommentClickEvent()
-        handleCommentsClick()}}>
+        onClick={()=>CommentClickEvent()}>
          내가 쓴 댓글
       </li>
        <li className={style.menus} id={isSelected === 'like'?(style.focused_like):(style.like)}
-        onClick={()=>{LikeClickEvent()
-        handleLikedArticleClick()}}>
+        onClick={()=>LikeClickEvent()}>
          좋아요
        </li>
       </ul>
