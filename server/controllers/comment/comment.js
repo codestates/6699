@@ -6,7 +6,6 @@ module.exports = {
     try {
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
-
       // 현재 게시글 id를 params에서 받아온다
       const { articleId } = req.params;
       // articleId가 없을때, 다음을 응답한다
@@ -25,7 +24,6 @@ module.exports = {
     try {
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
-
       // 주의! error 분기!!!
       // 요청 바디에서 댓글 내용을 받아온다
       const { content } = req.body;
@@ -45,6 +43,7 @@ module.exports = {
       // 생성 메시지 반환
       res.status(201).json({ data: { articleInfo: articleInfo }, message: 'Create Comment!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   },

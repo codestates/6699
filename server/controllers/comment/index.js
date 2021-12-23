@@ -1,4 +1,5 @@
 module.exports = {
   // Post Create, Edit, Delete
-  comment: require('./comment')
+  comment: require('./comment'),
+  commenter: require('./commenter')
 };

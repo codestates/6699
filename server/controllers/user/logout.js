@@ -1,12 +1,12 @@
 const { userAuth } = require('../../middlewares/authorized/userAuth')
 
 module.exports = {
-  post: (req, res) => {
+  post: async (req, res) => {
     try {
+      // 로그인 인증검사
+      await userAuth(req, res);
       // 쿠키 삭제
       res.cookie('accessToken', null, { maxAge: 0 });
-      // 주의! 401 삼총사 return 코드 필요...
-
       // 로그아웃 성공
       res.status(200).json({ message: 'Logout Success!' });
     } catch (err) {

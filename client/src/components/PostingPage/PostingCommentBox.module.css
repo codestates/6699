@@ -79,3 +79,9 @@
   font-size: 13pt;
   border: 0;
 }
+
+#user_profile_image {
+  background-size: 100%;
+  width: 6vh;
+  height: 6vh;
+}
