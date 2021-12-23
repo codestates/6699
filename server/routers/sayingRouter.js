@@ -28,7 +28,7 @@ router.delete('/:sayingId/article/:articleId/like', article.like.delete);
 
 // Create, Edit, Delete Comment
 router.get('/:sayingId/article/:articleId/comment', comment.comment.get);
-router.get('/:sayingId/article/:articleId/comment/:userId', comment.commenter.get);
+router.get('/:sayingId/article/:articleId/comment/:commentId/:userId', comment.commenter.get);
 router.post('/:sayingId/article/:articleId/comment', comment.comment.post);
 router.patch('/:sayingId/article/:articleId/comment/:commentId', comment.comment.patch);
 router.delete('/:sayingId/article/:articleId/comment/:commentId', comment.comment.delete);
