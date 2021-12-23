@@ -106,6 +106,8 @@ function MainPage(){
         getImages(response.data.data.allSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
+        setLikeNew('좋아요순')
+        getLikeOrNew(('like'));
       }
       else {
         getFocusedTitle(response.data.data.filteredSaying[0].content);
@@ -114,6 +116,8 @@ function MainPage(){
         getImages(response.data.data.filteredSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
+        setLikeNew('좋아요순')
+        getLikeOrNew(('like'));
       }
     } catch (err) {
       console.log(err);
@@ -130,6 +134,8 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
+      setLikeNew('좋아요순')
+      getLikeOrNew(('like'));
     } catch (err) {
       console.log(err);
     }
@@ -140,6 +146,8 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=new`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
+      setLikeNew('최신순')
+      getLikeOrNew(('new'));
     } catch (err) {
       console.log(err);
     }
@@ -154,7 +162,7 @@ function MainPage(){
         <div className={style.category_all} onClick={()=>{setCategory('전체')
                                                           getLikeRanking('전체')
                                                           goAllPage()}}
-                                            style={page === 0 
+                                            style={page === 0
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강')

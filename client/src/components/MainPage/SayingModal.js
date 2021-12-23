@@ -3,18 +3,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import { showSayingModal,showSayingCategoryModal } from '../../store/ModalSlice';
 import { setSayingTitles, setSayingIds, setFocusedSayingId, setFocusedTitle, setIndex, setCategory } from '../../store/MainSlice';
+import { health, study, economy, relationship, love } from '../../store/LandingSlice';
 import { REACT_APP_API_URL } from '../../config';
 import axios from 'axios';
 import { logout, getUserInfo } from '../../store/AuthSlice';
 
 
 function SayingModal(){
+  const { userInfo } = useSelector((state) => state.auth);
   const nowCategory = useSelector(state => state.main.nowCategory);
-  const getCategory = (category) => dispatch(setCategory(category))
   const dispatch = useDispatch();
   const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index } = useSelector(state => state.main);
-  const { isLogin, userInfo } = useSelector((state) => state.auth);
   
+
+  const goHealthPage = () =>{dispatch(health())};
+  const goStudyPage = () =>{dispatch(study())};
+  const goEconomyPage = () =>{dispatch(economy())};
+  const goRelationshipPage = () =>{dispatch(relationship())};
+  const goLovePage = () => {dispatch(love())};
+  const goCategoryPage = () => {if (nowCategory === '건강'){goHealthPage()}
+                                else if(nowCategory === '학습'){goStudyPage()}
+                                else if(nowCategory === '경제'){goEconomyPage()}
+                                else if(nowCategory === '인간관계'){goRelationshipPage()}
+                                else if(nowCategory === '사랑'){goLovePage()}
+
+  }
   /* 현재 포커싱된 명언 갱신 함수 */
   const getFocusedTitle = (title) =>{ dispatch(setFocusedTitle(title))};
   /* 현재 카테고리의 명언제목들 수집 함수 */  
@@ -42,10 +55,11 @@ function SayingModal(){
       { withCredentials: true }
     );
 
-    alert(`𝟲𝟲𝟵𝟵\n${userInfo.username}님의 명언이 작성됐습니다! 😖`);
+    alert(`𝟲𝟲𝟵𝟵\n${userInfo.username}님의 명언이 작성됐습니다! 🥳`);
     getRecentSaying();
     // 게시글 작성 모달 닫기
     dispatch(showSayingModal(false))
+    goCategoryPage();
   }
   
   /* 기존 카테고리별 좋아요 랭킹 불러옴 */
@@ -96,11 +110,11 @@ function SayingModal(){
     <div className={style.container}>
     <div className={style.modalbox_bg} onClick={() => dispatch(showSayingModal(false))}/>
       <div className={style.modalbox}>
-        <div className={style.image}/>
+        <img className={style.image} src={`${REACT_APP_API_URL}/upload/${userInfo.image}`}/>
 
         <div className={style.contentbox}>
         <div className={style.titlebox}>
-          <div className={style.name}>꼬부기</div>
+          <div className={style.name}>{userInfo.username}</div>
           {/* 선택된 카테고리  */}
           <div className={style.category} onClick={() => dispatch(showSayingCategoryModal(true))}>{nowCategory}</div>
           <div className={style.category_toggle} onClick={() => dispatch(showSayingCategoryModal(true))}/>

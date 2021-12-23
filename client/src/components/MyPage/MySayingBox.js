@@ -29,6 +29,15 @@ const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, inde
   const getLikeOrNew = (likeOrNew) => {dispatch(setLikeOrNew(likeOrNew))}
 
 
+//메인페이지 이동 함수
+const goPage = () => {
+  if(curCategory==='전체') dispatch(all());
+  else if(curCategory==='건강') dispatch(health());
+  else if(curCategory==='학습') dispatch(study());
+  else if(curCategory==='경제') dispatch(economy());
+  else if(curCategory==='인간관계') dispatch(relationship());
+  else if(curCategory==='사랑') dispatch(love());
+}
   if(loading){
     return <h2>loading...</h2>
   }
@@ -86,7 +95,6 @@ getLikeOrNew(('like'));
            (<div className={style.category_image} id={style.relationship}></div>):(null)}
            {saying.category === '사랑' ?
            (<div className={style.category_image} id={style.love}></div>):(null)}
-
            <button id={style.trashcan}>
            </button>
            <div id={style.set_title_middle_box}>

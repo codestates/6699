@@ -12,9 +12,9 @@ function Pagination ({postsPerPage,totalPosts, paginate}){
       <ul id={style.wrap}>
         {pageNumbers.map(number =>(
           <li className={style.btns} key ={number}>
-            <button id= {style.btn} onClick={()=> paginate(number)}>
+            <div id= {style.btn} onClick={()=> paginate(number) }>
               {number}
-            </button>
+            </div>
           </li>
         ))}
       </ul>

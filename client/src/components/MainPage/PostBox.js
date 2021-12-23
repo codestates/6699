@@ -41,7 +41,8 @@ function PostBox(){
   const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost);
   
   //Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => {setCurrentPage(pageNumber)                                    
+                                    }
       return (
           <div id={style.changing_area}>
            <div id={style.posts_wrap}>
