@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { REACT_APP_API_URL } from '../../config';
 import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, getUserInfo } from '../../store/AuthSlice';
+
 
 function PostingMakeCommentBox({ detectCommentPostBtn }){
+
+  const { isLogin, userInfo } = useSelector((state) => state.auth);
+  const userImage = userInfo.image;
+
+
   // store에서 관리하는 state
   const { sayingInfoCreatedArticle, createdArticleInfo } = useSelector(state => state.main);
 
@@ -13,8 +20,6 @@ function PostingMakeCommentBox({ detectCommentPostBtn }){
 
   // 댓글 게시하기 버튼 handler
   const handleCommentPost = async () => {
-
-    console.log("댓글 게시하기 버튼 handler!")
 
     // [POST] Comment, 게시글 댓글 작성 
     // ~/sayingId/article/:articleId/comment
@@ -41,7 +46,11 @@ function PostingMakeCommentBox({ detectCommentPostBtn }){
   <div id={style.writting_comment_border}>
 
     {/* 작성자 프로필 사진 */}
-   <div id={style.user_image}></div>
+   {/* <div id={style.user_image}></div> */}
+   <img
+         id={style.user_profile_image}
+         alt='defaultImage'
+         src={`${REACT_APP_API_URL}/uploads/${userImage}`}/>
     {/* 댓글 작성란 */}
     <input 
       placeholder='댓글을 작성해주세요'

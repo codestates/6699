@@ -4,6 +4,9 @@ const { user } = require('../controllers');
 // Index
 router.get('/', (req, res) => res.send('api.dayily6699.co.kr/user'));
 
+// selected user
+router.get('/:userId', user.picture.get)
+
 // Mypage
 router.get('/alluser', user.alluser.get);
 router.get('/me', user.me.get);

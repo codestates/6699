@@ -18,11 +18,10 @@
   /* border: 1px solid orange; */
 }
 
-#user_image {
-  background-image: url("../../images/Kkobugi.png");
-  background-size: 100%;
-  width: 8vh;
-  height: 8vh;
+#user_profile_image {
+  width: 5vh;
+  height: 5vh;
+  transform: translate(-65%, 5%);
 }
 
 input {
@@ -41,14 +40,15 @@ input:focus {
 #make_comment {
   /*게시하기*/
   width: 8vh;
-  height: 3vh;
+  height: 4vh;
   background-color: transparent;
   position: relative;
   top: 5vh;
   left: 28vh;
   color: #7c7c7c;
   font-size: 11pt;
-  border: 0;
+  transform: translate(-2%, -130%);
+  border: 2px solid blue;
 }
 
 #make_comment:hover {

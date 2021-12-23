@@ -13,6 +13,10 @@ import DeletePostModal from '../components/MainPage/DeletePostModal.js';
 //
 import { getTotalComment } from '../store/MainSlice'
 
+let commentersImg = []
+
+
+
 function PostingPage () {
 
 const dispatch = useDispatch();
@@ -21,6 +25,7 @@ const [isOpen, setIsOpen] = useState(false);
 
 const { isLogin, userInfo } = useSelector((state) => state.auth);
 const { sayingInfoCreatedArticle, createdArticleInfo, totalComment } = useSelector(state => state.main);
+
 
 
 
@@ -49,7 +54,9 @@ const [commentPostBtn, setCommentPostBtn] = useState(false)
 // 댓글이 작성 버튼이 클릭했을때, 댓글 정보를 다시 받아온다
 useEffect(async () => {
 
-  console.log("게시하기 버튼 눌렀을때 눌려야됨!!!")
+  commentersImg = []
+
+  console.log("PostingPage - 게시하기 버튼 클릭 useEffect")
 
   //   [GET] 게시글 댓글 조회
   // ~/:sayingId/article/:articleId/comment
@@ -59,20 +66,29 @@ useEffect(async () => {
     { withCredentials: true }
     )
 
+    console.log("PostingPage - response.data.data 확인", response.data.data)
+
+    // article1에 달려있는 모든 댓글정보를 가져온게 response.data.data [{user_id = 1}, {2}, {3}]
+
     // 댓글이 있을때,
     if(response.data.data) {
       dispatch(getTotalComment(response.data.data.commentInfo));
+
+      for(let i = 0; i < response.data.data.commentInfo.length; i++) {
+        let userId = response.data.data.commentInfo[i].user_id
+        let userWholeInfo = await axios.get(`${REACT_APP_API_URL}/user/${userId}`)
+        // {username, image, introduction ....}
+        // commentersImg = [{img}, {img}, {img}]
+
+        commentersImg.push(userWholeInfo.data.data.userInfo[0].image)
+      }
     } else {
       dispatch(getTotalComment([]));
     }
 
 }, [commentPostBtn])
 
-useEffect(() => {
-
-  console.log("postingPage - totalComment:", totalComment)
-
-}, [totalComment])
+console.log("commentersImg - useEffect 외부:", commentersImg)
 
 // 댓글 작성 버튼이 눌리면, 다음이 실행된다 
 const detectCommentPostBtn = () => {
@@ -80,11 +96,9 @@ const detectCommentPostBtn = () => {
 }
 
 // 삭제버튼 테스트!!!!
-
 const [isDelete, setIsDelete] = useState(false);
 
 const handleDropaccountModal = () => {
-  console.log("실행!!!")
   setIsDelete(!isDelete)
 }
 
@@ -103,7 +117,7 @@ return(
     <div className={style.jumbotron}>
       <div className={style.left_66}/>
       <div className={style.right_99}/>
-      {/* 현재 명언_게시글 상위 */}
+      {/* 현재 명언_게시글 */}
       <div className={style.saying}> {sayingInfoCreatedArticle.content} </div>
     </div>
     </div>
@@ -166,8 +180,10 @@ return(
       {/* 작성된 댓글 display 컴포넌트 */}
       {/* 작성된 댓글 개수만큼 컴포넌트가 실행되야함 */}
       { Array.isArray(totalComment) ?
-        totalComment.map((commentInfo) => {
+        totalComment.map((commentInfo, idx) => {
         return (<PostingCommentBox  
+                   commentersImg={commentersImg}
+                   idx={idx}
                    commentInfo={commentInfo} 
                    sayingInfoCreatedArticle={sayingInfoCreatedArticle}
                    createdArticleInfo={createdArticleInfo}
