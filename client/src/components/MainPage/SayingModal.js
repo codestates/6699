@@ -120,9 +120,11 @@ function SayingModal(){
           <div className={style.category_toggle} onClick={() => dispatch(showSayingCategoryModal(true))}/>
         </div>
           {/* 내용 입력 */}
-        <input type='text' className={style.writebox}
+          
+        <textarea className={style.writebox}
          value={inputContent}
-         onChange={handleContent} />
+         onChange={handleContent}
+         maxlength="25" />
         <div className={style.anotherbox}>
          {/* 작성하기 버튼 */}
           <div className={style.writebutton} onClick={handlePostBtn}>작성하기</div>
