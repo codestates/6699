@@ -19,49 +19,61 @@ function Footer(){
            <Link onClick={()=>{goHealthPage()}} to ='/'>
               <div id= {style.six_nine_logo}></div>
             </Link>
+            <div id={style.copyright}>Copyrightⓒ 2021 weAct</div>
            </div>
 
            <div className= {style.team_members}>
+              <div id={style.middle_box}>
+                 <div className={style.profiles}>
             <div className = {style.profile}>
              <div className= {style.github_logo}></div>
              <div className={style.info}>
+                <div className={style.text}>
               <div>최선영</div>
               <div>Front end</div>
              <div>sy.choi1106@gmail.com</div>
+             </div>
             </div>
             </div>
             <div className = {style.profile}>
              <div className= {style.github_logo}></div>
              <div className={style.info}>
+             <div className={style.text}>
               <div>정재혁</div>
               <div>Front end</div>
               <div>nezcoreen@gmail.com</div>
+              </div>
              </div>
             </div>
             <div className = {style.profile}>
              <div className= {style.github_logo}></div>
              <div className={style.info}>
+             <div className={style.text}>
               <div>김정현</div>
               <div>Back end</div>
               <div>wjd5588@gmail.com</div>
+              </div>
              </div>
             </div>
             <div className = {style.profile}>
              <div className= {style.github_logo}></div>
              <div className={style.info}>
+             <div className={style.text}>
               <div>김기쁨</div>
               <div>Back end</div>
               <div>joykim9311@gmail.com</div>
               </div>
+              </div>
+            </div>
             </div>
             <div className ={style.badges}>
              <div id={style.youtube_logo}></div>
              <div id={style.github_logo}></div>
             </div>
+            </div>
+           <div id={style.empty_block}></div>
            </div>
-
         </div>
-           <div id={style.copyright}>Copyrightⓒ 2021 weAct</div>
            </>
     )
    }

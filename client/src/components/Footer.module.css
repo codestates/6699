@@ -10,15 +10,13 @@
   display: flex;
   bottom: 0;
   background: #ccc;
+  /* border: 1px solid red; */
 }
 
 #logo_wrapper {
   width: 50vh;
   height: 40vh;
-  border: 1px solid green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* border: 1px solid green; */
 }
 
 #six_nine_logo {
@@ -26,51 +24,92 @@
   background-size: 100% 100%;
   width: 20vh;
   height: 20vh;
-  border: 1px solid blue;
+  transform: translate(50%, 50%);
+  /* border: 1px solid blue; */
+}
+
+#copyright {
+  position: relative;
+  bottom: -15vh;
+  height: 3vh;
+  width: 20vh;
+  color: #fff;
+  margin-left: 1vh;
+  /* border: 1px solid green; */
 }
 
 .team_members {
   display: flex;
+  justify-content: center;
   width: 150vh;
   height: 40vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+#middle_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vh;
+  height: 40vh;
+  /* border: 2px solid brown; */
+}
+
+#empty_block {
+  width: 50vh;
+  height: 40vh;
+  /* border: 1px solid pink; */
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-between;
+  width: 100vh;
+  height: 25vh;
+  /* border: 1px solid blue; */
 }
 
 .profile {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 20vh;
-  height: 20vh;
-  float: left;
-  border: 1px solid yellow;
-  color: #fff;
-  font-weight: bold;
+  height: 25vh;
+  /* border: 1px solid yellow; */
 }
 
 .github_logo {
   background-image: url("../images/gitHubIcon.png");
   background-size: 100% 100%;
-  width: 7vh;
-  height: 7vh;
-  border: 1px solid orange;
+  width: 8vh;
+  height: 8vh;
+  /* border: 1px solid orange; */
+  margin-bottom: 2vh;
 }
 
 .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20vh;
   height: 10vh;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
-
+.text {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 13pt;
+  /* border: 1px solid purple; */
+}
 .badges {
-  position: absolute;
   justify-content: space-between;
-  left: 50%;
-  transform: translate(-50%, 0%);
   display: flex;
-  bottom: 10%;
   width: 17vh;
   height: 6vh;
-  border: 1px solid purple;
-  margin-bottom: -2vh;
+  /* border: 1px solid purple; */
 }
 
 #youtube_logo {
@@ -87,14 +126,4 @@
   width: 6vh;
   height: 6vh;
   opacity: 88%;
-}
-
-#copyright {
-  position: absolute;
-  bottom: 0px;
-  height: 30px;
-  width: 30vh;
-  color: #fff;
-  margin-left: 20px;
-  border: 1px solid green;
 }

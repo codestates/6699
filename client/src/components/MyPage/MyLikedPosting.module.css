@@ -42,16 +42,6 @@
   /* border: 1px solid blue; */
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 100vh;
-  height: 70vh;
-  /* border: 1px solid orange; */
-}
-
 #pagenation_wrapper {
   display: flex;
   flex-direction: row;

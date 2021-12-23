@@ -5,12 +5,23 @@
 }
 
 #container {
-  position: relative;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 97%;
+  /* border: 1px solid red; */
   margin-top: 1%;
+}
+
+#under_container {
+  position: relative;
   display: flex;
   justify-content: space-around;
   width: 100%;
   height: 97%;
+  /* border: 1px solid green; */
 }
 
 #user_container {
@@ -21,8 +32,8 @@
   justify-content: space-around;
   align-items: center;
   width: 45vh;
-  height: 98%;
-  border: 3px solid #ccc;
+  height: 100%;
+  border: 1px solid #ccc;
   border-radius: 20px;
 }
 
@@ -32,55 +43,51 @@
   justify-content: center;
   align-items: center;
   width: 45vh;
-  height: 30vh;
+  height: 45vh;
   /* border: 1px solid blue; */
 }
 
 #user_mini_wrapper {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center; */
-  display: table-cell;
-  vertical-align: middle;
+  align-items: center;
   width: 42vh;
-  height: 20vh;
-  /* border: 3px solid blue; */
+  height: 42vh;
+  /* border: 1px solid blue; */
+}
+
+.images_wrapper {
+  width: 25vh;
+  height: 25vh;
+  /* border: 1px solid red; */
 }
 
 #profile_image {
-  transform: translate(10vh, -10vh);
+  border-radius: 100%;
+  border: 3px solid #ffbf31;
   width: 25vh;
   height: 25vh;
-  transform: translate(33%, -10%);
-}
-
-#profile_image:hover {
-  transform: translate(10vh, -10vh);
-  width: 25vh;
-  height: 25vh;
-  transform: translate(33%, -10%);
-  cursor: pointer;
 }
 
 #profile_image_camera {
-  position: flex;
+  position: relative;
+  top: -4.5vh;
+  left: 21vh;
   width: 4vh;
   height: 4vh;
   background-image: url("../images/Profile_Picture.png");
   background-size: 100% 100%;
-  transform: translate(490%, 500%);
   z-index: 900;
+  /* border: 1px solid red; */
 }
 
 #user_name {
-  /*꼬부기*/
-  width: 100%;
-  /* height: 2%; */
-  font-size: 2.6vh;
+  width: 25%;
+  height: 10%;
+  font-size: 18pt;
   font-weight: bold;
   text-align: center;
-  /* transform: translate(143%, 0%); */
   /* border: 1px solid black; */
 }
 
@@ -89,20 +96,17 @@
   justify-content: center;
   align-items: center;
   width: 40vh;
-  height: 30vh;
-  /* background: #dcdcdc; */
+  height: 20vh;
   background: #e6f4fa;
   border-radius: 20px;
-  /* border: 2 solid black; */
 }
 
-#message {
+/*#message {
   width: 35vh;
-  height: 28vh;
-  font-size: 2.1vh;
-  background: #e6f4fa;
-  /* border: 1px solid red; */
-}
+  height: 15vh;
+  font-size: 14pt;
+  border: 1px solid red;
+}*/
 
 .buttons_1 {
   display: flex;
@@ -156,8 +160,7 @@
   position: relative;
   width: 100%;
   height: 98%;
-  /* border: 1px solid #ccc; */
-  border: 3px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 20px;
 }
 
@@ -193,7 +196,7 @@
   height: 4vh;
   text-align: center;
   font-size: 2.5vh;
-  color: grey
+  color: grey;
   /* border: 1px solid green; */
 }
 
@@ -211,14 +214,14 @@
   flex-direction: column;
   justify-content: space-around;
   width: 85vh;
-  height: 13.0vh;
+  height: 13vh;
 }
 
 #space_area {
   height: 0.4vh;
   /* border: solid red; */
   border-radius: 8px;
-  font-size: 2.0vh;
+  font-size: 2vh;
   padding-left: 1vh;
   /* border: 1px solid red; */
 }
@@ -249,11 +252,18 @@
   padding-left: 1vh;
   color: grey;
 }
-
+#introduction {
+  width: 35vh;
+  height: 15vh;
+  font-size: 14pt;
+  background: #e6f4fa;
+  /* border: 1px solid red; */
+}
+/*
 #introduction {
   height: 28vh;
   width: 35vh;
-  /* background: #dcdcdc; */
+  /background: #dcdcdc;
   background: #e6f4fa;
   border: none;
   border-radius: 8px;
@@ -263,7 +273,7 @@
   padding-bottom: 22vh;
   color: grey;
 }
-
+*/
 #introduction_null {
   height: 28vh;
   width: 35vh;
@@ -279,13 +289,11 @@
   z-index: 999;
 }
 
-
-
 #match {
   height: 4vh;
   /* border: solid red; */
   border-radius: 8px;
-  font-size: 2.0vh;
+  font-size: 2vh;
   padding-left: 0.2vh;
   padding-top: 0.2vh;
   color: blue;
@@ -295,7 +303,7 @@
   height: 4vh;
   /* border: solid red; */
   border-radius: 8px;
-  font-size: 2.0vh;
+  font-size: 2vh;
   padding-left: 0.2vh;
   padding-top: 0.2vh;
   color: red;
@@ -376,4 +384,12 @@
   font-size: 2.1vh;
   color: #4c4c4c;
   cursor: pointer;
+}
+
+#footer_wrapper {
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  bottom: -40vh;
+  /* border: 1px solid hotpink; */
 }

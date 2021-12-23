@@ -107,7 +107,7 @@ function ProfileImageModal({ handleProfileImage }){
             <img
             id={style.preview_camera}
             alt='sample'
-            src={`${REACT_APP_API_URL}/uploads/iOS14.jpeg`}/>
+            src={`${REACT_APP_API_URL}/uploads/camera_icon.png`}/>
           :
           <img
           id={style.preview_image}

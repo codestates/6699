@@ -203,7 +203,9 @@ function RankingPage(){
           <RankingPagination rankingPerPage={rankingPerPage} totalRanking={ranking.length} paginate={paginate}/>
         </div>
       </div>
+      <div id={style.footer_wrapper}>
       <Footer/>
+      </div>
     </div>     
   )
 }

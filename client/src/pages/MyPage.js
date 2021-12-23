@@ -59,8 +59,10 @@ const { id, email, username, image, introduction } = userInfo;
            </div>
           </div>
         <div id={style.message_wrapper}>
-            <div id={style.message}>
-            {introduction}
+            <div id={style.message_box}>
+              <div id={style.introduction}>
+             {introduction}
+            </div>
             </div>
         </div>
         <div className = {style.buttons}>
@@ -102,13 +104,13 @@ const { id, email, username, image, introduction } = userInfo;
         </div>
 
          </div>
-         </div> {/*유저컨테이너 + 포스팅 컨테이너 묶음*/}
+         </div> {/*under_container*/}
 
 
          <div id={style.footer_wrapper}>
          <Footer/>
          </div>
-        </div>
+        </div> //container
     )
 }
 
