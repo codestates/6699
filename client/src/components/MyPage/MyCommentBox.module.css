@@ -30,6 +30,7 @@
   background-size: 100%;
   width: 2vh;
   height: 2vh;
+  display: none;
 }
 
 #set_title_middle_box {
