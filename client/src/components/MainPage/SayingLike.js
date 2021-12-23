@@ -13,7 +13,6 @@ function SayingLike(){
   const [ isLiked, setIsLiked ] = useState();
   const [ isSelect, setIsSelect ] = useState(false);
 
-  console.log('SayingLikes isLogoin: ', isLogin);
   const getSayingLike = async () => {
     try {
       if(isLogin){
@@ -31,7 +30,6 @@ function SayingLike(){
           {withCredentials: true});
 
           if(postRes.data.data.sayingInfo){
-            console.log('좋아요')
             setTotalLike(postRes.data.data.sayingInfo.total_like);
             setIsSelect(false);
           }
@@ -40,7 +38,6 @@ function SayingLike(){
           {withCredentials: true});
 
           if(postRes.data.data.sayingInfo){
-            console.log('좋아요 취소')
             setTotalLike(postRes.data.data.sayingInfo.total_like);
             setIsSelect(false);
           }

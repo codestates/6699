@@ -8,19 +8,19 @@ import { REACT_APP_API_URL } from '../../config';
 function PostingCommentBox({ commentInfo }){
   
   // 댓글 작성자의 이미지를 받아온다
-  useEffect(async () => {
+  // useEffect(async () => {
 
-    // [GET]
-    // ~/:sayingId/article/:articleId/comment/:userId
-    const response = await axios.get(
-      `${REACT_APP_API_URL}/1/article/${commentInfo.article_id}/comment/${user_id}`,
-      { withCredentials: true }
-      )
+  //   // [GET]
+  //   // ~/:sayingId/article/:articleId/comment/:userId
+  //   const response = await axios.get(
+  //     `${REACT_APP_API_URL}/1/article/${commentInfo.article_id}/comment/${user_id}`,
+  //     { withCredentials: true }
+  //     )
 
-      console.log("response 확인:", response)
+  //     console.log("response 확인:", response)
 
 
-  }, [])
+  // }, [])
 
   console.log("진짜 이것만 하면 끝이얌!!! PostinComment Box commentInfo:", commentInfo)
 
