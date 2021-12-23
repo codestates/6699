@@ -14,7 +14,7 @@ function PostModal({ selectedCategory }){
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLogin, userInfo } = useSelector((state) => state.auth);
-  const { focusedSayingId, sayingInfoCreatedArticle} = useSelector(state => state.main);
+  const { focusedSayingId, sayingInfoCreatedArticle } = useSelector(state => state.main);
   
   // 작성하고 있는 게시물의 명언Id를 저장
   useEffect(async () => {
@@ -37,7 +37,7 @@ function PostModal({ selectedCategory }){
 
 
   // default 이미지 정보
-  const defaultImg = 'porori.png';
+  const defaultImg = 'dongsuck.png';
 
   /******** 이미지 업로드 테스트 ************/
   const [uploadImg, setUploadImg] = useState('')
@@ -159,7 +159,7 @@ function PostModal({ selectedCategory }){
             
             onChange={handleTitle} />
         </div>
-        
+
         {/* 내용 입력 */}
         <input 
           type='text' 

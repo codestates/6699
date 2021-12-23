@@ -7,6 +7,7 @@ import DropaccountModal from '../components/MyPage/DropaccountModal.js';
 import ProfileImageModal from '../components/MyPage/ProfileImageModal.js';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
 import { REACT_APP_API_URL } from '../config';
+import Footer from '../components/Footer';
 
 function MyEditPage (){
 
@@ -269,19 +270,21 @@ function MyEditPage (){
       {DropaccountModalState ? <DropaccountModal handleDropaccountModal={handleDropaccountModal}/> : null}
       {/* 프로필 사진 변경 모달 */}
       {ProfileImageModalState ? <ProfileImageModal handleProfileImage={handleProfileImage}/> : null}
+      <div id = {style.under_container}>
         <div id={style.user_container}>
           <div id={style.user_profile_wrapper}>
             <div id={style.user_mini_wrapper}>
               {/* 프로필 이미지 및 카메라 사진*/}
+                
 
+              <div className={style.images_wrapper}>
               <img
                 id={style.profile_image}
-                src={`${REACT_APP_API_URL}/upload/${image}`} 
-                onClick={() => {handleProfileImage()}} />
+                src={`${REACT_APP_API_URL}/upload/${image}`} />
                               
-                {/* <div id={style.profile_image}> */}
-                  {/* <div id={style.profile_image_camera}></div> */}
-                {/* </div> */}
+                
+                  <div id={style.profile_image_camera } onClick={() => {handleProfileImage()}}></div>
+                  </div>
 
                 
 
@@ -292,7 +295,7 @@ function MyEditPage (){
 
         {/* <div id={style.message_wrapper}> */}
             {/* 프로필 자기소개 (introduction) */}
-              <div id={style.message}>
+              <div id={style.message_wrapper}>
                   <input 
                   id={inputIntro === null ? style.introduction_null : style.introduction }
                   value={inputIntro}
@@ -419,6 +422,10 @@ function MyEditPage (){
                             </div>
                      </div> 
              </div>
+             <div id={style.footer_wrapper}>
+         <Footer/>
+         </div>
+        </div>
         );
     };
 export default MyEditPage

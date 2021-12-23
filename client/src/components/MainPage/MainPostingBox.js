@@ -111,7 +111,7 @@ function MainPostingBox({posts,loading}){
           <div>
             <li className={style.thumbnail}>
               {/********** 아까만든 배열인 postImages에서 postImages[index] 로 이미지를 가져옵니다. *************/}
-              <img className={style.image} src={`${REACT_APP_API_URL}/uploads/${postImages[index]}`}/>
+              <img className={style.image} src={postImages[index] !== defaultImg ?`${REACT_APP_API_URL}/uploads/${postImages[index]}`:defaultImg}/>
               {/*********** img는 자식 태그를 가져올 수 없기에 맨 안쪽으로 들어갑니다. 안그럼 에러 뜨네요. *************/}
               <div className={style.title_wrap}>
               <div className={style.title}>{post.title}</div>

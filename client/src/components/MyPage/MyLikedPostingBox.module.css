@@ -1,20 +1,82 @@
-ul {
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vh;
+  height: 65vh;
+  border: 1px solid blue;
+}
+
+#posts_wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 80vh;
   height: 60vh;
-  /* border: 1px solid blue; */
+  /* border: 1px solid green; */
 }
 
-#post {
+.post {
   display: inline-block;
   background-position: center;
-  background-size: 100%;
+  background-size: 150% 150%;
   width: 25vh;
   height: 25vh;
   padding-bottom: 25vh;
-  border: 1px solid black;
+  border: 1px solid #ccc;
   border-radius: 10px;
+}
+
+.post:hover {
+  opacity: 90%;
+  cursor: pointer;
+  border: 1px solid #ffbf31;
+}
+
+#health {
+  background: url("../../images/canttuna.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#study {
+  background: url("../../images/category_study.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#economy {
+  background: url("../../images/economy-square.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#relationship {
+  background: url("../../images/relationship-square.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#love {
+  background: url("../../images/love-square.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.thumbnail {
+  z-index: 2;
+  font-weight: bold;
+  opacity: 0%;
+  position: relative;
+  background-color: white;
+  width: 25vh;
+  height: 25vh;
+  padding-top: 50%;
+  text-align: center;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.thumbnail:hover {
+  opacity: 70%;
 }

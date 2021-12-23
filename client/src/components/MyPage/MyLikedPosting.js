@@ -21,17 +21,19 @@ const [currentPage,setCurrentPage] = useState(1);
 const [postsPerPage,setPostsPerPage] = useState(6);
 const [rendering, setRendering] = useState(true);
 
+console.log('likedPosts: ', likedPosts);
 useEffect(()=>{
   const fetchPosts = async () => {
-   const res = await axios.get(
-       `${REACT_APP_API_URL}/user/mylike/?category=article`,
-        {withCredentials: true}
-       );
-       if(rendering){
-         dispatch(setLikedPost(res.data.data.filteredLike));
-         setRendering(false);
-         setLoading(false);
-       }
+  const res = await axios.get(
+      `${REACT_APP_API_URL}/user/mylike/?category=article`,
+      {withCredentials: true}
+      );
+      console.log('axios response: ', res.data.message==='Empty!')
+      if(rendering){
+        if(res.data.message!=='Empty!') dispatch(setLikedPost(res.data.data.filteredLike));
+        setRendering(false);
+        setLoading(false);
+      }
   }
   fetchPosts();
 },[rendering])
