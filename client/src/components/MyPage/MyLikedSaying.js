@@ -27,6 +27,7 @@ useEffect(()=>{
        `${REACT_APP_API_URL}/user/mylike`,
        {withCredentials: true}
        );
+       console.log(res.data)
        if(rendering){
            dispatch(setSayings(res.data.data.filteredLike))
            setRendering(false);

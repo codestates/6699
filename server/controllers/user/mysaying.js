@@ -6,6 +6,7 @@ module.exports = {
     try {
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
+      console.log(userInfo)
       const filteredSaying = await sayings.findAll({ where : { user_id: userInfo.id } });
       
       if(filteredSaying.length === 0) return res.status(200).json({ message: 'Empty!' });
