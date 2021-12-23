@@ -1,38 +1,29 @@
 import style from './MySayingBox.module.css'
-import health from '../../images/health-square-2.png'
-import study from '../../images/category_study.png'
-import economy from '../../images/economy-square.jpg'
-import relationship from '../../images/relationship-square.jpg'
-import love from '../../images/love-square.jpg'
 import { REACT_APP_API_URL } from '../../config'
 import axios from 'axios'
+import { setIsRendered, setFocusedSayingId, setFocusedTitle, setSayingTitles, setSayingIds, setIndex,  }
+from '../../store/MainSlice'
+import {Link} from 'react-router-dom';
+import {useState,useEffect} from 'react';
+import{useSelector, useDispatch} from 'react-redux';
+import {all, health, study, economy, relationship, love} from '../../store/LandingSlice';
 
 function MySayingBox({sayings,loading}){
 
-  let categoryImage = [health,study,economy,relationship,love];
-  let array = ['건강','학습','경제','인간관계','사랑']
+const dispatch = useDispatch();
+let [curCategory,setCategory] = useState('전체');
+const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index }
+ = useSelector(state => state.main);
 
-//내가 쓴 명언보기
-  async function handleDeleteSaying() {
-    let sayingId;
-      const res1 = await axios.get(
-        `${REACT_APP_API_URL}/user/mysaying`,
-        {withCredentials: true});
-      try{
-        sayingId = res1.data.data.filteredSaying
-        
-      } catch (err) {
-        console.log(err)
-    }
-    // const res2 = await axios.delete(
-    //   `${REACT_APP_API_URL}/user/mysaying/${sayingId}`, //해당 명언id
-    //   {withCredentials: true});
-    //   try{
-    //     res2
-    //   } catch (err) {
-    //     console.log(err)
-    //   }
-  }
+//메인페이지 이동 함수
+const goPage = () => {
+  if(curCategory==='전체') dispatch(all());
+  else if(curCategory==='건강') dispatch(health());
+  else if(curCategory==='학습') dispatch(study());
+  else if(curCategory==='경제') dispatch(economy());
+  else if(curCategory==='인간관계') dispatch(relationship());
+  else if(curCategory==='사랑') dispatch(love());
+}
 
   if(loading){
     return <h2>loading...</h2>
@@ -53,20 +44,29 @@ function MySayingBox({sayings,loading}){
            {saying.category === '사랑' ?
            (<div className={style.category_image} id={style.love}></div>):(null)}
 
-           <button id={style.trashcan} 
-           onClick={()=> handleDeleteSaying()}>
+           <button id={style.trashcan}>
            </button>
            <div id={style.set_title_middle_box}>
-        <div className={style.title}>
-        <div id={style.icon_66}></div>
-        <p id={style.saying}>{saying.content}</p>
-        <div id={style.icon_99}></div>
-        </div>
-        </div>
+             <div className={style.title}>
+              <div id={style.icon_66}></div>
+              <p id={style.saying}>
+                <Link to= '/mainpage' className={style.link} 
+                onClick={() =>{
+                  dispatch(setFocusedSayingId(saying.id))
+                  dispatch(setFocusedTitle(saying.content))
+                  dispatch(setIndex(sayingIds.indexOf(saying.id)));
+                  dispatch(setIsRendered(true));
+                  goPage()}}>
+                {saying.content}
+               </Link>
+              </p>
+             <div id={style.icon_99}></div>
+            </div>
+          </div>
     
           <div className={style.icon_box}>
-          <div id={style.heart}></div>
-          <div id={style.post}></div>
+           <div id={style.heart}></div>
+           <div id={style.post}></div>
          </div>
          </li>
       ))}

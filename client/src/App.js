@@ -26,7 +26,7 @@ let selectedCategory = '건강'
 function App() {
   const dispatch = useDispatch();
   const { loginModal, signupModal, postModal, sayingModal, sayingCategoryModal } = useSelector((state) => state.modal);
-  const { focusedSayingId } = useSelector(state => state.main);
+  const { focusedSayingId, createdArticleId } = useSelector(state => state.main);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
 
   const authentication = async () => {

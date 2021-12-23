@@ -10,7 +10,6 @@ function Header(){
     const dispatch = useDispatch();
     const { isLogin, userInfo } = useSelector((state) => state.auth);
 
-    console.log('마이페이지 / userInfo: ', userInfo)
 
     const goAllPage = () => {
         dispatch(all());

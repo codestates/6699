@@ -15,9 +15,9 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 30vh;
+  width: 100vh;
   height: 5vh;
-  bottom:5vh;
+  bottom: 5vh;
   /* border: 1px solid purple; */
   position: relative;
   top: 0vh;
