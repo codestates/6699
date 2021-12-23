@@ -1,43 +1,51 @@
 import style from '../pages/PostingPage.module.css'
 import PostingCommentBox from '../components/PostingPage/PostingCommentBox'
-import{useState} from 'react'
+import{ useState, useEffect } from 'react'
 import PostingMiniModal from '../components/PostingPage/PostingMiniModal';
 import Modal from '../components/Modal';
 import PostingMakeCommentBox from '../components/PostingPage/PostingMakeCommentBox'
 import axios from 'axios';
-import {useSelector, useDispatch} from 'react-redux';
+import { REACT_APP_API_URL } from '../config';
+import { useSelector, useDispatch } from 'react-redux';
 
-function PostingPage(){
+function PostingPage () {
+
+const dispatch = useDispatch();
+
 const [isOpen,setIsOpen] = useState(false);
 
-  // const getArticle = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${REACT_APP_API_URL}/:sayingId/article/:articleId`,
-  //       { withCredentials: true }
-  //       );
-  //       if(response.data !== undefined){
-    
-  //       }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+const { isLogin, userInfo } = useSelector((state) => state.auth);
+const { focusedSayingId, sayingIdforCreatedArticle, createdArticleId, createdArticleInfo } = useSelector(state => state.main);
 
-    return(
+// console.log("userInfo 확인 In 게시물 페이지:", userInfo)
+
+
+
+// 특정 게시물 조회
+// const response = await axios(`${REACT_APP_API_URL}/${focusedSayingId}/article`)
+
+let currentTitle = 'next유'
+
+
+
+  
+
+return(
     <div className= {style.container}>
 
     <div className={style.jumbotron_wrapper}>
     <div className={style.jumbotron}>
       <div className={style.left_66}/>
       <div className={style.right_99}/>
+      {/* 현재 명언_게시글 상위 */}
       <div className={style.saying}>땀은 지방의 눈물이다.</div>
     </div>
     </div>
      
     <div className= {style.under_jumbotron}>
     <div id={style.title_box}>
-    <p id={style.title}>0627 서핑은 못참지</p>
+      {/* 게시글 제목 */}
+    <p id={style.title}> {createdArticleInfo.title} </p>
     <div className = {style.setting_toggle} onClick={()=> {
       !isOpen
       ?setIsOpen(true)
@@ -52,14 +60,21 @@ const [isOpen,setIsOpen] = useState(false);
       }
     </div>
     </div>
-    <div id={style.image}></div>
+    {/* 게시글 이미지 */}
+    {/* <div id={style.image}></div> */}
+      <img
+        id={style.post_image}
+        alt='postImage'
+        src={`${REACT_APP_API_URL}/uploads/${createdArticleInfo.image}`}/>
 
    <div id= {style.top_wrapper}>
    <div className= {style.like_wrapper}>
     <div id={style.like_button}></div>
-    <p>63</p>
+    {/* 좋아요 숫자 */}
+    <p> {createdArticleInfo.total_like} </p>
+    {/* 조회수 숫자 */}
     <div id={style.view}></div>
-    <p>87</p>
+    <p> {createdArticleInfo.view} </p>
     </div>
 
     <div className= {style.user_box}>

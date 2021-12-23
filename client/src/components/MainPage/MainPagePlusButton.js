@@ -1,11 +1,14 @@
 /*****done*****/
 import style from './MainPagePlusButton.module.css';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import PostMiniModal from './PostMiniModal';
-import { login } from '../../store/AuthSlice';
+import {showLoginModal} from  '../../store/ModalSlice';
+
+
 
 function MainPagePlusButton(){
+  const dispatch = useDispatch();
   let [isOpen,setIsOpen] = useState(false);
   const modalOff = () => {setIsOpen(false)}
   const isLogin = useSelector(state => state.auth.isLogin);
@@ -16,7 +19,7 @@ function MainPagePlusButton(){
           ?setIsOpen(true)
           :isOpen===true&&isLogin===true
           ?setIsOpen(false)
-          :alert('𝟲𝟲𝟵𝟵\n로그인 먼저 해주세요! 😖')
+          :dispatch(showLoginModal(true))
            }}/>
           {isOpen&&isLogin
           ?<PostMiniModal modalOff = {modalOff}/>
