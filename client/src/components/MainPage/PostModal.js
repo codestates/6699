@@ -103,13 +103,9 @@ function PostModal({ selectedCategory }){
 
     // 해당 
 
-    console.log("------- 확인1 -------:", postImg)
-
     dispatch(getCreatedArticleInfo(response.data.data.articleInfo))
 
-    console.log("------- 확인2 -------:")
     const curentArticleId = response.data.data.articleInfo.id
-    console.log("------- 확인3 -------:")
 
     dispatch(setCreatedArticleId(curentArticleId));
 

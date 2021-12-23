@@ -10,8 +10,7 @@ function PostMiniModal({modalOff}){
   const dispatch = useDispatch();
   const nowCategory = useSelector(state => state.main.nowCategory);
   const showSayingModalSet = (show) => {dispatch(showSayingModal(show))
-                                        dispatch(setCategory('전체'))
-                                         console.log(nowCategory)}
+                                        dispatch(setCategory('건강'))}
   return(
     <div className={style.box_bg} onClick = {modalOff}>
       <div className={style.box}>

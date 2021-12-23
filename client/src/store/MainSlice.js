@@ -40,10 +40,10 @@ const mainSlice = createSlice(
     setIndex:(state,{ payload }) => {
       state.index = payload;
     },
-    setLikeOrNew:(state,{ payload}) => {
+    setLikeOrNew:(state,{ payload }) => {
       state.likeOrNew = payload;
     },
-    setCategory:(state,{ payload}) => {
+    setCategory:(state,{ payload }) => {
       state.nowCategory = payload;
     },
     getCreatedArticleInfo: (state, { payload }) => { 
