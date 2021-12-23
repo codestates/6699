@@ -75,10 +75,10 @@
 
 #title_box {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  width: 100vh;
+  justify-content: space-between;
+  width: 70vh;
   height: 10vh;
+  align-items: center;
   /* border: 1px solid yellow; */
   font-size: 30px;
   font-weight: 400;
@@ -86,23 +86,22 @@
 }
 
 #title {
-  width: 46vh;
+  width: 50vh;
   height: 5vh;
   /* border: 1px solid pink; */
   font-size: 30px;
   font-weight: 430;
-  position: absolute;
-  left: 67vh;
+  position: flex;
 }
 
 .setting_toggle {
-  background-image: url("../../src/images/tripledot.png");
+  background-image: url("../../src/images/Can_Trash.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 3vh;
   height: 3vh;
   /* border: 1px solid red; */
-  position: absolute;
+  position: flex;
   right: 67vh;
   background-color: transparent;
   font-weight: bold;
@@ -128,13 +127,13 @@
   align-items: center;
   justify-content: space-between;
   width: 70vh;
-  height: 7vh;
+  height: 5vh;
   /* border: 1px solid blue; */
 }
 
 .like_wrapper {
-  position: absolute;
-  left: 62vh;
+  position: flex;
+  /* left: 62vh; */
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -161,8 +160,8 @@
 }
 
 .user_box {
-  position: absolute;
-  right: 62vh;
+  position: flex;
+  right: 75vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -197,6 +196,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 70vh;
   height: 25vh;
   border: 1px solid #ccc;
@@ -204,23 +204,23 @@
 }
 
 #content {
-  position: absolute;
+  position: flex;
   width: 65vh;
   height: 20vh;
   border: 0;
   font-size: 15pt;
+  /* border: 1px solid red; */
 }
 
 #created_at {
   /*0627*/
-  width: 20vh;
+  width: 70vh;
   height: 3vh;
-  text-align: center;
+  text-align: right;
   font-size: 13pt;
   color: #7c7c7c;
-  position: relative;
-  top: -5.5vh;
-  left: 25vh;
+  position: flex;
+  margin-right: 5vh;
   /* border: 1px solid red; */
 }
 

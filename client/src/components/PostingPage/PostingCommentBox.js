@@ -1,29 +1,50 @@
 import style from './PostingCommentBox.module.css'
 import Modal from '../Modal'
 import axios from 'axios';
-import PostingMiniModal from '../../components/PostingPage/PostingMiniModal'
+//import PostingMiniModal from '../../components/PostingPage/PostingMiniModal'
 import { useState, useEffect } from 'react'
 import { REACT_APP_API_URL } from '../../config';
 
-function PostingCommentBox({ commentInfo }){
+import DeleteCommentModal from '../../components/MainPage/DeleteCommentModal.js';
+
+function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArticleInfo }){
+
+  const [imgChange, setImgChange] = useState(false)
+  const [isDeleteComment, setIsDeleteComment] = useState(false)
+
+  let defaultImg = 'porori.png'
+  let userImage = ''
   
   // 댓글 작성자의 이미지를 받아온다
-  // useEffect(async () => {
+  useEffect(async () => {
 
-  //   // [GET]
-  //   // ~/:sayingId/article/:articleId/comment/:userId
-  //   const response = await axios.get(
-  //     `${REACT_APP_API_URL}/1/article/${commentInfo.article_id}/comment/${user_id}`,
-  //     { withCredentials: true }
-  //     )
+    console.log("commentInfo:", commentInfo)
+
+    // [GET]
+    // 현재 댓글을 작성한 유저의 이미지 정보를 가져온다
+    // ~/:sayingId/article/:articleId/comment/:commentId/:userId
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/1/article/${commentInfo.article_id}/comment/${commentInfo.id}/1`,
+      { withCredentials: true }
+      )
 
   //     console.log("response 확인:", response)
 
+      userImage = response.data.data.userImage
 
-  // }, [])
+      console.log("userImage:", userImage)
 
-  console.log("진짜 이것만 하면 끝이얌!!! PostinComment Box commentInfo:", commentInfo)
+      setImgChange(true)
 
+      console.log("userImage:", userImage)
+  }, [])
+
+
+  const handleDropaccountModal = () => {
+    setIsDeleteComment(!isDeleteComment)
+  }
+
+  
   /************* 게시글 작성 날짜 및 시간 (업데이트 기준) *******************/
   // 날짜
   let date = commentInfo.updatedAt.split('').slice(0, 10)
@@ -38,16 +59,46 @@ function PostingCommentBox({ commentInfo }){
 
  return (
   <div className={style.posted_comment_container}>
+
+      {isDeleteComment
+        ? <DeleteCommentModal 
+        handleDropaccountModal={handleDropaccountModal} 
+        sayingInfoCreatedArticle={sayingInfoCreatedArticle} 
+        createdArticleInfo={createdArticleInfo}
+        commentInfo={commentInfo}/> 
+        : null}
+
+
   <div id={style.comment_border}>
     {/* 작성자 프로필 사진 */}
    {/* <div id={style.user_image2}></div> */}
-   {/* <img
-        id={style.user_profile_image}
-        alt='postImage'
-        src={`${REACT_APP_API_URL}/uploads/${userInfo.image}`}/> */}
+   { imgChange 
+     ? <img
+         id={style.user_profile_image}
+         alt='defaultImage'
+         src={`${REACT_APP_API_URL}/uploads/${userImage}`}/>
+     : <img
+         id={style.user_profile_image}
+         alt='postImage'
+         src={`${REACT_APP_API_URL}/uploads/${defaultImg}`}/>
+         }
+
+
     {/* 댓글 내용 */}
    <p> {commentInfo.content} </p>
-    {/* 댓글 수정 및 삭제 미니토글 */}
+    
+    {/* 삭제버튼 테스트 */}
+    {/* <div 
+        className = {style.setting_toggle} 
+        onClick={() => {handleDropaccountModal()}}>
+    </div> */}
+    <button
+    onClick={() => {handleDropaccountModal()}}>
+      삭제 버튼 테스트!
+    </button>
+
+
+    {/* 댓글 수정 및 삭제 미니토글
    <div className = {style.saying_toggle} onClick={()=> {
       !isOpen
       ?setIsOpen(true)
@@ -61,7 +112,8 @@ function PostingCommentBox({ commentInfo }){
         </Modal>
         :null  
       }
-    </div>
+    </div> */}
+
   </div>
   {/* 댓글 작성한 시간 */}
   <p id={style.comment_created_at}>{year}년{month}월{day}일 {time}</p>

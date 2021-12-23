@@ -8,6 +8,8 @@ import axios from 'axios';
 import { REACT_APP_API_URL } from '../config';
 import { useSelector, useDispatch } from 'react-redux';
 
+import DeletePostModal from '../components/MainPage/DeletePostModal.js';
+
 //
 import { getTotalComment } from '../store/MainSlice'
 
@@ -19,6 +21,8 @@ const [isOpen, setIsOpen] = useState(false);
 
 const { isLogin, userInfo } = useSelector((state) => state.auth);
 const { sayingInfoCreatedArticle, createdArticleInfo, totalComment } = useSelector(state => state.main);
+
+
 
 // 주의! sayingInfoCreatedArticle: 현재 선택된 명언의 정보를 가지고 있음 (객체)
 // 주의! createdArticleInfo: 현재 작성된 게시글의 정보를 가지고 있음 (객체)
@@ -55,7 +59,6 @@ useEffect(async () => {
     { withCredentials: true }
     )
 
-    console.log("댓글정보 확인!!!:", response.data.data)
     // 댓글이 있을때,
     if(response.data.data) {
       dispatch(getTotalComment(response.data.data.commentInfo));
@@ -65,15 +68,36 @@ useEffect(async () => {
 
 }, [commentPostBtn])
 
+useEffect(() => {
+
+  console.log("postingPage - totalComment:", totalComment)
+
+}, [totalComment])
+
 // 댓글 작성 버튼이 눌리면, 다음이 실행된다 
 const detectCommentPostBtn = () => {
   setCommentPostBtn(!commentPostBtn)
+}
+
+// 삭제버튼 테스트!!!!
+
+const [isDelete, setIsDelete] = useState(false);
+
+const handleDropaccountModal = () => {
+  console.log("실행!!!")
+  setIsDelete(!isDelete)
 }
 
 /***********************************************************************/
 
 return(
     <div className= {style.container}>
+      {isDelete 
+        ? <DeletePostModal 
+        handleDropaccountModal={handleDropaccountModal} 
+        sayingInfoCreatedArticle={sayingInfoCreatedArticle} 
+        createdArticleInfo={createdArticleInfo}/> 
+        : null}
 
     <div className={style.jumbotron_wrapper}>
     <div className={style.jumbotron}>
@@ -88,20 +112,14 @@ return(
     <div id={style.title_box}>
       {/* 게시글 제목 */}
     <p id={style.title}> {createdArticleInfo.title} </p>
-    <div className = {style.setting_toggle} onClick={()=> {
-      !isOpen
-      ?setIsOpen(true)
-      :setIsOpen(false)
-     }}>
-      {isOpen
-        ?isOpen &&
-        <Modal isOpenModal={isOpen} setIsOpen={setIsOpen}>
-          <PostingMiniModal/>
-        </Modal>
-        :null  
-      }
+  
+    {/* 삭제버튼 테스트 */}
+      <div 
+        className = {style.setting_toggle} 
+        onClick={() => {handleDropaccountModal()}}>
+      </div>
     </div>
-    </div>
+
     {/* 게시글 이미지 */}
     {/* <div id={style.image}></div> */}
       <img
@@ -138,9 +156,9 @@ return(
      <div id={style.content}>
        {createdArticleInfo.content}
      </div>
-    </div>
     {/* 작성 혹은 업데이트 날짜 및 시간 */}
       <div id={style.created_at}>{year}년{month}월{day}일 {time}</div>
+      </div>
 
       {/*------------------------ 게시글 댓글 ------------------------------ */}
       {/* 게시글 댓글 작성 컴포넌트 */}
@@ -149,7 +167,12 @@ return(
       {/* 작성된 댓글 개수만큼 컴포넌트가 실행되야함 */}
       { Array.isArray(totalComment) ?
         totalComment.map((commentInfo) => {
-        return <PostingCommentBox commentInfo={commentInfo}/>})
+        return (<PostingCommentBox  
+                   commentInfo={commentInfo} 
+                   sayingInfoCreatedArticle={sayingInfoCreatedArticle}
+                   createdArticleInfo={createdArticleInfo}
+                />) 
+              })
         : null
       }
 

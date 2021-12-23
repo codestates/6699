@@ -28,8 +28,6 @@ function App() {
   const { loginModal, signupModal, postModal, sayingModal, sayingCategoryModal } = useSelector((state) => state.modal);
   const { focusedSayingId, createdArticleId } = useSelector(state => state.main);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
-
-  console.log('App.js isLogin: ', isLogin);
   const authentication = async () => {
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/auth`, {

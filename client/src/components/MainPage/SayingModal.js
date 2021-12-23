@@ -120,7 +120,7 @@ function SayingModal(){
           <div className={style.category_toggle} onClick={() => dispatch(showSayingCategoryModal(true))}/>
         </div>
           {/* 내용 입력 */}
-        <input type='text' className={style.writebox}
+        <textarea className={style.writebox}
          value={inputContent}
          onChange={handleContent} />
         <div className={style.anotherbox}>

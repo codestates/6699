@@ -14,7 +14,7 @@ function PostModal({ selectedCategory }){
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLogin, userInfo } = useSelector((state) => state.auth);
-  const { focusedSayingId, sayingInfoCreatedArticle} = useSelector(state => state.main);
+  const { focusedSayingId, sayingInfoCreatedArticle } = useSelector(state => state.main);
   
   // 작성하고 있는 게시물의 명언Id를 저장
   useEffect(async () => {
@@ -37,7 +37,7 @@ function PostModal({ selectedCategory }){
 
 
   // default 이미지 정보
-  const defaultImg = 'porori.png';
+  const defaultImg = 'dongsuck.png';
 
   /******** 이미지 업로드 테스트 ************/
   const [uploadImg, setUploadImg] = useState('')
@@ -148,20 +148,20 @@ function PostModal({ selectedCategory }){
           {/* 제목 입력 */}
         <div className={style.titlebox}>
           {/* 선택된 카테고리  */}
-          <div className={style.category} > {selectedCategory} </div>
-          {/* <div className={style.category} > {sayingInfoCreatedArticle.category} </div> */}
+          {/* <div className={style.category} > {selectedCategory} </div> */}
+          <div className={style.category} > {sayingInfoCreatedArticle.category} </div>
           
           <input 
             type='text' 
             className={style.title} 
             placeholder={'제목을 작성해주세요.'}
             value={inputTitle}
+            
             onChange={handleTitle} />
         </div>
-        
+
         {/* 내용 입력 */}
-        <input 
-          type='text' 
+        <textarea 
           className={style.writebox}
           value={inputContent}
           onChange={handleContent} />

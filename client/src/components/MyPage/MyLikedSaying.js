@@ -29,7 +29,7 @@ useEffect(()=>{
        );
        console.log(res.data)
        if(rendering){
-           dispatch(setSayings(res.data.data.filteredLike))
+           dispatch(setLikedSaying(res.data.data.filteredLike))
            setRendering(false);
            setLoading(false);
        }
