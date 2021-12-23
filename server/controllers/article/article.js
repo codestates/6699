@@ -40,9 +40,20 @@ module.exports = {
       if(!sayingId || !title ) return res.status(400).json({ message: 'Bad Request!' });
       
       // 새로운 게시글이 작성되었다면, articles 테이블에 해당 명언을 저장한다
-      const articleInfo = await articles.create({ title, content, image, user_id: userInfo.id, saying_id: Number(sayingId) });
+      const articleInfo = await articles.create({ 
+        title: title, 
+        content: content, 
+        image: image, 
+        total_like: 0,
+        total_comment: 0,
+        view: 0,
+        user_id: userInfo.id, 
+        saying_id: Number(sayingId) 
+      });
+      
       res.status(201).json({ data: { articleInfo: articleInfo }, message: 'Create Article!' });
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ message: 'Server Error!' });
     }
   }
