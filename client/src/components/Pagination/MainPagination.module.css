@@ -1,6 +1,6 @@
 nav {
   position:absolute;
-  width: 50vh;
+  width: 70vh;
   height: 5vh;
   display: flex;
   justify-content: center;
@@ -18,18 +18,19 @@ ul,li {
   justify-content: center;
   width: 5vh;
   height: 5vh;
+    border: 1px solid green;
 }
 
 .btns {
   width: 5vh;
   height: 5vh;
-  margin-left:5vh;
+  margin-left:10vh;
   /* border: 1px solid green; */
 }
 
 #btn {
   align-items: center;
-  position: static;
+  position: relative;
   display: flex;
   color: white;
   font-size: 15px;
@@ -40,12 +41,17 @@ ul,li {
   border-radius: 15px;
   background-color: #404040;
 
-  width: 5vh;
-  height: 5vh;
+  width: 15px;
+  height: 15px;
 }
 
 #btn:hover {
   color: white;
   background-color: #ffbf31;
   cursor: pointer;
+}
+
+#btn:visited {
+  color: white;
+  background-color:#ffbf31;
 }

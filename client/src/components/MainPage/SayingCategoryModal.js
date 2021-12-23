@@ -1,15 +1,17 @@
 import { showSayingCategoryModal } from '../../store/ModalSlice';
+import {health, study, economy, relationship, love} from '../../store/LandingSlice';
 import { setCategory } from '../../store/MainSlice';
 import { useSelector,useDispatch } from 'react-redux';
 import style from './SayingCategoryModal.module.css';
 
 
 function SayingCategoryModal(){
-  const nowCategory = useSelector(state => state.main.nowCategory);
   const dispatch = useDispatch();
   const getCategory = (category) => {dispatch(setCategory(category))
-                                      dispatch(showSayingCategoryModal(false))
+                                     dispatch(showSayingCategoryModal(false))
                                     }
+  const nowCategory = useSelector(state => state.main.nowCategory);
+
 
   return (
     <div id={style.container}>

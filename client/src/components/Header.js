@@ -2,6 +2,7 @@ import style from '../components/Header.module.css'
 import defaultImg from '../images/userImage_default.png'
 import { useSelector, useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom';
+import { setIsRendered } from '../store/MainSlice';
 import { all } from '../store/LandingSlice';
 import { showLoginModal } from '../store/ModalSlice';
 import { REACT_APP_API_URL } from '../config';
@@ -13,6 +14,7 @@ function Header(){
 
     const goAllPage = () => {
         dispatch(all());
+        dispatch(setIsRendered(false));
     }
 
     return (

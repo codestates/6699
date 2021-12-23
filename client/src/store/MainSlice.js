@@ -43,5 +43,6 @@ const mainSlice = createSlice(
     }});
                 
 export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex, setCategory} = mainSlice.actions;
+
 export default mainSlice.reducer;
 

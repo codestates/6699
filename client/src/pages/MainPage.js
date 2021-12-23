@@ -105,6 +105,8 @@ function MainPage(){
         getImages(response.data.data.allSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
+        setLikeNew('좋아요순')
+        getLikeOrNew(('like'));
       }
       else {
         getFocusedTitle(response.data.data.filteredSaying[0].content);
@@ -113,6 +115,8 @@ function MainPage(){
         getImages(response.data.data.filteredSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
+        setLikeNew('좋아요순')
+        getLikeOrNew(('like'));
       }
     } catch (err) {
       console.log(err);
@@ -129,6 +133,8 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=like`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
+      setLikeNew('좋아요순')
+      getLikeOrNew(('like'));
     } catch (err) {
       console.log(err);
     }
@@ -139,6 +145,8 @@ function MainPage(){
       const response = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}/article?order=new`,
       {withCredentials: true});
       getPosts(response.data.data.articleInfo);
+      setLikeNew('최신순')
+      getLikeOrNew(('new'));
     } catch (err) {
       console.log(err);
     }
@@ -153,37 +161,37 @@ function MainPage(){
         <div className={style.category_all} onClick={()=>{setCategory('전체')
                                                           getLikeRanking('전체')
                                                           goAllPage()}}
-                                            style={curCategory === '전체'
+                                            style={page === 0
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>전체</div>
         <div className={style.category_health} onClick={()=>{setCategory('건강')
                                                             getLikeRanking('건강')
                                                             goHealthPage()}} 
-                                            style={curCategory === '건강'
+                                            style={page === 1
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>건강</div>
         <div className={style.category_study} onClick={()=>{setCategory('학습')
                                                             getLikeRanking('학습')
                                                             goStudyPage()}}
-                                            style={curCategory === '학습'
+                                            style={page === 2
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>학습</div>
         <div className={style.category_economy} onClick={()=>{setCategory('경제')
                                                               getLikeRanking('경제')
                                                               goEconomyPage()}}
-                                            style={curCategory === '경제'
+                                            style={page === 3
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>경제</div>
         <div className={style.category_relationship} onClick={()=>{setCategory('인간관계')
                                                                   getLikeRanking('인간관계')
                                                                   goRelationshipPage()}}
-                                            style={curCategory === '인간관계'
+                                            style={page === 4
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>인간관계</div>
         <div className={style.category_love} onClick={()=>{setCategory('사랑')
                                                            getLikeRanking('사랑')
                                                            goLovePage()}}
-                                            style={curCategory === '사랑'
+                                            style={page === 5
                                             ?{backgroundColor:'#FFBF31',color:'white'}
                                             :{backgroundColor:'white', color:'#404040'}}>사랑</div>
       </div>
