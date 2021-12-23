@@ -5,68 +5,45 @@
 }
 
 #container {
-  position: absolute;
-  bottom: 0;
-  background: #ccc;
   width: 100%;
   height: 40vh;
+  display: flex;
+  bottom: 0;
+  background: #ccc;
 }
 
 #logo_wrapper {
-  position: absolute;
-  left: 50px;
-  border: 0;
-  width: 30vh;
-  height: 25vh;
+  width: 50vh;
+  height: 40vh;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #six_nine_logo {
   background-image: url("../images/FooterLogo.png");
   background-size: 100% 100%;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  margin-top: 80px;
+  width: 20vh;
+  height: 20vh;
+  border: 1px solid blue;
 }
 
 .team_members {
   display: flex;
-  position: relative;
-  align-self: center;
-  width: 110vh;
-  height: 18vh;
-  border: 0;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  top: 55px;
-}
-.profiles {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 7vh;
-  position: absolute;
-  top: 100px;
-  border: 0;
+  width: 150vh;
+  height: 40vh;
+  border: 1px solid red;
 }
 
 .profile {
   text-align: center;
   width: 20vh;
-  height: 8vh;
+  height: 20vh;
   float: left;
-  border: 0;
+  border: 1px solid yellow;
   color: #fff;
   font-weight: bold;
-}
-
-.github_logos {
-  display: flex;
-  justify-content: space-around;
-  width: 110vh;
-  height: 8vh;
-  border: 0;
-  margin-top: 25px;
 }
 
 .github_logo {
@@ -74,6 +51,13 @@
   background-size: 100% 100%;
   width: 7vh;
   height: 7vh;
+  border: 1px solid orange;
+}
+
+.info {
+  width: 20vh;
+  height: 10vh;
+  border: 1px solid green;
 }
 
 .badges {
@@ -85,7 +69,7 @@
   bottom: 10%;
   width: 17vh;
   height: 6vh;
-  border: 0;
+  border: 1px solid purple;
   margin-bottom: -2vh;
 }
 
@@ -112,4 +96,5 @@
   width: 30vh;
   color: #fff;
   margin-left: 20px;
+  border: 1px solid green;
 }

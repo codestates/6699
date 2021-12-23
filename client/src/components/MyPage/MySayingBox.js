@@ -1,7 +1,8 @@
 import style from './MySayingBox.module.css'
 import { REACT_APP_API_URL } from '../../config'
 import axios from 'axios'
-import { setIsRendered, setFocusedSayingId, setFocusedTitle, setSayingTitles, setSayingIds, setIndex,  }
+import { setIsRendered, setFocusedSayingId, setFocusedTitle,setImages,
+  setSayingTitles, setSayingIds, setIndex,setLikes,setLikeOrNew}
 from '../../store/MainSlice'
 import {Link} from 'react-router-dom';
 import {useState,useEffect} from 'react';
@@ -12,22 +13,64 @@ function MySayingBox({sayings,loading}){
 
 const dispatch = useDispatch();
 let [curCategory,setCategory] = useState('전체');
+const [isLikeNew,setLikeNew] = useState('좋아요순');
 const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, index }
  = useSelector(state => state.main);
 
-//메인페이지 이동 함수
-const goPage = () => {
-  if(curCategory==='전체') dispatch(all());
-  else if(curCategory==='건강') dispatch(health());
-  else if(curCategory==='학습') dispatch(study());
-  else if(curCategory==='경제') dispatch(economy());
-  else if(curCategory==='인간관계') dispatch(relationship());
-  else if(curCategory==='사랑') dispatch(love());
-}
+  /* 현재 카테고리의 명언제목들 수집 함수 */
+ const getTitles = (titles) => {dispatch(setSayingTitles(titles))};
+  /* 좋아요 수집 함수 */
+  const getLikes = (likes) =>{dispatch(setLikes(likes))};
+  /* 이미지 수집 함수 */
+  const getImages = (images) =>{dispatch(setImages(images))};
+  /* sayingId 수집 함수 */
+  const getSayingId = (sayingIds) => {dispatch(setSayingIds(sayingIds))};
+    /* 모달 ON,OFF state */
+  const getLikeOrNew = (likeOrNew) => {dispatch(setLikeOrNew(likeOrNew))}
+
 
   if(loading){
     return <h2>loading...</h2>
   }
+
+  const getLikeRanking = async (clickedCategory) => {
+    try {
+      const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${clickedCategory}`,
+      {withCredentials: true});
+      if (response.data.data.allSaying) {
+              getTitles(response.data.data.allSaying.map((el)=>{return el.content}));
+       getLikes(response.data.data.allSaying.map((el)=>{return el.total_like}));
+        getImages(response.data.data.allSaying.map((el)=>{return el.user.image}));
+        getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
+
+setLikeNew('좋아요순')
+getLikeOrNew(('like'));
+}
+else {
+
+getTitles(response.data.data.filteredSaying.map((el)=>{return el.content}));
+        getLikes(response.data.data.filteredSaying.map((el)=>{return el.total_like}));
+        getImages(response.data.data.filteredSaying.map((el)=>{return el.user.image}));
+        getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
+        
+setLikeNew('좋아요순')
+getLikeOrNew(('like'));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const goHealthPage = () =>{dispatch(health())};
+  const goStudyPage = () =>{dispatch(study())};
+  const goEconomyPage = () =>{dispatch(economy())};
+  const goRelationshipPage = () =>{dispatch(relationship())};
+  const goLovePage = () => {dispatch(love())};
+  const goCategoryPage = (category) => {if (category === '건강'){goHealthPage()}
+                                else if(category === '학습'){goStudyPage()}
+                                else if(category === '경제'){goEconomyPage()}
+                                else if(category === '인간관계'){goRelationshipPage()}
+                                else if(category === '사랑'){goLovePage()}}
 
  return (
     <div id={style.saying_wrap}>
@@ -52,11 +95,13 @@ const goPage = () => {
               <p id={style.saying}>
                 <Link to= '/mainpage' className={style.link} 
                 onClick={() =>{
+                  goCategoryPage(saying.category)
+                  getLikeRanking(saying.category)
                   dispatch(setFocusedSayingId(saying.id))
                   dispatch(setFocusedTitle(saying.content))
                   dispatch(setIndex(sayingIds.indexOf(saying.id)));
                   dispatch(setIsRendered(true));
-                  goPage()}}>
+                  }}>
                 {saying.content}
                </Link>
               </p>
