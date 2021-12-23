@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[], images:[], likes:[], createdArticleInfo: { }, focusedSayingId:0, sayingIdforCreatedArticle: 0, createdArticleId:0, sayingIds:[], posts:[],likeOrNew:'like',index:0, nowCategory:'전체'}; 
+
+const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[], images:[], likes:[], createdArticleInfo: { }, focusedSayingId:0, sayingIdforCreatedArticle: 0, createdArticleId:0, sayingIds:[], posts:[],likeOrNew:'like',index:0, nowCategory:'건강'}; 
+
 const mainSlice = createSlice(
   { name: 'main', 
     initialState: initialState,
@@ -40,10 +42,10 @@ const mainSlice = createSlice(
     setIndex:(state,{ payload }) => {
       state.index = payload;
     },
-    setLikeOrNew:(state,{ payload}) => {
+    setLikeOrNew:(state,{ payload }) => {
       state.likeOrNew = payload;
     },
-    setCategory:(state,{ payload}) => {
+    setCategory:(state,{ payload }) => {
       state.nowCategory = payload;
     },
     getCreatedArticleInfo: (state, { payload }) => { 
@@ -52,5 +54,6 @@ const mainSlice = createSlice(
     }});
                 
 export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId, setSayingIdforCreatedArticle, setCreatedArticleId, setSayingIds, setPosts, setLikeOrNew, setIndex, setCategory, getCreatedArticleInfo } = mainSlice.actions;
+
 export default mainSlice.reducer;
 
