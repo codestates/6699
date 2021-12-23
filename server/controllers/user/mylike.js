@@ -5,9 +5,7 @@ module.exports = {
   get: async (req, res) => {
     try {
       // 로그인 인증 검사
-      console.log('유저인포전')
       const userInfo = await userAuth(req, res);
-      console.log('유저인포후')
       // 요청 쿼리로 category를 받아온다
       const { category } = req.query;
 

@@ -9,7 +9,7 @@ import MyPostPagination from '../Pagination/MyPostPagination';
 
 function MyPosting(){
     const dispatch = useDispatch();
-    const {posts} = useSelector((state) => state.mypage)
+    const {posts} = useSelector((state) => state.mypage);
     const [loading,setLoading] = useState(true);
     const [currentPage,setCurrentPage] = useState(1);
     const [postsPerPage,setPostsPerPage] = useState(6);

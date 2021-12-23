@@ -10,6 +10,8 @@ import MyLikedSaying from '../components/MyPage/MyLikedSaying'
 import React, { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice'
+import { setIsRendered } from '../store/MainSlice';
+import {all} from '../store/LandingSlice';
 import {setIsPost} from '../store/MySlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
@@ -25,7 +27,7 @@ const { isFocus } = useSelector((state) => state.mypage)
 const {isPost} = useSelector((state) => state.mypage)
 //auth를 통해 받아온 유저 정보
 const { isLogin, userInfo } = useSelector((state) => state.auth);
-const { id, email, username, image, introduction } = userInfo
+const { id, email, username, image, introduction } = userInfo;
 
     const handleLogout = async () => {
       try {
@@ -34,8 +36,11 @@ const { id, email, username, image, introduction } = userInfo
           {},
           { withCredentials: true }
         );
+
         dispatch(logout());
-        navigate('/');
+        dispatch(setIsRendered(false)); // 렌더링상태 false만듦
+        dispatch(all()); // 카테고리 전체로 설정
+        navigate('/mainpage');
       } catch (err) {
         console.log(err);
       }
