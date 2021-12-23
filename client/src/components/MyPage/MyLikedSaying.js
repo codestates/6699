@@ -27,7 +27,6 @@ useEffect(()=>{
        `${REACT_APP_API_URL}/user/mylike`,
        {withCredentials: true}
        );
-       console.log(res.data)
        if(rendering){
            dispatch(setLikedSaying(res.data.data.filteredLike))
            setRendering(false);
@@ -56,7 +55,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
          </div>
       </div>
        {/*토글*/}
-       <div className = {style.saying_toggle} onClick={()=> {
+       {/* <div className = {style.saying_toggle} onClick={()=> {
       !isOpen
       ?setIsOpen(true)
       :setIsOpen(false)
@@ -68,7 +67,7 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber)
         </Modal>
         :null  
       }
-    </div>  
+    </div>   */}
     </>
   )
 }

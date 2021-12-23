@@ -6,7 +6,6 @@ module.exports = {
     try {
       // 로그인 인증 검사
       const userInfo = await userAuth(req, res);
-      
       // 내가 쓴 댓글이 없다면 메시지 반환
       const filteredComment = await comments.findAll({ where: { user_id: userInfo.id } });
       if(filteredComment.length === 0) return res.status(200).json({ message: 'No Article' });
@@ -31,6 +30,7 @@ module.exports = {
 
       res.status(200).json({ data: { filteredArticle: uniqueMyArticle }, message: 'My Article' });
     } catch (err) {
+      console.log(err)
       return res.status(500).send('Server Error!');
     }
   }

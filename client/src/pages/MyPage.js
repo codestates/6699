@@ -96,9 +96,9 @@ const { id, email, username, image, introduction } = userInfo;
           (<MySaying/>):(null)}
           {isFocus === 'comment' ? 
           (<MyComment/>):(null)}
-          {isFocus === 'like' && isPost === true? 
-          (<MyLikedPosting/>):(null)}
-          {isFocus === 'like' && isPost === false? 
+          {/* {isFocus === 'like' && isPost === true? 
+          (<MyLikedPosting/>):(null)} */}
+          {isFocus === 'like'? 
           (<MyLikedSaying/>):(null)}
          </div>
         </div>
