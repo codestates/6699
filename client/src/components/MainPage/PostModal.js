@@ -156,6 +156,7 @@ function PostModal({ selectedCategory }){
             className={style.title} 
             placeholder={'제목을 작성해주세요.'}
             value={inputTitle}
+            
             onChange={handleTitle} />
         </div>
 

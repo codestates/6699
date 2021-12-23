@@ -1,5 +1,4 @@
 import style from './PostingMiniModal.module.css'
-import DeletePostModal from '/home/kimgippeum/6699/client/src/components/MainPage/DeletePostModal.js'
 import DropaccountModal from '../../components/MyPage/DropaccountModal.js';
 import { useState, useEffect } from 'react'
 
