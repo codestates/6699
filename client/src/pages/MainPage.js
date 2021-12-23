@@ -21,8 +21,8 @@ import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
 import { login, logout, getUserInfo } from '../store/AuthSlice';
 import { setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId, setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
-import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
+import { REACT_APP_API_URL } from '../config';
 
 function MainPage(){
   const page = useSelector(state => state.landing.page);
@@ -212,13 +212,13 @@ function MainPage(){
         {/* Sub Zone */}
       <div className={style.like_box}>
         {/* 프로필 사진 Zone */}
-      {/* <img alt={images[sayingIds.indexOf(focusedSayingId)]} 
+      {images.length > 0 && <img alt='profileImg'
         src={images[sayingIds.indexOf(focusedSayingId)] ?
         `${REACT_APP_API_URL}/upload/${images[sayingIds.indexOf(focusedSayingId)]}`:
         defaultImg}
-        className={style.profile}/> */}
+        className={style.profile}/>}
       <div className={style.heart_icon}><SayingLike /></div>
-      <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div>
+      {/* <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div> */}
     </div>
       <div className={style.medal} style={{backgroundImage:`url(${medalImage[sayingIds.indexOf(focusedSayingId)]})`}}/>
       <div className={style.sub_box}>

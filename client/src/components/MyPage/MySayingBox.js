@@ -19,7 +19,6 @@ function MySayingBox({sayings,loading}){
         `${REACT_APP_API_URL}/user/mysaying`,
         {withCredentials: true});
       try{
-        console.log(res1.data,data,filteredSaying) //[]
         sayingId = res1.data.data.filteredSaying
         
       } catch (err) {
