@@ -5,7 +5,6 @@ import { REACT_APP_API_URL } from '../../config';
 import { useSelector, useDispatch } from 'react-redux';
 
 function PostingMakeCommentBox({ detectCommentPostBtn }){
-
   // store에서 관리하는 state
   const { sayingInfoCreatedArticle, createdArticleInfo } = useSelector(state => state.main);
 
