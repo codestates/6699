@@ -9,14 +9,12 @@ function SayingCategoryModal(){
   const dispatch = useDispatch();
   const getCategory = (category) => {dispatch(setCategory(category))
                                       dispatch(showSayingCategoryModal(false))
-                                      console.log(nowCategory);
                                     }
 
   return (
     <div id={style.container}>
       <div className={style.box_bg} onClick={()=> dispatch(showSayingCategoryModal(false))}/>
       <div className={style.box}>
-        <div className={style.all} onClick={()=> getCategory('전체')}>전체</div>
         <div className={style.health} onClick={()=>getCategory('건강')}>건강</div>
         <div className={style.study} onClick={()=>getCategory('학습')}>학습</div>
         <div className={style.economy} onClick={()=>getCategory('경제')}>경제</div>

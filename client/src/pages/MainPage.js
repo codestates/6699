@@ -69,16 +69,16 @@ function MainPage(){
   const [isLikeNew,setLikeNew] = useState('좋아요순');
 
   const upSaying = () => {
-    if ((index -1) > -1){
-      getFocusedSayingId(sayingIds[index-1]);
-      getFocusedTitle(sayingTitles[index-1]);
+    if ((sayingIds.indexOf(focusedSayingId) -1) > -1){
+      getFocusedSayingId(sayingIds[sayingIds.indexOf(focusedSayingId)-1]);
+      getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)-1])
       getIndex(index-1);
     }
   }
   const downSaying = () => {
-    if ((index+1) < sayingIds.length){
-      getFocusedSayingId(sayingIds[index+1]);
-      getFocusedTitle(sayingTitles[index+1]);
+    if ((sayingIds.indexOf(focusedSayingId) + 1) < sayingIds.length){
+      getFocusedSayingId(sayingIds[sayingIds.indexOf(focusedSayingId)+1]);
+      getFocusedTitle(sayingTitles[sayingTitles.indexOf(focusedTitle)+1])
       getIndex(index+1);
     }
   }
@@ -105,7 +105,6 @@ function MainPage(){
         getImages(response.data.data.allSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.allSaying.map((el)=>{return el.id})) ;
         getFocusedSayingId(response.data.data.allSaying[0].id);
-        getIndex(0);
       }
       else {
         getFocusedTitle(response.data.data.filteredSaying[0].content);
@@ -114,7 +113,6 @@ function MainPage(){
         getImages(response.data.data.filteredSaying.map((el)=>{return el.user.image}));
         getSayingId(response.data.data.filteredSaying.map((el)=>{return el.id}));
         getFocusedSayingId(response.data.data.filteredSaying[0].id);
-        getIndex(0);
       }
     } catch (err) {
       console.log(err);
@@ -212,11 +210,11 @@ function MainPage(){
         {/* Sub Zone */}
       <div className={style.like_box}>
         {/* 프로필 사진 Zone */}
-      {/* <img alt={images[sayingIds.indexOf(focusedSayingId)]} 
+        {images.length > 0 && <img alt='profileImg'
         src={images[sayingIds.indexOf(focusedSayingId)] ?
         `${REACT_APP_API_URL}/upload/${images[sayingIds.indexOf(focusedSayingId)]}`:
         defaultImg}
-        className={style.profile}/> */}
+        className={style.profile}/>}
       <div className={style.heart_icon}><SayingLike /></div>
       <div className={style.like_count}>{likes[sayingIds.indexOf(focusedSayingId)]}</div>
     </div>
@@ -233,7 +231,7 @@ function MainPage(){
           <div className={style.saying_left_66}/>
           <div className={style.saying_right_99}/>
           <div className={style.saying_up_message} onClick={upSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)-1]}<br/></div>
-          <div className={style.saying_message}>{focusedTitle}</div>
+          <div className={style.saying_message}>{sayingTitles[sayingIds.indexOf(focusedSayingId)]}</div>
           <div className={style.saying_down_message} onClick={downSaying}>{sayingTitles[sayingIds.indexOf(focusedSayingId)+1]}<br/></div>
          </div>  
       </div>
