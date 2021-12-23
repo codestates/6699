@@ -6,20 +6,20 @@ import relationship from '../../images/category_relationship.png';
 import love from '../../images/category_love.png';
 
 import ex_health1 from '../../images/sweat1.png';
-import ex_study1 from '../../images/category_study.png';
-import ex_economy1 from '../../images/category_economy.png';
+import ex_study1 from '../../images/ex1_study.jpg';
+import ex_economy1 from '../../images/ex1_economy.jpg';
 import ex_relationship1 from '../../images/category_relationship.png'
 import ex_love1 from '../../images/category_love.png'
 
 import ex_health2 from '../../images/sweat2.png';
-import ex_study2 from '../../images/category_study.png';
-import ex_economy2 from '../../images/category_economy.png';
+import ex_study2 from '../../images/ex2_study.jpg';
+import ex_economy2 from '../../images/ex2_economy.jpg';
 import ex_relationship2 from '../../images/category_relationship.png'
 import ex_love2 from '../../images/category_love.png'
 
 import ex_health3 from '../../images/sweat3.png';
-import ex_study3 from '../../images/category_study.png';
-import ex_economy3 from '../../images/category_economy.png';
+import ex_study3 from '../../images/ex3_study.jpg';
+import ex_economy3 from '../../images/ex3_economy.jpg';
 import ex_relationship3 from '../../images/category_relationship.png'
 import ex_love3 from '../../images/category_love.png'
 
