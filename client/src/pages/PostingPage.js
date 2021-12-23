@@ -156,9 +156,9 @@ return(
      <div id={style.content}>
        {createdArticleInfo.content}
      </div>
-    </div>
     {/* 작성 혹은 업데이트 날짜 및 시간 */}
       <div id={style.created_at}>{year}년{month}월{day}일 {time}</div>
+      </div>
 
       {/*------------------------ 게시글 댓글 ------------------------------ */}
       {/* 게시글 댓글 작성 컴포넌트 */}

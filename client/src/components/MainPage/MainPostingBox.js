@@ -4,7 +4,7 @@ import study from '../../images/category_study.png'
 import economy from '../../images/economy-square.jpg'
 import relationship from '../../images/relationship-square.jpg'
 import love from '../../images/love-square.jpg'
-import defaultImg from '../../images/canttuna.png'
+import defaultImg from '../../images/default_image.jpeg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSayingIdforCreatedArticle, setCreatedArticleId, getCreatedArticleInfo, getSayingInfoCreatedArticle, getTotalComment,getImageInfo } from '../../store/MainSlice';
@@ -92,13 +92,12 @@ function MainPostingBox({posts,loading}){
     /******** 게시물의 이미지만 넣는 배열(postsImages) *********/
     /******** 맵하기 전 바깥에서 이미지만 뽑아낼거겁니다. **********/
     const postImages = posts.map((el)=>{
+      console.log(el.image);
     /***** 이미지가 있으면 넣고 없으면 디폴트이미지를 넣습니다.*******/
-        if (el.image !== null){
-          console.log(el.image)
+        if (el.image !== 'null' && el.image !== ''){
           return el.image;}
         else {
-          console.log(el.image)
-          return {defaultImg};}
+          return null;}
       })
     /****************************************************/  
     return (
@@ -111,7 +110,7 @@ function MainPostingBox({posts,loading}){
           <div>
             <li className={style.thumbnail}>
               {/********** 아까만든 배열인 postImages에서 postImages[index] 로 이미지를 가져옵니다. *************/}
-              <img className={style.image} src={postImages[index] !== defaultImg ?`${REACT_APP_API_URL}/uploads/${postImages[index]}`:defaultImg}/>
+              <img className={style.image} src={postImages[index] === null ?defaultImg :`${REACT_APP_API_URL}/uploads/${postImages[index]}`}/>
               {/*********** img는 자식 태그를 가져올 수 없기에 맨 안쪽으로 들어갑니다. 안그럼 에러 뜨네요. *************/}
               <div className={style.title_wrap}>
               <div className={style.title}>{post.title}</div>
@@ -119,8 +118,8 @@ function MainPostingBox({posts,loading}){
             </li>
           </div>
           <div className={style.likeBox}>
-              <div className={style.likeHeart}/>
-              <div className={style.likeNumber}>{post.total_like}</div>
+              <div className={style.viewEye}/>
+              <div className={style.likeNumber}>{post.view}</div>
           </div>
         </li>
         </li>
@@ -133,3 +132,4 @@ function MainPostingBox({posts,loading}){
     </div>)
 }
 export default MainPostingBox;
+

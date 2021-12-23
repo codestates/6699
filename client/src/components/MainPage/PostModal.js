@@ -161,8 +161,7 @@ function PostModal({ selectedCategory }){
         </div>
 
         {/* 내용 입력 */}
-        <input 
-          type='text' 
+        <textarea 
           className={style.writebox}
           value={inputContent}
           onChange={handleContent} />

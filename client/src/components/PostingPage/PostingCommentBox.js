@@ -28,7 +28,7 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
       { withCredentials: true }
       )
 
-      console.log("response 확인:", response)
+  //     console.log("response 확인:", response)
 
       userImage = response.data.data.userImage
 
