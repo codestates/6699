@@ -2,6 +2,21 @@ const { userAuth } = require('../../middlewares/authorized/userAuth')
 const { users, sayings, saying_likes, articles, article_likes, comments } = require('../../models');
 
 module.exports = {
+  get: async (req, res) => {
+    try {
+      console.log("여기까지 진입이 중요!!! -----------------------------------------")
+      const { userId } = req.params
+
+      const userInfo = await users.findAll({ where : { id: userId } });
+      
+      if(userInfo.length === 0) return res.status(200).json({ message: 'Empty!' });
+      
+      res.status(200).json({ data: { userInfo: userInfo }, message: 'User Information!' });
+    } catch (err) {
+      console.log(err)
+      return res.status(500).send('Server Error!');
+    }
+  },
   post: async (req, res) => {
     try {
       // 로그인 인증 검사

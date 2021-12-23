@@ -7,18 +7,19 @@ import { REACT_APP_API_URL } from '../../config';
 
 import DeleteCommentModal from '../../components/MainPage/DeleteCommentModal.js';
 
-function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArticleInfo }){
+function PostingCommentBox({  commentersImg, idx, commentInfo, sayingInfoCreatedArticle, createdArticleInfo }){
+
+  console.log(" ^^^^^^^^^^^^^^^^^^ PostingCommentBox 진입확인 ^^^^^^^^^^^^^^^^^")
 
   const [imgChange, setImgChange] = useState(false)
   const [isDeleteComment, setIsDeleteComment] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
   let defaultImg = 'porori.png'
-  let userImage = ''
+
   
   // 댓글 작성자의 이미지를 받아온다
   useEffect(async () => {
-
-    console.log("commentInfo:", commentInfo)
 
     // [GET]
     // 현재 댓글을 작성한 유저의 이미지 정보를 가져온다
@@ -28,23 +29,17 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
       { withCredentials: true }
       )
 
-      console.log("response 확인:", response)
+      console.log("PostingCommentBox - axios 후")
 
-      userImage = response.data.data.userImage
-
-      console.log("userImage:", userImage)
-
+      // userImage = response.data.data.userImage
       setImgChange(true)
-
-      console.log("userImage:", userImage)
   }, [])
 
-
+  /// 댓글 삭제하기 버튼이 클릭되었을때, 
   const handleDropaccountModal = () => {
     setIsDeleteComment(!isDeleteComment)
   }
 
-  
   /************* 게시글 작성 날짜 및 시간 (업데이트 기준) *******************/
   // 날짜
   let date = commentInfo.updatedAt.split('').slice(0, 10)
@@ -55,7 +50,7 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
   let time = commentInfo.updatedAt.split("").slice(11, 16).join('')
 /***********************************************************************/
 
-  let [isOpen, setIsOpen] = useState(false);
+ 
 
  return (
   <div className={style.posted_comment_container}>
@@ -68,7 +63,6 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
         commentInfo={commentInfo}/> 
         : null}
 
-
   <div id={style.comment_border}>
     {/* 작성자 프로필 사진 */}
    {/* <div id={style.user_image2}></div> */}
@@ -76,13 +70,12 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
      ? <img
          id={style.user_profile_image}
          alt='defaultImage'
-         src={`${REACT_APP_API_URL}/uploads/${userImage}`}/>
+         src={`${REACT_APP_API_URL}/uploads/${defaultImg}`}/>
      : <img
          id={style.user_profile_image}
          alt='postImage'
          src={`${REACT_APP_API_URL}/uploads/${defaultImg}`}/>
          }
-
 
     {/* 댓글 내용 */}
    <p> {commentInfo.content} </p>
@@ -96,7 +89,6 @@ function PostingCommentBox({ commentInfo, sayingInfoCreatedArticle, createdArtic
     onClick={() => {handleDropaccountModal()}}>
       삭제 버튼 테스트!
     </button>
-
 
     {/* 댓글 수정 및 삭제 미니토글
    <div className = {style.saying_toggle} onClick={()=> {

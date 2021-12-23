@@ -11,15 +11,16 @@ import { getTotalComment } from '../../store/MainSlice'
 
 function DeleteCommentModal({ handleDropaccountModal, sayingInfoCreatedArticle, createdArticleInfo, commentInfo })
 {
+  console.log(" ----------------- DeleteCommentModal 진입확인 ---------------------- ")
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { totalComment } = useSelector(state => state.main);
 
-  console.log("sayingInfoCreatedArticle", sayingInfoCreatedArticle)
-  console.log("createdArticleInfo", createdArticleInfo)
-  console.log("commentInfo:", commentInfo)
-  console.log("totalComment:", totalComment)
+  console.log("sayingInfoCreatedArticle 댓글삭제모달", sayingInfoCreatedArticle)
+  console.log("createdArticleInfo 댓글삭제모달", createdArticleInfo)
+  console.log("commentInfo 댓글삭제모달", commentInfo)
+  console.log("totalComment 댓글삭제모달", totalComment)
 
   const sayingId = sayingInfoCreatedArticle.id
   const articleId = createdArticleInfo.id
@@ -35,8 +36,8 @@ function DeleteCommentModal({ handleDropaccountModal, sayingInfoCreatedArticle, 
         { withCredentials: true }
       )
 
-      console.log("totalComment 삭제후:", totalComment)
-      
+      console.log("DeleteCommentModal handleDeleteBtn 1차 axios")
+
       // Comment가 삭제된 후, 모든 댓글을 DB로부터 받아온다
       // [GET] 게시글 댓글 조회
       // ~sayingId/article/:articleId/comment
@@ -45,18 +46,18 @@ function DeleteCommentModal({ handleDropaccountModal, sayingInfoCreatedArticle, 
         { withCredentials: true }
       )
 
-      console.log(updatedTotalComment.data.data.commentInfo)
-
-      dispatch(getTotalComment(updatedTotalComment.data.data.commentInfo));
-
-      console.log("totalComment 업데이트 후:", totalComment)
+      console.log("DeleteCommentModal handleDeleteBtn 2차 axios")
+      console.log("DeleteCommentModal updatedTotalComment.data.data.commentInfo 확인", updatedTotalComment.data.data)
+      
+      // 댓글이 다 삭제된 경우, 빈배열로 store에 totalComment를 업데이트
+      if(!updatedTotalComment.data.data) dispatch(getTotalComment([]));
+      // 댓글이 존재하는 경우, 삭제된 이후의 상태를 stroe에 totalComment를 업데이트
+      else dispatch(getTotalComment(updatedTotalComment.data.data.commentInfo));
 
       
       alert('𝟲𝟲𝟵𝟵\n댓글이 삭제되었습니다! 😖')
-
       // 해당 게시물로 이동
       handleDropaccountModal()
-
     } catch(err) {
       console.log(err)
     }
