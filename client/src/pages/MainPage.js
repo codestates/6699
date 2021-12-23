@@ -16,16 +16,17 @@ import SayingLike from '../components/MainPage/SayingLike';
 import Footer from '../components/Footer';
 import {Link} from 'react-router-dom';
 import {all, health, study, economy, relationship, love} from '../store/LandingSlice';
+import { showLoginModal } from '../store/ModalSlice';
+import { setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId, setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
 import React, { useState } from 'react';
 import MainSayingMiniModal from '../components/MainPage/MainSayingMiniModal';
 import {useSelector, useDispatch } from 'react-redux';
-import { login, logout, getUserInfo } from '../store/AuthSlice';
-import { setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId, setSayingIds, setPosts, setLikeOrNew, setIndex } from '../store/MainSlice';
 import axios from 'axios';
 import { REACT_APP_API_URL } from '../config';
 
 function MainPage(){
   const page = useSelector(state => state.landing.page);
+  const { isLogin } = useSelector(state =>state.auth);
   const { likes, images, isRendered, focusedTitle, sayingTitles, focusedSayingId, sayingIds, posts, likeOrNew, index } = useSelector(state =>state.main);
 
   let categoryImage = [category_all, category_health, category_study, category_economy, category_relationship, category_love];
@@ -220,7 +221,7 @@ function MainPage(){
     </div>
       <div className={style.medal} style={{backgroundImage:`url(${medalImage[sayingIds.indexOf(focusedSayingId)]})`}}/>
       <div className={style.sub_box}>
-        <Link className={style.link} to ='/rankingpage'>모든 명언 보기</Link>
+        {isLogin ? <Link className={style.link} to ='/rankingpage'>모든 명언 보기</Link> : <div className={style.link} onClick={()=> dispatch(showLoginModal(true))}>모든 명언 보기</div>}
       <div className={style.scroll_box}/>
      </div>
 
