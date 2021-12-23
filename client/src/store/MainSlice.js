@@ -17,7 +17,8 @@ const initialState = {
   focusedTitle: '',
   likeOrNew: 'like',
   nowCategory: '건강',
-  isRendered: false
+  isRendered: false,
+  imageInfo: []
  }; 
 
 const mainSlice = createSlice(
@@ -75,8 +76,10 @@ const mainSlice = createSlice(
     },
     getTotalComment: (state, { payload }) => { 
       state.totalComment = payload;
-    }
-    }});
+    },
+    getImageInfo:(state, { payload }) => { 
+      state.imageInfo = payload;
+    }}});
        
 export const { 
   setArticles, 
@@ -96,7 +99,8 @@ export const {
   setCategory, 
   getCreatedArticleInfo, 
   getSayingInfoCreatedArticle,
-  getTotalComment
+  getTotalComment,
+  getImageInfo
  } = mainSlice.actions;
 
 export default mainSlice.reducer;
