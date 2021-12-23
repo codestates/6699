@@ -1,14 +1,12 @@
 /*******done*******/
 
 .container{
-  z-index:999;
+  z-index:1000;
   display:flex;
   align-items:center;
   justify-content:center;
-  position: relative;
   background-color:rgba(0,0,0,35%);
   position: absolute;
-  /* border: solid blue; */
   width: 100%;
   height: 100%;
 }
@@ -16,11 +14,11 @@
 .modalbox{
   display:flex;
   align-items:center;
-  opacity: 100%;
-  position: absolute;
+  position: fixed;
   background-color:white;
   border: 1px solid #ccc;
   border-radius:50px;
+  top: 10%;
   width: 30%;
   height: 76%;
 }
@@ -126,7 +124,7 @@
   bottom:2%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }
-.deletebutton:hover{
+/* .deletebutton:hover{
   font-size:2.0vh;
   display:flex;
   align-items: center;
@@ -139,7 +137,7 @@
   bottom:2%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
   cursor: pointer;
-}
+} */
 .cancelbutton{
   font-size:2.2vh;
   font-weight: bold;
@@ -156,7 +154,7 @@
   bottom:2%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
 }
-.cancelbutton:hover{
+/* .cancelbutton:hover{
   font-size:2.0vh;
   display:flex;
   align-items: center;
@@ -169,7 +167,7 @@
   bottom:2%;
   box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
   cursor: pointer;
-}
+} */
 
 b {
   color: red;

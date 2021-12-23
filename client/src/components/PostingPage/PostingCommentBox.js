@@ -29,7 +29,6 @@ function PostingCommentBox({  commentersImg, idx, commentInfo, sayingInfoCreated
       { withCredentials: true }
       )
 
-      console.log("PostingCommentBox - axios 후")
 
       // userImage = response.data.data.userImage
       setImgChange(true)

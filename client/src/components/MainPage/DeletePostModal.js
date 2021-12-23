@@ -55,9 +55,7 @@ function DeletePostModal({ handleDropaccountModal, sayingInfoCreatedArticle, cre
       </div>
 
         <div className={style.contentbox}>
-            "1일 1식" 명언관 연관된     <br/>
-            23개의 게시물이 사라져요.    <br/>
-            정말 <b>삭제</b>하시겠어요...?     <br/>
+            정말 <b>삭제</b>하시겠어요?     <br/>
         </div>
 
         <div className={style.anotherbox}>
@@ -69,13 +67,13 @@ function DeletePostModal({ handleDropaccountModal, sayingInfoCreatedArticle, cre
           </div>
           
           {/* 유지하기 버튼 */}
-          <Link to='/editpage'>
+          
             <div 
             className={style.cancelbutton}
             onClick={() => handleDropaccountModal()}>
               유지하기
             </div>
-            </Link>
+            
         </div>
       </div>
     </div>

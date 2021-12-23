@@ -124,6 +124,7 @@
 }
 
 .liketoggle_box {
+  display:none;
   z-index: 99;
   top: 32.5%;
   right: 15%;
@@ -136,6 +137,7 @@
 }
 
 .likenew {
+  display:none;
   left: 40%;
   width: 100px;
   text-align: left;
@@ -146,8 +148,8 @@
   top: 0;
 }
 .toggle {
+  display:none;
   position: absolute;
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 15px;

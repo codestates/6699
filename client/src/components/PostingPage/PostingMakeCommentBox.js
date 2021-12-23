@@ -11,6 +11,7 @@ function PostingMakeCommentBox({ detectCommentPostBtn }){
   const { isLogin, userInfo } = useSelector((state) => state.auth);
   const userImage = userInfo.image;
 
+
   // store에서 관리하는 state
   const { sayingInfoCreatedArticle, createdArticleInfo } = useSelector(state => state.main);
 

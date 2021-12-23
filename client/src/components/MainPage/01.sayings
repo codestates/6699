@@ -1,33 +1,56 @@
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (101,"건강명언1","건강",169,"2021-12-16T06:24:57.000Z","2021-12-16T12:16:58.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (102,"건강명언2","건강",150,"2021-12-16T06:24:57.000Z","2021-12-16T12:16:58.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (103,"건강명언3","건강",143,"2021-12-17T06:24:57.000Z","2021-12-17T12:16:58.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (104,"건강명언4","건강",210,"2021-12-18T06:24:57.000Z","2021-12-18T12:16:58.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (105,"학습명언1","학습",309,"2021-12-19T06:24:57.000Z","2021-12-19T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (106,"학습명언2","학습",310,"2021-12-19T06:24:57.000Z","2021-12-19T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (107,"학습명언3","학습",10,"2021-12-20T06:24:57.000Z","2021-12-20T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (108,"경제명언1","경제",24,"2021-12-20T06:24:57.000Z","2021-12-20T04:39:35.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (109,"경제명언2","경제",15,"2021-12-21T06:24:57.000Z","2021-12-21T04:39:35.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (110,"경제명언3","경제",13,"2021-12-21T06:24:57.000Z","2021-12-21T04:39:35.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (111,"인간관계명언1","인간관계",11,"2021-12-22T06:24:57.000Z","2021-12-22T12:17:08.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (112,"인간관계명언2","인간관계",19,"2021-12-22T06:24:57.000Z","2021-12-22T12:17:08.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (113,"사랑명언1","사랑",305,"2021-12-23T06:24:57.000Z","2021-12-23T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (114,"사랑명언2","사랑",5,"2021-12-23T06:24:57.000Z","2021-12-23T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (115,"사랑명언3","사랑",5,"2021-12-24T06:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (116,"건강 테스트 명언1","건강",0,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (117,"건강 테스트 명언2","건강",150,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (118,"학습 테스트 명언1","학습",5,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (119,"학습 테스트 명언1","학습",55,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (120,"경제 테스트 명언1","경제",5,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (121,"경제 테스트 명언2","경제",15,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (122,"인간관계 테스트 명언1","인간관계",115,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (123,"인간관계 테스트 명언2","인간관계",175,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (124,"사랑 테스트 명언1","사랑",17,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (125,"사랑 테스트 명언2","사랑",77,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",1);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (127,"사랑합니다.","사랑",999,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (128,"건강합니다.","건강",998,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (129,"학습합니다.","학습",997,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (130,"인간관계합니다.","인간관계",57,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
-INSERT INTO sayings (id,content,category,total_like,createdAt,updatedAt,user_id) VALUES (131,"경제합니다.","경제",123,"2021-12-24T11:24:57.000Z","2021-12-24T06:24:57.000Z",2);
+UPDATE sayings SET total_like = 390 WHERE id = 2;
+UPDATE sayings SET total_like = 317 WHERE id = 3;
+UPDATE sayings SET total_like = 153 WHERE id = 4;
+UPDATE sayings SET total_like = 42 WHERE id = 5;
+UPDATE sayings SET total_like = 59 WHERE id = 6;
+UPDATE sayings SET total_like = 183 WHERE id = 7;
+UPDATE sayings SET total_like = 372 WHERE id = 8;
+UPDATE sayings SET total_like = 132 WHERE id = 9;
+UPDATE sayings SET total_like = 32 WHERE id = 10;
+UPDATE sayings SET total_like = 43 WHERE id = 11;
+UPDATE sayings SET total_like = 37 WHERE id = 12;
+UPDATE sayings SET total_like = 39 WHERE id = 13;
+UPDATE sayings SET total_like = 37 WHERE id = 14;
+UPDATE sayings SET total_like = 736 WHERE id = 15;
+UPDATE sayings SET total_like = 358 WHERE id = 16;
+UPDATE sayings SET total_like = 11 WHERE id = 17;
+UPDATE sayings SET total_like = 3 WHERE id = 18;
+UPDATE sayings SET total_like = 7 WHERE id = 19;
+UPDATE sayings SET total_like = 10 WHERE id = 20;
+UPDATE sayings SET total_like = 33 WHERE id = 21;
+UPDATE sayings SET total_like = 48 WHERE id = 22;
+UPDATE sayings SET total_like = 59 WHERE id = 23;
+UPDATE sayings SET total_like = 407 WHERE id = 24;
+UPDATE sayings SET total_like = 302 WHERE id = 25;
+UPDATE sayings SET total_like = 109 WHERE id = 26;
+UPDATE sayings SET total_like = 486 WHERE id = 27;
+UPDATE sayings SET total_like = 314 WHERE id = 28;
+UPDATE sayings SET total_like = 1 WHERE id = 29;
+UPDATE sayings SET total_like = 2 WHERE id = 30;
+UPDATE sayings SET total_like = 32 WHERE id = 38;
+UPDATE sayings SET total_like = 9 WHERE id = 39;
+UPDATE sayings SET total_like = 1 WHERE id = 40;
+UPDATE sayings SET total_like = 2 WHERE id = 41;
+UPDATE sayings SET total_like = 5 WHERE id = 42;
+UPDATE sayings SET total_like = 3 WHERE id = 43;
+UPDATE sayings SET total_like = 13 WHERE id = 44;
+UPDATE sayings SET total_like = 25 WHERE id = 45;
+UPDATE sayings SET total_like = 31 WHERE id = 46;
+UPDATE sayings SET total_like = 43 WHERE id = 47;
+//done
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //done
 
