@@ -13,6 +13,7 @@ import { login, logout, getUserInfo } from '../store/AuthSlice'
 import {setIsPost} from '../store/MySlice'
 import { REACT_APP_API_URL } from '../config';
 import axios from 'axios';
+import defaultImg from '../images/userImage_default.png'
 import Footer from '../components/Footer';
 
 function MyPage(){
@@ -22,7 +23,10 @@ const navigate = useNavigate();
 const { isFocus } = useSelector((state) => state.mypage)
 //토글에서 게시물 눌렀는지 여부
 const {isPost} = useSelector((state) => state.mypage)
-    
+//auth를 통해 받아온 유저 정보
+const { isLogin, userInfo } = useSelector((state) => state.auth);
+const { id, email, username, image, introduction } = userInfo
+
     const handleLogout = async () => {
       try {
         await axios.post(
@@ -44,13 +48,14 @@ const {isPost} = useSelector((state) => state.mypage)
          <div id={style.user_container}>
           <div id={style.user_profile_wrapper}>
            <div id={style.user_mini_wrapper}>
-            <div id={style.profile_image}></div>
-             <div id={style.user_name}>꼬부기</div>
+           <img alt='profileImg' src={image ? `${REACT_APP_API_URL}/upload/${image}` :
+            defaultImg} id={style.profile_image}></img>
+             <div id={style.user_name}>{username}</div>
            </div>
           </div>
         <div id={style.message_wrapper}>
             <div id={style.message}>
-            평생 다이어트중
+            {introduction}
             </div>
         </div>
         <div className = {style.buttons}>

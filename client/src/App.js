@@ -35,7 +35,6 @@ function App() {
         withCredentials: true
       });
       if (response.data.data) {
-
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
       } else {

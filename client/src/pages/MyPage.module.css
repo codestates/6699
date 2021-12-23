@@ -62,9 +62,7 @@
   border: 3px solid #ffbf31;
   width: 25vh;
   height: 25vh;
-  padding-bottom: 25vh;
-  background-image: url("../images/Kkobugi.png");
-  background-size: 100% 100%;
+  /* padding-bottom: 25vh; */
 }
 
 #user_name {
