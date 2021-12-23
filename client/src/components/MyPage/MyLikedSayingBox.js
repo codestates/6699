@@ -1,14 +1,6 @@
 import style from './MyLikedSayingBox.module.css'
-import health from '../../images/health-square-2.png'
-import study from '../../images/category_study.png'
-import economy from '../../images/economy-square.jpg'
-import relationship from '../../images/relationship-square.jpg'
-import love from '../../images/love-square.jpg'
 
 function MyLikedSayingBox({sayings,loading}){
-
-  let categoryImage = [health,study,economy,relationship,love];
-  let array = ['건강','학습','경제','인간관계','사랑']
   
   if(loading){
     return <h2>loading...</h2>
@@ -16,10 +8,19 @@ function MyLikedSayingBox({sayings,loading}){
   
  return (
   <div id={style.saying_wrap}>
-  {sayings.map(saying => (
-     <li key ={saying.id} className={style.saying}>
-       <div className={style.category_image}></div>
-       <div id={style.trashcan}></div>
+      {sayings.map(saying => (
+       <li key ={saying.id} className={style.saying}>
+       {saying.category === '건강' ?
+       (<div className={style.category_image} id={style.health}></div>):(null)}
+       {saying.category === '학습' ?
+       (<div className={style.category_image} id={style.study}></div>):(null)}
+       {saying.category === '경제' ?
+       (<div className={style.category_image} id={style.economy}></div>):(null)}
+       {saying.category === '인간관계' ?
+       (<div className={style.category_image} id={style.relationship}></div>):(null)}
+       {saying.category === '사랑' ?
+       (<div className={style.category_image} id={style.love}></div>):(null)}
+        <div id={style.trashcan}></div>
 
        <div id={style.set_title_middle_box}>
     <div className={style.title}>
