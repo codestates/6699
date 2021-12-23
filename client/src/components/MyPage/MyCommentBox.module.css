@@ -14,13 +14,17 @@
   border-radius: 10px;
 }
 
-.category_image {
+.saying:hover {
+  cursor: pointer;
+}
+
+.image {
   position: absolute;
-  background-image: url("../../images/love-square.jpg");
   background-size: 100%;
   border-radius: 10px 0px 0px 10px;
-  width: 10vh;
-  height: 10vh;
+  width: 9vh;
+  height: 9vh;
+  padding-left: 0.5vh;
 }
 
 #trashcan {

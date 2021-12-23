@@ -28,20 +28,6 @@ const { isRendered, focusedTitle, focusedSayingId, sayingTitles, sayingIds, inde
     /* 모달 ON,OFF state */
   const getLikeOrNew = (likeOrNew) => {dispatch(setLikeOrNew(likeOrNew))}
 
-
-//메인페이지 이동 함수
-const goPage = () => {
-  if(curCategory==='전체') dispatch(all());
-  else if(curCategory==='건강') dispatch(health());
-  else if(curCategory==='학습') dispatch(study());
-  else if(curCategory==='경제') dispatch(economy());
-  else if(curCategory==='인간관계') dispatch(relationship());
-  else if(curCategory==='사랑') dispatch(love());
-}
-  if(loading){
-    return <h2>loading...</h2>
-  }
-
   const getLikeRanking = async (clickedCategory) => {
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/ranking/like/?category=${clickedCategory}`,
