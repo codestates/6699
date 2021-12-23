@@ -144,14 +144,14 @@ return(
 
       {/*------------------------ 게시글 댓글 ------------------------------ */}
       {/* 게시글 댓글 작성 컴포넌트 */}
-      {/* <PostingMakeCommentBox detectCommentPostBtn={detectCommentPostBtn} /> */}
+      <PostingMakeCommentBox detectCommentPostBtn={detectCommentPostBtn} />
       {/* 작성된 댓글 display 컴포넌트 */}
       {/* 작성된 댓글 개수만큼 컴포넌트가 실행되야함 */}
-      {/* { totalComment.length === 0
-          ? null
-          : totalComment.map((commentInfo) => {
-            return <PostingCommentBox commentInfo={commentInfo}/>
-        })} */}
+      { Array.isArray(totalComment) ?
+        totalComment.map((commentInfo) => {
+        return <PostingCommentBox commentInfo={commentInfo}/>})
+        : null
+      }
 
 
       {/*------------------------ 게시글 댓글 ------------------------------ */}

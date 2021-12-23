@@ -66,10 +66,8 @@
 }
 
 #user_name {
-  /*꼬부기*/
   width: 25%;
-  height: 5%;
-  padding-bottom: 25%;
+  height: 10%;
   font-size: 18pt;
   font-weight: bold;
   text-align: center;
@@ -84,14 +82,28 @@
   height: 20vh;
   background: #dcdcdc;
   border-radius: 20px;
+  /* border: 1px solid red; */
 }
 
-#message {
+#message_box {
+  display: flex;
+  align-items: center;
   width: 35vh;
   height: 15vh;
   font-size: 14pt;
   /* border: 1px solid red; */
 }
+
+#introduction {
+  width: 35vh;
+  height: 4vh;
+  font-size: 14pt;
+  /* border: 1px solid blue; */
+  padding-top: 0.5vh;
+  padding-left: 1vh;
+  color: rgb(20, 20, 20);
+}
+
 .buttons {
   display: flex;
   flex-direction: column;

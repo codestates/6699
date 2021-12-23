@@ -1,116 +1,117 @@
 /*******done*******/
 
-.container{
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.container {
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  background-color:rgba(0,0,0,35%);
+  background-color: rgba(0, 0, 0, 35%);
   position: absolute;
   /* border: solid blue; */
   width: 100%;
   height: 100%;
 }
 
-.modalbox{
-  display:flex;
-  align-items:center;
+.modalbox {
+  display: flex;
+  align-items: center;
   opacity: 100%;
   position: absolute;
-  background-color:white;
+  background-color: white;
   border: 1px solid #ccc;
-  border-radius:50px;
+  border-radius: 50px;
   width: 30%;
   height: 76%;
 }
 
-.logobox{
-  display:flex;
+.logobox {
+  display: flex;
   position: absolute;
   flex-direction: column;
   height: 10%;
   width: 50%;
   left: 50%;
   top: 2.2%;
-  transform: translate(-50%,-0%);
+  transform: translate(-50%, -0%);
   z-index: 80;
   /* border: 2px solid red; */
 }
 
-#logoimage{
+#logoimage {
   position: absolute;
-  display:flex;
-  background-image: url('../../images/6699logo.png');
-  background-size:100% 100%;
-  width:38%;
+  display: flex;
+  background-image: url("../../images/6699logo.png");
+  background-size: 100% 100%;
+  width: 38%;
   height: 77.5%;
-  left:50%;
-  top:3%;
+  left: 50%;
+  top: 3%;
   transform: translate(-50%, 20%);
   z-index: 100;
 }
 
-.catimagebox{
+.catimagebox {
   position: absolute;
-  display:flex;
-  background-size:100% 100%;
+  display: flex;
+  background-size: 100% 100%;
   background-position: center;
-  border-radius:20px;
-  width:80%;
-  height:73%;
-  left:50%;
-  top:50%;
+  border-radius: 20px;
+  width: 80%;
+  height: 73%;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -57%);
 }
 
-#preview_camera{
+#preview_camera {
   position: absolute;
-  display:flex;
-  background-size:100% 100%;
+  display: flex;
+  background-size: 100% 100%;
   background-position: center;
-  border-radius:20px;
-  width:45vh;
-  height:45vh;
-  left:50%;
+  border-radius: 20px;
+  width: 45vh;
+  height: 45vh;
+  left: 50%;
   transform: translate(-50%, 0%);
 }
 
-#preview_image{
+#preview_image {
   position: absolute;
-  display:flex;
-  background-size:100% 100%;
+  display: flex;
+  background-size: 100% 100%;
   background-position: center;
-  border-radius:20px;
-  width:40vh;
-  height:40vh;
-  left:50%;
+  border-radius: 20px;
+  width: 40vh;
+  height: 40vh;
+  left: 50%;
   transform: translate(-50%, -3%);
 }
 
-#catimage{
+#catimage {
   position: absolute;
-  display:flex;
-  background-size:100% 100%;
+  display: flex;
+  background-size: 100% 100%;
   background-position: center;
-  border-radius:20px;
-  /* background-image: url('../../images/iOS 14.jpeg'); */
-  width:100%;
+  border-radius: 20px;
+  /* background-image: url("../../images/iOS 14.jpeg"); */
+  width: 100%;
   height: 100%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, 0%);
 }
 
-.imgfind{
-  /* border: 5px solid blue; */
+.imgfind {
+  /* border: 1px solid blue; */
   z-index: 999;
-  width: 34vh;
-  height: 38vh;
+  width: 24vh;
+  height: 42vh;
+  margin-left: 7vh;
   /* visibility: hidden; */
   transform: translate(36%, -10%);
 }
 
-#label{
+#label {
   border: 5px solid blue;
   z-index: 999;
   width: 34vh;
@@ -118,102 +119,102 @@
   transform: translate(36%, -10%);
 }
 
-.contentbox{
+.contentbox {
   position: absolute;
-  height: 45.0%;
-  width:70%;
-  left:50%;
+  height: 45%;
+  width: 70%;
+  left: 50%;
   top: 50%;
   font-size: 2.5vh;
   transform: translate(-50%, 40%);
   text-align: center;
 }
 
-.writebox{
-  position:absolute;
-  width:80%;
-  height:50%;
-  border-radius:10px;
-  background-color:#F5F5F5;
-  border:1px solid #ccc;
-  left:20%;
-  top:30%;
-  transform: translate(-50%,-0%);
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+.writebox {
+  position: absolute;
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  left: 20%;
+  top: 30%;
+  transform: translate(-50%, -0%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
   user-select: auto;
 }
 
-.anotherbox{
+.anotherbox {
   position: absolute;
-  width:68%;
-  height:9%;
-  left:50%;
-  bottom:4%;
-  transform: translate(-50%,0%);
+  width: 68%;
+  height: 9%;
+  left: 50%;
+  bottom: 4%;
+  transform: translate(-50%, 0%);
 }
 
-.deletebutton{
-  font-size:2.2vh;
+.deletebutton {
+  font-size: 2.2vh;
   font-weight: bold;
   color: white;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color:black;
-  border-radius:10px;
-  height:100%;
+  background-color: black;
+  border-radius: 10px;
+  height: 100%;
   width: 40%;
   right: 0;
-  bottom:2%;
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+  bottom: 2%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
 }
-.deletebutton:hover{
-  font-size:2.0vh;
-  display:flex;
+.deletebutton:hover {
+  font-size: 2vh;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  border-radius:10px;
-  height:100%;
+  border-radius: 10px;
+  height: 100%;
   width: 40%;
   right: 0;
-  bottom:2%;
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+  bottom: 2%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
   cursor: pointer;
 }
 
-.cancelbutton{
-  font-size:2.2vh;
+.cancelbutton {
+  font-size: 2.2vh;
   font-weight: bold;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   /* background-color:#C4C4C4; */
   /* background-color: black; */
-  background-color:#FFBF31;
+  background-color: #ffbf31;
   color: white;
-  border-radius:10px;
-  height:100%;
+  border-radius: 10px;
+  height: 100%;
   width: 40%;
-  left:0;
-  bottom:2%;
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+  left: 0;
+  bottom: 2%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
 }
 
-.cancelbutton:hover{
-  font-size:2.0vh;
-  display:flex;
+.cancelbutton:hover {
+  font-size: 2vh;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  border-radius:10px;
-  height:100%;
+  border-radius: 10px;
+  height: 100%;
   width: 40%;
-  left:0;
-  bottom:2%;
-  box-shadow:0px 4px 4px 0px rgba(0,0,0,25%);
+  left: 0;
+  bottom: 2%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
   cursor: pointer;
 }
 
@@ -221,12 +222,12 @@ b {
   color: red;
 }
 
-.align{
+.align {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#000000;
-  width:5%;
-  height:100%;
+  color: #000000;
+  width: 5%;
+  height: 100%;
   /* border: 1px solid blue; */
 }

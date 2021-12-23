@@ -149,7 +149,7 @@ function PostModal({ selectedCategory }){
         <div className={style.titlebox}>
           {/* 선택된 카테고리  */}
           {/* <div className={style.category} > {selectedCategory} </div> */}
-          {/* <div className={style.category} > {sayingInfoCreatedArticle.category} </div> */}
+          <div className={style.category} > {sayingInfoCreatedArticle.category} </div>
           
           <input 
             type='text' 
