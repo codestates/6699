@@ -29,12 +29,13 @@ function App() {
   const { focusedSayingId, createdArticleId } = useSelector(state => state.main);
   const { isLogin, userInfo } = useSelector((state) => state.auth);
 
+  console.log('App.js isLogin: ', isLogin);
   const authentication = async () => {
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/auth`, {
         withCredentials: true
       });
-      if (response.data.data) {
+      if (response.data.state) {
         dispatch(getUserInfo(response.data.data.userInfo));
         dispatch(login());
       } else {
@@ -51,18 +52,21 @@ function App() {
 
   // PostModal에 현재 카테고리를 전달하기 위한 useEffect
   // focusedSayingId가 바뀔때마다 useEffect는 실행된다
-  useEffect(async () => {
-    // 현재 선택된 명언의 정보를 가지고 온다
-    const sayingInfo = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}`)
-    // 만약 카테고리를 찾지 못했다면, 그냥 return
-    if(!sayingInfo.data.data.filteredSaying.category) {
-      return
-    } 
-    // 카테고리를 찾았다면, selectedCategory에 현재 선택된 category를 넣어준다
-    else {
-      selectedCategory = sayingInfo.data.data.filteredSaying.category
-      return
+  useEffect(()=>{
+    const postModalFunc = async () => {
+      // 현재 선택된 명언의 정보를 가지고 온다
+      const sayingInfo = await axios.get(`${REACT_APP_API_URL}/${focusedSayingId}`)
+      // 만약 카테고리를 찾지 못했다면, 그냥 return
+      if(!sayingInfo.data.data.filteredSaying.category) {
+        return
+      } 
+      // 카테고리를 찾았다면, selectedCategory에 현재 선택된 category를 넣어준다
+      else {
+        selectedCategory = sayingInfo.data.data.filteredSaying.category
+        return
+      }
     }
+    postModalFunc();
   }, [focusedSayingId])
   
   return (

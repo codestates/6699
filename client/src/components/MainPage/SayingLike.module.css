@@ -13,7 +13,7 @@
   cursor: pointer;
   width: 18.75%;
   height: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .heart_text{
@@ -26,5 +26,18 @@
   font-weight:bold;
   width: 82.5%;
   height: 100%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
+}
+
+.login_text{
+  display:flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  width: 82.5%;
+  height: 100%;
+  /* border: 1px solid green; */
 }

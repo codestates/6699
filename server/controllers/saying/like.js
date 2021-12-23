@@ -11,6 +11,7 @@ module.exports = {
       // sayingId가 전달이 되지 않은 경우, 다음을 응답한다
       if(!sayingId) return res.status(400).json({ message: 'Bad Request!' });
       // 유저가 해당 명언에 좋아요를 눌렀는지 확인
+
       const sayingLikeInfo = await saying_likes.findOne({ where: { user_id: userInfo.id, saying_id: Number(sayingId) } });
       // 유저가 해당 명언에 좋아요를 눌렀는지 확인
       const sayingInfo = await sayings.findOne({ where: { id: Number(sayingId) } });
