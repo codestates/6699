@@ -1,10 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { articles: [], isRendered:false, focusedTitle:'',sayingTitles:[], images:[], likes:[], focusedSayingId:0, sayingIds:[], posts:[],likeOrNew:'like',index:0, nowCategory:'건강'}; 
+
+const initialState = { 
+  articles: [], 
+  sayingTitles: [], 
+  images: [], 
+  likes: [], 
+  sayingIds: [], 
+  posts: [],
+  totalComment: [],
+  createdArticleInfo: {}, 
+  sayingInfoCreatedArticle: {}, 
+  focusedSayingId: 0, 
+  sayingIdforCreatedArticle: 0, 
+  createdArticleId: 0, 
+  index: 0, 
+  focusedTitle: '',
+  likeOrNew: 'like',
+  nowCategory: '건강',
+  isRendered: false
+ }; 
+
 const mainSlice = createSlice(
   { name: 'main', 
     initialState: initialState,
     reducers: {
-    setArticles:(state,{payload})=> {
+    setArticles:(state, { payload })=> {
       state.articles = payload;
     },
     setIsRendered:(state, { payload }) => {
@@ -16,33 +36,68 @@ const mainSlice = createSlice(
     setSayingTitles:(state, { payload }) => {
       state.sayingTitles = payload;
     },
-    setImages:(state,{ payload}) => {
+    setImages:(state, { payload }) => {
       state.images= payload;
     },
-    setLikes:(state,{ payload}) => {
+    setLikes:(state, { payload }) => {
       state.likes= payload;
     },
-    setFocusedSayingId:(state,{ payload}) => {
+    setFocusedSayingId:(state, { payload }) => {
       state.focusedSayingId = payload;
     },
-    setSayingIds:(state,{ payload}) => {
+    setSayingIdforCreatedArticle:(state, { payload }) => {
+      state.sayingIdforCreatedArticle = payload;
+    },
+    setCreatedArticleId:(state, { payload }) => {
+      state.createdArticleId = payload;
+    },
+    setSayingIds:(state, { payload }) => {
       state.sayingIds = payload;
     },
-    setPosts:(state,{ payload }) => {
+    setPosts:(state, { payload }) => {
       state.posts = payload;
     },
-    setIndex:(state,{ payload }) => {
+    setIndex:(state, { payload }) => {
       state.index = payload;
     },
-    setLikeOrNew:(state,{ payload }) => {
+    setLikeOrNew:(state, { payload }) => {
       state.likeOrNew = payload;
     },
-    setCategory:(state,{ payload }) => {
+    setCategory:(state, { payload }) => {
       state.nowCategory = payload;
+    },
+    getCreatedArticleInfo: (state, { payload }) => { 
+      state.createdArticleInfo = payload;
+    }
+    ,
+    getSayingInfoCreatedArticle: (state, { payload }) => { 
+      state.sayingInfoCreatedArticle = payload;
+    },
+    getTotalComment: (state, { payload }) => { 
+      state.totalComment = payload;
     }
     }});
-                
-export const { setArticles, setSayings, setIsRendered, setFocusedTitle, setSayingTitles, setImages, setLikes, setFocusedSayingId,setSayingIds, setPosts, setLikeOrNew, setIndex, setCategory} = mainSlice.actions;
+       
+export const { 
+  setArticles, 
+  setSayings, 
+  setIsRendered, 
+  setFocusedTitle, 
+  setSayingTitles, 
+  setImages, 
+  setLikes, 
+  setFocusedSayingId, 
+  setSayingIdforCreatedArticle, 
+  setCreatedArticleId, 
+  setSayingIds, 
+  setPosts, 
+  setLikeOrNew, 
+  setIndex, 
+  setCategory, 
+  getCreatedArticleInfo, 
+  getSayingInfoCreatedArticle,
+  getTotalComment
+ } = mainSlice.actions;
 
 export default mainSlice.reducer;
 

@@ -11,11 +11,15 @@ module.exports = {
       // sayingId가 전달이 되지 않은 경우, 다음을 응답한다
       if(!sayingId) return res.status(400).json({ message: 'Bad Request!' });
       // 유저가 해당 명언에 좋아요를 눌렀는지 확인
+
       const sayingLikeInfo = await saying_likes.findOne({ where: { user_id: userInfo.id, saying_id: Number(sayingId) } });
+      // 유저가 해당 명언에 좋아요를 눌렀는지 확인
+      const sayingInfo = await sayings.findOne({ where: { id: Number(sayingId) } });
+
       // 만약 유저가 해당 명언에 좋아요를 누르지 않았다면, 다음을 응답한다.
-      if(!sayingLikeInfo) return res.status(200).json({ state: false, message: 'No Like!' });
+      if(!sayingLikeInfo) return res.status(200).json({ data: { state: false, sayingInfo: sayingInfo }, message: 'No Like!' });
       // 만약 유저가 명언에 좋아요를 눌렀다면, 다음을 응답한다.
-      else return res.status(200).json({ state: true, message: 'Yes Like!' });
+      else return res.status(200).json({ data: { state: true, sayingInfo: sayingInfo }, message: 'Yes Like!' });
     } catch (err) {
       return res.status(500).json({ message: 'Server Error!' });
     }

@@ -112,16 +112,16 @@
   z-index: 888;
 }
 
-#image {
-  background-image: url("../../src/images/canttuna.png");
+/* #image {
+  background-image: url("../../src/images/canttuna.png"); 
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 60vh;
   height: 60vh;
   padding-bottom: 60vh;
   border-radius: 20px;
-  border: 0;
-}
+  border: 0; 
+} */
 
 #top_wrapper {
   display: flex;
@@ -213,7 +213,7 @@
 
 #created_at {
   /*0627*/
-  width: 14vh;
+  width: 20vh;
   height: 3vh;
   text-align: center;
   font-size: 13pt;
@@ -289,4 +289,15 @@
   border: 1px solid orange;
   font-size: 13pt;
   border: 0;
+}
+
+/* 기쁨 작업장 */
+#post_image{
+  /* border: 5px solid blue; */
+  z-index: 999;
+  width: 60vh;
+  height: 50vh;
+  /* visibility: hidden; */
+  transform: translate(0%, 0%);
+  border-radius: 10%
 }
