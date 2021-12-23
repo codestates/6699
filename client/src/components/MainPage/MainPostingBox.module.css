@@ -17,7 +17,7 @@ ul {
 
 #post {
   display: inline-block;
-  opacity: 65%;
+  opacity: 100%;
   background-position: center;
   background-size: 100%;
   width: 35vh;
@@ -41,7 +41,7 @@ ul {
 .thumbnail{
   z-index:2;
   font-weight:bold;
-  opacity:50%;
+  opacity:70%;
   position:relative;
   width:35vh;
   height:35vh;
@@ -103,8 +103,8 @@ ul {
   left:90%;
   transform: translate(-50%,20%);
 }
-.likeHeart{
-  background-image: url(../../images/Red_Heart.png);
+.viewEye{
+  background-image: url("../../images/eye.png");
   background-size:100% 100%;
   margin-top:2px;
   width:20px;
