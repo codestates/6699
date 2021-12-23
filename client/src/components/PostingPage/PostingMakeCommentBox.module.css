@@ -50,3 +50,17 @@ input:focus {
   font-size: 11pt;
   border: 0;
 }
+
+#make_comment:hover {
+  /*게시하기*/
+  width: 8vh;
+  height: 3vh;
+  background-color: transparent;
+  position: relative;
+  top: 5vh;
+  left: 28vh;
+  color: #7c7c7c;
+  font-size: 11pt;
+  border: 0;
+  cursor: pointer;
+}
